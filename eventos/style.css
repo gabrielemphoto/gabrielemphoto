@@ -317,7 +317,15 @@ section { padding: var(--spacing-lg) 0; }
   .about-image-wrapper { width: 250px; height: 250px; }
   .header-wrap { height: 55px; }
   .brand-logo-img { height: 36px; }
-  .main-nav ul { display: none; }
+  .main-nav { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(13,13,13,0.98); backdrop-filter: blur(12px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+  .main-nav.active { 
+    max-height: 400px; 
+    border-top: 1px solid var(--color-border); 
+    overflow-y: auto; /* Esto permite hacer scroll dentro del menú */
+}
+  .main-nav ul { flex-direction: column; gap: 0; text-align: center; padding: 1rem 0; list-style: none !important; }
+  .main-nav li { width: 100%; list-style: none !important; }
+  .main-nav a { display: block; padding: 12px 20px; color: var(--color-text) !important; font-size: 1rem; border-bottom: 1px solid var(--color-border); text-shadow: none !important; }
   
   /* Todo el grid a 1 columna en teléfonos */
   .span-half, .span-third { grid-column: span 6; }
