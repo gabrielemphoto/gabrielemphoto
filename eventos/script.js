@@ -11,20 +11,17 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
-document.addEventListener("DOMContentLoaded", () => {
-  
-  // 1. MENÚ MÓVIL (HAMBURGUESA)
+
+  // 2. MENÚ MÓVIL (HAMBURGUESA)
   const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mainNav = document.getElementById('main-nav');
-  const siteHeader = document.getElementById('main-header'); // Opcional, dependiendo de tu HTML
+  const mainNav = document.querySelector('.main-nav'); // Corregido: seleccionamos por clase, no por ID
+  const siteHeader = document.querySelector('.site-header'); // Corregido: seleccionamos por clase
 
   if (mobileBtn && mainNav) {
-    // Abre/Cierra el menú al tocar la hamburguesa
     mobileBtn.addEventListener('click', () => {
       mainNav.classList.toggle('active');
     });
 
-    // Cierra el menú automáticamente cuando se hace clic en un enlace
     const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -33,8 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. ANIMACIONES DE REVELADO AL HACER SCROLL (INTERSECTION OBSERVER)
-  const revealElements = document.querySelectorAll('.reveal');
+  // 3. ANIMACIONES DE REVELADO AL HACER SCROLL (INTERSECTION OBSERVER)
+  // Agregamos todas las clases de dirección que creamos en el CSS
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
   
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -42,22 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
         } else {
-          // Opcional: Si quitas el 'else', la animación solo ocurre una vez. 
-          // Manteniéndolo, la animación se repite cada vez que subes/bajas.
           entry.target.classList.remove('active'); 
         }
       });
     }, { 
       root: null, 
-      threshold: 0.15, // Se activa cuando el 15% del elemento es visible
-      rootMargin: "0px 0px -50px 0px" // Dispara la animación 50px antes de llegar al borde inferior
+      threshold: 0.15, 
+      rootMargin: "0px 0px -50px 0px" 
     });
 
-    // Asignamos el observador a cada elemento que tenga la clase .reveal
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // 3. (OPCIONAL) HEADER DINÁMICO PC: Cambia el fondo del header al hacer scroll
+  // 4. HEADER DINÁMICO PC: Cambia el fondo del header al hacer scroll
   if (siteHeader) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -68,9 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
-  
-  // 2. LIGHTBOX CON GALERÍAS POR CATEGORÍA
+  // 5. LIGHTBOX CON GALERÍAS POR CATEGORÍA
   const galeriasPorCategoria = {
     editorial: [
       'https://i.postimg.cc/nhrbc6fX/IMG-7742.jpg',
@@ -188,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let imagenesActuales = [];
   let indiceActual = 0;
 
-  // CREAR EL LIGHTBOX SI NO EXISTE
   let modalLightbox = document.querySelector('.lightbox-modal');
   if (!modalLightbox) {
     modalLightbox = document.createElement('div');
@@ -230,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = ''; 
   }
 
-  // EVENTOS PARA ABRIR LA GALERÍA AL HACER CLIC EN EL PORTAFOLIO
   document.querySelectorAll('.galeria-trigger').forEach(item => {
     item.addEventListener('click', function() {
       const cat = this.getAttribute('data-categoria');
@@ -240,7 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // BOTONES DEL LIGHTBOX
   cerrarModalBtn.addEventListener('click', cerrarLightbox);
   modalLightbox.addEventListener('click', e => { if (e.target === modalLightbox) cerrarLightbox(); });
   
@@ -262,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 3. ACORDEÓN DE SERVICIOS
+  // 6. ACORDEÓN DE SERVICIOS
   document.querySelectorAll('.accordion-header').forEach(btn => {
     btn.addEventListener('click', function() {
       const item    = this.closest('.accordion-item');
@@ -281,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. MODAL DE PLANES (PRECIOS)
+  // 7. MODAL DE PLANES (PRECIOS)
   const fotosPorPlan = {
     xv: galeriasPorCategoria.xv,
     graduacion: galeriasPorCategoria.retratos,
@@ -343,7 +333,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
       modalWaBtn.href = `https://wa.me/584123590065?text=${encodeURIComponent(plan.msg)}`;
       
-      // Duplicamos fotos para el efecto de carrusel infinito
       const fotosDobles = fotos.concat(fotos);
       let fotosHtml = '';
       fotosDobles.forEach(src => { fotosHtml += `<img src="${src}" alt="" loading="lazy"/>`; });
@@ -359,8 +348,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = ''; 
   }
   
-  closePlanModal.addEventListener('click', cerrarPlanModal);
-  planModal.addEventListener('click', e => { if (e.target === planModal) cerrarPlanModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && planModal.classList.contains('active')) cerrarPlanModal(); });
+  if(closePlanModal) {
+    closePlanModal.addEventListener('click', cerrarPlanModal);
+  }
+  
+  if(planModal) {
+    planModal.addEventListener('click', e => { if (e.target === planModal) cerrarPlanModal(); });
+  }
+  
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && planModal && planModal.classList.contains('active')) cerrarPlanModal(); });
 
 });
