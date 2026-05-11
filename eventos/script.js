@@ -11,7 +11,65 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // 1. MENÚ MÓVIL (HAMBURGUESA)
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mainNav = document.getElementById('main-nav');
+  const siteHeader = document.getElementById('main-header'); // Opcional, dependiendo de tu HTML
 
+  if (mobileBtn && mainNav) {
+    // Abre/Cierra el menú al tocar la hamburguesa
+    mobileBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+    });
+
+    // Cierra el menú automáticamente cuando se hace clic en un enlace
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+      });
+    });
+  }
+
+  // 2. ANIMACIONES DE REVELADO AL HACER SCROLL (INTERSECTION OBSERVER)
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          // Opcional: Si quitas el 'else', la animación solo ocurre una vez. 
+          // Manteniéndolo, la animación se repite cada vez que subes/bajas.
+          entry.target.classList.remove('active'); 
+        }
+      });
+    }, { 
+      root: null, 
+      threshold: 0.15, // Se activa cuando el 15% del elemento es visible
+      rootMargin: "0px 0px -50px 0px" // Dispara la animación 50px antes de llegar al borde inferior
+    });
+
+    // Asignamos el observador a cada elemento que tenga la clase .reveal
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // 3. (OPCIONAL) HEADER DINÁMICO PC: Cambia el fondo del header al hacer scroll
+  if (siteHeader) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    });
+  }
+
+});
+  
   // 2. LIGHTBOX CON GALERÍAS POR CATEGORÍA
   const galeriasPorCategoria = {
     editorial: [
