@@ -266,11 +266,5 @@ document.addEventListener("DOMContentLoaded", () => {
   closePlanModal.addEventListener('click', cerrarPlanModal);
   planModal.addEventListener('click', e => { if (e.target === planModal) cerrarPlanModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && planModal.classList.contains('active')) cerrarPlanModal(); });
-@media (max-width: 992px) {
-  .item-wide, .item-full, .gallery-item:not(.item-wide):not(.item-full) { grid-column: span 3; }
-}
 
-@media (max-width: 768px) {
-  .item-wide, .item-full, .gallery-item { grid-column: span 6; }
-}
 });
