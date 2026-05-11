@@ -1,5 +1,4 @@
 // ====== COLLAGE HERO (NUEVO) ======
-// Separamos las fotos por su orientación natural
 const fotosHorizontales = [
   "https://i.postimg.cc/4xtpZgRS/IMG-0045.jpg", "https://i.postimg.cc/GmYvrCnN/IMG-0052.jpg", "https://i.postimg.cc/Sx8cqhbH/IMG-0059.jpg",
   "https://i.postimg.cc/Bv0HnVJw/IMG-0080.jpg", "https://i.postimg.cc/Bv0HnVJy/IMG-0083.jpg", "https://i.postimg.cc/jjbPSFRB/IMG-0125.jpg",
