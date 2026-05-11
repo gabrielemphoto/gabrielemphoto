@@ -73,21 +73,18 @@ function shuffle(arr) {
 const collageEl = document.getElementById('collage');
 if (collageEl) {
   const FILAS = 3;
-  // El patrón en bloques: V(1) - H(2) - V(1) - H(2) - V(1)
   const patronFila = ['V', 'H', 'V', 'H', 'V'];
-  const INTERVALO = 1200;
+  const INTERVALO = 2500; // Lo hicimos un poco más lento para que la transición se aprecie
   const celdas = [];
   
   let fotosH = shuffle(fotosHorizontales);
   let fotosV = shuffle(fotosVerticales);
 
-  // Inyectamos las celdas en el DOM (15 celdas en total)
   for (let r = 0; r < FILAS; r++) {
     for (let i = 0; i < patronFila.length; i++) {
       const cell = document.createElement('div');
       const tipo = patronFila[i]; 
       
-      // Asignamos la clase que controla el ancho en el CSS
       cell.classList.add('collage-cell', `cell-${tipo.toLowerCase()}`);
 
       const imgInicial = tipo === 'H' ? fotosH.pop() : fotosV.pop();
@@ -95,12 +92,12 @@ if (collageEl) {
       if (fotosV.length === 0) fotosV = shuffle(fotosVerticales);
 
       const imgA = document.createElement('img');
-      imgA.classList.add('layer-a');
+      imgA.classList.add('layer-a', 'visible'); // A empieza visible
       imgA.src = imgInicial;
       imgA.alt = '';
 
       const imgB = document.createElement('img');
-      imgB.classList.add('layer-b');
+      imgB.classList.add('layer-b', 'hidden'); // B empieza oculta
       imgB.alt = '';
 
       cell.appendChild(imgA);
@@ -129,30 +126,34 @@ if (collageEl) {
     
     const nueva = fotoAleatoria(c.fotosUsadas, c.tipo);
     c.fotosUsadas.add(nueva);
-    
     if (c.fotosUsadas.size > Math.floor(arrayLength / 2)) c.fotosUsadas.clear();
 
     if (c.activeLayer === 'a') {
       c.imgB.src = nueva;
       c.imgB.onload = () => {
+        // Crossfade: Mostrar B, ocultar A
+        c.imgB.classList.remove('hidden');
         c.imgB.classList.add('visible');
+        c.imgA.classList.remove('visible');
         c.imgA.classList.add('hidden');
         c.activeLayer = 'b';
       };
     } else {
       c.imgA.src = nueva;
       c.imgA.onload = () => {
+        // Crossfade: Mostrar A, ocultar B
         c.imgA.classList.remove('hidden');
+        c.imgA.classList.add('visible');
         c.imgB.classList.remove('visible');
+        c.imgB.classList.add('hidden');
         c.activeLayer = 'a';
       };
     }
   }
 
-  // Rotamos cada celda secuencialmente
   celdas.forEach((_, idx) => {
     setTimeout(() => {
       setInterval(() => cambiarCelda(idx), INTERVALO * celdas.length);
-    }, idx * INTERVALO);
+    }, idx * 1000); // Entran en cascada cada segundo
   });
 }
