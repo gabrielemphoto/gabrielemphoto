@@ -458,10 +458,11 @@ box-shadow: 0 20px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(201,169,110,0.04);
 
 .addons-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 300px); /* Fija el ancho de cada tarjeta para que no se estiren de más */
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
+  justify-content: center; /* Esto es clave para centrar el bloque entero */
 }
 
 .addon-card {
