@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GabrielEM Photo</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GabrielEM Photo — Fotografía en Margarita</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://i.postimg.cc/Y9XX5m5p/logoblanco.png" type="image/png"/>
 </head>
 <body>
 
-  <!-- HERO -->
+  <!-- ══════════════════════════════
+       HERO & COLLAGE
+  ══════════════════════════════ -->
   <section class="hero">
-    <div class="collage" id="collage"></div>
+    
+    <!-- El grid de fondo donde el JS inyecta las fotos -->
+    <div id="collage" class="collage"></div>
+
+    <!-- El nuevo velo blanco luminoso -->
     <div class="hero-overlay"></div>
 
+    <!-- Contenido principal -->
     <div class="hero-content">
+      
+      <!-- LOGO PRINCIPAL ACTUALIZADO -->
+      <img src="https://i.postimg.cc/NMNN3r3Y/logo.png" alt="GabrielEM Photo" class="hero-logo" />
+      
+      <h1 class="hero-tagline">Cada imagen, una historia que perdura.</h1>
 
-      <!-- LOGO -->
-      <img
-        src="https://i.postimg.cc/tTp7fX84/logoblanco.png"
-        alt="GabrielEM Photo"
-        class="hero-logo"
-      />
-
-      <p class="hero-tagline">Cada imagen, una historia que perdura.</p>
-
-      <!-- BOTONES DE SERVICIOS -->
+      <!-- ══════════════════════════════
+           TARJETAS DE SERVICIOS
+      ══════════════════════════════ -->
       <div class="servicios-grid">
-
-        <!-- BOTÓN INMOBILIARIA -->
-        <a href="inmobiliaria/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/FK1TS4TR/IMG-6276-HDR.jpg')"></div>
+        
+        <!-- TARJETA 1: INMOBILIARIA -->
+        <a href="inmobiliaria.html" class="card-servicio">
+          <!-- IMAGEN CORREGIDA -->
+          <div class="card-bg" style="background-image: url('https://i.postimg.cc/DySqjGCj/IMG-6276-HDR.jpg');"></div>
           <div class="card-overlay"></div>
           <div class="card-body">
             <span class="card-icon">🏠</span>
-            <h3 class="card-titulo">Fotografía Inmobiliaria</h3>
+            <h2 class="card-titulo">Fotografía Inmobiliaria</h2>
             <p class="card-desc">Vende más rápido con imágenes que conquistan al comprador desde el primer vistazo.</p>
             <span class="card-cta">Ver servicios →</span>
           </div>
         </a>
 
-        <!-- BOTÓN EVENTOS (placeholder, puedes cambiar la foto) -->
-        <a href="eventos/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/dVw3HQdL/IMG-3799.jpg')"></div>
+        <!-- TARJETA 2: EVENTOS Y SESIONES -->
+        <a href="eventos.html" class="card-servicio">
+          <!-- IMAGEN CORREGIDA -->
+          <div class="card-bg" style="background-image: url('https://i.postimg.cc/G9nhx6gH/IMG-3817.jpg');"></div>
           <div class="card-overlay"></div>
           <div class="card-body">
             <span class="card-icon">🎉</span>
-            <h3 class="card-titulo">Eventos & Sesiones</h3>
+            <h2 class="card-titulo">Eventos & Sesiones</h2>
             <p class="card-desc">Momentos únicos capturados con precisión, emoción y el estilo que te distingue.</p>
             <span class="card-cta">Ver servicios →</span>
           </div>
         </a>
 
-        <!-- BOTÓN PORTAFOLIO (placeholder) -->
-        <a href="portafolio/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg')"></div>
+        <!-- TARJETA 3: PORTAFOLIO -->
+        <a href="#portafolio" class="card-servicio">
+          <!-- IMAGEN CORREGIDA -->
+          <div class="card-bg" style="background-image: url('https://i.postimg.cc/0QZp301s/IMG-8123.jpg');"></div>
           <div class="card-overlay"></div>
           <div class="card-body">
-            <span class="card-icon">✦</span>
-            <h3 class="card-titulo">Portafolio</h3>
+            <span class="card-icon">✨</span>
+            <h2 class="card-titulo">Portafolio</h2>
             <p class="card-desc">Explora el trabajo completo. Cada foto es una prueba de lo que es posible.</p>
             <span class="card-cta">Ver galería →</span>
           </div>
@@ -68,19 +76,23 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
   <footer class="footer">
     <div class="footer-content">
-      <img src="https://i.postimg.cc/tTp7fX84/logoblanco.png" alt="GabrielEM Photo" class="footer-logo" />
-      <p class="footer-frase">"La diferencia entre una foto y una venta,<br>es la calidad de la imagen."</p>
+      <!-- LOGO FOOTER ACTUALIZADO (BLANCO) -->
+      <img src="https://i.postimg.cc/Y9XX5m5p/logoblanco.png" alt="GabrielEM Photo" class="footer-logo" />
+      
+      <p class="footer-frase">"Capturando la esencia de Margarita, una imagen a la vez."</p>
+      
       <div class="footer-links">
-        <a href="mailto:gabrielmillan6@gmail.com">gabrielmillan6@gmail.com</a>
-        <span>·</span>
-        <a href="https://instagram.com/gabrielemphoto" target="_blank">Instagram</a>
-        <span>·</span>
-        <a href="https://wa.me/+584123590065" target="_blank">WhatsApp</a>
+        <a href="inmobiliaria.html">Inmobiliaria</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="mailto:gabrielmillan6@gmail.com">Contacto</a>
       </div>
-      <p class="footer-copy">© 2026 GabrielEM Photo · Isla Margarita, Venezuela</p>
+      
+      <p class="footer-copy">© 2026 Gabriel Millán · Todos los derechos reservados.</p>
     </div>
   </footer>
 
