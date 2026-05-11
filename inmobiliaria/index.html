@@ -8,6 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Efecto para que el isotipo blanco se vuelva negro cuando el menú se pone blanco al hacer scroll */
+    .header-logo-img {
+      transition: filter 0.4s ease;
+    }
+    .site-header.scrolled .header-logo-img {
+      filter: invert(1);
+    }
+  </style>
 </head>
 <body class="fade-in-load">
 
@@ -15,10 +24,13 @@
   <header class="site-header" id="main-header">
     <div class="container header-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
       
-      <!-- LOGO DE TEXTO -->
-      <div class="logo" style="flex-shrink: 0;">
-        <strong>Gabriel Millán</strong>
-        <span>Fotografía Inmobiliaria</span>
+      <!-- LOGO CON ISOTIPO -->
+      <div class="logo" style="flex-shrink: 0; display: flex; align-items: center; gap: 12px;">
+        <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="Isotipo Gabriel Millán" class="header-logo-img" style="width: 38px; height: auto;">
+        <div>
+          <strong>Gabriel Millán</strong>
+          <span style="display: block;">Fotografía Inmobiliaria</span>
+        </div>
       </div>
 
       <!-- BOTÓN HAMBURGUESA MÓVIL -->
@@ -58,7 +70,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 4 (Movida): TESTIMONIOS Y CASOS DE ÉXITO -->
+  <!-- SECCIÓN TESTIMONIOS Y CASOS DE ÉXITO -->
   <section id="testimonios" class="testimonials-section">
     <div class="container text-center reveal">
       <h2>Casos de <span class="highlight">éxito</span></h2>
@@ -67,7 +79,6 @@
     
     <div class="carousel-wrapper reveal">
       <div class="carousel-track" id="testimonial-track">
-        <!-- Tarjeta 1 -->
         <div class="testi-card">
           <div class="testi-content">"Tenía un townhouse en Costa Azul que llevaba 4 meses publicado sin recibir visitas. Contacté a Gabriel para rehacer las fotos y el video recorrido. Literalmente, a los 5 días de cambiar la publicación, recibimos dos ofertas y cerramos la venta. Su trabajo con la iluminación hace toda la diferencia."</div>
           <div class="testi-author">
@@ -78,7 +89,6 @@
             </div>
           </div>
         </div>
-        <!-- Tarjeta 2 -->
         <div class="testi-card">
           <div class="testi-content">"Lo que más valoro de Gabriel es su profesionalismo. Llega puntual a las pautas, tiene muchísima paciencia para buscar el mejor ángulo y entrega el material súper rápido. Las fotos siempre quedan impecables, sin esas ventanas quemadas que se ven cuando uno toma fotos con el celular."</div>
           <div class="testi-author">
@@ -89,7 +99,6 @@
             </div>
           </div>
         </div>
-        <!-- Tarjeta 3 -->
         <div class="testi-card">
           <div class="testi-content">"Contratar el paquete de marca personal fue la mejor inversión. Gabriel me grabó presentando un apartamento de lujo en Pampatar y el audio quedó perfecto a pesar de la brisa. El video quedó tan bien editado para Instagram que no solo vendí la propiedad, sino que me contactaron dos clientes nuevos."</div>
           <div class="testi-author">
@@ -100,7 +109,6 @@
             </div>
           </div>
         </div>
-        <!-- Tarjeta 4 -->
         <div class="testi-card">
           <div class="testi-content">"Estaba tratando de vender mi apartamento por mi cuenta en Las Gaviotas y me pedían muchísimas rebajas. Gabriel me explicó que mis fotos oscuras no ayudaban. Hicimos una sesión nueva y el apartamento se veía inmenso y súper iluminado. Pude defender mi precio de venta."</div>
           <div class="testi-author">
@@ -111,7 +119,6 @@
             </div>
           </div>
         </div>
-        <!-- Tarjeta 5 -->
         <div class="testi-card">
           <div class="testi-content">"Al principio dudé en pagar por fotografía profesional, pero después de ver los resultados de Gabriel me di cuenta de que no es un gasto, es una inversión. Sus fotos elevan la categoría de cualquier inmueble, haciendo que propiedades sencillas se vean de lujo. Un trabajo de primera clase."</div>
           <div class="testi-author">
@@ -126,7 +133,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 2: EL PROBLEMA -->
+  <!-- SECCIÓN EL PROBLEMA -->
   <section id="el-problema" class="problem-section">
     <div class="container text-center">
       <h2 class="reveal">¿Estás perdiendo cierres por culpa de <span class="highlight">fotos hechas con el celular</span>?</h2>
@@ -180,7 +187,7 @@
 
   <div class="parallax-divider reveal"></div>
 
-  <!-- SECCIÓN 3: PORTAFOLIO -->
+  <!-- SECCIÓN PORTAFOLIO -->
   <section id="portafolio" class="portfolio-section">
     <div class="container">
       <h2 class="text-center reveal">Mi <span class="highlight">Trabajo</span></h2>
@@ -227,20 +234,19 @@
     </div>
   </div>
 
-  <!-- SECCIÓN DE VIDEO DE MUESTRA (Movida abajo del portafolio) -->
+  <!-- SECCIÓN DE VIDEO DE MUESTRA -->
   <section id="video-muestra" style="padding: 5rem 0; background: var(--color-bg); text-align: center;">
     <div class="container reveal">
       <h2>Mira cómo <span class="highlight">presento propiedades</span></h2>
       <p class="section-subtitle" style="margin-bottom: 2rem;">Un buen video de recorrido inmersivo vende por sí solo. Dale play para ver un ejemplo de edición vertical para Reels o TikTok.</p>
       
-      <!-- Contenedor responsive para video -->
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border-radius: 12px; box-shadow: var(--shadow-lg); background: #000;">
         <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN 5: PLANES -->
+  <!-- SECCIÓN PLANES -->
   <section id="planes" class="pricing-section">
     <div class="container">
       <h2 class="text-center reveal">Invierte en tu <span class="highlight">Imagen Profesional</span></h2>
@@ -319,7 +325,7 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 6: FAQ -->
+  <!-- SECCIÓN FAQ -->
   <section id="faq" class="faq-section">
     <div class="container">
       <h2 class="text-center reveal">Preguntas <span class="highlight">Frecuentes</span></h2>
@@ -359,9 +365,13 @@
     <div class="container footer-grid reveal">
       
       <div class="footer-col brand-col">
-        <div class="logo logo-footer">
-          <strong>Gabriel Millán</strong>
-          <span>Fotografía Inmobiliaria</span>
+        <!-- LOGO TAMBIÉN EN EL FOOTER -->
+        <div class="logo logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
+          <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="Isotipo Gabriel Millán" style="width: 45px; height: auto;">
+          <div style="text-align: left;">
+            <strong>Gabriel Millán</strong>
+            <span style="display: block;">Fotografía Inmobiliaria</span>
+          </div>
         </div>
         <p>Imágenes que venden. Servicio profesional en toda la Isla de Margarita.</p>
       </div>
