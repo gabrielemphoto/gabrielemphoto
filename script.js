@@ -32,7 +32,6 @@ const fotos = [
   "https://i.postimg.cc/nLMHgXhy/IMG-4080.jpg",
   "https://i.postimg.cc/vmjQsG14/IMG-4083.jpg",
   "https://i.postimg.cc/XJCnNtFP/IMG-4087.jpg",
-  "https://i.postimg.cc/d1yJQgrM/IMG-4088.jpg",
   "https://i.postimg.cc/Xq64rxc1/IMG-4089.jpg",
   "https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg",
   "https://i.postimg.cc/VvPmJ4WL/IMG-4102.jpg",
