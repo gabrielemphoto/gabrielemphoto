@@ -141,7 +141,7 @@ const fotos = [
 ];
 
 const CELDAS = 12;
-const INTERVALO = 2800;
+const INTERVALO = 1400;
 
 function shuffle(arr) {
   const a = [...arr];
