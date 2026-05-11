@@ -107,16 +107,20 @@ section { padding: var(--spacing-lg) 0; }
 /* ABOUT */
 .about-section { background: linear-gradient(to bottom, #0a0a0a, #111); padding: 8rem 0; position: relative; }
 .about-container { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 5rem; align-items: center; }
+
 .about-image-wrapper { 
   position: relative; 
   border-radius: 50%; 
   width: 350px; 
   height: 350px; 
   margin: 0 auto; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
 }
+
+/* Ocultamos el elemento problemático para que no estorbe */
+.about-glow { 
+  display: none !important; 
+}
+
 .about-img { 
   width: 100%; 
   height: 100%; 
@@ -127,22 +131,22 @@ section { padding: var(--spacing-lg) 0; }
   border: 3px solid rgba(201,169,110,0.3); 
   filter: grayscale(20%) contrast(1.1); 
   transition: all 0.5s ease; 
+  /* AQUÍ ESTÁ EL NUEVO BRILLO, PEGADO A LA FOTO */
+  box-shadow: 0 0 40px 10px rgba(201,169,110,0.4);
+  animation: pulseShadow 4s infinite alternate;
 }
-.about-img:hover { filter: grayscale(0%) contrast(1); transform: scale(1.05); border-color: var(--color-primary); }
 
-/* CORRECCIÓN DEL GLOW */
-.about-glow { 
-  position: absolute; 
-  /* Ajustamos el left para mover el glow hacia la derecha y centrarlo visualmente */
-  top: 50%; 
-  left: 60%; 
-  transform: translate(-50%, -50%); 
-  width: 110%; /* Lo hacemos ligeramente más pequeño para que sea más sutil */
-  height: 110%; 
-  background: radial-gradient(circle, rgba(201,169,110,0.4) 0%, transparent 60%); 
-  z-index: 1; 
-  pointer-events: none; 
-  animation: pulseGlow 4s infinite alternate; 
+.about-img:hover { 
+  filter: grayscale(0%) contrast(1); 
+  transform: scale(1.05); 
+  border-color: var(--color-primary); 
+  box-shadow: 0 0 60px 15px rgba(201,169,110,0.6);
+}
+
+/* Animación de latido para el nuevo brillo */
+@keyframes pulseShadow {
+  0% { box-shadow: 0 0 30px 5px rgba(201,169,110,0.2); }
+  100% { box-shadow: 0 0 60px 15px rgba(201,169,110,0.5); }
 }
 
 .about-content { max-width: 600px; }
