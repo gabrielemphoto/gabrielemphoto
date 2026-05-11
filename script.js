@@ -1,4 +1,4 @@
-// ====== COLLAGE HERO (NUEVO) ======
+// ====== COLLAGE EN BLOQUES ======
 const fotosHorizontales = [
   "https://i.postimg.cc/4xtpZgRS/IMG-0045.jpg", "https://i.postimg.cc/GmYvrCnN/IMG-0052.jpg", "https://i.postimg.cc/Sx8cqhbH/IMG-0059.jpg",
   "https://i.postimg.cc/Bv0HnVJw/IMG-0080.jpg", "https://i.postimg.cc/Bv0HnVJy/IMG-0083.jpg", "https://i.postimg.cc/jjbPSFRB/IMG-0125.jpg",
@@ -72,55 +72,51 @@ function shuffle(arr) {
 
 const collageEl = document.getElementById('collage');
 if (collageEl) {
-  const CELDAS = 12;
-  const INTERVALO = 900;
+  const FILAS = 3;
+  // El patrón en bloques: V(1) - H(2) - V(1) - H(2) - V(1)
+  const patronFila = ['V', 'H', 'V', 'H', 'V'];
+  const INTERVALO = 1200;
   const celdas = [];
   
-  // Vamos a barajar ambos arrays para que cada recarga sea distinta
   let fotosH = shuffle(fotosHorizontales);
   let fotosV = shuffle(fotosVerticales);
 
-  // El patrón visual que usaremos: V = Vertical, H = Horizontal
-  // Esto crea un diseño hermoso y balanceado en el Grid
-  const patron = ['H', 'V', 'H', 'V', 'H', 'H', 'H', 'V', 'V', 'H', 'V', 'H'];
+  // Inyectamos las celdas en el DOM (15 celdas en total)
+  for (let r = 0; r < FILAS; r++) {
+    for (let i = 0; i < patronFila.length; i++) {
+      const cell = document.createElement('div');
+      const tipo = patronFila[i]; 
+      
+      // Asignamos la clase que controla el ancho en el CSS
+      cell.classList.add('collage-cell', `cell-${tipo.toLowerCase()}`);
 
-  for (let i = 0; i < CELDAS; i++) {
-    const cell = document.createElement('div');
-    const tipo = patron[i % patron.length]; 
-    
-    // Le asignamos una clase específica según el tipo para el CSS Grid
-    cell.classList.add('collage-cell', `cell-${tipo.toLowerCase()}`);
+      const imgInicial = tipo === 'H' ? fotosH.pop() : fotosV.pop();
+      if (fotosH.length === 0) fotosH = shuffle(fotosHorizontales);
+      if (fotosV.length === 0) fotosV = shuffle(fotosVerticales);
 
-    // Elegimos la foto inicial correcta según la orientación
-    const imgInicial = tipo === 'H' ? fotosH.pop() : fotosV.pop();
-    
-    // Si nos quedamos sin fotos en un array (poco probable), volvemos a barajar
-    if (fotosH.length === 0) fotosH = shuffle(fotosHorizontales);
-    if (fotosV.length === 0) fotosV = shuffle(fotosVerticales);
+      const imgA = document.createElement('img');
+      imgA.classList.add('layer-a');
+      imgA.src = imgInicial;
+      imgA.alt = '';
 
-    const imgA = document.createElement('img');
-    imgA.classList.add('layer-a');
-    imgA.src = imgInicial;
-    imgA.alt = '';
+      const imgB = document.createElement('img');
+      imgB.classList.add('layer-b');
+      imgB.alt = '';
 
-    const imgB = document.createElement('img');
-    imgB.classList.add('layer-b');
-    imgB.alt = '';
+      cell.appendChild(imgA);
+      cell.appendChild(imgB);
+      collageEl.appendChild(cell);
 
-    cell.appendChild(imgA);
-    cell.appendChild(imgB);
-    collageEl.appendChild(cell);
-
-    celdas.push({
-      imgA, imgB,
-      tipo, // Guardamos el tipo (H o V) para saber de qué array sacar las siguientes fotos
-      activeLayer: 'a',
-      fotosUsadas: new Set([imgInicial])
-    });
+      celdas.push({
+        imgA, imgB,
+        tipo,
+        activeLayer: 'a',
+        fotosUsadas: new Set([imgInicial])
+      });
+    }
   }
 
   function fotoAleatoria(usadas, tipo) {
-    // Escogemos el array correcto según la celda (H o V)
     const arrayBase = tipo === 'H' ? fotosHorizontales : fotosVerticales;
     const disponibles = arrayBase.filter(f => !usadas.has(f));
     const pool = disponibles.length > 0 ? disponibles : arrayBase;
@@ -153,10 +149,10 @@ if (collageEl) {
     }
   }
 
-  // Iniciamos la rotación
+  // Rotamos cada celda secuencialmente
   celdas.forEach((_, idx) => {
     setTimeout(() => {
-      setInterval(() => cambiarCelda(idx), INTERVALO * CELDAS);
+      setInterval(() => cambiarCelda(idx), INTERVALO * celdas.length);
     }, idx * INTERVALO);
   });
 }
