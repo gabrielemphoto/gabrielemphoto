@@ -20,17 +20,15 @@
 </head>
 <body class="fade-in-load">
 
-  <!-- HEADER FIJO QUE CAMBIA AL HACER SCROLL -->
+    <!-- HEADER FIJO QUE CAMBIA AL HACER SCROLL -->
   <header class="site-header" id="main-header">
     <div class="container header-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
       
-      <!-- LOGO CON ISOTIPO -->
-      <div class="logo" style="flex-shrink: 0; display: flex; align-items: center; gap: 12px;">
-        <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="Isotipo Gabriel Millán" class="header-logo-img" style="width: 38px; height: auto;">
-        <div>
-          <strong>Gabriel Millán</strong>
-          <span style="display: block;">Fotografía Inmobiliaria</span>
-        </div>
+      <!-- LOGO SOLO CON ISOTIPO (Click para ir al Home) -->
+      <div class="logo" style="flex-shrink: 0;">
+        <a href="../index.html" style="display: block;">
+          <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="Isotipo Gabriel Millán" class="header-logo-img" style="width: 45px; height: auto;">
+        </a>
       </div>
 
       <!-- BOTÓN HAMBURGUESA MÓVIL -->
@@ -49,6 +47,12 @@
           <li><a href="#portafolio">Portafolio</a></li>
           <li><a href="#planes">Planes</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <!-- BOTÓN VOLVER AL HOME PRINCIPAL -->
+          <li>
+            <a href="../index.html" style="border: 1px solid currentColor; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600;">
+              ← HOME
+            </a>
+          </li>
         </ul>
       </nav>
 
