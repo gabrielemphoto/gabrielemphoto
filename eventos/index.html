@@ -19,14 +19,14 @@
     <nav class="main-nav">
       <ul>
         <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-        <li><a href="#servicios" class="nav-link">Servicios</a></li>
         <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
         <li><a href="#precios" class="nav-link">Precios</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
         <li><a href="../index.html" class="nav-link back-home">← HOME</a></li>
       </ul>
     </nav>
-    <a href="https://wa.me/584121234567?text=Hola%20Gabriel%2C%20quiero%20agendar%20una%20sesión" target="_blank" class="btn-primary btn-small">Agendar</a>
+    <a href="https://wa.me/584123590065?text=Hola%20Gabriel%2C%20quiero%20agendar%20una%20sesión" target="_blank" class="btn-primary btn-small">Agendar</a>
   </div>
 </header>
 
@@ -100,54 +100,11 @@
       </div>
 
       <!-- FILA 3: Bodas ancho completo -->
-      <div class="gallery-item item-full galeria-trigger" data-categoria="bodas" data-src="https://i.postimg.cc/tCXG8srP/IMG-0045.jpg">
+      <div class="gallery-item item-wide galeria-trigger" style="grid-column: span 6;" data-categoria="bodas" data-src="https://i.postimg.cc/tCXG8srP/IMG-0045.jpg">
         <figure><img src="https://i.postimg.cc/tCXG8srP/IMG-0045.jpg" alt="Bodas" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Bodas</h3><p>Cobertura completa · Emociones reales</p></div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══ SERVICIOS ══ -->
-<section id="servicios" style="padding: var(--spacing-lg) 0; background: #0a0a0a;">
-  <div class="container">
-    <div class="section-header text-center">
-      <p class="section-kicker">Servicios</p>
-      <h2 class="section-title">Lo que puedo crear</h2>
-      <p class="section-desc">Haz clic en cada servicio para ver más detalles.</p>
-    </div>
-    <div class="accordion-container">
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="accordion-number">01</span>
-          <h3>Retratos & Sesiones Editoriales</h3>
-          <span class="accordion-icon">+</span>
-        </button>
-        <div class="accordion-content">
-          <p>Me especializo en retratos, editoriales, contenido para marcas personales y sesiones conceptuales. Mi enfoque es dirigir la luz y la pose para capturar tu personalidad de la forma más natural y cinematográfica posible. Se entregan en alta resolución listas para impresión o redes.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="accordion-number">02</span>
-          <h3>Cobertura de Eventos</h3>
-          <span class="accordion-icon">+</span>
-        </button>
-        <div class="accordion-content">
-          <p>Cobertura visual de eventos sociales (bodas, bautizos, quinceañeras) o corporativos con un enfoque documental. Me dedico a pasar desapercibido para capturar las emociones reales, las risas y los momentos clave sin interrumpir el flujo natural de tu celebración.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span class="accordion-number">03</span>
-          <h3>Contenido Comercial & Inmobiliaria</h3>
-          <span class="accordion-icon">+</span>
-        </button>
-        <div class="accordion-content">
-          <p>Contenido visual diseñado para vender. Desde fotografía de productos y alimentos hasta bienes raíces e inmobiliaria. Utilizo iluminación estratégica y corrección de perspectiva (HDR) para que los espacios se vean amplios, limpios e invitantes para tus clientes.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -203,59 +160,106 @@
       </div>
     </div> <!-- AQUÍ CERRAMOS EL PRICING-GRID -->
 
-    <!-- ══ SERVICIOS ADICIONALES ══ -->
-    <div class="addons-container">
-      <h3 class="addons-title">Personaliza tu experiencia</h3>
-      <p class="addons-desc">Servicios adicionales para complementar tu sesión</p>
+    <!-- ══ SERVICIOS ADICIONALES (Arreglado, sin duplicado) ══ -->
+    <div class="addons-container" style="margin-top: 5rem; text-align: center;">
+      <h3 class="addons-title" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--color-white);">Personaliza tu experiencia</h3>
+      <p class="addons-desc" style="color: var(--color-text-muted); margin-bottom: 3rem;">Servicios adicionales para complementar tu sesión</p>
       
-      <div class="addons-grid">
-        <div class="addon-card">
-          <span class="addon-icon">💄</span>
-          <h4>Make-up Profesional</h4>
-          <p>Maquillaje de larga duración diseñado específicamente para fotografía y video.</p>
+      <div class="addons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">💄</span>
+          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Make-up Profesional</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Maquillaje de larga duración diseñado específicamente para fotografía y video.</p>
         </div>
         
-        <div class="addon-card">
-          <span class="addon-icon">✨</span>
-          <h4>Estilismo</h4>
-          <p>Preparación de vestuario, peinado y asesoría de imagen durante la sesión.</p>
+        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">✨</span>
+          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Estilismo</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Preparación de vestuario, peinado y asesoría de imagen durante la sesión.</p>
         </div>
         
-        <div class="addon-card">
-          <span class="addon-icon">🚗</span>
-          <h4>Transporte</h4>
-          <p>Traslado cómodo y seguro hacia las locaciones dentro de la isla.</p>
+        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🚗</span>
+          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Transporte</h4>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Traslado cómodo y seguro hacia las locaciones dentro de la isla.</p>
         </div>
       </div>
     </div>
 
-  </div> <!-- AQUÍ CERRAMOS EL CONTAINER -->
+  </div> <!-- AQUÍ CERRAMOS EL CONTAINER DE PRECIOS -->
 </section>
-    <!-- ══ SERVICIOS ADICIONALES ══ -->
-    <div class="addons-container">
-      <h3 class="addons-title">Personaliza tu experiencia</h3>
-      <p class="addons-desc">Servicios adicionales para complementar tu sesión</p>
-      
-      <div class="addons-grid">
-        <div class="addon-card">
-          <span class="addon-icon">💄</span>
-          <h4>Make-up Profesional</h4>
-          <p>Maquillaje de larga duración diseñado específicamente para fotografía y video.</p>
+
+<!-- ══ SERVICIOS (Movido aquí abajo) ══ -->
+<section id="servicios" style="padding: var(--spacing-lg) 0; background: #050912; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-kicker">Servicios</p>
+      <h2 class="section-title">Lo que puedo crear</h2>
+      <p class="section-desc">Haz clic en cada servicio para ver más detalles.</p>
+    </div>
+    <div class="accordion-container">
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span class="accordion-number">01</span>
+          <h3>Retratos & Sesiones Editoriales</h3>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>Me especializo en retratos, editoriales, contenido para marcas personales y sesiones conceptuales. Mi enfoque es dirigir la luz y la pose para capturar tu personalidad de la forma más natural y cinematográfica posible. Se entregan en alta resolución listas para impresión o redes.</p>
         </div>
-        
-        <div class="addon-card">
-          <span class="addon-icon">✨</span>
-          <h4>Estilismo</h4>
-          <p>Preparación de vestuario, peinado y asesoría de imagen durante la sesión.</p>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span class="accordion-number">02</span>
+          <h3>Cobertura de Eventos</h3>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>Cobertura visual de eventos sociales (bodas, bautizos, quinceañeras) o corporativos con un enfoque documental. Me dedico a pasar desapercibido para capturar las emociones reales, las risas y los momentos clave sin interrumpir el flujo natural de tu celebración.</p>
         </div>
-        
-        <div class="addon-card">
-          <span class="addon-icon">🚗</span>
-          <h4>Transporte</h4>
-          <p>Traslado cómodo y seguro hacia las locaciones dentro de la isla.</p>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span class="accordion-number">03</span>
+          <h3>Contenido Comercial & Inmobiliaria</h3>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>Contenido visual diseñado para vender. Desde fotografía de productos y alimentos hasta bienes raíces e inmobiliaria. Utilizo iluminación estratégica y corrección de perspectiva (HDR) para que los espacios se vean amplios, limpios e invitantes para tus clientes.</p>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto" class="contact-section" style="padding-top: 6rem;">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-kicker">Contacto</p>
+      <h2 class="section-title">Elige cómo contactarme</h2>
+    </div>
+    <div class="contact-grid">
+      <a href="https://wa.me/584123590065" target="_blank" class="social-card">
+        <span class="social-icon">📲</span>
+        <span class="contact-label">WhatsApp</span>
+        <strong>+58 412 359 0065</strong>
+      </a>
+      <a href="https://instagram.com/gabrielem.photo" target="_blank" class="social-card">
+        <span class="social-icon">📸</span>
+        <span class="contact-label">Instagram</span>
+        <strong>@gabrielem.photo</strong>
+      </a>
+      <a href="https://tiktok.com/@gabrielem.photo" target="_blank" class="social-card">
+        <span class="social-icon">🎵</span>
+        <span class="contact-label">TikTok</span>
+        <strong>@gabrielem.photo</strong>
+      </a>
+      <a href="mailto:gabrielmillan6@gmail.com" class="social-card">
+        <span class="social-icon">✉️</span>
+        <span class="contact-label">Email</span>
+        <strong style="font-size: 0.85rem;">gabrielmillan6@gmail.com</strong>
+      </a>
     </div>
   </div>
 </section>
@@ -275,43 +279,11 @@
   </div>
 </div>
 
-<!-- ══ CONTACTO ══ -->
-<section id="contacto" class="contact-section">
-  <div class="container">
-    <div class="section-header text-center">
-      <p class="section-kicker">Contacto</p>
-      <h2 class="section-title">Elige cómo contactarme</h2>
-    </div>
-    <div class="contact-grid">
-      <a href="https://wa.me/584121234567" target="_blank" class="social-card">
-        <span class="social-icon">📲</span>
-        <span class="contact-label">WhatsApp</span>
-        <strong>+58 412 123 4567</strong>
-      </a>
-      <a href="https://instagram.com/gabrielemphoto" target="_blank" class="social-card">
-        <span class="social-icon">📸</span>
-        <span class="contact-label">Instagram</span>
-        <strong>@gabrielemphoto</strong>
-      </a>
-      <a href="https://tiktok.com/@gabrielemphoto" target="_blank" class="social-card">
-        <span class="social-icon">🎵</span>
-        <span class="contact-label">TikTok</span>
-        <strong>@gabrielemphoto</strong>
-      </a>
-      <a href="mailto:gabriel@gabrielemphoto.app" class="social-card">
-        <span class="social-icon">✉️</span>
-        <span class="contact-label">Email</span>
-        <strong>gabriel@gabrielemphoto.app</strong>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
   <div class="container footer-content">
     <div class="footer-brand">
-      <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="GabrielEM Photo" class="footer-logo"/>
+      <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="GabrielEM Photo" class="footer-logo" style="width: 55px;"/>
       <p>Fotografía cinematográfica para eventos, retratos y marcas en Isla Margarita, Venezuela.</p>
     </div>
     <div class="footer-links">
@@ -326,7 +298,7 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© 2025 GabrielEM Photo · Isla Margarita, Venezuela · Diseñado por Gabriel Millán</p>
+    <p>© 2026 Gabriel Millán · Isla Margarita, Venezuela</p>
   </div>
 </footer>
 
