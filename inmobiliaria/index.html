@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel Millán | Fotografía Inmobiliaria</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fotografía Inmobiliaria · GabrielEM Photo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Las fuentes ya están en el CSS con @import -->
 </head>
 <body class="fade-in-load">
 
-  <!-- HEADER FIJO QUE CAMBIA AL HACER SCROLL -->
+  <!-- HEADER -->
   <header class="site-header" id="main-header">
     <div class="container header-wrap">
-      <div class="logo">
-        <strong>Gabriel Millán</strong>
-        <span>Fotografía Inmobiliaria</span>
-      </div>
-      
-      <!-- BOTÓN HAMBURGUESA MÓVIL -->
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-      </button>
 
+      <!-- LOGO como imagen (igual que el home) -->
+      <a href="../index.html">
+        <img
+          src="https://i.postimg.cc/c4ZTmYDv/logo.png"
+          alt="GabrielEM Photo"
+          class="logo-img"
+        />
+      </a>
+
+      <!-- NAVEGACIÓN -->
       <nav class="main-nav" id="main-nav">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#el-problema">El Problema</a></li>
+          <li><a href="#problema">El Problema</a></li>
           <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#planes">Planes</a></li>
+          <li><a href="#sobre-mi">Sobre Mí</a></li>
+          <li><a href="#precios">Precios</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="../index.html" class="back-home">← Home</a></li>
         </ul>
       </nav>
-      <a href="https://wa.me/584123590065" target="_blank" class="btn-cta">Agendar Sesión</a>
+
+      <a href="https://wa.me/584123590065?text=Hola%20Gabriel%2C%20quiero%20información%20sobre%20fotografía%20inmobiliaria."
+         class="btn-cta" target="_blank">Agendar sesión</a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menú">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <!-- SECCIÓN 1: HERO -->
-  <section id="inicio" class="hero-section">
+  <!-- ════ HERO ════ -->
+  <section class="hero-section" id="inicio">
     <div class="hero-overlay"></div>
     <div class="container hero-content reveal">
-      <h1>Vende y Alquila Más Rápido con <span class="highlight">Imágenes que Impactan</span></h1>
-      <p>Ayudo a asesores inmobiliarios en Nueva Esparta a captar más clientes mediante fotografía profesional, videos recorridos y contenido para marca personal.</p>
+      <h1>Tu propiedad merece<br><span class="highlight">ser deseada</span></h1>
+      <p>Ayudo a asesores inmobiliarios en Nueva Esparta a captar más clientes<br>mediante fotografía profesional, videos recorridos y contenido para marca personal.</p>
       <div class="hero-actions">
-        <a href="#planes" class="btn-primary">Conocer Planes</a>
-        <a href="#portafolio" class="btn-secondary">Ver Portafolio</a>
+        <a href="#precios" class="btn-primary">Ver paquetes</a>
+        <a href="#portafolio" class="btn-secondary">Ver portafolio</a>
       </div>
     </div>
   </section>
