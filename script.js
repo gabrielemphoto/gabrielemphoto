@@ -74,7 +74,7 @@ const collageEl = document.getElementById('collage');
 if (collageEl) {
   const FILAS = 3;
   const patronFila = ['V', 'H', 'V', 'H', 'V'];
-  const INTERVALO = 2500; // Lo hicimos un poco más lento para que la transición se aprecie
+  const INTERVALO = 2000; // Lo hicimos un poco más lento para que la transición se aprecie
   const celdas = [];
   
   let fotosH = shuffle(fotosHorizontales);
@@ -154,6 +154,6 @@ if (collageEl) {
   celdas.forEach((_, idx) => {
     setTimeout(() => {
       setInterval(() => cambiarCelda(idx), INTERVALO * celdas.length);
-    }, idx * 1000); // Entran en cascada cada segundo
+    }, idx * 900); // Entran en cascada cada segundo
   });
 }
