@@ -1,72 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fotografía Inmobiliaria · GabrielEM Photo</title>
-  <link rel="stylesheet" href="style.css"/>
-  <!-- Las fuentes ya están en el CSS con @import -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Millán | Fotografía Inmobiliaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="fade-in-load">
 
-  <!-- HEADER -->
+  <!-- HEADER FIJO QUE CAMBIA AL HACER SCROLL -->
   <header class="site-header" id="main-header">
-    <div class="container header-wrap">
+    <div class="container header-wrap" style="display: flex; justify-content: space-between; align-items: center;">
+      <div class="logo">
+        <strong>Gabriel Millán</strong>
+        <span>Fotografía Inmobiliaria</span>
+      </div>
 
-      <!-- LOGO como imagen (igual que el home) -->
-      <a href="#inicio" class="brand-logo">
-  <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" 
-       alt="Gabriel Millán Fotografía" 
-       class="brand-logo-img"/>
-</a>
+      <!-- BOTÓN HAMBURGUESA MÓVIL -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
 
-      <!-- NAVEGACIÓN -->
       <nav class="main-nav" id="main-nav">
-        <ul>
-          <li><a href="#problema">El Problema</a></li>
+        <ul style="display: flex; align-items: center; gap: 1.5rem; margin: 0; padding: 0;">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#testimonios">Casos de Éxito</a></li> <!-- Añadido al menú -->
+          <li><a href="#el-problema">El Problema</a></li> <!-- Link arreglado -->
           <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#sobre-mi">Sobre Mí</a></li>
-          <li><a href="#precios">Precios</a></li>
+          <li><a href="#planes">Planes</a></li> <!-- Link arreglado -->
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="../index.html" class="back-home">← Home</a></li>
         </ul>
       </nav>
 
-      <a href="https://wa.me/584123590065?text=Hola%20Gabriel%2C%20quiero%20información%20sobre%20fotografía%20inmobiliaria."
-         class="btn-cta" target="_blank">Agendar sesión</a>
-
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menú">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M3 12h18M3 6h18M3 18h18"/>
-        </svg>
-      </button>
+      <a href="https://wa.me/584123590065" target="_blank" class="btn-cta" style="margin-top: 0; transform: none; display: inline-flex; align-items: center;">Agendar Sesión</a>
     </div>
   </header>
 
-  <!-- ════ HERO ════ -->
-  <section class="hero-section" id="inicio">
+  <!-- SECCIÓN 1: HERO -->
+  <section id="inicio" class="hero-section">
     <div class="hero-overlay"></div>
     <div class="container hero-content reveal">
-      <h1>Tu propiedad merece<br><span class="highlight">ser deseada</span></h1>
-      <p>Ayudo a asesores inmobiliarios en Nueva Esparta a captar más clientes<br>mediante fotografía profesional, videos recorridos y contenido para marca personal.</p>
-      <div class="hero-actions">
-        <a href="#precios" class="btn-primary">Ver paquetes</a>
-        <a href="#portafolio" class="btn-secondary">Ver portafolio</a>
+      <h1>Vende y Alquila Más Rápido con <span class="highlight">Imágenes que Impactan</span></h1>
+      <p>Ayudo a asesores inmobiliarios en Nueva Esparta a captar más clientes mediante fotografía profesional, videos recorridos y contenido para marca personal.</p>
+      <div class="hero-actions" style="display: flex; justify-content: center; gap: 1rem; align-items: center;">
+        <a href="#planes" class="btn-primary">Ver paquetes</a>
+        <a href="#portafolio" class="btn-secondary">Ver Portafolio</a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN 2: EL PROBLEMA -->
+  <!-- ══ NUEVA POSICIÓN: TESTIMONIOS Y CASOS DE ÉXITO ══ -->
+  <section id="testimonios" class="testimonials-section">
+    <div class="container text-center reveal">
+      <h2>Casos de <span class="highlight">éxito</span></h2>
+      <p class="section-subtitle">Lo que dicen los asesores y propietarios que ya invirtieron en su imagen.</p>
+    </div>
+    
+    <div class="carousel-wrapper reveal">
+      <div class="carousel-track" id="testimonial-track">
+        
+        <div class="testi-card">
+          <div class="testi-content">"Tenía un townhouse en Costa Azul que llevaba 4 meses publicado sin recibir visitas. Contacté a Gabriel para rehacer las fotos y el video recorrido. Literalmente, a los 5 días de cambiar la publicación, recibimos dos ofertas y cerramos la venta. Su trabajo con la iluminación hace toda la diferencia."</div>
+          <div class="testi-author">
+            <img src="https://i.postimg.cc/fL7nJxC8/5.png" alt="Carlos Mendoza">
+            <div>
+              <h4>Carlos Mendoza</h4>
+              <span>Asesor Inmobiliario</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-content">"Lo que más valoro de Gabriel es su profesionalismo. Llega puntual a las pautas, tiene muchísima paciencia para buscar el mejor ángulo y entrega el material súper rápido. Las fotos siempre quedan impecables, sin esas ventanas quemadas que se ven cuando uno toma fotos con el celular."</div>
+          <div class="testi-author">
+            <img src="https://i.postimg.cc/85dQjhwg/10.png" alt="Andrea Salazar">
+            <div>
+              <h4>Andrea Salazar</h4>
+              <span>Agente Independiente</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-content">"Contratar el paquete de marca personal fue la mejor inversión. Gabriel me grabó presentando un apartamento de lujo en Pampatar y el audio quedó perfecto a pesar de la brisa. El video quedó tan bien editado para Instagram que no solo vendí la propiedad, sino que me contactaron dos clientes nuevos."</div>
+          <div class="testi-author">
+            <img src="https://i.postimg.cc/LXkKnzD7/7.png" alt="Luis Rojas">
+            <div>
+              <h4>Luis Rojas</h4>
+              <span>Realtor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-content">"Estaba tratando de vender mi apartamento por mi cuenta en Las Gaviotas y me pedían muchísimas rebajas. Gabriel me explicó que mis fotos oscuras no ayudaban. Hicimos una sesión nueva y el apartamento se veía inmenso y súper iluminado. Pude defender mi precio de venta."</div>
+          <div class="testi-author">
+            <img src="https://i.postimg.cc/rmGXKSj3/9.png" alt="María Fernanda Giménez">
+            <div>
+              <h4>María F. Giménez</h4>
+              <span>Propietaria</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-content">"Al principio dudé en pagar por fotografía profesional, pero después de ver los resultados de Gabriel me di cuenta de que no es un gasto, es una inversión. Sus fotos elevan la categoría de cualquier inmueble, haciendo que propiedades sencillas se vean de lujo. Un trabajo de primera clase."</div>
+          <div class="testi-author">
+            <img src="https://i.postimg.cc/LXkKnzDG/8.png" alt="Javier Márquez">
+            <div>
+              <h4>Javier Márquez</h4>
+              <span>Corredor Inmobiliario</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EL PROBLEMA (Ahora debajo de testimonios) -->
   <section id="el-problema" class="problem-section">
     <div class="container text-center">
       <h2 class="reveal">¿Estás perdiendo cierres por culpa de <span class="highlight">fotos hechas con el celular</span>?</h2>
       <p class="problem-desc reveal">El 90% de los compradores descartan una propiedad si las fotos no atrapan su atención. Desliza para ver la diferencia.</p>
       
       <div class="before-after-container reveal" id="ba-container">
+        <!-- Foto DESPUÉS (Fondo) -->
         <img src="https://i.postimg.cc/76z99J98/Firefly-Gemini-Flash-Interior-real-estate-photography-of-an-average-modern-apartment-living-room-Sh.png" alt="Fotografía Profesional HDR" class="img-after">
+        <!-- Foto ANTES (Se recorta) -->
         <div class="img-before-wrapper" id="img-before-wrap">
           <img src="https://i.postimg.cc/pL8d22sn/Firefly-Gemini-Flash-no-oscura-de-noche-oscura-de-exposicion-864531.png" alt="Fotografía Celular Oscura" class="img-before">
         </div>
+        <!-- Deslizador -->
         <div class="slider-handle" id="slider-handle">
           <div class="slider-arrows">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
@@ -77,7 +146,7 @@
 
       <div class="benefits-grid">
         <div class="benefit-card reveal" style="transition-delay: 0.1s;">
-          <div class="icon">⏱️</div>
+          <div class="icon">🚀</div>
           <h3>Vende más rápido</h3>
         </div>
         <div class="benefit-card reveal" style="transition-delay: 0.2s;">
@@ -85,14 +154,28 @@
           <h3>Defiende el valor</h3>
         </div>
         <div class="benefit-card reveal" style="transition-delay: 0.3s;">
-          <div class="icon">👔</div>
+          <div class="icon">🌟</div>
           <h3>Posiciona tu marca</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN: SOBRE MÍ -->
+  <!-- ══ OPCIONAL: SECCIÓN DE VIDEO (A manera de muestra) ══ -->
+  <section id="video-muestra" style="padding: 5rem 0; background: var(--color-surface); text-align: center;">
+    <div class="container reveal">
+      <h2>Mira cómo <span class="highlight">presento propiedades</span></h2>
+      <p class="section-subtitle" style="margin-bottom: 2rem;">Un buen video de recorrido inmersivo vende por sí solo. Dale play para ver un ejemplo de edición vertical para Reels o TikTok.</p>
+      
+      <!-- Contenedor responsive para video -->
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border-radius: 12px; box-shadow: var(--shadow-lg); background: #000;">
+        <!-- Reemplaza el src con tu propio link de YouTube, Vimeo, o archivo directo -->
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SOBRE MÍ -->
   <section id="sobre-mi" class="about-section">
     <div class="container about-grid">
       <div class="about-image reveal">
@@ -103,19 +186,19 @@
         <h2>Hola, soy <span class="highlight">Gabriel Millán</span></h2>
         <p>Como fotógrafo en Nueva Esparta, entiendo que tu tiempo es valioso y que tu reputación está en cada listado.</p>
         <p>Mi objetivo no es solo tomar fotos bonitas, sino entregarte herramientas visuales que justifiquen tus honorarios, atraigan al comprador ideal y posicionen tu nombre en el mercado inmobiliario de la isla.</p>
-        <p class="copy-hook">"Tus propiedades compiten con miles en la isla. Haz que el cliente se detenga en la tuya."</p>
+        <p class="copy-hook">Tus propiedades compiten con miles en la isla. Haz que el cliente se detenga en la tuya.</p>
       </div>
     </div>
   </section>
 
   <div class="parallax-divider reveal"></div>
 
-  <!-- SECCIÓN 3: PORTAFOLIO -->
+  <!-- SECCIÓN PORTAFOLIO -->
   <section id="portafolio" class="portfolio-section">
     <div class="container">
       <h2 class="text-center reveal">Mi <span class="highlight">Trabajo</span></h2>
       <p class="text-center section-subtitle reveal">Haz clic en cualquier imagen para verla en pantalla completa.</p>
-      
+
       <div class="filters reveal">
         <button class="filter-btn active" data-filter="todos">Todos</button>
         <button class="filter-btn" data-filter="interiores">Interiores</button>
@@ -151,108 +234,23 @@
     <div class="lightbox-content">
       <img id="lightbox-img" src="" alt="Visor de imagen">
       <div class="lightbox-nav">
-        <button id="prev-img">❮</button>
-        <button id="next-img">❯</button>
+        <button id="prev-img">&#10094;</button>
+        <button id="next-img">&#10095;</button>
       </div>
     </div>
   </div>
 
-  <!-- SECCIÓN 4: TESTIMONIOS -->
-  <section id="testimonios" class="testimonials-section">
-    <div class="container text-center reveal">
-      <h2>Casos de <span class="highlight">Éxito</span></h2>
-      <p class="section-subtitle">Lo que dicen los asesores y propietarios que ya invirtieron en su imagen.</p>
-    </div>
-    
-    <div class="carousel-wrapper reveal">
-      <div class="carousel-track" id="testimonial-track">
-        
-        <!-- Tarjeta 1: Carlos Mendoza -->
-        <div class="testi-card">
-          <div class="testi-content">"Tenía un townhouse en Costa Azul que llevaba 4 meses publicado sin recibir visitas. Contacté a Gabriel para rehacer las fotos y el video recorrido. Literalmente, a los 5 días de cambiar la publicación, recibimos dos ofertas y cerramos la venta. Su trabajo con la iluminación hace toda la diferencia."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/fL7nJxC8/5.png" alt="Carlos Mendoza">
-            <div>
-              <h4>Carlos Mendoza</h4>
-              <span>Asesor Inmobiliario</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Tarjeta 2: Andrea Salazar -->
-        <div class="testi-card">
-          <div class="testi-content">"Lo que más valoro de Gabriel es su profesionalismo. Llega puntual a las pautas, tiene muchísima paciencia para buscar el mejor ángulo y entrega el material súper rápido. Las fotos siempre quedan impecables, sin esas ventanas quemadas que se ven cuando uno toma fotos con el celular."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/85dQjhwg/10.png" alt="Andrea Salazar">
-            <div>
-              <h4>Andrea Salazar</h4>
-              <span>Agente Independiente</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjeta 3: Luis Rojas -->
-        <div class="testi-card">
-          <div class="testi-content">"Contratar el paquete de marca personal fue la mejor inversión. Gabriel me grabó presentando un apartamento de lujo en Pampatar y el audio quedó perfecto a pesar de la brisa. El video quedó tan bien editado para Instagram que no solo vendí la propiedad, sino que me contactaron dos clientes nuevos."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/LXkKnzD7/7.png" alt="Luis Rojas">
-            <div>
-              <h4>Luis Rojas</h4>
-              <span>Realtor</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjeta 4: María Fernanda Giménez -->
-        <div class="testi-card">
-          <div class="testi-content">"Estaba tratando de vender mi apartamento por mi cuenta en Las Gaviotas y me pedían muchísimas rebajas. Gabriel me explicó que mis fotos oscuras no ayudaban. Hicimos una sesión nueva y el apartamento se veía inmenso y súper iluminado. Pude defender mi precio de venta."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/rmGXKSj3/9.png" alt="María Fernanda Giménez">
-            <div>
-              <h4>María F. Giménez</h4>
-              <span>Propietaria</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjeta 5: Javier Márquez -->
-        <div class="testi-card">
-          <div class="testi-content">"Al principio dudé en pagar por fotografía profesional, pero después de ver los resultados de Gabriel me di cuenta de que no es un gasto, es una inversión. Sus fotos elevan la categoría de cualquier inmueble, haciendo que propiedades sencillas se vean de lujo. Un trabajo de primera clase."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/LXkKnzDG/8.png" alt="Javier Márquez">
-            <div>
-              <h4>Javier Márquez</h4>
-              <span>Corredor Inmobiliario</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjeta 6: Patricia Escalona -->
-        <div class="testi-card">
-          <div class="testi-content">"Siempre sufro cuando me tocan apartamentos tipo estudio porque en las fotos normales parecen cajones. El equipo de Gabriel logra captar los espacios completos, incluso los baños y cocinas pequeñas, haciendo que todo se vea amplio sin deformar las paredes. Lo recomiendo a ojo cerrado."</div>
-          <div class="testi-author">
-            <img src="https://i.postimg.cc/rmGXKSjv/6.png" alt="Patricia Escalona">
-            <div>
-              <h4>Patricia Escalona</h4>
-              <span>Asesora Inmobiliaria</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  
-  <!-- SECCIÓN 5: PLANES -->
+  <!-- SECCIÓN PLANES -->
   <section id="planes" class="pricing-section">
     <div class="container">
       <h2 class="text-center reveal">Invierte en tu <span class="highlight">Imagen Profesional</span></h2>
       <p class="text-center copy-hook-center reveal">"No es un gasto en fotografía, es una inversión para asegurar tu comisión."</p>
-      
+
       <div class="pricing-grid">
         <div class="pricing-card reveal">
           <h3>Esencial</h3>
-          <p class="price">30€</p>
+          <p class="price">€30</p>
           <p class="subtitle">Solo fotografía profesional.</p>
           <ul>
             <li>Cobertura de la propiedad</li>
@@ -266,7 +264,7 @@
         <div class="pricing-card popular glow-effect reveal" style="transition-delay: 0.2s;">
           <div class="badge">El más popular</div>
           <h3>Estrella</h3>
-          <p class="price">45€</p>
+          <p class="price">€45</p>
           <p class="subtitle">Ideal para destacar en redes.</p>
           <ul>
             <li><strong>Todo lo del paquete Esencial +</strong></li>
@@ -279,7 +277,7 @@
 
         <div class="pricing-card reveal" style="transition-delay: 0.4s;">
           <h3>Premium Asesor</h3>
-          <p class="price">60€</p>
+          <p class="price">€60</p>
           <p class="subtitle">Posiciónate como el experto.</p>
           <p class="mini-copy">"Los compradores eligen al asesor."</p>
           <ul>
@@ -316,13 +314,13 @@
           <p><strong>Pagos:</strong> Las tarifas están calculadas en Euros (Tasa BCV del día). El pago total debe realizarse antes de la entrega del material. Métodos de pago: Transferencia, Pago Móvil, Binance, Wally y Divisas en efectivo.</p>
           <p><strong>Derechos:</strong> Uso en tus RRSS y portales inmobiliarios permitido. Prohibido su uso comercial por terceros sin mención ni autorización previa.</p>
         </div>
-
-        <a id="modal-btn" href="#" target="_blank" class="btn-primary w-100">AGENDAR POR WHATSAPP</a>
       </div>
+      
+      <a id="modal-btn" href="#" target="_blank" class="btn-primary w-100">AGENDAR POR WHATSAPP</a>
     </div>
   </div>
 
-  <!-- SECCIÓN 6: FAQ -->
+  <!-- SECCIÓN FAQ -->
   <section id="faq" class="faq-section">
     <div class="container">
       <h2 class="text-center reveal">Preguntas <span class="highlight">Frecuentes</span></h2>
@@ -343,15 +341,15 @@
         </div>
         <div class="faq-item">
           <button class="faq-question">¿Por qué debería contratar un fotógrafo si mi celular toma buenas fotos?</button>
-          <div class="faq-answer"><p>Las cámaras de los celulares tienden a distorsionar los espacios y no manejan bien los contrastes extremos de luz (ventanas brillantes y cuartos oscuros). Yo utilizo lentes gran angular profesionales sin distorsión y técnicas de iluminación (flambient) que muestran el tamaño real y el color exacto de la propiedad, algo que los celulares aún no pueden replicar.</p></div>
+          <div class="faq-answer"><p>Las cámaras de los celulares tienden a distorsionar los espacios y no manejan bien los contrastes extremos de luz (ventanas brillantes y cuartos oscuros). Yo utilizo lentes gran angular profesionales sin distorsión y técnicas de iluminación flambient que muestran el tamaño real y el color exacto de la propiedad, algo que los celulares aún no pueden replicar.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question">¿En qué formato y cómo me entregas las fotos y videos?</button>
-          <div class="faq-answer"><p>Te enviaré un enlace privado a una galería en la nube donde podrás descargar todo el material. Las fotos se entregan en alta resolución (para impresión) y en resolución web (optimizadas para que carguen rápido en Facebook, Instagram y portales inmobiliarios). Los videos se entregan en formato MP4 vertical u horizontal, según lo que hayamos acordado.</p></div>
+          <div class="faq-answer"><p>Te enviaré un enlace privado a una galería en la nube donde podrás descargar todo el material. Las fotos se entregan en alta resolución para impresión y en resolución web (optimizadas para que carguen rápido en Facebook, Instagram y portales inmobiliarios). Los videos se entregan en formato MP4 vertical u horizontal, según lo que hayamos acordado.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question">¿Ofreces el servicio de amoblamiento digital en propiedades vacías?</button>
-          <div class="faq-answer"><p>Sí, ofrezco el servicio de "Virtual Staging". Por una tarifa adicional por foto, puedo agregar digitalmente muebles y decoración realista a espacios vacíos. Esto ayuda muchísimo a que los compradores imaginen el potencial real del inmueble.</p></div>
+          <div class="faq-answer"><p>Sí, ofrezco el servicio de Virtual Staging. Por una tarifa adicional por foto, puedo agregar digitalmente muebles y decoración realista a espacios vacíos. Esto ayuda muchísimo a que los compradores imaginen el potencial real del inmueble.</p></div>
         </div>
       </div>
     </div>
@@ -360,13 +358,15 @@
   <!-- FOOTER AZUL CON DEGRADADO -->
   <footer class="site-footer gradient-footer">
     <div class="container footer-grid reveal">
-      <div class="footer-col brand-col">
-        <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" 
-     alt="Gabriel Millán" 
-     class="footer-logo"/>
-        <p>"Imágenes que venden. Servicio profesional en toda la Isla de Margarita."</p>
-      </div>
       
+      <div class="footer-col brand-col">
+        <div class="logo logo-footer">
+          <strong>Gabriel Millán</strong>
+          <span>Fotografía Inmobiliaria</span>
+        </div>
+        <p>Imágenes que venden. Servicio profesional en toda la Isla de Margarita.</p>
+      </div>
+
       <div class="footer-col links-col">
         <h4>Navegación</h4>
         <ul>
@@ -374,6 +374,7 @@
           <li><a href="#portafolio">Portafolio</a></li>
           <li><a href="#planes">Precios</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="../index.html">← Volver al Home</a></li>
         </ul>
       </div>
 
@@ -382,9 +383,11 @@
         <p>Email: <a href="mailto:gabrielmillan6@gmail.com">gabrielmillan6@gmail.com</a></p>
         <p>WhatsApp: <a href="https://wa.me/584123590065" target="_blank">+58 412-3590065</a></p>
         <p>Horario: Lunes a Sábado, 9AM - 6PM</p>
-        <a href="https://www.instagram.com/gabrielem.photo/" target="_blank" class="instagram-link">Sígueme en Instagram @gabrielem.photo</a>
+        <a href="https://www.instagram.com/gabrielem.photo" target="_blank" class="instagram-link">Sígueme en Instagram: @gabrielem.photo</a>
       </div>
+
     </div>
+    
     <div class="footer-bottom">
       <p>&copy; 2026 Gabriel Millán. Todos los derechos reservados.</p>
     </div>
