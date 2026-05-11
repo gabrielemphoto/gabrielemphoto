@@ -265,7 +265,15 @@ cursor: pointer; text-align: left; transition: background var(--transition-fast)
 
 /* PRECIOS */
 .pricing-section { background: linear-gradient(180deg, #111, #0a0a0a); padding-bottom: 8rem; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; align-items: stretch; }
+.pricing-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem; 
+  max-width: 1000px; /* Reducido de 1100px a 1000px para centrar mejor las 3 tarjetas */
+  margin: 0 auto; 
+  align-items: stretch;
+  justify-content: center; /* Asegura que el grid se centre horizontalmente */
+}
 .pricing-card {
 background: rgba(20,20,20,0.7); border: 1px solid var(--color-border);
 border-radius: 20px; padding: 3rem 2.5rem; text-align: center;
