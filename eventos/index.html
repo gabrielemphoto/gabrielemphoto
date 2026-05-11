@@ -73,36 +73,36 @@
     <div class="section-header text-center">
       <p class="section-kicker">Portafolio</p>
       <h2 class="section-title">Mis trabajos</h2>
-      <p class="section-desc">Selecciona una categoría para ver la galería completa.</p>
+      <div class="tap-hint">👆 Toca las imágenes para ver la galería completa</div>
     </div>
+    
     <div class="gallery-grid">
 
-      <!-- FILA 1: Editorial + Retratos (2 columnas) -->
-      <div class="gallery-item galeria-trigger" data-categoria="editorial" data-src="https://i.postimg.cc/nhrbc6fX/IMG-7742.jpg">
-        <figure><img src="https://i.postimg.cc/nhrbc6fX/IMG-7742.jpg" alt="Editorial" loading="lazy"/></figure>
-        <div class="glass-caption"><h3>Editorial</h3><p>Moda · Arte · Concepto</p></div>
-      </div>
-
-      <div class="gallery-item galeria-trigger" data-categoria="retratos" data-src="https://i.postimg.cc/y6RN73Xw/IMG-4044.jpg">
-        <figure><img src="https://i.postimg.cc/y6RN73Xw/IMG-4044.jpg" alt="Retratos" loading="lazy"/></figure>
+      <!-- FILA 1: Retratos y 15 Años (Mitad y mitad) -->
+      <div class="gallery-item span-half galeria-trigger" data-categoria="retratos" data-src="https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg">
+        <figure><img src="https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg" alt="Retratos" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Retratos</h3><p>Luz natural · Marca personal</p></div>
       </div>
 
-      <!-- FILA 2: 15 Años + Bautizos (2 columnas) -->
-      <div class="gallery-item galeria-trigger" data-categoria="xv" data-src="https://i.postimg.cc/dVw3HQdL/IMG-3799.jpg">
-        <figure><img src="https://i.postimg.cc/dVw3HQdL/IMG-3799.jpg" alt="15 Años" loading="lazy"/></figure>
+      <div class="gallery-item span-half galeria-trigger" data-categoria="xv" data-src="https://i.postimg.cc/y8jdwqXZ/IMG-3817.jpg">
+        <figure><img src="https://i.postimg.cc/y8jdwqXZ/IMG-3817.jpg" alt="15 Años" loading="lazy"/></figure>
         <div class="glass-caption"><h3>15 Años</h3><p>Quinceañeras · Celebración</p></div>
       </div>
 
-      <div class="gallery-item galeria-trigger" data-categoria="bautizos" data-src="https://i.postimg.cc/8kfx3hBJ/IMG-2596.jpg">
-        <figure><img src="https://i.postimg.cc/8kfx3hBJ/IMG-2596.jpg" alt="Bautizos" loading="lazy"/></figure>
-        <div class="glass-caption"><h3>Bautizos</h3><p>Momentos sagrados · Familia</p></div>
+      <!-- FILA 2: Editorial, Bautizos y Bodas (Tercio cada una) -->
+      <div class="gallery-item span-third galeria-trigger" data-categoria="editorial" data-src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg">
+        <figure><img src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg" alt="Editorial" loading="lazy"/></figure>
+        <div class="glass-caption"><h3>Editorial</h3><p>Moda · Arte · Concepto</p></div>
       </div>
 
-      <!-- FILA 3: Bodas (Ancho completo, abarca las 2 columnas) -->
-      <div class="gallery-item item-wide galeria-trigger" data-categoria="bodas" data-src="https://i.postimg.cc/tCXG8srP/IMG-0045.jpg">
-        <figure><img src="https://i.postimg.cc/tCXG8srP/IMG-0045.jpg" alt="Bodas" loading="lazy"/></figure>
-        <div class="glass-caption"><h3>Bodas</h3><p>Cobertura completa · Emociones reales</p></div>
+      <div class="gallery-item span-third galeria-trigger" data-categoria="bautizos" data-src="https://i.postimg.cc/5NcDM6nK/IMG-2721.jpg">
+        <figure><img src="https://i.postimg.cc/5NcDM6nK/IMG-2721.jpg" alt="Bautizos" loading="lazy"/></figure>
+        <div class="glass-caption"><h3>Bautizos</h3><p>Momentos sagrados</p></div>
+      </div>
+
+      <div class="gallery-item span-third galeria-trigger" data-categoria="bodas" data-src="https://i.postimg.cc/SNDb4m3K/IMG-0608.jpg">
+        <figure><img src="https://i.postimg.cc/SNDb4m3K/IMG-0608.jpg" alt="Bodas" loading="lazy"/></figure>
+        <div class="glass-caption"><h3>Bodas</h3><p>Cobertura completa</p></div>
       </div>
 
     </div>
@@ -161,27 +161,27 @@
     </div>
 
     <!-- ══ SERVICIOS ADICIONALES ══ -->
-    <div class="addons-container" style="margin-top: 5rem; text-align: center;">
-      <h3 class="addons-title" style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--color-white);">Personaliza tu experiencia</h3>
-      <p class="addons-desc" style="color: var(--color-text-muted); margin-bottom: 3rem;">Servicios adicionales para complementar tu sesión</p>
+    <div class="addons-container">
+      <h3 class="addons-title">Personaliza tu experiencia</h3>
+      <p class="addons-desc">Servicios adicionales para complementar tu sesión</p>
       
-      <div class="addons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
-          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">💄</span>
-          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Make-up Profesional</h4>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Maquillaje de larga duración diseñado específicamente para fotografía y video.</p>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <span class="addon-icon">💄</span>
+          <h4>Make-up Profesional</h4>
+          <p>Maquillaje de larga duración diseñado específicamente para fotografía y video.</p>
         </div>
         
-        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
-          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">✨</span>
-          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Estilismo</h4>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Preparación de vestuario, peinado y asesoría de imagen durante la sesión.</p>
+        <div class="addon-card">
+          <span class="addon-icon">✨</span>
+          <h4>Estilismo</h4>
+          <p>Preparación de vestuario, peinado y asesoría de imagen durante la sesión.</p>
         </div>
         
-        <div class="addon-card" style="background: rgba(13, 20, 31, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
-          <span class="addon-icon" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🚗</span>
-          <h4 style="color: var(--color-secondary); margin-bottom: 1rem;">Transporte</h4>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Traslado cómodo y seguro hacia las locaciones dentro de la isla.</p>
+        <div class="addon-card">
+          <span class="addon-icon">🚗</span>
+          <h4>Transporte</h4>
+          <p>Traslado cómodo y seguro hacia las locaciones dentro de la isla.</p>
         </div>
       </div>
     </div>
@@ -302,6 +302,7 @@
   </div>
 </footer>
 
-<script src="script-3.js"></script>
+<!-- EL NOMBRE DEL SCRIPT ESTÁ CORREGIDO AQUÍ 👇 -->
+<script src="script.js"></script>
 </body>
 </html>
