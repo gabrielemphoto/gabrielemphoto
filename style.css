@@ -3,16 +3,14 @@
 :root {
   --accent: #C9A96E;
   --text-light: #F5F5F3;
-  --text-dark: #111111; /* Nuevo color para el texto sobre el blanco */
   --text-muted: #aaaaaa;
-  --text-muted-dark: #555555; /* Nuevo color para subtítulos sobre blanco */
   --font-title: 'Cormorant Garamond', serif;
   --font-ui: 'Montserrat', sans-serif;
 }
 
 body {
-  background: #ffffff; /* Fondo base cambiado a blanco */
-  color: var(--text-dark); /* Color de texto base adaptado a fondos claros */
+  background: #0D0D0D; /* Volvemos al fondo oscuro */
+  color: var(--text-light); /* Texto principal blanco */
   font-family: var(--font-ui);
   overflow-x: hidden;
 }
@@ -49,38 +47,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #0D0D0D;
 }
 
 /* ══════════════════════════════
-   COLLAGE EN BLOQUES (ACTUALIZADO)
+   COLLAGE EN BLOQUES
 ══════════════════════════════ */
 #collage {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   display: grid;
-  
-  /* Creamos 7 columnas base para poder jugar con los anchos */
   grid-template-columns: repeat(7, 1fr);
-  /* 3 filas exactas y equitativas */
   grid-template-rows: repeat(3, 33.33vh);
-  
-  gap: 8px; /* Líneas blancas divisorias */
-  background-color: #ffffff; /* Fondo blanco */
+  gap: 4px; /* Divisiones sutiles y oscuras */
+  background-color: #000000;
   z-index: 0;
 }
 
 .collage-cell {
   position: relative;
   overflow: hidden;
-  background-color: #f0f0f0;
+  background-color: #111111;
 }
 
-/* 
-  Definimos el ancho estricto de cada celda. 
-  V = Vertical (ocupa 1 columna base)
-  H = Horizontal (ocupa 2 columnas base)
-*/
 .cell-v { grid-column: span 1; }
 .cell-h { grid-column: span 2; }
 
@@ -99,51 +88,17 @@ body {
 .collage-cell img.visible { opacity: 1; transform: scale(1.05); }
 
 /* ══════════════════════════════
-   OVERLAY — VELO SUTIL
-══════════════════════════════ */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  /* El velo ahora es transparente arriba y solo se vuelve blanco puro abajo donde van las tarjetas */
-  background: linear-gradient(
-    180deg, 
-    rgba(255,255,255,0) 0%, 
-    rgba(255,255,255,0) 40%, 
-    rgba(255,255,255,0.85) 75%, 
-    rgba(255,255,255,1) 100%
-  );
-  z-index: 3;
-}
-
-/* En móvil las filas deben cambiar para que no queden muy estiradas */
-@media (max-width: 768px) {
-  #collage {
-    /* 3 columnas en móvil */
-    grid-template-columns: repeat(3, 1fr);
-    /* 5 filas para acomodar las fotos */
-    grid-template-rows: repeat(5, 20vh);
-  }
-  .cell-v { grid-column: span 1; }
-  .cell-h { grid-column: span 2; }
-}
-
-/* ZOOM LENTO ESTÉTICO */
-.collage-cell img.layer-a { transform: scale(1.05); }
-.collage-cell img.layer-b { transform: scale(1); }
-.collage-cell img.hidden { opacity: 0; transform: scale(1.1); }
-.collage-cell img.visible { opacity: 1; transform: scale(1.05); }
-
-/* ══════════════════════════════
-   OVERLAY — VELO BLANCO FRESCO (NUEVO)
+   OVERLAY — VELO OSCURO CON MÁS OPACIDAD
 ══════════════════════════════ */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg, 
-    rgba(255,255,255,0.7) 0%, 
-    rgba(255,255,255,0.92) 65%, 
-    rgba(255,255,255,1) 100%
+    rgba(0,0,0,0.5) 0%, 
+    rgba(0,0,0,0.75) 45%, 
+    rgba(13,13,13,0.95) 85%, 
+    rgba(13,13,13,1) 100%
   );
   z-index: 3;
 }
@@ -166,16 +121,16 @@ body {
 
 .hero-logo {
   width: clamp(160px, 22vw, 300px);
-  /* Sombra más sutil para el logo sobre fondo claro */
-  filter: drop-shadow(0 8px 25px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 4px 30px rgba(0,0,0,0.9));
 }
 
 .hero-tagline {
   font-family: var(--font-title);
   font-size: clamp(0.9rem, 1.7vw, 1.3rem);
-  font-weight: 600; /* Letra más gruesa para que se lea sobre el blanco */
+  font-weight: 300;
   letter-spacing: 0.24em;
-  color: var(--text-dark); /* Texto oscuro en lugar de claro */
+  color: var(--text-light); /* Vuelve a ser blanco */
+  opacity: 0.88;
   text-transform: uppercase;
 }
 
@@ -190,7 +145,7 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ── TARJETA ── */
+/* ── TARJETA CON RESPLANDOR BLANCO LEVE ── */
 .card-servicio {
   position: relative;
   height: 260px;
@@ -198,21 +153,23 @@ body {
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  /* Estado normal: borde sutil blanco semi-transparente */
   box-shadow:
-    0 8px 30px rgba(0,0,0,0.12), /* Sombra adaptada a fondo blanco */
-    0 0 0 1px rgba(201,169,110,0.3);
+    0 8px 30px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 0 15px rgba(255,255,255,0.05);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .card-servicio:hover {
   transform: translateY(-6px) scale(1.015);
+  /* Hover: El resplandor blanco se enciende */
   box-shadow:
-    0 16px 40px rgba(0,0,0,0.2),
-    0 0 0 1.5px rgba(201,169,110,0.8),
-    0 0 25px rgba(201,169,110,0.4);
+    0 16px 40px rgba(0,0,0,0.8),
+    0 0 0 1.5px rgba(255,255,255,0.6),
+    0 0 35px rgba(255,255,255,0.25);
 }
 
-/* Foto de fondo */
 .card-bg {
   position: absolute;
   inset: 0;
@@ -220,24 +177,23 @@ body {
   background-position: center;
   transition: transform 0.5s ease;
 }
+
 .card-servicio:hover .card-bg {
   transform: scale(1.06);
 }
 
-/* Overlay oscuro SOLO sobre la foto de la tarjeta (para poder leer el texto blanco de las tarjetas) */
 .card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.85) 0%,
-    rgba(0,0,0,0.30) 60%,
+    rgba(0,0,0,0.9) 0%,
+    rgba(0,0,0,0.35) 60%,
     rgba(0,0,0,0.10) 100%
   );
   z-index: 1;
 }
 
-/* Texto de la tarjeta */
 .card-body {
   position: relative;
   z-index: 2;
@@ -259,7 +215,7 @@ body {
   font-family: var(--font-title);
   font-size: 1.35rem;
   font-weight: 600;
-  color: #fff; /* Este texto se mantiene blanco porque está sobre la foto de la tarjeta */
+  color: #fff;
   line-height: 1.2;
   margin-bottom: 0.4rem;
 }
@@ -267,7 +223,7 @@ body {
 .card-desc {
   font-size: 0.75rem;
   font-weight: 300;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.78);
   line-height: 1.5;
   margin-bottom: 0.8rem;
   max-width: 260px;
@@ -277,7 +233,7 @@ body {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--accent);
+  color: var(--accent); /* Se mantiene dorado para dar un toque de elegancia */
   text-transform: uppercase;
   transition: letter-spacing 0.3s ease;
 }
@@ -291,7 +247,7 @@ body {
 ══════════════════════════════ */
 .footer {
   background: #0a0a0a;
-  border-top: 1px solid rgba(201,169,110,0.18);
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 3.5rem 2rem;
   text-align: center;
 }
@@ -306,7 +262,6 @@ body {
 .footer-logo {
   width: 110px;
   opacity: 0.85;
-  filter: drop-shadow(0 2px 10px rgba(201,169,110,0.2));
 }
 
 .footer-frase {
@@ -344,7 +299,7 @@ body {
 }
 
 /* ══════════════════════════════
-   RESPONSIVE (CORREGIDO)
+   RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 1024px) {
   .servicios-grid { grid-template-columns: repeat(3, 1fr); }
@@ -355,19 +310,19 @@ body {
   .servicios-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
-    margin: 0 auto; /* Centra las tarjetas en móvil */
+    margin: 0 auto;
   }
   
   .card-servicio { 
     height: 220px; 
-    width: 90%; /* Ajuste de las tarjetas en móvil */
+    width: 90%;
     margin: 0 auto;
   }
   
   #collage {
-    /* El collage pasa de 4 a 2 columnas en móvil para que las fotos no queden enanas */
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 20vh;
-    gap: 8px; /* Líneas blancas más finas en móvil */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 20vh);
   }
+  .cell-v { grid-column: span 1; }
+  .cell-h { grid-column: span 2; }
 }
