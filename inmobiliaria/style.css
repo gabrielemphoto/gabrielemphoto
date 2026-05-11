@@ -270,3 +270,18 @@ section { padding: 6rem 0; }
   .cta-box { padding: 2.5rem 1.5rem; }
   .cta-box h2 { font-size: 2rem; }
 }
+/* ══ LOGO ISOTIPO HEADER ══ */
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-logo {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 1rem;
+}
