@@ -283,7 +283,13 @@ transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1); backdrop-filter: blur(10px);
 .pricing-card:hover { transform: translateY(-10px); border-color: rgba(201,169,110,0.35); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
 .pricing-card h3 { font-family: var(--font-title); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--color-text-main); }
 .price { font-size: 3.5rem; font-weight: 900; color: var(--color-primary); margin: 0.5rem 0 2rem; letter-spacing: -2px; }
-.pricing-features { text-align: left; margin-bottom: 2.5rem; flex-grow: 1; padding: 0; list-style: none; }
+.pricing-features { 
+  text-align: left; 
+  margin-bottom: 2.5rem; 
+  flex-grow: 1; 
+  padding: 0 1rem; /* Agrega un poco de padding a los lados para que no queden pegadas al borde izquierdo */
+  list-style: none; 
+}
 .pricing-features li {
 padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
 color: var(--color-text-muted); font-size: 0.95rem;
