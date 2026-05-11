@@ -276,6 +276,7 @@ section { padding: var(--spacing-lg) 0; }
 }
 
 @media (max-width: 768px) {
+  .about-image-wrapper { width: 250px; height: 250px; }
   .header-wrap { height: 55px; }
   .brand-logo-img { height: 36px; }
   .main-nav ul { display: none; }
