@@ -25,83 +25,83 @@ body {
   justify-content: center;
 }
 
-/* ── COLLAGE DE FONDO ── */
+/* ── COLLAGE ── */
 .collage {
   position: absolute;
   inset: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 4px;
+  gap: 3px;
 }
 
 .collage-cell {
   overflow: hidden;
   position: relative;
+  background: #111;
 }
 
 .collage-cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 1.2s ease-in-out;
+  position: absolute;
+  top: 0; left: 0;
+  transition: opacity 1.4s ease-in-out;
 }
 
-.collage-cell img.fade-out {
-  opacity: 0;
-}
+.collage-cell img.layer-a { opacity: 1; z-index: 1; }
+.collage-cell img.layer-b { opacity: 0; z-index: 2; }
+.collage-cell img.layer-b.visible { opacity: 1; }
+.collage-cell img.layer-a.hidden { opacity: 0; }
 
-.collage-cell img.fade-in {
-  opacity: 1;
-}
-
-/* ── OVERLAY OSCURO SOBRE EL COLLAGE ── */
+/* ── OVERLAY ── */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.35) 50%,
-    rgba(0,0,0,0.75) 100%
+    rgba(0,0,0,0.5) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0.72) 100%
   );
-  z-index: 1;
+  z-index: 3;
 }
 
-/* ── CONTENIDO CENTRADO ── */
+/* ── CONTENIDO ── */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   text-align: center;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.6rem;
 }
 
 .hero-logo {
-  width: clamp(180px, 25vw, 320px);
-  filter: drop-shadow(0 4px 24px rgba(0,0,0,0.7));
+  width: clamp(180px, 24vw, 320px);
+  filter: drop-shadow(0 4px 28px rgba(0,0,0,0.8));
 }
 
 .hero-tagline {
   font-family: var(--font-title);
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.35rem);
   font-weight: 300;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--color-text-light);
-  opacity: 0.9;
+  opacity: 0.88;
   text-transform: uppercase;
 }
 
-/* ── BOTONES DE SERVICIOS ── */
+/* ── BOTONES ── */
 .hero-nav {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .btn-servicio {
@@ -109,16 +109,16 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.6rem;
-  border: 1px solid rgba(201,169,110,0.6);
+  border: 1px solid rgba(201,169,110,0.55);
   color: var(--color-text-light);
   text-decoration: none;
   font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
@@ -127,17 +127,14 @@ body {
   border-color: var(--color-accent);
   color: #0D0D0D;
   transform: translateY(-2px);
-}
-
-.btn-icon {
-  font-size: 1rem;
+  box-shadow: 0 8px 24px rgba(201,169,110,0.35);
 }
 
 /* ── FOOTER ── */
 .footer {
   background: #0a0a0a;
-  border-top: 1px solid rgba(201,169,110,0.25);
-  padding: 3rem 2rem;
+  border-top: 1px solid rgba(201,169,110,0.2);
+  padding: 3.5rem 2rem;
   text-align: center;
 }
 
@@ -150,12 +147,12 @@ body {
 
 .footer-frase {
   font-family: var(--font-title);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
   font-weight: 300;
   font-style: italic;
   color: var(--color-accent);
-  line-height: 1.6;
-  max-width: 700px;
+  line-height: 1.65;
+  max-width: 680px;
 }
 
 .footer-links {
@@ -164,7 +161,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-text-muted);
 }
 
@@ -178,14 +175,17 @@ body {
 .footer-links a:hover { color: var(--color-accent); }
 
 .footer-copy {
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  .collage { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(6, 1fr); }
-  .hero-nav { flex-direction: column; width: 100%; }
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .hero-nav { flex-direction: column; width: 100%; max-width: 320px; }
   .btn-servicio { justify-content: center; }
 }
