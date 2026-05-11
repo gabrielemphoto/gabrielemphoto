@@ -9,8 +9,8 @@
 }
 
 body {
-  background: #0D0D0D; /* Volvemos al fondo oscuro */
-  color: var(--text-light); /* Texto principal blanco */
+  background: #0D0D0D; 
+  color: var(--text-light); 
   font-family: var(--font-ui);
   overflow-x: hidden;
 }
@@ -59,7 +59,7 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(3, 33.33vh);
-  gap: 4px; /* Divisiones sutiles y oscuras */
+  gap: 4px; 
   background-color: #000000;
   z-index: 0;
 }
@@ -73,31 +73,42 @@ body {
 .cell-v { grid-column: span 1; }
 .cell-h { grid-column: span 2; }
 
+/* CONFIGURACIÓN DEL FADE (DESVANECER) */
 .collage-cell img {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: opacity 1.4s ease-in-out, transform 8s linear;
+  /* Transición suave de opacidad para el fade */
+  transition: opacity 1.5s ease-in-out, transform 10s linear;
 }
 
-.collage-cell img.layer-a { transform: scale(1.05); z-index: 1;}
-.collage-cell img.layer-b { transform: scale(1); z-index: 2;}
-.collage-cell img.hidden { opacity: 0; transform: scale(1.1); }
-.collage-cell img.visible { opacity: 1; transform: scale(1.05); }
+.collage-cell img.layer-a { z-index: 1; }
+.collage-cell img.layer-b { z-index: 2; }
+
+/* Clases para controlar la visibilidad */
+.collage-cell img.hidden { 
+  opacity: 0; 
+  transform: scale(1.1); 
+}
+.collage-cell img.visible { 
+  opacity: 1; 
+  transform: scale(1.05); 
+}
 
 /* ══════════════════════════════
-   OVERLAY — VELO OSCURO CON MÁS OPACIDAD
+   OVERLAY — VELO OSCURO REDUCIDO
 ══════════════════════════════ */
 .hero-overlay {
   position: absolute;
   inset: 0;
+  /* Degradado mucho más suave, deja ver las fotos */
   background: linear-gradient(
     180deg, 
-    rgba(0,0,0,0.5) 0%, 
-    rgba(0,0,0,0.75) 45%, 
-    rgba(13,13,13,0.95) 85%, 
+    rgba(0,0,0,0.3) 0%,     /* Arriba menos oscuro */
+    rgba(0,0,0,0.45) 45%,   /* Medio más claro */
+    rgba(13,13,13,0.85) 85%, 
     rgba(13,13,13,1) 100%
   );
   z-index: 3;
@@ -129,7 +140,7 @@ body {
   font-size: clamp(0.9rem, 1.7vw, 1.3rem);
   font-weight: 300;
   letter-spacing: 0.24em;
-  color: var(--text-light); /* Vuelve a ser blanco */
+  color: var(--text-light);
   opacity: 0.88;
   text-transform: uppercase;
 }
@@ -145,7 +156,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ── TARJETA CON RESPLANDOR BLANCO LEVE ── */
 .card-servicio {
   position: relative;
   height: 260px;
@@ -153,7 +163,6 @@ body {
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  /* Estado normal: borde sutil blanco semi-transparente */
   box-shadow:
     0 8px 30px rgba(0,0,0,0.6),
     0 0 0 1px rgba(255,255,255,0.15),
@@ -163,7 +172,6 @@ body {
 
 .card-servicio:hover {
   transform: translateY(-6px) scale(1.015);
-  /* Hover: El resplandor blanco se enciende */
   box-shadow:
     0 16px 40px rgba(0,0,0,0.8),
     0 0 0 1.5px rgba(255,255,255,0.6),
@@ -233,7 +241,7 @@ body {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: var(--accent); /* Se mantiene dorado para dar un toque de elegancia */
+  color: var(--accent);
   text-transform: uppercase;
   transition: letter-spacing 0.3s ease;
 }
