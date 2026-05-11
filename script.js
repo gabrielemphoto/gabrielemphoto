@@ -140,12 +140,9 @@ const fotos = [
   "https://i.postimg.cc/vBVXPvF7/IMG-6375-HDR.jpg"
 ];
 
-// ── CONFIGURACIÓN ──
-const CELDAS = 12;         // 4 columnas × 3 filas
-const INTERVALO = 2800;    // ms entre cada cambio de celda
-const FADE_DURACION = 1400; // debe coincidir con transition en CSS
+const CELDAS = 12;
+const INTERVALO = 2800;
 
-// ── MEZCLAR ARRAY ──
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -155,7 +152,6 @@ function shuffle(arr) {
   return a;
 }
 
-// ── CONSTRUIR COLLAGE ──
 const collageEl = document.getElementById('collage');
 const celdas = [];
 const fotosInit = shuffle(fotos);
@@ -164,7 +160,6 @@ for (let i = 0; i < CELDAS; i++) {
   const cell = document.createElement('div');
   cell.classList.add('collage-cell');
 
-  // Dos capas por celda: A (visible) y B (espera debajo)
   const imgA = document.createElement('img');
   imgA.classList.add('layer-a');
   imgA.src = fotosInit[i % fotos.length];
@@ -179,41 +174,33 @@ for (let i = 0; i < CELDAS; i++) {
   collageEl.appendChild(cell);
 
   celdas.push({
-    cell,
-    imgA,
-    imgB,
+    imgA, imgB,
     activeLayer: 'a',
     fotosUsadas: new Set([fotosInit[i % fotos.length]])
   });
 }
 
-// ── OBTENER FOTO DIFERENTE ──
 function fotoAleatoria(usadas) {
   const disponibles = fotos.filter(f => !usadas.has(f));
   const pool = disponibles.length > 0 ? disponibles : fotos;
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-// ── ANIMACIÓN CROSSFADE ──
 function cambiarCelda(idx) {
   const c = celdas[idx];
-  const nuevaFoto = fotoAleatoria(c.fotosUsadas);
-  c.fotosUsadas.add(nuevaFoto);
-  if (c.fotosUsadas.size > Math.floor(fotos.length / 2)) {
-    c.fotosUsadas.clear();
-  }
+  const nueva = fotoAleatoria(c.fotosUsadas);
+  c.fotosUsadas.add(nueva);
+  if (c.fotosUsadas.size > Math.floor(fotos.length / 2)) c.fotosUsadas.clear();
 
   if (c.activeLayer === 'a') {
-    // Cargar en B, luego hacer B visible y A invisible
-    c.imgB.src = nuevaFoto;
+    c.imgB.src = nueva;
     c.imgB.onload = () => {
       c.imgB.classList.add('visible');
       c.imgA.classList.add('hidden');
       c.activeLayer = 'b';
     };
   } else {
-    // Cargar en A, luego hacer A visible y B invisible
-    c.imgA.src = nuevaFoto;
+    c.imgA.src = nueva;
     c.imgA.onload = () => {
       c.imgA.classList.remove('hidden');
       c.imgB.classList.remove('visible');
@@ -222,8 +209,6 @@ function cambiarCelda(idx) {
   }
 }
 
-// ── CICLO ESCALONADO ──
-// Cada celda cambia en momentos distintos para que no cambien todas a la vez
 celdas.forEach((_, idx) => {
   setTimeout(() => {
     setInterval(() => cambiarCelda(idx), INTERVALO * CELDAS);
