@@ -54,11 +54,13 @@
 <!-- ══ SOBRE MÍ ══ -->
 <section id="sobre-mi" class="about-section">
   <div class="container about-container">
-    <div class="about-image-wrapper">
+    <!-- Se añade reveal aquí -->
+    <div class="about-image-wrapper reveal">
       <div class="about-glow"></div>
       <img src="https://i.postimg.cc/MHXBP6jL/SAVE-20260220-135544.jpg" alt="Gabriel Millán" class="about-img"/>
     </div>
-    <div class="about-content">
+    <!-- Se añade reveal aquí -->
+    <div class="about-content reveal">
       <div class="section-header left-title">
         <p class="section-kicker">El ojo detrás del lente</p>
         <h2 class="section-title">Hola, soy<br/><span class="text-highlight">Gabriel Millán</span></h2>
@@ -76,37 +78,36 @@
 <!-- ══ PORTAFOLIO ══ -->
 <section id="portafolio" style="padding: var(--spacing-lg) 0;">
   <div class="container">
-    <div class="section-header text-center">
+    <!-- Se añade reveal aquí -->
+    <div class="section-header text-center reveal">
       <p class="section-kicker">Portafolio</p>
       <h2 class="section-title">Mis trabajos</h2>
       <div class="tap-hint">👆 Toca las imágenes para ver la galería completa</div>
     </div>
     
     <div class="gallery-grid">
-
-      <!-- FILA 1: Retratos y 15 Años (Mitad y mitad) -->
-      <div class="gallery-item span-half galeria-trigger" data-categoria="retratos" data-src="https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg">
+      <!-- Se añade reveal a cada imagen de la galería -->
+      <div class="gallery-item span-half galeria-trigger reveal" data-categoria="retratos" data-src="https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg">
         <figure><img src="https://i.postimg.cc/Hn1dr39D/IMG-4092.jpg" alt="Retratos" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Retratos</h3><p>Luz natural · Marca personal</p></div>
       </div>
 
-      <div class="gallery-item span-half galeria-trigger" data-categoria="xv" data-src="https://i.postimg.cc/y8jdwqXZ/IMG-3817.jpg">
+      <div class="gallery-item span-half galeria-trigger reveal" data-categoria="xv" data-src="https://i.postimg.cc/y8jdwqXZ/IMG-3817.jpg">
         <figure><img src="https://i.postimg.cc/y8jdwqXZ/IMG-3817.jpg" alt="15 Años" loading="lazy"/></figure>
         <div class="glass-caption"><h3>15 Años</h3><p>Quinceañeras · Celebración</p></div>
       </div>
 
-      <!-- FILA 2: Editorial, Bautizos y Bodas (Tercio cada una) -->
-      <div class="gallery-item span-third galeria-trigger" data-categoria="editorial" data-src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg">
+      <div class="gallery-item span-third galeria-trigger reveal" data-categoria="editorial" data-src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg">
         <figure><img src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg" alt="Editorial" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Editorial</h3><p>Moda · Arte · Concepto</p></div>
       </div>
 
-      <div class="gallery-item span-third galeria-trigger" data-categoria="bautizos" data-src="https://i.postimg.cc/5NcDM6nK/IMG-2721.jpg">
+      <div class="gallery-item span-third galeria-trigger reveal" data-categoria="bautizos" data-src="https://i.postimg.cc/5NcDM6nK/IMG-2721.jpg">
         <figure><img src="https://i.postimg.cc/5NcDM6nK/IMG-2721.jpg" alt="Bautizos" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Bautizos</h3><p>Momentos sagrados</p></div>
       </div>
 
-      <div class="gallery-item span-third galeria-trigger" data-categoria="bodas" data-src="https://i.postimg.cc/SNDb4m3K/IMG-0608.jpg">
+      <div class="gallery-item span-third galeria-trigger reveal" data-categoria="bodas" data-src="https://i.postimg.cc/SNDb4m3K/IMG-0608.jpg">
         <figure><img src="https://i.postimg.cc/SNDb4m3K/IMG-0608.jpg" alt="Bodas" loading="lazy"/></figure>
         <div class="glass-caption"><h3>Bodas</h3><p>Cobertura completa</p></div>
       </div>
@@ -118,14 +119,16 @@
 <!-- ══ PRECIOS ══ -->
 <section id="precios" class="pricing-section">
   <div class="container">
-    <div class="section-header text-center">
+    <!-- Se añade reveal aquí -->
+    <div class="section-header text-center reveal">
       <p class="section-kicker">Inversión</p>
       <h2 class="section-title">Planes y Precios</h2>
       <p class="section-desc">Elige el paquete que mejor se adapte a tu proyecto.</p>
     </div>
     
     <div class="pricing-grid">
-      <div class="pricing-card">
+      <!-- Se añade reveal a cada tarjeta de precios -->
+      <div class="pricing-card reveal">
         <h3>Plan XV Años</h3>
         <p class="price">€60</p>
         <ul class="pricing-features">
@@ -138,7 +141,7 @@
         <button class="btn-secondary open-plan-modal" data-plan="xv">Ver detalles</button>
       </div>
 
-      <div class="pricing-card premium-card">
+      <div class="pricing-card premium-card reveal">
         <div class="popular-badge">Más popular</div>
         <h3>Plan Graduación</h3>
         <p class="price">€50</p>
@@ -152,7 +155,7 @@
         <button class="btn-primary open-plan-modal" data-plan="graduacion">Ver detalles</button>
       </div>
 
-      <div class="pricing-card">
+      <div class="pricing-card reveal">
         <h3>Sesión Premium</h3>
         <p class="price">€100</p>
         <ul class="pricing-features">
@@ -167,7 +170,8 @@
     </div>
 
     <!-- ══ SERVICIOS ADICIONALES ══ -->
-    <div class="addons-container">
+    <!-- Se añade reveal aquí -->
+    <div class="addons-container reveal">
       <h3 class="addons-title">Personaliza tu experiencia</h3>
       <p class="addons-desc">Servicios adicionales para complementar tu sesión</p>
       
@@ -198,12 +202,15 @@
 <!-- ══ SERVICIOS ══ -->
 <section id="servicios" style="padding: var(--spacing-lg) 0; background: #050912; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
   <div class="container">
-    <div class="section-header text-center">
+    <!-- Se añade reveal aquí -->
+    <div class="section-header text-center reveal">
       <p class="section-kicker">Servicios</p>
       <h2 class="section-title">Lo que puedo crear</h2>
       <p class="section-desc">Haz clic en cada servicio para ver más detalles.</p>
     </div>
-    <div class="accordion-container">
+    
+    <!-- Se añade reveal aquí para el contenedor entero del acordeón -->
+    <div class="accordion-container reveal">
       <div class="accordion-item">
         <button class="accordion-header">
           <span class="accordion-number">01</span>
@@ -241,27 +248,30 @@
 <!-- ══ CONTACTO ══ -->
 <section id="contacto" class="contact-section" style="padding-top: 6rem;">
   <div class="container">
-    <div class="section-header text-center">
+    <!-- Se añade reveal aquí -->
+    <div class="section-header text-center reveal">
       <p class="section-kicker">Contacto</p>
       <h2 class="section-title">Elige cómo contactarme</h2>
     </div>
+    
     <div class="contact-grid">
-     <a href="https://wa.me/584123590065?text=Buen%20d%C3%ADa%20Gabriel%2C%20necesito%20informaci%C3%B3n%20acerca%20de%20las%20sesiones%20de%20fotos" target="_blank" class="social-card">
+     <!-- Se añade reveal a las tarjetas sociales individualmente -->
+     <a href="https://wa.me/584123590065?text=Buen%20d%C3%ADa%20Gabriel%2C%20necesito%20informaci%C3%B3n%20acerca%20de%20las%20sesiones%20de%20fotos" target="_blank" class="social-card reveal">
         <span class="social-icon">📲</span>
         <span class="contact-label">WhatsApp</span>
         <strong>+58 412 359 0065</strong>
       </a>
-      <a href="https://instagram.com/gabrielem.photo" target="_blank" class="social-card">
+      <a href="https://instagram.com/gabrielem.photo" target="_blank" class="social-card reveal">
         <span class="social-icon">📸</span>
         <span class="contact-label">Instagram</span>
         <strong>@gabrielem.photo</strong>
       </a>
-      <a href="https://tiktok.com/@gabrielem.photo" target="_blank" class="social-card">
+      <a href="https://tiktok.com/@gabrielem.photo" target="_blank" class="social-card reveal">
         <span class="social-icon">🎵</span>
         <span class="contact-label">TikTok</span>
         <strong>@gabrielem.photo</strong>
       </a>
-      <a href="mailto:gabrielmillan6@gmail.com" class="social-card">
+      <a href="mailto:gabrielmillan6@gmail.com" class="social-card reveal">
         <span class="social-icon">✉️</span>
         <span class="contact-label">Email</span>
         <strong style="font-size: 0.85rem;">gabrielmillan6@gmail.com</strong>
@@ -288,11 +298,11 @@
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
   <div class="container footer-content">
-    <div class="footer-brand">
+    <div class="footer-brand reveal">
       <img src="https://i.postimg.cc/SN36PMdj/isotipoblanco.png" alt="GabrielEM Photo" class="footer-logo" style="width: 55px;"/>
       <p>Fotografía cinematográfica para eventos, retratos y marcas en Isla Margarita, Venezuela.</p>
     </div>
-    <div class="footer-links">
+    <div class="footer-links reveal">
       <h3>Navegación</h3>
       <ul>
         <li><a href="#portafolio">Portafolio</a></li>
@@ -308,7 +318,6 @@
   </div>
 </footer>
 
-<!-- EL NOMBRE DEL SCRIPT ESTÁ CORREGIDO AQUÍ 👇 -->
 <script src="script.js"></script>
 </body>
 </html>
