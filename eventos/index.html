@@ -1,384 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GemaStudio | Fotografía y Dirección Visual</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventos & Sesiones · GabrielEM Photo</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <header class="site-header glass-nav">
+  <!-- ══ HEADER ══ -->
+  <header class="site-header">
     <div class="container header-wrap">
-      <a href="#inicio" class="brand-logo" aria-label="Ir al inicio">
-        <img src="https://i.postimg.cc/3RHkqYdQ/BLanco-Gema-Studio.png" alt="Logo GemaStudio" class="brand-logo-img" />
+
+      <!-- Logo blanco, link al home -->
+      <a href="../index.html">
+        <img
+          src="https://i.postimg.cc/tTp7fX84/logoblanco.png"
+          alt="GabrielEM Photo"
+          class="brand-logo-img"
+        />
       </a>
-      <nav class="main-nav" aria-label="Navegación principal">
+
+      <nav class="main-nav" id="main-nav">
         <ul>
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-          <li><a href="#servicios" class="nav-link">Servicios</a></li>
-          <li><a href="#planes" class="nav-link">Planes</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="https://www.instagram.com/gabrielem.photo/" target="_blank" class="btn-primary btn-small">Instagram</a></li>
+          <li><a href="#portafolio"  class="nav-link">Portafolio</a></li>
+          <li><a href="#servicios"   class="nav-link">Servicios</a></li>
+          <li><a href="#sobre-mi"    class="nav-link">Sobre mí</a></li>
+          <li><a href="#precios"     class="nav-link">Precios</a></li>
+          <li><a href="#contacto"    class="nav-link">Contacto</a></li>
+          <li><a href="../index.html" class="nav-link back-home">← Home</a></li>
         </ul>
       </nav>
+
+      <a
+        href="https://wa.me/584123590065?text=Hola%20Gabriel%2C%20quiero%20información%20sobre%20fotografía%20de%20eventos."
+        class="btn-primary btn-small"
+        target="_blank"
+      >Agendar</a>
+
     </div>
   </header>
 
-  <main>
-    <section id="inicio" class="hero-section">
-      <div class="hero-parallax"></div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <p class="hero-subtitle fade-in-up">Fotografía · Dirección visual · Identidad</p>
-        <h1 class="hero-title fade-in-up delay-1">Capturo imágenes con <span class="text-gradient">impacto real</span></h1>
-        <p class="hero-description fade-in-up delay-2">
-          GemaStudio es mi espacio creativo para desarrollar fotografía de paisajes, eventos, retratos e inmobiliaria con una estética limpia, cinematográfica y profesional.
-        </p>
-        <div class="hero-actions fade-in-up delay-3">
-          <a href="#portafolio" class="btn-primary">Ver trabajos</a>
-          <a href="#contacto" class="btn-secondary">Trabajemos juntos</a>
-        </div>
+  <!-- ══ HERO ══ -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-parallax"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle fade-in-up">Fotografía · Dirección visual · Identidad</p>
+      <h1 class="hero-title fade-in-up delay-1 text-gradient">Capturo imágenes<br>con impacto real</h1>
+      <p class="hero-description fade-in-up delay-2">GabrielEM Photo — fotografía de eventos, retratos, sesiones editoriales y contenido visual para marcas en Isla Margarita, Venezuela.</p>
+      <div class="hero-actions fade-in-up delay-3">
+        <a href="#portafolio" class="btn-primary">Ver portafolio</a>
+        <a href="#precios"    class="btn-secondary">Ver precios</a>
       </div>
-      <div class="scroll-indicator" aria-hidden="true"><span class="mouse"></span></div>
-    </section>
+    </div>
+  </section>
 
-    <section id="sobre-mi" class="about-section">
-      <div class="container about-container">
-        <div class="about-image-wrapper fade-in-up">
-          <img src="https://i.postimg.cc/wj5bnn8J/SAVE-20260220-135544.jpg" alt="Gabriel Millán" class="about-img">
+  <!-- ══ SOBRE MÍ ══ -->
+  <section class="about-section" id="sobre-mi">
+    <div class="container">
+      <div class="about-container">
+        <div class="about-image-wrapper">
+          <img
+            src="https://i.postimg.cc/W4t5Zv5d/IMG-6279-HDR.jpg"
+            alt="Gabriel Millán"
+            class="about-img"
+          />
           <div class="about-glow"></div>
         </div>
-        
-        <div class="about-content fade-in-up delay-1">
+        <div class="about-content">
           <p class="section-kicker">El ojo detrás del lente</p>
-          <h2 class="section-title left-title">Hola, soy <span class="text-highlight">Gabriel Millán</span></h2>
-          
+          <h2 class="section-title left-title">Hola, soy<br><span class="text-highlight">Gabriel Millán</span></h2>
           <div class="about-text">
-            <p>Tengo 22 años y resido en Pampatar, Municipio Maneiro, Isla de Margarita, Venezuela. Actualmente soy estudiante de Artes, mención Diseño Gráfico en la UNIMAR.</p>
-            <p>Como fotógrafo y videógrafo apasionado, me especializo en contar historias a través de imágenes con un fuerte impacto visual. Mi trabajo abarca desde la cobertura documental de eventos sociales (bodas y bautizos) hasta fotografía inmobiliaria, retratos editoriales y fotografía de productos.</p>
+            <p>Tengo 22 años y vivo en Pampatar, Isla de Margarita. Estudio Artes mención Diseño Gráfico en la UNIMAR.</p>
+            <p>Me especializo en contar historias a través de imágenes con impacto visual: cobertura de eventos sociales, retratos editoriales, fotografía de productos e inmobiliaria.</p>
             <p>Mi objetivo es elevar la identidad visual de cada proyecto con una estética cinematográfica, moderna y cuidada al milímetro.</p>
           </div>
-          
-          <a href="#contacto" class="btn-primary mt-4">Hablemos de tu proyecto</a>
-        </div>
-      </div>
-    </section>
-    
-    <section id="portafolio" class="portfolio-section">
-      <div class="container">
-        <div class="section-header text-center">
-          <p class="section-kicker">Portafolio</p>
-          <h2 class="section-title">Mis <span class="text-highlight">trabajos</span></h2>
-          <p class="section-desc">Selecciona una categoría para ver la galería completa.</p>
-        </div>
-
-        <div class="gallery-grid">
-          
-          <article class="gallery-item item-wide">
-            <figure>
-              <img src="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg" alt="Paisajes" class="galeria-trigger"
-                   data-images="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg,https://i.postimg.cc/KzrCPrdV/IMG-1146.jpg,https://i.postimg.cc/B6cRTcr6/IMG-1188.jpg,https://i.postimg.cc/nzYN4YyV/IMG-1235.jpg,https://i.postimg.cc/nzYN4YyM/IMG-1260.jpg,https://i.postimg.cc/QtkvQk2C/IMG-1289.jpg,https://i.postimg.cc/B6cRTcrj/IMG-1294.jpg">
-              <figcaption class="glass-caption">
-                <h3>Paisajes</h3>
-                <p>Composición, atmósfera y luz natural.</p>
-              </figcaption>
-            </figure>
-          </article>
-
-          <article class="gallery-item item-wide">
-            <figure>
-              <img src="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg" alt="Bautizos" class="galeria-trigger"
-                   data-images="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg,https://i.postimg.cc/KYT6zyQJ/IMG-2623.jpg,https://i.postimg.cc/xdmwCSgg/IMG-2624.jpg,https://i.postimg.cc/CK831VJN/IMG-2688.jpg,https://i.postimg.cc/HLMqxC36/IMG-2698.jpg,https://i.postimg.cc/RFzjJbb7/IMG-2718.jpg,https://i.postimg.cc/ydzw3rrT/IMG-2721.jpg">
-              <figcaption class="glass-caption">
-                <h3>Bautizos</h3>
-                <p>Cobertura emotiva y espontánea para momentos únicos.</p>
-              </figcaption>
-            </figure>
-          </article>
-
-          <article class="gallery-item">
-            <figure>
-              <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria" class="galeria-trigger"
-                   data-images="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg,https://i.postimg.cc/pd0FpgT5/IMG-6294-HDR.jpg,https://i.postimg.cc/76fT7mGf/IMG-6231-HDR.jpg,https://i.postimg.cc/rmKtWQ0r/IMG-6273-HDR.jpg,https://i.postimg.cc/3RdDpn4X/IMG-6305-HDR.jpg,https://i.postimg.cc/8cvJXcbv/IMG-6279-HDR.jpg">
-              <figcaption class="glass-caption">
-                <h3>Inmobiliaria</h3>
-                <p>Espacios y perspectiva limpia.</p>
-              </figcaption>
-            </figure>
-          </article>
-
-          <article class="gallery-item">
-            <figure>
-              <img src="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg" alt="Retratos" class="galeria-trigger"
-                   data-images="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg,https://i.postimg.cc/0j9RFHYD/IMG-5133.jpg,https://i.postimg.cc/D05kTd6Y/IMG-4577-(1).jpg,https://i.postimg.cc/yxn4HXn4/IMG-4592.jpg,https://i.postimg.cc/x8gD2y5h/IMG-4602.jpg,https://i.postimg.cc/gj4FWq49/IMG-4603.jpg,https://i.postimg.cc/cCTySMTG/IMG-5109.jpg,https://i.postimg.cc/fy5nNj5N/IMG-5111.jpg,https://i.postimg.cc/CM4VkS0z/IMG-5116.jpg">
-              <figcaption class="glass-caption">
-                <h3>Retratos</h3>
-                <p>Expresión y personalidad.</p>
-              </figcaption>
-            </figure>
-          </article>
-
-          <article class="gallery-item">
-            <figure>
-              <img src="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg" alt="Bodas" class="galeria-trigger"
-                   data-images="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg,https://i.postimg.cc/SspwYttD/IMG-0080.jpg,https://i.postimg.cc/NMwW2PPP/IMG-0087.jpg,https://i.postimg.cc/sXRtG00H/IMG-0125.jpg,https://i.postimg.cc/gJPfLBB7/IMG-0145.jpg,https://i.postimg.cc/FRQ2knB5/IMG-0300.jpg,https://i.postimg.cc/TwXZ5H4X/IMG-0608.jpg">
-              <figcaption class="glass-caption">
-                <h3>Bodas</h3>
-                <p>El día más importante, documentado a la perfección.</p>
-              </figcaption>
-            </figure>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios" class="services-section">
-      <div class="container">
-        <div class="section-header text-center">
-          <p class="section-kicker">Servicios</p>
-          <h2 class="section-title">Lo que puedo <span class="text-highlight">crear</span></h2>
-          <p class="section-desc">Haz clic en cada servicio para ver más detalles sobre mi forma de trabajo.</p>
-        </div>
-
-        <div class="accordion-container">
-          
-          <div class="accordion-item">
-            <button class="accordion-header">
-              <span class="accordion-number">01</span>
-              <h3>Sesiones fotográficas</h3>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-content">
-              <p>Me especializo en retratos, editoriales, contenido para marcas personales y sesiones conceptuales. Mi enfoque es dirigir la luz y la pose para capturar tu personalidad de la forma más natural y cinematográfica posible. Se entregan en alta resolución listas para impresión o redes.</p>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header">
-              <span class="accordion-number">02</span>
-              <h3>Eventos y Bodas</h3>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-content">
-              <p>Cobertura visual de eventos sociales (bodas, bautizos) o corporativos con un enfoque documental. Me dedico a pasar desapercibido para capturar las emociones reales, las risas y los momentos clave sin interrumpir el flujo natural de tu celebración.</p>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-header">
-              <span class="accordion-number">03</span>
-              <h3>Fotografía comercial y Espacios</h3>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-content">
-              <p>Contenido visual diseñado para vender. Desde fotografía de productos y alimentos hasta bienes raíces e inmobiliaria. Utilizo iluminación estratégica y corrección de perspectiva (HDR) para que los espacios se vean amplios, limpios e invitantes para tus clientes.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PRECIOS -->
-    <section id="planes" class="pricing-section">
-      <div class="container">
-        <div class="section-header text-center">
-          <p class="section-kicker">Inversión</p>
-          <h2 class="section-title">Planes y <span class="text-highlight">Precios</span></h2>
-        </div>
-        <div class="pricing-grid">
-          
-          <article class="pricing-card">
-            <h3>Sesión Básica</h3>
-            <p class="price">$50</p>
-            <ul class="pricing-features">
-              <li>1 Hora de cobertura</li>
-              <li>20 Fotografías editadas</li>
-              <li>1 Locación</li>
-              <li>Ideal para redes sociales</li>
-            </ul>
-           <button class="btn-secondary btn-small open-plan-modal" data-target="modal-basico">Ver detalles del plan</button>
-          </article>
-          
-          <article class="pricing-card premium-card">
-            <div class="popular-badge">Más Solicitado</div>
-            <h3>Paquete Premium</h3>
-            <p class="price">$150</p>
-            <ul class="pricing-features">
-              <li>3 Horas de cobertura</li>
-              <li>50 Fotografías editadas</li>
-              <li>Múltiples locaciones</li>
-              <li>Asesoramiento extra</li>
-            </ul>
-            <button class="btn-primary btn-small open-plan-modal" data-target="modal-premium">Ver detalles del plan</button>
-          </article>
-          
-          <article class="pricing-card">
-            <h3>Inmobiliaria</h3>
-            <p class="price" style="font-size: 2.2rem; margin-top: 1.5rem;">A consultar</p>
-            <ul class="pricing-features">
-              <li>Fotos de todos los espacios</li>
-              <li>Video recorrido incluido</li>
-              <li>Asesoramiento del espacio</li>
-              <li>Vuelo de dron opcional</li>
-            </ul>
-           <button class="btn-secondary btn-small open-plan-modal" data-target="modal-inmobiliaria">Ver detalles del plan</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODALES OCULTOS DE LOS PLANES -->
-    <div id="modal-basico" class="plan-modal">
-      <div class="plan-modal-content">
-        <span class="close-plan-modal">&times;</span>
-        <h3 class="plan-modal-title">Sesión Básica <span class="text-highlight">- $50</span></h3>
-        <div class="plan-marquee">
-          <div class="marquee-track">
-             <img src="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg" alt="Bautizo">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg" alt="Boda">
-             <img src="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg" alt="Retrato">
-             <img src="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg" alt="Paisaje">
-             <img src="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg" alt="Bautizo">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg" alt="Boda">
-             <img src="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg" alt="Retrato">
-             <img src="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg" alt="Paisaje">
-          </div>
-        </div>
-        <div class="plan-details">
-           <h4>¿Qué incluye este paquete?</h4>
-           <p>• 1 Hora de cobertura fotográfica<br>• 20 Fotografías editadas profesionalmente<br>• 1 Locación a elección<br>• Ideal para contenido de redes sociales.</p>
-           <h4>Términos y Condiciones Generales</h4>
-           <div class="terms-text">
-               <p><strong>Entregas:</strong> Plazo de 1 a 3 días mediante galería web privada. No se entregan fotografías sin editar.</p>
-               <p><strong>Pagos:</strong> Anticipo del 50% para agendar, 50% restante al entregar. Calculado al BCV. No hay reembolsos.</p>
-               <p><strong>Derechos:</strong> Uso en RRSS permitido. Prohibido uso comercial por terceros sin mención.</p>
-           </div>
-           <a href="https://wa.link/k7jcbt" target="_blank" class="btn-primary mt-4" style="width: 100%;">Agendar por WhatsApp</a>
+          <a href="#contacto" class="btn-primary">Trabajemos juntos</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div id="modal-premium" class="plan-modal">
-      <div class="plan-modal-content">
-        <span class="close-plan-modal">&times;</span>
-        <h3 class="plan-modal-title">Paquete Premium <span class="text-highlight">- $150</span></h3>
-        <div class="plan-marquee">
-          <div class="marquee-track">
-             <img src="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg" alt="Bautizo">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg" alt="Boda">
-             <img src="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg" alt="Retrato">
-             <img src="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg" alt="Paisaje">
-             <img src="https://i.postimg.cc/g0hCJP4j/IMG-2596.jpg" alt="Bautizo">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/NMwW2PPR/IMG-0045.jpg" alt="Boda">
-             <img src="https://i.postimg.cc/ryR8rvmW/IMG-5139.jpg" alt="Retrato">
-             <img src="https://i.postimg.cc/P5Ws4Hs7/IMG-3317.jpg" alt="Paisaje">
-          </div>
+  <!-- ══ PORTAFOLIO ══ -->
+  <section id="portafolio" style="padding: var(--spacing-lg) 0; background: #111;">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-kicker">Portafolio</p>
+        <h2 class="section-title">Mis trabajos</h2>
+        <p class="section-desc">Selecciona una imagen para verla en pantalla completa.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item item-wide galeria-trigger" data-src="https://i.postimg.cc/NjFqfWvx/IMG-7893.jpg">
+          <figure><img src="https://i.postimg.cc/NjFqfWvx/IMG-7893.jpg" alt="Evento 1" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Eventos Sociales</h3><p>Bodas · Bautizos · Quinces</p></div>
         </div>
-        <div class="plan-details">
-           <h4>¿Qué incluye este paquete?</h4>
-           <p>• 3 Horas de cobertura fotográfica<br>• 50 Fotografías editadas<br>• Múltiples locaciones a coordinar<br>• Asesoramiento profesional y dirección visual.</p>
-           <h4>Términos y Condiciones Generales</h4>
-           <div class="terms-text">
-               <p><strong>Entregas:</strong> Plazo de 1 a 3 días mediante galería web privada. No se entregan fotografías sin editar.</p>
-               <p><strong>Pagos:</strong> Anticipo del 50% para agendar, 50% restante al entregar. Calculado al BCV. No hay reembolsos.</p>
-               <p><strong>Derechos:</strong> Uso en RRSS permitido. Prohibido uso comercial por terceros sin mención.</p>
-           </div>
-           <a href="https://wa.link/k7jcbt" target="_blank" class="btn-primary mt-4" style="width: 100%;">Agendar Premium por WhatsApp</a>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/52ydNZWP/IMG-7960.jpg">
+          <figure><img src="https://i.postimg.cc/52ydNZWP/IMG-7960.jpg" alt="Retrato 1" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Retratos</h3><p>Editorial · Marca personal</p></div>
+        </div>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/FHz5s2X0/IMG-7858.jpg">
+          <figure><img src="https://i.postimg.cc/FHz5s2X0/IMG-7858.jpg" alt="Sesión 1" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Sesiones</h3><p>Conceptual · Lifestyle</p></div>
+        </div>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/wjM8TSYh/IMG-7788.jpg">
+          <figure><img src="https://i.postimg.cc/wjM8TSYh/IMG-7788.jpg" alt="Sesión 2" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Exterior</h3><p>Playas · Locaciones naturales</p></div>
+        </div>
+        <div class="gallery-item item-wide galeria-trigger" data-src="https://i.postimg.cc/3xN5JPQp/IMG-7840.jpg">
+          <figure><img src="https://i.postimg.cc/3xN5JPQp/IMG-7840.jpg" alt="Evento 2" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Cobertura Completa</h3><p>Documental · Emociones reales</p></div>
+        </div>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg">
+          <figure><img src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg" alt="Editorial" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Editorial</h3><p>Moda · Arte</p></div>
+        </div>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/FH6tfDh0/IMG-7973.jpg">
+          <figure><img src="https://i.postimg.cc/FH6tfDh0/IMG-7973.jpg" alt="Retrato 2" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Retratos</h3><p>Luz natural</p></div>
+        </div>
+        <div class="gallery-item galeria-trigger" data-src="https://i.postimg.cc/nhrbc6fX/IMG-7742.jpg">
+          <figure><img src="https://i.postimg.cc/nhrbc6fX/IMG-7742.jpg" alt="Retrato 3" loading="lazy"/></figure>
+          <div class="glass-caption"><h3>Sesión</h3><p>Estudio · Interior</p></div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div id="modal-inmobiliaria" class="plan-modal">
-      <div class="plan-modal-content">
-        <span class="close-plan-modal">&times;</span>
-        <h3 class="plan-modal-title">Sesión Inmobiliaria <span class="text-highlight">- A Consultar</span></h3>
-        <div class="plan-marquee">
-          <div class="marquee-track">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/76fT7mGf/IMG-6231-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/3RdDpn4X/IMG-6305-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/nLn8SWp6/IMG-6276-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/76fT7mGf/IMG-6231-HDR.jpg" alt="Inmobiliaria">
-             <img src="https://i.postimg.cc/3RdDpn4X/IMG-6305-HDR.jpg" alt="Inmobiliaria">
+  <!-- ══ SERVICIOS ACORDEÓN ══ -->
+  <section id="servicios" style="padding: var(--spacing-xl) 0; background: #0d0d0d;">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-kicker">Servicios</p>
+        <h2 class="section-title">Lo que puedo crear</h2>
+        <p class="section-desc">Haz clic en cada servicio para ver más detalles.</p>
+      </div>
+      <div class="accordion-container">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="accordion-number">01</span>
+            <h3>Retratos & Sesiones Editoriales</h3>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Me especializo en retratos, editoriales y contenido para marcas personales. Dirijo la luz y la pose para capturar tu personalidad de forma natural y cinematográfica. Se entregan en alta resolución listas para impresión o redes.</p>
           </div>
         </div>
-        <div class="plan-details">
-           <h4>¿Qué incluye este servicio?</h4>
-           <p>• Cobertura para Apartamento, Casa o Terreno<br>• Fotos amplias y detalladas de todos los espacios<br>• Video recorrido de la propiedad<br>• 20 fotos o más editadas (dependiendo del tamaño)<br>• Asesoramiento experto para preparar el espacio<br>• Vuelo de dron (bajo solicitud adicional).</p>
-           <h4>Términos y Condiciones Generales</h4>
-           <div class="terms-text">
-               <p><strong>Entregas:</strong> Plazo de 1 a 3 días mediante galería web privada. No se entregan fotografías sin editar.</p>
-               <p><strong>Pagos:</strong> Anticipo del 50% para agendar, 50% restante al entregar. Calculado al BCV. No hay reembolsos.</p>
-           </div>
-           <a href="https://wa.link/k7jcbt" target="_blank" class="btn-primary mt-4" style="width: 100%;">Cotizar propiedad por WhatsApp</a>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="accordion-number">02</span>
+            <h3>Cobertura de Eventos</h3>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Bodas, bautizos, quinces y eventos corporativos con enfoque documental. Paso desapercibido para capturar las emociones reales, las risas y los momentos clave sin interrumpir el flujo natural de tu celebración.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="accordion-number">03</span>
+            <h3>Contenido Comercial & Inmobiliaria</h3>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Fotografía de productos, alimentos y bienes raíces. Utilizo iluminación HDR/Flambient para que los espacios se vean amplios, limpios e invitantes. También produzco video recorrido optimizado para redes y portales.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="contact-section">
-      <div class="container">
-        <div class="section-header text-center">
-          <p class="section-kicker">Contacto</p>
-          <h2 class="section-title">Conecta con <span class="text-highlight">GemaStudio</span></h2>
+  <!-- ══ PRECIOS ══ -->
+  <section class="pricing-section" id="precios">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-kicker">Inversión</p>
+        <h2 class="section-title">Planes y Precios</h2>
+        <p class="section-desc">Elige el paquete que mejor se adapte a tu proyecto.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <!-- BÁSICO -->
+        <div class="pricing-card">
+          <h3>Sesión Básica</h3>
+          <div class="price">$50</div>
+          <ul class="pricing-features">
+            <li>1 Hora de cobertura</li>
+            <li>20 Fotografías editadas</li>
+            <li>1 Locación</li>
+            <li>Ideal para redes sociales</li>
+          </ul>
+          <button class="btn-secondary open-plan-modal" data-plan="basico">Ver detalles</button>
         </div>
 
-        <div class="contact-grid">
-          <a class="contact-card social-card" href="https://wa.link/k7jcbt" target="_blank">
-            <div class="social-icon">💬</div>
-            <span class="contact-label">WhatsApp</span>
-            <strong>Escríbeme</strong>
-          </a>
-          <a class="contact-card social-card" href="https://www.instagram.com/gabrielem.photo/" target="_blank">
-            <div class="social-icon">📸</div>
-            <span class="contact-label">Instagram</span>
-            <strong>@gabrielem.photo</strong>
-          </a>
-          <a class="contact-card social-card" href="https://www.tiktok.com/@gabrielem.photo" target="_blank">
-            <div class="social-icon">🎵</div>
-            <span class="contact-label">TikTok</span>
-            <strong>@gabrielem.photo</strong>
-          </a>
-          <a class="contact-card social-card" href="mailto:contacto@gemastudio.com">
-            <div class="social-icon">✉️</div>
-            <span class="contact-label">Correo</span>
-            <strong>contacto@gemastudio.com</strong>
-          </a>
+        <!-- PREMIUM -->
+        <div class="pricing-card premium-card">
+          <span class="popular-badge">Más popular</span>
+          <h3>Paquete Premium</h3>
+          <div class="price">$150</div>
+          <ul class="pricing-features">
+            <li>3 Horas de cobertura</li>
+            <li>50 Fotografías editadas</li>
+            <li>Múltiples locaciones</li>
+            <li>Asesoramiento y dirección</li>
+          </ul>
+          <button class="btn-primary open-plan-modal" data-plan="premium">Ver detalles</button>
+        </div>
+
+        <!-- INMOBILIARIA -->
+        <div class="pricing-card">
+          <h3>Inmobiliaria</h3>
+          <div class="price" style="font-size:2rem; padding-top:0.5rem;">A consultar</div>
+          <ul class="pricing-features">
+            <li>Fotos de todos los espacios</li>
+            <li>Video recorrido incluido</li>
+            <li>Asesoramiento del espacio</li>
+            <li>Vuelo de dron opcional</li>
+          </ul>
+          <a href="../inmobiliaria/index.html" class="btn-secondary">Ver más →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL PLANES -->
+  <div class="plan-modal" id="plan-modal">
+    <div class="plan-modal-content">
+      <span class="close-plan-modal" id="close-plan-modal">×</span>
+      <h2 class="plan-modal-title" id="modal-plan-title">Paquete</h2>
+      <div class="plan-marquee">
+        <div class="marquee-track" id="marquee-track">
+          <img src="https://i.postimg.cc/NjFqfWvx/IMG-7893.jpg" alt=""/>
+          <img src="https://i.postimg.cc/52ydNZWP/IMG-7960.jpg" alt=""/>
+          <img src="https://i.postimg.cc/FHz5s2X0/IMG-7858.jpg" alt=""/>
+          <img src="https://i.postimg.cc/wjM8TSYh/IMG-7788.jpg" alt=""/>
+          <img src="https://i.postimg.cc/3xN5JPQp/IMG-7840.jpg" alt=""/>
+          <img src="https://i.postimg.cc/VkhySDzp/IMG-8083-Mi-exportansion-2.jpg" alt=""/>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="plan-details" id="modal-plan-details"></div>
+      <a class="btn-primary" id="modal-wa-btn" href="#" target="_blank" style="width:100%; margin-top:1.5rem; display:flex; justify-content:center;">
+        📲 Agendar por WhatsApp
+      </a>
+    </div>
+  </div>
 
+  <!-- ══ CONTACTO ══ -->
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-kicker">Contacto</p>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-desc">Elige cómo prefieres contactarme.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="https://wa.me/584123590065" target="_blank" class="social-card">
+          <span class="social-icon">💬</span>
+          <span class="contact-label">WhatsApp</span>
+          <strong>+58 412-359-0065</strong>
+        </a>
+        <a href="mailto:gabrielmillan6@gmail.com" class="social-card">
+          <span class="social-icon">✉️</span>
+          <span class="contact-label">Email</span>
+          <strong>gabrielmillan6@gmail.com</strong>
+        </a>
+        <a href="https://instagram.com/gabrielemphoto" target="_blank" class="social-card">
+          <span class="social-icon">📸</span>
+          <span class="contact-label">Instagram</span>
+          <strong>@gabrielemphoto</strong>
+        </a>
+        <a href="https://tiktok.com/@gabrielemphoto" target="_blank" class="social-card">
+          <span class="social-icon">🎵</span>
+          <span class="contact-label">TikTok</span>
+          <strong>@gabrielemphoto</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
   <footer class="site-footer">
-    <div class="container footer-content">
+    <div class="footer-content">
       <div class="footer-brand">
-        <img src="https://i.postimg.cc/3RHkqYdQ/BLanco-Gema-Studio.png" alt="Logo GemaStudio" class="footer-logo" />
-        <p>Fotografía y dirección visual con una estética moderna, limpia y profesional.</p>
+        <img src="https://i.postimg.cc/tTp7fX84/logoblanco.png" alt="GabrielEM Photo" class="footer-logo"/>
+        <p>Fotografía profesional de eventos, retratos y contenido visual en Isla Margarita, Venezuela. Cada imagen, una historia que perdura.</p>
       </div>
       <div class="footer-links">
-        <h3>Enlaces</h3>
+        <h3>Navegación</h3>
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="../index.html">← Home</a></li>
           <li><a href="#portafolio">Portafolio</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#precios">Precios</a></li>
           <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Otros servicios</h3>
+        <ul>
+          <li><a href="../inmobiliaria/index.html">Fotografía Inmobiliaria</a></li>
+          <li><a href="https://wa.me/584123590065" target="_blank">WhatsApp directo</a></li>
+          <li><a href="mailto:gabrielmillan6@gmail.com">gabrielmillan6@gmail.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 GemaStudio por Gabriel Millán. Todos los derechos reservados. Isla de Margarita, VE.</p>
+      <p>© 2026 GabrielEM Photo · Isla Margarita, Venezuela · Todos los derechos reservados</p>
     </div>
   </footer>
 
