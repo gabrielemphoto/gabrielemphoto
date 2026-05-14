@@ -105,7 +105,7 @@ const infoPlanes = {
   },
   premium: {
     titulo: "Plan Premium",
-    precio: "", /* Se deja vacío porque es "Consultar precio" */
+    precio: "",
     detalles: `
       <h4>¿QUÉ INCLUYE ESTE PAQUETE?</h4>
       <ul>
@@ -119,6 +119,176 @@ const infoPlanes = {
     `
   }
 };
+
+/* ══════════════════════════════════════════════════════════
+   HEADER SCROLL & MOBILE MENU
+══════════════════════════════════════════════════════════ */
+const header = document.querySelector('.site-header');
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mainNav = document.querySelector('.main-nav');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+// Función para abrir/cerrar menú
+function toggleMenu() {
+  mainNav.classList.toggle('active');
+  
+  if (mainNav.classList.contains('active')) {
+    document.body.classList.add('menu-open');
+    mobileBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    `;
+  } else {
+    document.body.classList.remove('menu-open');
+    mobileBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    `;
+  }
+}
+
+if (mobileBtn && mainNav) {
+  mobileBtn.addEventListener('click', toggleMenu);
+}
+
+// Cerrar menú al hacer clic en un enlace (móvil)
+document.querySelectorAll('.nav-link, .back-home').forEach(link => {
+  link.addEventListener('click', () => {
+    if (mainNav.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+});
+
+// Cerrar menú si el usuario hace clic fuera de él
+document.addEventListener('click', (e) => {
+  if (mainNav && mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+    toggleMenu();
+  }
+});
+
+/* ══════════════════════════════════════════════════════════
+   EFECTO REVEAL (SCROLL ANIMATION) -> ¡ESTO FUE LO QUE SE PERDIÓ!
+══════════════════════════════════════════════════════════ */
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const windowHeight = window.innerHeight;
+  const elementVisible = 100;
+
+  reveals.forEach(reveal => {
+    const elementTop = reveal.getBoundingClientRect().top;
+    if (elementTop < windowHeight - elementVisible) {
+      reveal.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Ejecutar una vez al cargar la página
+
+/* ══════════════════════════════════════════════════════════
+   VISOR DE GALERÍA (LIGHTBOX TIPO INSTAGRAM/PINTEREST)
+══════════════════════════════════════════════════════════ */
+let arrayActual = [];
+let indiceActual = 0;
+
+function crearVisor() {
+  const visor = document.createElement('div');
+  visor.id = 'visor-galeria';
+  visor.className = 'visor-galeria hidden';
+  
+  visor.innerHTML = `
+    <div class="visor-overlay"></div>
+    <button class="visor-cerrar">&times;</button>
+    <div class="visor-contador"><span id="visor-actual">1</span> / <span id="visor-total">X</span></div>
+    
+    <button class="visor-nav visor-prev">&#10094;</button>
+    <div class="visor-contenedor-img">
+      <div class="visor-loader"></div>
+      <img id="visor-img" src="" alt="Fotografía ampliada" />
+    </div>
+    <button class="visor-nav visor-next">&#10095;</button>
+  `;
+  document.body.appendChild(visor);
+
+  const overlay = visor.querySelector('.visor-overlay');
+  const btnCerrar = visor.querySelector('.visor-cerrar');
+  const btnPrev = visor.querySelector('.visor-prev');
+  const btnNext = visor.querySelector('.visor-next');
+  const imgEl = visor.querySelector('#visor-img');
+  const loader = visor.querySelector('.visor-loader');
+  const contActual = visor.querySelector('#visor-actual');
+  const contTotal = visor.querySelector('#visor-total');
+
+  function actualizarImagen() {
+    loader.style.display = 'block';
+    imgEl.style.opacity = '0';
+    imgEl.src = arrayActual[indiceActual];
+    
+    contActual.textContent = indiceActual + 1;
+    contTotal.textContent = arrayActual.length;
+
+    imgEl.onload = () => {
+      loader.style.display = 'none';
+      imgEl.style.opacity = '1';
+    };
+  }
+
+  function mostrarVisor(categoriaStr) {
+    if (!galerias[categoriaStr] || galerias[categoriaStr].length === 0) return;
+    
+    arrayActual = galerias[categoriaStr];
+    indiceActual = 0;
+    actualizarImagen();
+    
+    visor.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function ocultarVisor() {
+    visor.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    setTimeout(() => { imgEl.src = ''; }, 300);
+  }
+
+  function irSiguiente() {
+    indiceActual = (indiceActual + 1) % arrayActual.length;
+    actualizarImagen();
+  }
+
+  function irAnterior() {
+    indiceActual = (indiceActual - 1 + arrayActual.length) % arrayActual.length;
+    actualizarImagen();
+  }
+
+  btnCerrar.addEventListener('click', ocultarVisor);
+  overlay.addEventListener('click', ocultarVisor);
+  btnNext.addEventListener('click', irSiguiente);
+  btnPrev.addEventListener('click', irAnterior);
+
+  document.addEventListener('keydown', (e) => {
+    if (visor.classList.contains('hidden')) return;
+    if (e.key === 'ArrowRight') irSiguiente();
+    if (e.key === 'ArrowLeft') irAnterior();
+    if (e.key === 'Escape') ocultarVisor();
+  });
+
+  const triggers = document.querySelectorAll('.galeria-trigger');
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const cat = trigger.getAttribute('data-categoria');
+      mostrarVisor(cat);
+    });
+  });
+}
+
+crearVisor();
 
 /* ══════════════════════════════════════════════════════════
    MODAL DE PLANES NUEVO DISEÑO (CON FOTOS ALEATORIAS)
@@ -154,281 +324,35 @@ document.querySelectorAll('.open-plan-modal').forEach(btn => {
       
       // Llenar las 3 fotos aleatorias
       const fotosRandom = obtenerFotosAleatorias(3);
-      modalGalleryBox.innerHTML = '';
-      fotosRandom.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Muestra de trabajo';
-        modalGalleryBox.appendChild(img);
-      });
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-});
-
-/* ══════════════════════════════════════════════════════════
-   HEADER SCROLL & MOBILE MENU
-══════════════════════════════════════════════════════════ */
-const header = document.querySelector('.site-header');
-const mobileBtn = document.getElementById('mobile-menu-btn');
-const mainNav = document.querySelector('.main-nav');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-});
-
-// Función para abrir/cerrar menú
-function toggleMenu() {
-  mainNav.classList.toggle('active');
-  
-  // Si se abre, cambiamos el icono a una "X" y ponemos el fondo oscuro
-  if (mainNav.classList.contains('active')) {
-    document.body.classList.add('menu-open');
-    mobileBtn.innerHTML = `
-      <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-      </svg>
-    `;
-  } else {
-    // Si se cierra, vuelve el icono de hamburguesa
-    document.body.classList.remove('menu-open');
-    mobileBtn.innerHTML = `
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-      </svg>
-    `;
-  }
-}
-
-if (mobileBtn && mainNav) {
-  mobileBtn.addEventListener('click', toggleMenu);
-}
-
-// Cerrar menú al hacer clic en un enlace (móvil)
-document.querySelectorAll('.nav-link, .back-home').forEach(link => {
-  link.addEventListener('click', () => {
-    if (mainNav.classList.contains('active')) {
-      toggleMenu();
-    }
-  });
-});
-
-// Cerrar menú si el usuario hace clic fuera de él (en el fondo oscuro)
-document.addEventListener('click', (e) => {
-  if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileBtn.contains(e.target)) {
-    toggleMenu();
-  }
-});
-
-
-/* ══════════════════════════════════════════════════════════
-   EFECTO REVEAL (SCROLL ANIMATION)
-══════════════════════════════════════════════════════════ */
-function revealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal');
-  const windowHeight = window.innerHeight;
-  const elementVisible = 100;
-
-  reveals.forEach(reveal => {
-    const elementTop = reveal.getBoundingClientRect().top;
-    if (elementTop < windowHeight - elementVisible) {
-      reveal.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Trigger inicial
-
-
-/* ══════════════════════════════════════════════════════════
-   VISOR DE GALERÍA (LIGHTBOX TIPO INSTAGRAM/PINTEREST)
-══════════════════════════════════════════════════════════ */
-let arrayActual = [];
-let indiceActual = 0;
-
-function crearVisor() {
-  // Crear elementos del visor en el DOM
-  const visor = document.createElement('div');
-  visor.id = 'visor-galeria';
-  visor.className = 'visor-galeria hidden';
-  
-  visor.innerHTML = `
-    <div class="visor-overlay"></div>
-    <button class="visor-cerrar">&times;</button>
-    <div class="visor-contador"><span id="visor-actual">1</span> / <span id="visor-total">X</span></div>
-    
-    <button class="visor-nav visor-prev">&#10094;</button>
-    <div class="visor-contenedor-img">
-      <!-- Loader sutil -->
-      <div class="visor-loader"></div>
-      <img id="visor-img" src="" alt="Fotografía ampliada" />
-    </div>
-    <button class="visor-nav visor-next">&#10095;</button>
-  `;
-  document.body.appendChild(visor);
-
-  // Lógica del visor
-  const overlay = visor.querySelector('.visor-overlay');
-  const btnCerrar = visor.querySelector('.visor-cerrar');
-  const btnPrev = visor.querySelector('.visor-prev');
-  const btnNext = visor.querySelector('.visor-next');
-  const imgEl = visor.querySelector('#visor-img');
-  const loader = visor.querySelector('.visor-loader');
-  
-  const contActual = visor.querySelector('#visor-actual');
-  const contTotal = visor.querySelector('#visor-total');
-
-  function actualizarImagen() {
-    // Mostrar loader, ocultar imagen
-    loader.style.display = 'block';
-    imgEl.style.opacity = '0';
-    imgEl.src = arrayActual[indiceActual];
-    
-    contActual.textContent = indiceActual + 1;
-    contTotal.textContent = arrayActual.length;
-
-    // Cuando la imagen cargue, mostrarla
-    imgEl.onload = () => {
-      loader.style.display = 'none';
-      imgEl.style.opacity = '1';
-    };
-  }
-
-  function mostrarVisor(categoriaStr) {
-    if (!galerias[categoriaStr] || galerias[categoriaStr].length === 0) return;
-    
-    arrayActual = galerias[categoriaStr];
-    indiceActual = 0;
-    actualizarImagen();
-    
-    visor.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
-  }
-
-  function ocultarVisor() {
-    visor.classList.add('hidden');
-    document.body.style.overflow = 'auto'; // Restaurar scroll
-    setTimeout(() => { imgEl.src = ''; }, 300); // Limpiar source
-  }
-
-  function irSiguiente() {
-    indiceActual = (indiceActual + 1) % arrayActual.length;
-    actualizarImagen();
-  }
-
-  function irAnterior() {
-    indiceActual = (indiceActual - 1 + arrayActual.length) % arrayActual.length;
-    actualizarImagen();
-  }
-
-  // Event Listeners Visor
-  btnCerrar.addEventListener('click', ocultarVisor);
-  overlay.addEventListener('click', ocultarVisor);
-  btnNext.addEventListener('click', irSiguiente);
-  btnPrev.addEventListener('click', irAnterior);
-
-  // Soporte para teclado (flechas y escape)
-  document.addEventListener('keydown', (e) => {
-    if (visor.classList.contains('hidden')) return;
-    if (e.key === 'ArrowRight') irSiguiente();
-    if (e.key === 'ArrowLeft') irAnterior();
-    if (e.key === 'Escape') ocultarVisor();
-  });
-
-  // Escuchar clics en los recuadros del portafolio
-  const triggers = document.querySelectorAll('.galeria-trigger');
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const cat = trigger.getAttribute('data-categoria');
-      mostrarVisor(cat);
-    });
-  });
-}
-
-// Inicializar visor
-crearVisor();
-
-
-/* ══════════════════════════════════════════════════════════
-   MODAL DE PLANES Y PRECIOS
-══════════════════════════════════════════════════════════ */
-const modal = document.getElementById('plan-modal');
-const modalTitle = document.getElementById('modal-plan-title');
-const modalDetails = document.getElementById('modal-plan-details');
-const modalWaBtn = document.getElementById('modal-wa-btn');
-const closeBtn = document.getElementById('close-plan-modal');
-const marqueeTrack = document.getElementById('marquee-track');
-
-// Fotos random para el marquee del modal
-const fotosMarquee = [
-  galerias.retratos[0], galerias.retratos[1], galerias.retratos[2],
-  galerias.xv[0], galerias.xv[1],
-  galerias.bodas[0], galerias.bodas[1]
-];
-
-document.querySelectorAll('.open-plan-modal').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const planKey = btn.getAttribute('data-plan');
-    const plan = infoPlanes[planKey];
-    
-    if (plan) {
-      modalTitle.textContent = plan.titulo;
-      modalDetails.innerHTML = plan.detalles;
-      
-      const mensaje = `Hola Gabriel, me interesa el ${plan.titulo}. ¿Me das más información?`;
-      modalWaBtn.href = `https://wa.me/584123590065?text=${encodeURIComponent(mensaje)}`;
-      
-      llenarMarquee();
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-});
-
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-});
-
-function llenarMarquee() {
-  marqueeTrack.innerHTML = '';
-  // Se clonan varias veces para el efecto infinito
-  for(let i=0; i<3; i++){
-    fotosMarquee.forEach(src => {
-      if(src) { // Verificamos que exista
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = 'Muestra';
-        marqueeTrack.appendChild(img);
+      if(modalGalleryBox) {
+        modalGalleryBox.innerHTML = '';
+        fotosRandom.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = 'Muestra de trabajo';
+          modalGalleryBox.appendChild(img);
+        });
       }
-    });
-  }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+
+if(closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
 }
 
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+});
 
 /* ══════════════════════════════════════════════════════════
    ACORDEÓN DE SERVICIOS
