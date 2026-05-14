@@ -70,54 +70,115 @@ const galerias = {
 };
 
 /* ══════════════════════════════════════════════════════════
-   DATOS: PLANES (PRECIOS)
+   DATOS: PLANES (PRECIOS ACTUALIZADOS)
 ══════════════════════════════════════════════════════════ */
 const infoPlanes = {
-  xv: {
-    titulo: "Plan XV Años",
+  basico: {
+    titulo: "Plan Básico",
+    precio: "30€",
     detalles: `
+      <h4>¿QUÉ INCLUYE ESTE PAQUETE?</h4>
       <ul>
-        <li><strong>2 Horas</strong> de cobertura fotográfica.</li>
-        <li><strong>15 Fotografías</strong> con edición profesional (corrección de color, piel y luz).</li>
-        <li>Sesión en exteriores o locaciones a convenir.</li>
-        <li>Asesoría y dirección de poses.</li>
+        <li><strong>1 Hora</strong> de sesión fotográfica.</li>
+        <li><strong>1 Locación</strong> a elección dentro de la isla.</li>
+        <li><strong>5 Fotografías</strong> con edición profesional (corrección de color, piel y luz).</li>
         <li>Entrega digital en alta resolución mediante galería privada.</li>
-        <li><strong>Tiempo de entrega:</strong> 72 horas hábiles.</li>
+        <li><strong>Tiempo de entrega:</strong> 24 horas o menos.</li>
       </ul>
-      <p class="modal-note">*Ideal para capturar la esencia de la quinceañera de forma natural y elegante.*</p>
     `
   },
-  graduacion: {
-    titulo: "Plan Graduación",
+  avanzado: {
+    titulo: "Plan Avanzado",
+    precio: "70€",
     detalles: `
+      <h4>¿QUÉ INCLUYE ESTE PAQUETE?</h4>
       <ul>
-        <li><strong>2 Horas</strong> de cobertura fotográfica.</li>
-        <li><strong>15 Fotografías</strong> con edición profesional.</li>
-        <li><strong>2 Locaciones</strong> diferentes a elección dentro de la isla.</li>
+        <li><strong>2 Horas</strong> de sesión fotográfica.</li>
+        <li><strong>2 Locaciones</strong> diferentes a elección.</li>
         <li><strong>2 Cambios de ropa</strong> permitidos.</li>
-        <li>Dirección de poses y uso de toga/birrete (si aplica).</li>
+        <li><strong>20 Fotografías</strong> con edición profesional.</li>
+        <li>Asesoría y dirección de poses durante toda la sesión.</li>
         <li>Entrega digital en alta resolución.</li>
-        <li><strong>Tiempo de entrega:</strong> 72 horas hábiles.</li>
+        <li><strong>Tiempo de entrega:</strong> 24 horas o menos.</li>
       </ul>
-      <p class="modal-note">*Celebra tu logro académico con un recuerdo impecable.*</p>
     `
   },
   premium: {
-    titulo: "Sesión Premium",
+    titulo: "Plan Premium",
+    precio: "", /* Se deja vacío porque es "Consultar precio" */
     detalles: `
+      <h4>¿QUÉ INCLUYE ESTE PAQUETE?</h4>
       <ul>
-        <li><strong>3 Horas</strong> de cobertura fotográfica exclusiva.</li>
-        <li><strong>20 Fotografías</strong> con edición profesional avanzada (retoque fino).</li>
-        <li>Múltiples locaciones a convenir.</li>
-        <li>Hasta <strong>3 Cambios de ropa</strong>.</li>
-        <li>Ideal para marcas personales, parejas o sesiones editoriales exigentes.</li>
-        <li>Entrega digital prioritaria.</li>
-        <li><strong>Tiempo de entrega express:</strong> 48 horas hábiles.</li>
+        <li><strong>3 Horas</strong> de cobertura fotográfica.</li>
+        <li>Especial para eventos, bodas íntimas o sesiones largas.</li>
+        <li><strong>Varias locaciones</strong> a convenir.</li>
+        <li><strong>30 Fotografías</strong> con edición profesional avanzada.</li>
+        <li>Dirección creativa profesional.</li>
+        <li><strong>Tiempo de entrega:</strong> 48 horas o menos.</li>
       </ul>
-      <p class="modal-note">*La experiencia completa para quienes buscan el máximo nivel de detalle y estética.*</p>
     `
   }
 };
+
+/* ══════════════════════════════════════════════════════════
+   MODAL DE PLANES NUEVO DISEÑO (CON FOTOS ALEATORIAS)
+══════════════════════════════════════════════════════════ */
+const modal = document.getElementById('plan-modal');
+const modalTitle = document.getElementById('modal-plan-title');
+const modalPrice = document.getElementById('modal-plan-price');
+const modalDetails = document.getElementById('modal-plan-details');
+const modalWaBtn = document.getElementById('modal-wa-btn');
+const closeBtn = document.getElementById('close-plan-modal');
+const modalGalleryBox = document.getElementById('modal-gallery-images');
+
+// Juntamos las fotos de las carpetas que pediste para sacar aleatorias
+const fotosParaModal = [...galerias.editorial, ...galerias.retratos, ...galerias.xv];
+
+function obtenerFotosAleatorias(cantidad) {
+  let mezcladas = fotosParaModal.sort(() => 0.5 - Math.random());
+  return mezcladas.slice(0, cantidad);
+}
+
+document.querySelectorAll('.open-plan-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const planKey = btn.getAttribute('data-plan');
+    const plan = infoPlanes[planKey];
+    
+    if (plan) {
+      modalTitle.textContent = plan.titulo;
+      modalPrice.textContent = plan.precio;
+      modalDetails.innerHTML = plan.detalles;
+      
+      const mensaje = `Hola Gabriel, me interesa agendar el ${plan.titulo}. ¿Me das más información?`;
+      modalWaBtn.href = `https://wa.me/584123590065?text=${encodeURIComponent(mensaje)}`;
+      
+      // Llenar las 3 fotos aleatorias
+      const fotosRandom = obtenerFotosAleatorias(3);
+      modalGalleryBox.innerHTML = '';
+      fotosRandom.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Muestra de trabajo';
+        modalGalleryBox.appendChild(img);
+      });
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+});
 
 /* ══════════════════════════════════════════════════════════
    HEADER SCROLL & MOBILE MENU
