@@ -349,38 +349,35 @@ section { padding: var(--spacing-lg) 0; }
   to { transform: rotate(360deg); }
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-  .visor-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-  .visor-prev { left: 10px; }
-  .visor-next { right: 10px; }
-  .visor-cerrar { top: 10px; right: 15px; font-size: 2.5rem; }
-  .visor-contador { top: 20px; left: 15px; font-size: 0.9rem; }
-  .visor-contenedor-img { width: 95%; }
-}
-
 /* ══════════════════════════════════════════════ */
-/* MODAL PLANES DE PRECIOS                        */
+/* NUEVO MODAL PLANES DE PRECIOS                  */
 /* ══════════════════════════════════════════════ */
 .plan-modal { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); justify-content: center; align-items: center; padding: 1rem; }
 .plan-modal.active { display: flex !important; animation: fadeIn 0.3s ease forwards; opacity: 1 !important; pointer-events: auto !important; }
-.plan-modal-content { background: linear-gradient(180deg, rgba(22,16,8,1), rgba(14,10,4,1)); border: 1px solid rgba(201,169,110,0.4); border-radius: 16px; width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto; position: relative; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
-.close-plan-modal { position: absolute; top: 15px; right: 25px; font-size: 2.5rem; color: #fff; font-weight: 300; cursor: pointer; transition: color 0.3s; line-height: 1; z-index: 10005; }
+.plan-modal-content { background: #111111; border: 1px solid rgba(201,169,110,0.2); border-radius: 12px; width: 100%; max-width: 750px; max-height: 90vh; overflow-y: auto; position: relative; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
+.close-plan-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; color: #fff; font-weight: 300; cursor: pointer; transition: color 0.3s; z-index: 10005; }
 .close-plan-modal:hover { color: var(--color-primary); }
-.plan-modal-title { font-family: var(--font-title); font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem; padding-right: 2rem; }
-.plan-marquee { width: 100%; height: 160px; overflow: hidden; position: relative; margin: 1.5rem 0; border-radius: 8px; background: #000; display: flex; }
-.marquee-track { display: flex; gap: 10px; height: 100%; width: max-content; animation: scrollMarquee 35s linear infinite; }
-.marquee-track img { height: 100%; width: 220px; object-fit: cover; border-radius: 6px; }
-@keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.plan-details h4 { color: var(--color-primary); margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
-.plan-details p { color: var(--color-text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.5rem; }
-.terms-text { background: rgba(0,0,0,0.5); padding: 1.2rem; border-radius: 8px; border-left: 3px solid var(--color-primary); margin-bottom: 1rem; }
-.terms-text p { color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 0.8rem; }
-.terms-text p:last-child { margin-bottom: 0; }
+
+.modal-header-info { display: flex; align-items: baseline; gap: 15px; margin-bottom: 1.5rem; }
+.plan-modal-title { font-family: var(--font-title); font-size: 2.2rem; font-weight: 400; color: #fff; margin: 0; }
+.plan-modal-price { font-size: 2rem; font-weight: 900; color: var(--color-primary); }
+
+/* Galería de 3 fotos del modal */
+.modal-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 2rem; }
+.modal-gallery img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+
+/* Detalles de lista */
+.plan-details h4 { color: var(--color-primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; font-weight: 600; }
+.plan-details ul { list-style: none; margin-bottom: 2rem; padding: 0; }
+.plan-details li { color: #ccc; font-size: 0.95rem; margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+.plan-details li::before { content: "•"; color: var(--color-primary); font-size: 1.2rem; line-height: 1; }
+
+/* Caja de Términos */
+.modal-terms-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.modal-terms-box h4 { color: var(--color-primary); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
+.modal-terms-box p { color: #aaa; font-size: 0.85rem; margin-bottom: 0.8rem; line-height: 1.6; }
+.modal-terms-box p:last-child { margin-bottom: 0; }
+.modal-terms-box strong { color: #fff; }
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
@@ -451,4 +448,10 @@ section { padding: var(--spacing-lg) 0; }
   .footer-brand, .footer-logo { margin: 0 auto 1.5rem auto; }
   .footer-links ul { align-items: center; }
   .addons-grid { grid-template-columns: 1fr; gap: 1rem; }
+  
+  /* Ajustes del modal en móvil */
+  .modal-header-info { flex-direction: column; gap: 5px; }
+  .plan-modal-content { padding: 1.5rem; }
+  .modal-gallery { grid-template-columns: 1fr; }
+  .modal-gallery img { height: 200px; }
 }
