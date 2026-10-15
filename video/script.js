@@ -20,6 +20,7 @@ window.openVideoModal = function (card) {
     player.muted = false;
 
     videoModal.classList.add("active");
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     if (caption) {
@@ -43,6 +44,7 @@ window.closeVideoModal = function () {
   if (videoModal) {
     videoModal.classList.remove("active");
   }
+  document.documentElement.style.overflow = "";
   document.body.style.overflow = "";
   if (player) {
     try {

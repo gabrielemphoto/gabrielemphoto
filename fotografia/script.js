@@ -4,7 +4,7 @@
  * gestos táctiles (Swipe), miniaturas y soporte 100% garantizado en móviles y escritorio.
  */
 
-// BASE DE DATOS DE TODAS LAS CARPETAS Y FOTOGRAFÍAS REALES
+// BASE DE DATOS DE LAS CARPETAS (RESPETANDO ESTRICTAMENTE LAS FOTOS REALES DE GABRIEL)
 const CARPETAS_DATA = {
   sesiones: {
     id: "sesiones",
@@ -24,7 +24,7 @@ const CARPETAS_DATA = {
       { src: "assets/sesiones/IMG_5951.webp", title: "Retrato de Rostro y Enfoque", sub: "Sesiones • Alta Definición" },
       { src: "assets/sesiones/IMG_7173.webp", title: "Retrato Editorial en Estudio", sub: "Sesiones • Elegancia & Estilo" },
       { src: "assets/sesiones/IMG_7233.webp", title: "Sesión Personal de Autor", sub: "Sesiones • Iluminación Esculpida" },
-      { src: "assets/sesiones/IMG_7251.webp", title: "Retrato de Carácter Profundo", sub: "Sesiones • Blanco y Negro / Tono Cálido" },
+      { src: "assets/sesiones/IMG_7251.webp", title: "Retrato de Carácter Profundo", sub: "Sesiones • Tono Atemporal" },
       { src: "assets/sesiones/IMG_7511.webp", title: "Retrato Espontáneo", sub: "Sesiones • Movimiento y Verdad" },
       { src: "assets/sesiones/IMG_7515.webp", title: "Encuadre Editorial", sub: "Sesiones • Silueta y Sombra" },
       { src: "assets/sesiones/IMG_7536.webp", title: "Retrato Clásico con Fondo Neutro", sub: "Sesiones • Estudio Fotográfico" },
@@ -96,29 +96,18 @@ const CARPETAS_DATA = {
     id: "comuniones",
     title: "Primera Comunión",
     subtitle: "Retratos solemnes, fe, tradición y la luz pura de un día inolvidable",
-    badge: "3 FOTOGRAFÍAS",
-    cover: "assets/comuniones/Altar.webp",
-    photos: [
-      { src: "assets/comuniones/Altar.webp", title: "El Sacramento de la Primera Comunión", sub: "Comunión • Altar y Devoción" },
-      { src: "assets/comuniones/IMG_2606.webp", title: "Retrato Solemne en Iglesia", sub: "Comunión • Vestuario y Fe" },
-      { src: "assets/comuniones/IMG_2632.webp", title: "Bendición y Recuerdo Familiar", sub: "Comunión • Tradición Sagrada" }
-    ]
+    badge: "PRÓXIMAMENTE",
+    cover: "assets/bautizos/IMG_0320.webp",
+    photos: [] // VACÍA RESPETANDO EL PEDIDO DEL USUARIO
   },
 
   polas: {
     id: "polas",
     title: "Polas & Digitals de Modelos",
-    subtitle: "Digitals oficiales de modelos, pruebas de agencia en estudio y luz natural",
-    badge: "6 FOTOGRAFÍAS",
-    cover: "assets/polas/pola-1.webp",
-    photos: [
-      { src: "assets/polas/pola-1.webp", title: "Polaroid de Rostro • Primer Plano Frontal", sub: "Polas • Digital Oficial de Casting" },
-      { src: "assets/polas/pola-2.webp", title: "Polaroid de Perfil 3/4", sub: "Polas • Estructura Facial y Ángulo" },
-      { src: "assets/polas/pola-3.webp", title: "Polaroid de Plano Medio", sub: "Polas • Expresión Neutra & Proporción" },
-      { src: "assets/polas/pola-4.webp", title: "Polaroid de Cuerpo Completo", sub: "Polas • Postura y Silueta Natural" },
-      { src: "assets/polas/pola-5.webp", title: "Polaroid con Sonrisa & Actitud", sub: "Polas • Rango Expresivo" },
-      { src: "assets/polas/pola-6.webp", title: "Polaroid Editorial de Cierre", sub: "Polas • Ficha de Presentación" }
-    ]
+    subtitle: "Digitals oficiales de modelos y pruebas de casting bajo estándares de agencia",
+    badge: "PRÓXIMAMENTE",
+    cover: "assets/sesiones/IMG_4046.webp",
+    photos: [] // VACÍA RESPETANDO EL PEDIDO DEL USUARIO
   }
 };
 
@@ -128,17 +117,55 @@ let currentPhotoIndex = 0;
 
 // FUNCIONES GLOBALES DISPONIBLES INMEDIATAMENTE
 window.openFolder = function (folderKey, startIndex = 0) {
-  if (!CARPETAS_DATA[folderKey]) return;
+  const folder = CARPETAS_DATA[folderKey];
+  if (!folder) return;
 
   currentFolderKey = folderKey;
-  currentPhotoIndex = Math.max(0, Math.min(startIndex, CARPETAS_DATA[folderKey].photos.length - 1));
-
-  renderModalPhoto();
-  renderThumbnailsStrip();
 
   const modal = document.getElementById("folder-lightbox");
+  const folderNameEl = document.getElementById("lightbox-folder-name");
+  const counterEl = document.getElementById("lightbox-counter");
+  const emptyStateEl = document.getElementById("lightbox-empty-state");
+  const photoContainerEl = document.getElementById("lightbox-photo-container");
+  const arrows = document.querySelectorAll(".modal-nav-arrow");
+  const stripEl = document.getElementById("lightbox-thumbs-strip");
+  const touchHintEl = document.querySelector(".modal-touch-hint");
+
+  if (folderNameEl) {
+    folderNameEl.textContent = `📁 ${folder.title}`;
+  }
+
+  // SI LA CARPETA ESTÁ VACÍA (POLAS O COMUNIONES)
+  if (!folder.photos || folder.photos.length === 0) {
+    if (counterEl) counterEl.textContent = "Próximamente";
+    if (emptyStateEl) emptyStateEl.style.display = "flex";
+    if (photoContainerEl) photoContainerEl.style.display = "none";
+    if (stripEl) stripEl.style.display = "none";
+    if (touchHintEl) touchHintEl.style.display = "none";
+    arrows.forEach(a => (a.style.display = "none"));
+
+    const emptyDesc = document.getElementById("empty-state-desc");
+    if (emptyDesc) {
+      emptyDesc.textContent = `Gabriel EM está preparando las fotografías oficiales de ${folder.title}. Muy pronto estarán disponibles aquí en alta resolución.`;
+    }
+  } else {
+    // CARPETA CON FOTOGRAFÍAS REALES
+    currentPhotoIndex = Math.max(0, Math.min(startIndex, folder.photos.length - 1));
+
+    if (emptyStateEl) emptyStateEl.style.display = "none";
+    if (photoContainerEl) photoContainerEl.style.display = "flex";
+    if (stripEl) stripEl.style.display = "flex";
+    if (touchHintEl) touchHintEl.style.display = "block";
+    arrows.forEach(a => (a.style.display = "flex"));
+
+    renderModalPhoto();
+    renderThumbnailsStrip();
+  }
+
   if (modal) {
     modal.classList.add("active");
+    // Bloquear scroll de fondo de forma efectiva
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
   }
 };
@@ -148,12 +175,13 @@ window.closeLightbox = function () {
   if (modal) {
     modal.classList.remove("active");
   }
+  document.documentElement.style.overflow = "";
   document.body.style.overflow = "";
 };
 
 window.nextPhoto = function () {
   const folder = CARPETAS_DATA[currentFolderKey];
-  if (!folder) return;
+  if (!folder || !folder.photos || folder.photos.length === 0) return;
   currentPhotoIndex = (currentPhotoIndex + 1) % folder.photos.length;
   renderModalPhoto();
   updateActiveThumbnail();
@@ -161,7 +189,7 @@ window.nextPhoto = function () {
 
 window.prevPhoto = function () {
   const folder = CARPETAS_DATA[currentFolderKey];
-  if (!folder) return;
+  if (!folder || !folder.photos || folder.photos.length === 0) return;
   currentPhotoIndex = (currentPhotoIndex - 1 + folder.photos.length) % folder.photos.length;
   renderModalPhoto();
   updateActiveThumbnail();
@@ -169,7 +197,7 @@ window.prevPhoto = function () {
 
 window.goToPhoto = function (index) {
   const folder = CARPETAS_DATA[currentFolderKey];
-  if (!folder || index < 0 || index >= folder.photos.length) return;
+  if (!folder || !folder.photos || index < 0 || index >= folder.photos.length) return;
   currentPhotoIndex = index;
   renderModalPhoto();
   updateActiveThumbnail();
@@ -178,13 +206,12 @@ window.goToPhoto = function (index) {
 // RENDERIZA LA FOTO ACTUAL EN EL MODAL
 function renderModalPhoto() {
   const folder = CARPETAS_DATA[currentFolderKey];
-  if (!folder) return;
+  if (!folder || !folder.photos || folder.photos.length === 0) return;
 
   const photo = folder.photos[currentPhotoIndex];
   const imgEl = document.getElementById("lightbox-img");
   const captionEl = document.getElementById("lightbox-caption");
   const counterEl = document.getElementById("lightbox-counter");
-  const folderNameEl = document.getElementById("lightbox-folder-name");
 
   if (imgEl && photo) {
     imgEl.src = photo.src;
@@ -198,10 +225,6 @@ function renderModalPhoto() {
   if (counterEl) {
     counterEl.textContent = `Foto ${currentPhotoIndex + 1} de ${folder.photos.length}`;
   }
-
-  if (folderNameEl) {
-    folderNameEl.textContent = `📁 ${folder.title}`;
-  }
 }
 
 // RENDERIZA LA TIRA INFERIOR DE MINIATURAS
@@ -210,7 +233,7 @@ function renderThumbnailsStrip() {
   if (!stripEl) return;
 
   const folder = CARPETAS_DATA[currentFolderKey];
-  if (!folder) return;
+  if (!folder || !folder.photos) return;
 
   stripEl.innerHTML = "";
   folder.photos.forEach((photo, idx) => {
@@ -329,13 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const diffX = touchEndX - touchStartX;
       const diffY = touchEndY - touchStartY;
 
-      // Deslizar horizontalmente con al menos 40px de intención
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
         if (diffX < 0) {
-          // Deslizó hacia la izquierda -> Siguiente foto
           window.nextPhoto();
         } else {
-          // Deslizó hacia la derecha -> Foto anterior
           window.prevPhoto();
         }
       }
