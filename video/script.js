@@ -1,5 +1,25 @@
+/**
+ * GABRIEL EM | PORTAFOLIO VIDEÓGRAFO Y EDITOR
+ * Script interactivo: Reproductor modal garantizado en móviles/desktop, filtros y transiciones
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. FILTROS DE CATEGORÍA DE VIDEO
+  // 1. GESTIÓN DEL TELÓN DE TRANSICIÓN (DESBLOQUEO INMEDIATO)
+  const curtain = document.getElementById("page-curtain");
+  if (curtain) {
+    curtain.classList.remove("active");
+    curtain.style.pointerEvents = "none";
+  }
+
+  // DESBLOQUEO ADICIONAL ANTE RETORNO DE CACHÉ DE NAVEGADOR (BFCache)
+  window.addEventListener("pageshow", () => {
+    if (curtain) {
+      curtain.classList.remove("active");
+      curtain.style.pointerEvents = "none";
+    }
+  });
+
+  // 2. FILTROS DE CATEGORÍA DE VIDEO
   const filterBtns = document.querySelectorAll(".filter-pill");
   const videoGroups = document.querySelectorAll(".video-group");
   const videoItems = document.querySelectorAll(".video-card-item");
@@ -27,34 +47,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. MODAL REPRODUCTOR DE VIDEO A PANTALLA COMPLETA
+  // 3. MODAL REPRODUCTOR DE VIDEO A PANTALLA COMPLETA
   const videoModal = document.getElementById("video-lightbox");
   const player = document.getElementById("lightbox-player");
   const caption = document.getElementById("video-lightbox-caption");
   const closeBtn = document.getElementById("video-lightbox-close");
 
-  document.querySelectorAll("[data-video]").forEach(card => {
-    card.addEventListener("click", () => {
-      const videoSrc = card.getAttribute("data-video");
-      if (videoSrc) {
-        player.src = videoSrc;
-        player.muted = false; // Sonido activado al abrir en modal
-        player.play();
-        caption.innerHTML = `<strong>${card.getAttribute("data-title")}</strong><br><span>${card.getAttribute("data-sub")}</span>`;
-        videoModal.classList.add("active");
+  function openVideoModal(card) {
+    const videoSrc = card.getAttribute("data-video");
+    const title = card.getAttribute("data-title") || "Producción Audiovisual";
+    const sub = card.getAttribute("data-sub") || "";
+
+    if (videoSrc && videoModal && player) {
+      player.src = videoSrc;
+      player.currentTime = 0;
+      player.muted = false; // Intentar audio encendido primero
+
+      const playPromise = player.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Si el navegador bloquea autoplay con sonido, reproducir muteado para no fallar
+          player.muted = true;
+          player.play();
+        });
       }
-    });
-  });
+
+      if (caption) {
+        caption.innerHTML = `<strong>${title}</strong>${sub ? `<br><span>${sub}</span>` : ""}`;
+      }
+      videoModal.classList.add("active");
+      document.body.style.overflow = "hidden"; // Evita scroll de fondo
+    }
+  }
 
   function closeVideoModal() {
     if (videoModal) videoModal.classList.remove("active");
+    document.body.style.overflow = ""; // Restaura scroll
     if (player) {
       player.pause();
       player.src = "";
     }
   }
 
-  if (closeBtn) closeBtn.addEventListener("click", closeVideoModal);
+  // Delegación de eventos en el contenedor principal: funciona 100% en móvil
+  const container = document.querySelector(".portfolio-container");
+  if (container) {
+    container.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-video]");
+      if (card) {
+        e.preventDefault();
+        openVideoModal(card);
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeVideoModal();
+    });
+  }
+
   if (videoModal) {
     videoModal.addEventListener("click", (e) => {
       if (e.target === videoModal) closeVideoModal();
@@ -65,17 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeVideoModal();
   });
 
-  // 3. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
-  const curtain = document.getElementById("page-curtain");
+  // 4. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
   document.querySelectorAll(".page-transition-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("href");
-      if (href && href !== "#") {
+      if (href && href !== "#" && !href.startsWith("#")) {
         e.preventDefault();
-        if (curtain) curtain.classList.add("active");
+        if (curtain) {
+          curtain.style.pointerEvents = "auto";
+          curtain.classList.add("active");
+        }
         setTimeout(() => {
           window.location.href = href;
-        }, 320);
+        }, 280);
       }
     });
   });

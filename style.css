@@ -856,13 +856,13 @@ html.skip-intro-immediate body {
   background: #F1EBDF;
   z-index: 99999;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none !important;
+  transition: opacity 0.32s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 #page-curtain.active {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: auto !important;
 }
 
 /* Animación de entrada de página */

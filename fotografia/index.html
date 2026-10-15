@@ -3,16 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel EM | Portafolio Fotográfico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gabriel EM | Portafolio Fotográfico Editorial</title>
 
+  <!-- FUENTES GOOGLE: CORMORANT GARAMOND & MONTSERRAT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Montserrat:wght@500;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 
 <body class="page-fade-in">
@@ -20,226 +21,703 @@
   <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
   <div id="page-curtain"></div>
 
-  <!-- NAVEGACIÓN SUPERIOR FIJA -->
+  <!-- NAVEGACIÓN SUPERIOR ELEGANTE Y COMPACTA -->
   <nav class="portfolio-header-nav">
-    <a href="../" class="nav-back-btn page-transition-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="19" y1="12" x2="5" y2="12"></line>
-        <polyline points="12 19 5 12 12 5"></polyline>
-      </svg>
-      Inicio
-    </a>
-
-    <div class="nav-logo-wrap">
-      <a href="../" class="page-transition-btn">
-        <img src="assets/logo.png" onerror="this.onerror=null; this.src='../logo.png'" alt="Gabriel EM">
+    <div class="nav-left">
+      <a href="../" class="nav-back-btn page-transition-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Inicio</span>
       </a>
     </div>
 
-    <div class="nav-actions">
-      <a href="../video/" class="nav-switch-btn page-transition-btn">Ver Videógrafo →</a>
+    <div class="nav-logo-wrap">
+      <a href="../" class="page-transition-btn" aria-label="Gabriel EM Inicio">
+        <img src="assets/logo.png" onerror="this.onerror=null; this.src='../logo.png'" alt="Gabriel EM" class="nav-logo-img">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <a href="../video/" class="nav-switch-btn page-transition-btn">
+        <span>Videógrafo →</span>
+      </a>
     </div>
   </nav>
 
-  <!-- HERO DE FOTOGRAFÍA -->
-  <header class="portfolio-hero">
-    <h1>FOTOGRAFÍA</h1>
-    <p>Capturando luz, momentos y estética visual con enfoque editorial.</p>
+  <!-- ==================== HERO SECTION EDITORIAL ==================== -->
+  <header class="editorial-hero">
+    <div class="hero-content-wrapper">
 
-    <!-- BARRA DE FILTROS -->
-    <div class="filter-bar">
-      <button class="filter-pill active" data-filter="all">Todos los Trabajos</button>
-      <button class="filter-pill" data-filter="sesiones">Sesiones & Retratos</button>
-      <button class="filter-pill" data-filter="bautizos">Bautizos & Eventos</button>
-      <button class="filter-pill" data-filter="xv">XV Años</button>
+      <div class="hero-text-col">
+        <div class="hero-top-meta">
+          <span class="meta-number">( 01 )</span>
+          <span class="meta-tag">FOTOGRAFÍA EDITORIAL & AUTOR</span>
+          <span class="meta-divider">•</span>
+          <span class="meta-loc">MARGARITA, VZLA</span>
+        </div>
+
+        <h1 class="hero-main-title">
+          WE MAKE —<br>
+          <span class="italic-serif">MEMORIES</span><br>
+          LAST A LIFETIME
+        </h1>
+
+        <p class="hero-description">
+          Fotografía de alta estética editorial, sesiones personales, quinceañeras y ceremonias sagradas. Capturamos la verdad de cada emoción con una mirada atemporal que trasciende generaciones.
+        </p>
+
+        <!-- CTA AGENDAR SESIÓN DIRECTO A WHATSAPP -->
+        <div class="hero-cta-actions">
+          <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20agendar%20una%20sesi%C3%B3n/evento%20fotogr%C3%A1fico%20contigo." target="_blank" rel="noopener" class="btn-primary-editorial">
+            <span>Agendar Sesión / Evento</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+
+          <a href="#galeria" class="btn-secondary-editorial">
+            <span>Explorar Galería</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- QUICK BADGES -->
+        <div class="hero-micro-features">
+          <div class="micro-feature">
+            <strong>+58 414 6860112</strong>
+            <span>WhatsApp Directo</span>
+          </div>
+          <div class="micro-feature">
+            <strong>@gabrielemphoto</strong>
+            <span>Instagram Oficial</span>
+          </div>
+          <div class="micro-feature">
+            <strong>Alta Resolución</strong>
+            <span>Color Grading & B&W</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISUAL HERO PRINCIPAL -->
+      <div class="hero-visual-col">
+        <div class="hero-image-frame">
+          <img src="assets/foto-2.webp" alt="Sesión Editorial Gabriel EM - Salar de Pampatar" class="hero-cover-img" loading="eager">
+          <div class="hero-image-badge">
+            <span class="badge-dot"></span>
+            <span>GABRIEL EM © • SESIÓN EDITORIAL</span>
+          </div>
+        </div>
+
+        <!-- MINI ACCENTO POLAROID FLOTANTE -->
+        <div class="hero-polaroid-accent">
+          <div class="pola-thumb-wrap">
+            <img src="assets/SESIONES/IMG_7569.webp" alt="Retrato Editorial Velo">
+          </div>
+          <div class="pola-caption">
+            <span>LOOKBOOK 2026</span>
+            <small>Pampatar, VE</small>
+          </div>
+        </div>
+      </div>
+
     </div>
   </header>
 
-  <!-- GRILLA PRINCIPAL DE FOTOS -->
-  <main class="portfolio-container">
-    <div class="gallery-grid">
+  <!-- ==================== SECCIÓN "SOBRE MÍ" ==================== -->
+  <section class="editorial-about" id="sobre-mi">
+    <div class="about-container">
 
-      <!-- FOTO PRINCIPAL 1: SESIÓN EDITORIAL -->
-      <article class="photo-card" data-category="sesiones" data-src="assets/foto-2.webp" data-title="Reflejo de Sal" data-sub="Sesión Editorial en Salar • Color Grading Natural">
-        <img src="assets/foto-2.webp" alt="Reflejo de Sal" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Reflejo de Sal</h3>
-          <span class="card-sub">Sesión Editorial</span>
+      <div class="about-header-row">
+        <div class="about-title-group">
+          <span class="section-kicker">( 02 ) VISIÓN Y AUTOR</span>
+          <h2 class="about-main-heading">
+            ABOUT — <span class="italic-serif">GABRIEL EM</span>
+          </h2>
         </div>
-      </article>
+        <div class="about-meta-text">
+          <p class="about-highlight-phrase">
+            PICTURES TO — <span class="italic-serif">TELL STORIES</span>
+          </p>
+        </div>
+      </div>
 
-      <!-- FOTO PRINCIPAL 2: B&W -->
-      <article class="photo-card" data-category="sesiones" data-src="assets/foto-1.webp" data-title="Horizonte y Roca" data-sub="Retrato en Costas del Caribe • Blanco y Negro">
-        <img src="assets/foto-1.webp" alt="Horizonte y Roca" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones • B&W</span>
-          <h3 class="card-title">Horizonte y Roca</h3>
-          <span class="card-sub">Blanco y Negro Analógico</span>
+      <!-- FOTO PANORÁMICA DE AUTOR -->
+      <div class="about-wide-visual">
+        <img src="assets/SESIONES/IMG_7173.webp" alt="Gabriel EM - Fotografía en Acantilados" loading="lazy">
+        <div class="wide-visual-overlay">
+          <span>COSTA NORTE • ISLA DE MARGARITA</span>
+          <span>ESTÉTICA EDITORIAL • ILUMINACIÓN NATURAL</span>
         </div>
-      </article>
+      </div>
 
-      <!-- FOTO PRINCIPAL 3: RETRATO EMBARCACIÓN -->
-      <article class="photo-card" data-category="sesiones" data-src="assets/foto-3.webp" data-title="Brisa Costera" data-sub="Sesión Retrato Golden Hour">
-        <img src="assets/foto-3.webp" alt="Brisa Costera" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Brisa Costera</h3>
-          <span class="card-sub">Golden Hour Natural</span>
+      <!-- NARRATIVA Y FILOSOFÍA -->
+      <div class="about-narrative-grid">
+        <div class="about-bio-col">
+          <h3 class="about-sub-title">LA PASIÓN DETRÁS DEL LENTE</h3>
+          <p>
+            Mi viaje en el mundo visual comenzó con un deseo genuino: <em>congelar el tiempo y encapsular emociones reales en cada fotograma</em>. Con base en la Isla de Margarita y disponibilidad para coberturas nacionales e internacionales, cada proyecto que emprendo está guiado por la elegancia editorial, la luz pura y el respeto por la personalidad única de cada persona.
+          </p>
+          <p>
+            Ya sea una sesión de moda, una mágica noche de 15 años, o la intimidad solemne de un bautizo o primera comunión, mi objetivo es transformar momentos espontáneos en piezas de arte atemporales que trasciendan en el tiempo.
+          </p>
+          <div class="about-action-wrap">
+            <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20quiero%20conversar%20sobre%20una%20sesi%C3%B3n/evento." target="_blank" rel="noopener" class="about-cta-link">
+              <span>Conversar sobre tu proyecto →</span>
+            </a>
+          </div>
         </div>
-      </article>
 
-      <!-- SESIONES REALES -->
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7233.webp" data-title="Composición y Mirada" data-sub="Retrato en Exterior • Sesión Personal">
-        <img src="assets/SESIONES/IMG_7233.webp" alt="Composición y Mirada" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Composición y Mirada</h3>
-          <span class="card-sub">Retrato Exterior</span>
-        </div>
-      </article>
+        <!-- 4 PILARES / VALORES ARTÍSTICOS -->
+        <div class="about-values-col">
+          <div class="values-grid">
+            <div class="value-item">
+              <span class="val-num">01</span>
+              <h4>PRECISIÓN & LUZ</h4>
+              <p>Manejo de la luz natural dorada del Caribe y esquemas de iluminación de estudio de alto contraste.</p>
+            </div>
 
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7251.webp" data-title="Luz de Atardecer" data-sub="Sesión Retrato Individual">
-        <img src="assets/SESIONES/IMG_7251.webp" alt="Luz de Atardecer" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Luz de Atardecer</h3>
-          <span class="card-sub">Iluminación Cálida</span>
-        </div>
-      </article>
+            <div class="value-item">
+              <span class="val-num">02</span>
+              <h4>DIRECCIÓN NATURAL</h4>
+              <p>Acompañamiento cercano durante cada sesión para que te sientas con total soltura, elegancia y seguridad.</p>
+            </div>
 
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7569.webp" data-title="Estética Editorial" data-sub="Sesión de Moda & Estilismo">
-        <img src="assets/SESIONES/IMG_7569.webp" alt="Estética Editorial" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Estética Editorial</h3>
-          <span class="card-sub">Moda & Lookbook</span>
-        </div>
-      </article>
+            <div class="value-item">
+              <span class="val-num">03</span>
+              <h4>ESTÉTICA ATEMPORAL</h4>
+              <p>Colorimetría refinada y blanco y negro analógico inspirado en la fotografía de moda contemporánea.</p>
+            </div>
 
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7609.webp" data-title="Retrato en Movimiento" data-sub="Dirección Visual y Espontaneidad">
-        <img src="assets/SESIONES/IMG_7609.webp" alt="Retrato en Movimiento" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Retrato en Movimiento</h3>
-          <span class="card-sub">Estilo Editorial</span>
+            <div class="value-item">
+              <span class="val-num">04</span>
+              <h4>RECUERDOS ETERNOS</h4>
+              <p>Archivos en ultra alta definición listos para impresiones de bellas artes, álbumes y exhibición digital.</p>
+            </div>
+          </div>
         </div>
-      </article>
-
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_8237.webp" data-title="Detalles y Textura" data-sub="Primer Plano • Iluminación de Estudio">
-        <img src="assets/SESIONES/IMG_8237.webp" alt="Detalles y Textura" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Detalles y Textura</h3>
-          <span class="card-sub">Enfoque Artístico</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/madelein.webp" data-title="Sesión Madelein" data-sub="Retrato Clásico y Cercano">
-        <img src="assets/SESIONES/madelein.webp" alt="Sesión Madelein" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Sesiones</span>
-          <h3 class="card-title">Sesión Madelein</h3>
-          <span class="card-sub">Retrato Íntimo</span>
-        </div>
-      </article>
-
-      <!-- BAUTIZOS Y EVENTOS -->
-      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/Altar.webp" data-title="El Altar" data-sub="Ceremonia Religiosa • Arquitectura Sagrada">
-        <img src="assets/Bautizos/Altar.webp" alt="El Altar" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Bautizos</span>
-          <h3 class="card-title">El Altar</h3>
-          <span class="card-sub">Ceremonia Religiosa</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_0283.webp" data-title="Momento del Sacramento" data-sub="Bautismo • Captura Espontánea y Emotiva">
-        <img src="assets/Bautizos/IMG_0283.webp" alt="Momento del Sacramento" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Bautizos</span>
-          <h3 class="card-title">Momento del Sacramento</h3>
-          <span class="card-sub">Celebración Familiar</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_0325.webp" data-title="Detalles de Ceremonia" data-sub="Agua Bendita y Tradición Familiar">
-        <img src="assets/Bautizos/IMG_0325.webp" alt="Detalles de Ceremonia" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Bautizos</span>
-          <h3 class="card-title">Detalles de Ceremonia</h3>
-          <span class="card-sub">Luz Ambiental</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2547.webp" data-title="Sonrisas y Celebración" data-sub="Recepción Familiar de Bautismo">
-        <img src="assets/Bautizos/IMG_2547.webp" alt="Sonrisas y Celebración" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Bautizos</span>
-          <h3 class="card-title">Sonrisas y Celebración</h3>
-          <span class="card-sub">Recepción de Evento</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2632.webp" data-title="La Familia Unida" data-sub="Retrato Grupal de Bautizo">
-        <img src="assets/Bautizos/IMG_2632.webp" alt="La Familia Unida" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">Bautizos</span>
-          <h3 class="card-title">La Familia Unida</h3>
-          <span class="card-sub">Recuerdo Inolvidable</span>
-        </div>
-      </article>
-
-      <!-- XV AÑOS -->
-      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3799.webp" data-title="Sesión Previa XV" data-sub="Vestido de Quinceañera • Fotografía Exterior">
-        <img src="assets/XV AÑOS/IMG_3799.webp" alt="Sesión Previa XV" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">XV Años</span>
-          <h3 class="card-title">Sesión Previa XV</h3>
-          <span class="card-sub">Exteriores & Vestido</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3810.webp" data-title="Corona y Brillo" data-sub="Retrato Detalle de Quinceañera">
-        <img src="assets/XV AÑOS/IMG_3810.webp" alt="Corona y Brillo" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">XV Años</span>
-          <h3 class="card-title">Corona y Brillo</h3>
-          <span class="card-sub">Detalle y Elegancia</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7670.webp" data-title="Noche de Gala XV" data-sub="Entrada Triunfal y Vals">
-        <img src="assets/XV AÑOS/IMG_7670.webp" alt="Noche de Gala XV" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">XV Años</span>
-          <h3 class="card-title">Noche de Gala XV</h3>
-          <span class="card-sub">Fiesta & Celebración</span>
-        </div>
-      </article>
-
-      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7709.webp" data-title="Emoción y Celebración" data-sub="Momentos Inolvidables de Quinceañera">
-        <img src="assets/XV AÑOS/IMG_7709.webp" alt="Emoción y Celebración" loading="lazy">
-        <div class="card-overlay">
-          <span class="card-tag">XV Años</span>
-          <h3 class="card-title">Emoción y Celebración</h3>
-          <span class="card-sub">Recuerdos para Siempre</span>
-        </div>
-      </article>
+      </div>
 
     </div>
-  </main>
+  </section>
 
-  <!-- MODAL LIGHTBOX PARA VISUALIZACIÓN A PANTALLA COMPLETA -->
-  <div class="lightbox-modal" id="photo-lightbox">
-    <button class="lightbox-close" id="lightbox-close">✕</button>
+  <!-- ==================== SERVICIOS / DISCIPLINAS ==================== -->
+  <section class="editorial-services">
+    <div class="services-container">
+      <div class="services-header">
+        <span class="section-kicker">( 03 ) DISCIPLINAS</span>
+        <h2 class="services-heading">
+          OUR — <span class="italic-serif">SERVICES</span>
+        </h2>
+      </div>
+
+      <div class="services-list">
+        <div class="service-row filter-trigger" data-target-filter="sesiones">
+          <div class="srv-left">
+            <span class="srv-index">( 01 )</span>
+            <span class="srv-name">SESIONES & RETRATOS</span>
+          </div>
+          <p class="srv-desc">Fotografía editorial, lookbooks de moda, retratos de estudio y exteriores con estilismo.</p>
+          <span class="srv-arrow">Ver Fotos →</span>
+        </div>
+
+        <div class="service-row filter-trigger" data-target-filter="xv">
+          <div class="srv-left">
+            <span class="srv-index">( 02 )</span>
+            <span class="srv-name">15 AÑOS & QUINCEAÑERAS</span>
+          </div>
+          <p class="srv-desc">Sesión previa artística con vestidos de gala, vals, entrada triunfal y celebración completa.</p>
+          <span class="srv-arrow">Ver Fotos →</span>
+        </div>
+
+        <div class="service-row filter-trigger" data-target-filter="bautizos">
+          <div class="srv-left">
+            <span class="srv-index">( 03 )</span>
+            <span class="srv-name">BAUTIZOS & SACRAMENTOS</span>
+          </div>
+          <p class="srv-desc">Cobertura respetuosa y emotiva en templos, pilas bautismales y reuniones familiares.</p>
+          <span class="srv-arrow">Ver Fotos →</span>
+        </div>
+
+        <div class="service-row filter-trigger" data-target-filter="comunion">
+          <div class="srv-left">
+            <span class="srv-index">( 04 )</span>
+            <span class="srv-name">PRIMERA COMUNIÓN</span>
+          </div>
+          <p class="srv-desc">Retratos solemnes de fe en altar mayor, velas decoradas y momentos con seres queridos.</p>
+          <span class="srv-arrow">Ver Fotos →</span>
+        </div>
+
+        <div class="service-row filter-trigger" data-target-filter="polas">
+          <div class="srv-left">
+            <span class="srv-index">( 05 )</span>
+            <span class="srv-name">POLAS & MODEL DIGITALS</span>
+          </div>
+          <p class="srv-desc">Polaroids y digitals sin filtros para castings, agencias internacionales y composite cards.</p>
+          <span class="srv-arrow">Ver Fotos →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALERÍA FOTOGRÁFICA INTERACTIVA ==================== -->
+  <section class="gallery-section" id="galeria">
+    <div class="gallery-header-wrap">
+      <div class="gallery-title-box">
+        <span class="section-kicker">( 04 ) OBRAS SELECCIONADAS</span>
+        <h2 class="gallery-main-title">
+          PORTAFOLIO — <span class="italic-serif">GALERÍA</span>
+        </h2>
+        <p class="gallery-subtitle">Haz clic en cualquier imagen para abrirla en alta definición a pantalla completa.</p>
+      </div>
+
+      <!-- BARRA DE FILTROS INTERACTIVA -->
+      <div class="filter-bar-scroll-wrapper">
+        <div class="filter-bar">
+          <button class="filter-pill active" data-filter="all">
+            <span>Todos los Trabajos</span>
+          </button>
+          <button class="filter-pill" data-filter="sesiones">
+            <span>Sesiones & Retratos</span>
+          </button>
+          <button class="filter-pill" data-filter="xv">
+            <span>15 Años</span>
+          </button>
+          <button class="filter-pill" data-filter="bautizos">
+            <span>Bautizos</span>
+          </button>
+          <button class="filter-pill" data-filter="comunion">
+            <span>Primera Comunión</span>
+          </button>
+          <button class="filter-pill" data-filter="polas">
+            <span>Polas & Digitals</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRILLA PRINCIPAL DE FOTOGRAFÍAS -->
+    <div class="gallery-grid-container">
+      <div class="gallery-grid" id="gallery-grid">
+
+        <!-- 1. SESIONES: REFLEJO DE SAL -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/foto-2.webp" data-title="Reflejo de Sal" data-sub="Sesión Editorial en Salar de Pampatar • Colorimetría Natural">
+          <div class="card-num">01 / 28</div>
+          <img src="assets/foto-2.webp" alt="Reflejo de Sal" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Editorial</span>
+            <h3 class="card-title">Reflejo de Sal</h3>
+            <span class="card-sub">Salar de Pampatar</span>
+          </div>
+        </article>
+
+        <!-- 2. SESIONES: HORIZONTE Y ROCA (B&W) -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/foto-1.webp" data-title="Horizonte y Roca" data-sub="Retrato en Costas de Margarita • Blanco y Negro Analógico">
+          <div class="card-num">02 / 28</div>
+          <img src="assets/foto-1.webp" alt="Horizonte y Roca" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • B&W</span>
+            <h3 class="card-title">Horizonte y Roca</h3>
+            <span class="card-sub">Monocromo Analógico</span>
+          </div>
+        </article>
+
+        <!-- 3. SESIONES: BRISA COSTERA -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/foto-3.webp" data-title="Brisa Costera" data-sub="Retrato en Embarcación Tradicional • Golden Hour">
+          <div class="card-num">03 / 28</div>
+          <img src="assets/foto-3.webp" alt="Brisa Costera" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones</span>
+            <h3 class="card-title">Brisa Costera</h3>
+            <span class="card-sub">Golden Hour Caribeña</span>
+          </div>
+        </article>
+
+        <!-- 4. SESIONES: VELO EDITORIAL B&W -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7569.webp" data-title="Textura y Velo" data-sub="Primer Plano Editorial de Moda • Lookbook 2026">
+          <div class="card-num">04 / 28</div>
+          <img src="assets/SESIONES/IMG_7569.webp" alt="Textura y Velo" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Moda</span>
+            <h3 class="card-title">Textura y Velo</h3>
+            <span class="card-sub">Lookbook Editorial</span>
+          </div>
+        </article>
+
+        <!-- 5. SESIONES: SINFONÍA EN CARMESÍ -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7561.webp" data-title="Sinfonía en Carmesí" data-sub="Vestido de Seda y Espejo de Agua • Sesión de Moda">
+          <div class="card-num">05 / 28</div>
+          <img src="assets/SESIONES/IMG_7561.webp" alt="Sinfonía en Carmesí" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones</span>
+            <h3 class="card-title">Sinfonía en Carmesí</h3>
+            <span class="card-sub">Estilismo y Locación</span>
+          </div>
+        </article>
+
+        <!-- 6. SESIONES: FLOR CARMESÍ -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_8237.webp" data-title="Flor Carmesí" data-sub="Alta Costura en Escalera Multicolor • Luz Cenital">
+          <div class="card-num">06 / 28</div>
+          <img src="assets/SESIONES/IMG_8237.webp" alt="Flor Carmesí" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Moda</span>
+            <h3 class="card-title">Flor Carmesí</h3>
+            <span class="card-sub">Diseño & Alta Costura</span>
+          </div>
+        </article>
+
+        <!-- 7. SESIONES: RETRATO MASCULINO -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7233.webp" data-title="Atardecer y Costa" data-sub="Retrato Editorial Masculino al Atardecer">
+          <div class="card-num">07 / 28</div>
+          <img src="assets/SESIONES/IMG_7233.webp" alt="Atardecer y Costa" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones</span>
+            <h3 class="card-title">Atardecer y Costa</h3>
+            <span class="card-sub">Luz Natural Dorada</span>
+          </div>
+        </article>
+
+        <!-- 8. SESIONES: SOMBREROS EDITORIAL -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7973.webp" data-title="Composición Sombreros" data-sub="Estilismo Conceptual • Fotografía de Moda">
+          <div class="card-num">08 / 28</div>
+          <img src="assets/SESIONES/IMG_7973.webp" alt="Composición Sombreros" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Moda</span>
+            <h3 class="card-title">Composición Sombreros</h3>
+            <span class="card-sub">Editorial Conceptual</span>
+          </div>
+        </article>
+
+        <!-- 9. SESIONES: LA CATIRA STREET -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_8740.webp" data-title="La Catira Street Style" data-sub="Estética Urbana Caribeña • Color Pop">
+          <div class="card-num">09 / 28</div>
+          <img src="assets/SESIONES/IMG_8740.webp" alt="La Catira Street Style" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Urbano</span>
+            <h3 class="card-title">La Catira Street Style</h3>
+            <span class="card-sub">Margarita Auténtica</span>
+          </div>
+        </article>
+
+        <!-- 10. SESIONES: REINA DEL BUEN VIAJE -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_2488 (1).webp" data-title="Reina del Buen Viaje" data-sub="Reinado de Belleza Tradicional • Corona y Banda">
+          <div class="card-num">10 / 28</div>
+          <img src="assets/SESIONES/IMG_2488 (1).webp" alt="Reina del Buen Viaje" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Reinado</span>
+            <h3 class="card-title">Reina del Buen Viaje</h3>
+            <span class="card-sub">Tradición & Soberana</span>
+          </div>
+        </article>
+
+        <!-- 11. SESIONES: FITNESS MADELEIN -->
+        <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/madelein.webp" data-title="Fuerza y Disciplina" data-sub="Sesión Fotográfica Fitness y Estilo de Vida">
+          <div class="card-num">11 / 28</div>
+          <img src="assets/SESIONES/madelein.webp" alt="Fuerza y Disciplina" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Sesiones • Fitness</span>
+            <h3 class="card-title">Fuerza y Disciplina</h3>
+            <span class="card-sub">Retrato Deportivo</span>
+          </div>
+        </article>
+
+        <!-- 12. XV AÑOS: PRINCESA DEL CASTILLO -->
+        <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3806.webp" data-title="Princesa en el Castillo" data-sub="Vestido de Gala Rosa • Castillo San Carlos Borromeo">
+          <div class="card-num">12 / 28</div>
+          <img src="assets/XV AÑOS/IMG_3806.webp" alt="Princesa en el Castillo" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años</span>
+            <h3 class="card-title">Princesa en el Castillo</h3>
+            <span class="card-sub">Sesión Previa Artística</span>
+          </div>
+        </article>
+
+        <!-- 13. XV AÑOS: BENDICIÓN MATERNA -->
+        <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3810.webp" data-title="Amor Incondicional" data-sub="Beso Materno y Corona de Quinceañera • Castillo Histórico">
+          <div class="card-num">13 / 28</div>
+          <img src="assets/XV AÑOS/IMG_3810.webp" alt="Amor Incondicional" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años</span>
+            <h3 class="card-title">Amor Incondicional</h3>
+            <span class="card-sub">Vínculo & Emoción</span>
+          </div>
+        </article>
+
+        <!-- 14. XV AÑOS: NOCHE DE GALA Y VALS -->
+        <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7670.webp" data-title="Noche de Gala y Vals" data-sub="Momento Cumbre de la Celebración de 15 Años">
+          <div class="card-num">14 / 28</div>
+          <img src="assets/XV AÑOS/IMG_7670.webp" alt="Noche de Gala y Vals" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años</span>
+            <h3 class="card-title">Noche de Gala y Vals</h3>
+            <span class="card-sub">Recepción & Fiesta</span>
+          </div>
+        </article>
+
+        <!-- 15. XV AÑOS: EMOCIÓN COMPARTIDA -->
+        <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7709.webp" data-title="Emoción y Familia" data-sub="Abrazos y Lágrimas de Felicidad en Pista">
+          <div class="card-num">15 / 28</div>
+          <img src="assets/XV AÑOS/IMG_7709.webp" alt="Emoción y Familia" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años</span>
+            <h3 class="card-title">Emoción y Familia</h3>
+            <span class="card-sub">Momentos Irrepetibles</span>
+          </div>
+        </article>
+
+        <!-- 16. XV AÑOS: PUERTO Y VESTIDO DE GALA -->
+        <article class="photo-card" data-category="xv" data-src="assets/SESIONES/IMG_4046.webp" data-title="Puerto y Luces" data-sub="Sesión Fotográfica en Bahía de Pescadores">
+          <div class="card-num">16 / 28</div>
+          <img src="assets/SESIONES/IMG_4046.webp" alt="Puerto y Luces" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años • Sesión</span>
+            <h3 class="card-title">Puerto y Luces</h3>
+            <span class="card-sub">Bahía Tradicional</span>
+          </div>
+        </article>
+
+        <!-- 17. XV AÑOS: REDES Y ENSUEÑO -->
+        <article class="photo-card" data-category="xv" data-src="assets/SESIONES/IMG_4058.webp" data-title="Redes y Ensueño" data-sub="Composición Artística en Embarcación">
+          <div class="card-num">17 / 28</div>
+          <img src="assets/SESIONES/IMG_4058.webp" alt="Redes y Ensueño" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">15 Años • Sesión</span>
+            <h3 class="card-title">Redes y Ensueño</h3>
+            <span class="card-sub">Golden Hour Caribeña</span>
+          </div>
+        </article>
+
+        <!-- 18. BAUTIZOS: MOMENTO DEL SACRAMENTO -->
+        <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_0283.webp" data-title="El Santo Sacramento" data-sub="Pila Bautismal • Rito Solemne y Emoción Familiar">
+          <div class="card-num">18 / 28</div>
+          <img src="assets/Bautizos/IMG_0283.webp" alt="El Santo Sacramento" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Bautizos</span>
+            <h3 class="card-title">El Santo Sacramento</h3>
+            <span class="card-sub">Pila Bautismal</span>
+          </div>
+        </article>
+
+        <!-- 19. BAUTIZOS: ALTAR Y TEMPLO -->
+        <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/Altar.webp" data-title="El Altar Mayor" data-sub="Arquitectura Sacra y Presbiterio Tradicional">
+          <div class="card-num">19 / 28</div>
+          <img src="assets/Bautizos/Altar.webp" alt="El Altar Mayor" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Bautizos</span>
+            <h3 class="card-title">El Altar Mayor</h3>
+            <span class="card-sub">Santuario de Fe</span>
+          </div>
+        </article>
+
+        <!-- 20. BAUTIZOS: SONRISA DE BENDICIÓN -->
+        <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2490.webp" data-title="Sonrisa de Bendición" data-sub="Momento de Alegría Infantil en la Ceremonia">
+          <div class="card-num">20 / 28</div>
+          <img src="assets/Bautizos/IMG_2490.webp" alt="Sonrisa de Bendición" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Bautizos</span>
+            <h3 class="card-title">Sonrisa de Bendición</h3>
+            <span class="card-sub">Alegría & Sacramento</span>
+          </div>
+        </article>
+
+        <!-- 21. BAUTIZOS: CONCHA BAUTISMAL -->
+        <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2735-2.webp" data-title="Luz y Concha Sagrada" data-sub="Agua Bendita sobre la Pequeña • Sacramento de Fe">
+          <div class="card-num">21 / 28</div>
+          <img src="assets/Bautizos/IMG_2735-2.webp" alt="Luz y Concha Sagrada" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Bautizos</span>
+            <h3 class="card-title">Luz y Concha Sagrada</h3>
+            <span class="card-sub">Ceremonia Bautismal</span>
+          </div>
+        </article>
+
+        <!-- 22. BAUTIZOS: ABRAZO EN EL TEMPLO -->
+        <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_4477.webp" data-title="Ternura en el Altar" data-sub="Madre y Bebé Frente al Retablo Dorado">
+          <div class="card-num">22 / 28</div>
+          <img src="assets/Bautizos/IMG_4477.webp" alt="Ternura en el Altar" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Bautizos</span>
+            <h3 class="card-title">Ternura en el Altar</h3>
+            <span class="card-sub">Amor Familiar</span>
+          </div>
+        </article>
+
+        <!-- 23. COMUNIÓN: VELA Y FE EN EL ALTAR -->
+        <article class="photo-card" data-category="comunion" data-src="assets/Comuniones/IMG_2606.webp" data-title="Luz de Primera Comunión" data-sub="Niño en Atuendo Blanco con Vela Decorada ante el Altar">
+          <div class="card-num">23 / 28</div>
+          <img src="assets/Comuniones/IMG_2606.webp" alt="Luz de Primera Comunión" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Primera Comunión</span>
+            <h3 class="card-title">Luz de Primera Comunión</h3>
+            <span class="card-sub">Solemnidad & Fe</span>
+          </div>
+        </article>
+
+        <!-- 24. COMUNIÓN: ORACIÓN FAMILIAR -->
+        <article class="photo-card" data-category="comunion" data-src="assets/Bautizos/IMG_2630.webp" data-title="Pureza y Devoción" data-sub="Madre e Hija en el Templo Sagrado • Recuerdos de Comunión">
+          <div class="card-num">24 / 28</div>
+          <img src="assets/Bautizos/IMG_2630.webp" alt="Pureza y Devoción" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Primera Comunión</span>
+            <h3 class="card-title">Pureza y Devoción</h3>
+            <span class="card-sub">Celebración Sagrada</span>
+          </div>
+        </article>
+
+        <!-- 25. POLAS: POLA 01 VELO -->
+        <article class="photo-card" data-category="polas" data-src="assets/Polas/pola-1.webp" data-title="Pola 01 • Velo Analógico" data-sub="Digital Polaroid • Rostro Natural sin Filtros">
+          <div class="card-num">25 / 28</div>
+          <img src="assets/Polas/pola-1.webp" alt="Pola 01 - Velo Analógico" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Polas & Digitals</span>
+            <h3 class="card-title">Pola 01 • Velo Analógico</h3>
+            <span class="card-sub">Model Polaroid</span>
+          </div>
+        </article>
+
+        <!-- 26. POLAS: POLA 02 GOLDEN HOUR -->
+        <article class="photo-card" data-category="polas" data-src="assets/Polas/pola-2.webp" data-title="Pola 02 • Perfil Natural" data-sub="Luz Dorada Natural • Casting Digital Masculino">
+          <div class="card-num">26 / 28</div>
+          <img src="assets/Polas/pola-2.webp" alt="Pola 02 - Perfil Natural" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Polas & Digitals</span>
+            <h3 class="card-title">Pola 02 • Perfil Natural</h3>
+            <span class="card-sub">Casting Masculino</span>
+          </div>
+        </article>
+
+        <!-- 27. POLAS: POLA 03 SWIMWEAR -->
+        <article class="photo-card" data-category="polas" data-src="assets/Polas/pola-3.webp" data-title="Pola 03 • Swimwear Clean" data-sub="Test Shot Agency • Líneas Limpias y Luz Natural">
+          <div class="card-num">27 / 28</div>
+          <img src="assets/Polas/pola-3.webp" alt="Pola 03 - Swimwear Clean" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Polas & Digitals</span>
+            <h3 class="card-title">Pola 03 • Swimwear Clean</h3>
+            <span class="card-sub">Agency Test Shot</span>
+          </div>
+        </article>
+
+        <!-- 28. POLAS: POLA 04 DUSK -->
+        <article class="photo-card" data-category="polas" data-src="assets/Polas/pola-4.webp" data-title="Pola 04 • Dusk Natural" data-sub="Retrato al Atardecer • Enfoque Puro y Espontáneo">
+          <div class="card-num">28 / 28</div>
+          <img src="assets/Polas/pola-4.webp" alt="Pola 04 - Dusk Natural" loading="lazy">
+          <div class="card-overlay">
+            <span class="card-tag">Polas & Digitals</span>
+            <h3 class="card-title">Pola 04 • Dusk Natural</h3>
+            <span class="card-sub">Atmosphere Polaroid</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER EDITORIAL COMPLETO ==================== -->
+  <footer class="editorial-footer">
+    <div class="footer-container">
+
+      <div class="footer-cta-block">
+        <span class="footer-kicker">CONTACTO & RESERVAS</span>
+        <h2 class="footer-headline">
+          REMEMBER <span class="italic-serif">WONDERFUL</span><br>
+          MEMORIES WITH <span class="italic-serif">GABRIEL EM</span>
+        </h2>
+        <p class="footer-subtitle">
+          Disponible para sesiones editoriales, quinceañeras, bodas y eventos en la Isla de Margarita, Caracas y a nivel internacional. Agenda tu fecha con antelación.
+        </p>
+
+        <div class="footer-direct-btn">
+          <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20quiero%20reservar%20una%20sesi%C3%B3n/evento." target="_blank" rel="noopener" class="footer-whatsapp-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Reservar vía WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CANALES DE CONTACTO OFICIALES -->
+      <div class="footer-channels-grid">
+
+        <!-- CANAL 1: WHATSAPP -->
+        <a href="https://wa.me/584146860112" target="_blank" rel="noopener" class="contact-channel-card">
+          <div class="channel-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div class="channel-info">
+            <span class="channel-label">WHATSAPP DIRECTO</span>
+            <span class="channel-value">+58 414 6860112</span>
+            <span class="channel-hint">Respuesta rápida para cotizaciones</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+
+        <!-- CANAL 2: CORREO -->
+        <a href="mailto:gabrielmillan6@gmail.com" class="contact-channel-card">
+          <div class="channel-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="channel-info">
+            <span class="channel-label">CORREO ELECTRÓNICO</span>
+            <span class="channel-value">gabrielmillan6@gmail.com</span>
+            <span class="channel-hint">Propuestas formales y marcas</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+
+        <!-- CANAL 3: INSTAGRAM -->
+        <a href="https://instagram.com/gabrielemphoto" target="_blank" rel="noopener" class="contact-channel-card">
+          <div class="channel-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="channel-info">
+            <span class="channel-label">INSTAGRAM OFICIAL</span>
+            <span class="channel-value">@gabrielemphoto</span>
+            <span class="channel-hint">Historias diarias, reels & detrás de cámaras</span>
+          </div>
+          <span class="channel-arrow">→</span>
+        </a>
+
+      </div>
+
+      <!-- BARRA INFERIOR DE CRÉDITOS Y COPYRIGHT -->
+      <div class="footer-bottom-bar">
+        <div class="f-copy">
+          © 2026 GABRIEL EM • FOTÓGRAFO & VIDEÓGRAFO EDITORIAL. TODOS LOS DERECHOS RESERVADOS.
+        </div>
+        <div class="f-links">
+          <a href="../video/" class="page-transition-btn">Ir a Videografía →</a>
+          <a href="#" class="back-to-top">Subir ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL LIGHTBOX A PANTALLA COMPLETA ==================== -->
+  <div class="lightbox-modal" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de Fotografía">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar modal">✕</button>
     <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="Vista Previa">
+      <img id="lightbox-img" src="" alt="Vista Previa de Fotografía">
       <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=5.0"></script>
 </body>
 
 </html>

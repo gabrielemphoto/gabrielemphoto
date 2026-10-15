@@ -48,15 +48,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Transición cinemática fluida hacia las páginas de portafolio
     const curtain = document.getElementById("page-curtain");
+    if (curtain) {
+      curtain.classList.remove("active");
+      curtain.style.pointerEvents = "none";
+    }
+
+    window.addEventListener("pageshow", () => {
+      if (curtain) {
+        curtain.classList.remove("active");
+        curtain.style.pointerEvents = "none";
+      }
+    });
+
     document.querySelectorAll(".page-transition-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
         const href = btn.getAttribute("href");
         if (href && href !== "#" && href !== "") {
           e.preventDefault();
-          if (curtain) curtain.classList.add("active");
+          if (curtain) {
+            curtain.style.pointerEvents = "auto";
+            curtain.classList.add("active");
+          }
           setTimeout(() => {
             window.location.href = href;
-          }, 320);
+          }, 280);
         }
       });
     });
