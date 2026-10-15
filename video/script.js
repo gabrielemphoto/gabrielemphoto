@@ -1,17 +1,65 @@
 /**
  * GABRIEL EM | PORTAFOLIO VIDEÓGRAFO Y EDITOR
- * Script interactivo: Reproductor modal garantizado en móviles/desktop, filtros y transiciones
+ * Reproductor modal garantizado en móviles/desktop, filtros y transiciones
  */
 
+// FUNCIONES GLOBALES PARA APERTURA Y CIERRE INMEDIATOS (INLINE Y DELEGADO)
+window.openVideoModal = function (card) {
+  if (!card) return;
+  const videoSrc = card.getAttribute("data-video");
+  const title = card.getAttribute("data-title") || "Producción Audiovisual";
+  const sub = card.getAttribute("data-sub") || "";
+
+  const videoModal = document.getElementById("video-lightbox");
+  const player = document.getElementById("lightbox-player");
+  const caption = document.getElementById("video-lightbox-caption");
+
+  if (videoSrc && videoModal && player) {
+    player.src = videoSrc;
+    player.currentTime = 0;
+    player.muted = false;
+
+    videoModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    if (caption) {
+      caption.innerHTML = `<strong>${title}</strong>${sub ? `<br><span>${sub}</span>` : ""}`;
+    }
+
+    const playPromise = player.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // En móviles, si el navegador bloquea audio inicial sin gesto, iniciar silenciado
+        player.muted = true;
+        player.play();
+      });
+    }
+  }
+};
+
+window.closeVideoModal = function () {
+  const videoModal = document.getElementById("video-lightbox");
+  const player = document.getElementById("lightbox-player");
+  if (videoModal) {
+    videoModal.classList.remove("active");
+  }
+  document.body.style.overflow = "";
+  if (player) {
+    try {
+      player.pause();
+      player.src = "";
+    } catch (e) {}
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. GESTIÓN DEL TELÓN DE TRANSICIÓN (DESBLOQUEO INMEDIATO)
+  // 1. TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS
   const curtain = document.getElementById("page-curtain");
   if (curtain) {
     curtain.classList.remove("active");
     curtain.style.pointerEvents = "none";
   }
 
-  // DESBLOQUEO ADICIONAL ANTE RETORNO DE CACHÉ DE NAVEGADOR (BFCache)
   window.addEventListener("pageshow", () => {
     if (curtain) {
       curtain.classList.remove("active");
@@ -47,75 +95,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. MODAL REPRODUCTOR DE VIDEO A PANTALLA COMPLETA
+  // 3. EVENT LISTENERS PARA CERRAR EL MODAL
   const videoModal = document.getElementById("video-lightbox");
-  const player = document.getElementById("lightbox-player");
-  const caption = document.getElementById("video-lightbox-caption");
   const closeBtn = document.getElementById("video-lightbox-close");
-
-  function openVideoModal(card) {
-    const videoSrc = card.getAttribute("data-video");
-    const title = card.getAttribute("data-title") || "Producción Audiovisual";
-    const sub = card.getAttribute("data-sub") || "";
-
-    if (videoSrc && videoModal && player) {
-      player.src = videoSrc;
-      player.currentTime = 0;
-      player.muted = false; // Intentar audio encendido primero
-
-      const playPromise = player.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Si el navegador bloquea autoplay con sonido, reproducir muteado para no fallar
-          player.muted = true;
-          player.play();
-        });
-      }
-
-      if (caption) {
-        caption.innerHTML = `<strong>${title}</strong>${sub ? `<br><span>${sub}</span>` : ""}`;
-      }
-      videoModal.classList.add("active");
-      document.body.style.overflow = "hidden"; // Evita scroll de fondo
-    }
-  }
-
-  function closeVideoModal() {
-    if (videoModal) videoModal.classList.remove("active");
-    document.body.style.overflow = ""; // Restaura scroll
-    if (player) {
-      player.pause();
-      player.src = "";
-    }
-  }
-
-  // Delegación de eventos en el contenedor principal: funciona 100% en móvil
-  const container = document.querySelector(".portfolio-container");
-  if (container) {
-    container.addEventListener("click", (e) => {
-      const card = e.target.closest("[data-video]");
-      if (card) {
-        e.preventDefault();
-        openVideoModal(card);
-      }
-    });
-  }
 
   if (closeBtn) {
     closeBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      closeVideoModal();
+      window.closeVideoModal();
     });
   }
 
   if (videoModal) {
     videoModal.addEventListener("click", (e) => {
-      if (e.target === videoModal) closeVideoModal();
+      if (e.target === videoModal) {
+        window.closeVideoModal();
+      }
     });
   }
 
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeVideoModal();
+    if (e.key === "Escape") {
+      window.closeVideoModal();
+    }
   });
 
   // 4. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
