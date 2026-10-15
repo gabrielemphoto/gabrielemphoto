@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel EM | Portafolio Videógrafo y Editor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Montserrat:wght@500;700;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-fade-in">
+
+  <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
+  <div id="page-curtain"></div>
+
+  <!-- NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="portfolio-header-nav">
+    <a href="../" class="nav-back-btn page-transition-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Inicio
+    </a>
+
+    <div class="nav-logo-wrap">
+      <a href="../" class="page-transition-btn">
+        <img src="assets/logo.png" onerror="this.onerror=null; this.src='../logo.png'" alt="Gabriel EM">
+      </a>
+    </div>
+
+    <div class="nav-actions">
+      <a href="../fotografia/" class="nav-switch-btn page-transition-btn">Ver Fotografía →</a>
+    </div>
+  </nav>
+
+  <!-- HERO DE VIDEÓGRAFO -->
+  <header class="portfolio-hero">
+    <h1>VIDEÓGRAFO Y EDITOR</h1>
+    <p>Narrativa visual cinematográfica, ritmo dinámico de montaje y corrección de color profesional.</p>
+
+    <!-- BARRA DE FILTROS -->
+    <div class="filter-bar">
+      <button class="filter-pill active" data-filter="all">Todos los Formatos</button>
+      <button class="filter-pill" data-filter="reels">Reels & Vertical (9:16)</button>
+      <button class="filter-pill" data-filter="cine">Comercial & Cine (16:9)</button>
+      <button class="filter-pill" data-filter="color">Edición & Color</button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="portfolio-container">
+
+    <!-- SECCIÓN 1: REELS Y FORMATO VERTICAL -->
+    <div class="video-group" data-group="reels">
+      <h2 class="video-section-title">Reels & Formato Vertical (9:16)</h2>
+      <div class="reels-grid">
+
+        <!-- REEL REAL 1 -->
+        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/reel-1.webm" data-title="Reel Comercial #01" data-sub="Edición Dinámica, Subtítulos & Retención">
+          <video autoplay muted loop playsinline>
+            <source src="assets/reel-1.webm" type="video/webm">
+          </video>
+          <div class="reel-badge"><span class="reel-dot"></span>REEL 01 • ACTIVO</div>
+          <div class="card-overlay">
+            <span class="card-tag">Vertical • 9:16</span>
+            <h3 class="card-title">Reel Comercial #01</h3>
+            <span class="card-sub">Clic para pantalla completa / audio</span>
+          </div>
+        </article>
+
+        <!-- REEL REAL 2 -->
+        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/reel-2.webm" data-title="Campaña Dinámica #02" data-sub="Color Grading & Montaje Rítmico">
+          <video autoplay muted loop playsinline>
+            <source src="assets/reel-2.webm" type="video/webm">
+            <source src="assets/reel-2.mp4" type="video/mp4">
+          </video>
+          <div class="reel-badge"><span class="reel-dot"></span>REEL 02 • ACTIVO</div>
+          <div class="card-overlay">
+            <span class="card-tag">Vertical • 9:16</span>
+            <h3 class="card-title">Campaña Dinámica #02</h3>
+            <span class="card-sub">Clic para pantalla completa / audio</span>
+          </div>
+        </article>
+
+        <!-- REEL PLACEHOLDER 1 -->
+        <article class="portfolio-reel-card video-placeholder video-card-item" data-category="reels" data-title="Reel Lifestyle & Moda" data-sub="Espacio para tu próximo clip vertical">
+          <div class="ph-play">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="ph-label">Reel Moda / Pasarela</span>
+          <span class="ph-hint">Listo para reel-3.webm</span>
+        </article>
+
+        <!-- REEL PLACEHOLDER 2 -->
+        <article class="portfolio-reel-card video-placeholder video-card-item" data-category="reels" data-title="Music Video Teaser" data-sub="Espacio para tu próximo clip vertical">
+          <div class="ph-play">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="ph-label">Teaser Musical / Artista</span>
+          <span class="ph-hint">Listo para reel-4.webm</span>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: PROYECTOS HORIZONTALES (16:9) -->
+    <div class="video-group" data-group="cine">
+      <h2 class="video-section-title">Comerciales & Producción Cinematográfica (16:9)</h2>
+      <div class="cinematic-grid">
+
+        <!-- CINE PLACEHOLDER 1 -->
+        <article class="portfolio-cinema-card video-placeholder video-card-item" data-category="cine color" data-title="Spot Comercial de Marca" data-sub="Dirección, Grabación y Color Grading en DaVinci Resolve">
+          <div class="ph-play">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="ph-label">Spot Comercial Corporativo (16:9)</span>
+          <span class="ph-hint">Color Grade en DaVinci Resolve • 4K Master</span>
+        </article>
+
+        <!-- CINE PLACEHOLDER 2 -->
+        <article class="portfolio-cinema-card video-placeholder video-card-item" data-category="cine color" data-title="Aftermovie Evento & Festival" data-sub="Cámara Rápida, B-Roll y Sincronización Musical">
+          <div class="ph-play">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="ph-label">Aftermovie Evento & Festival (16:9)</span>
+          <span class="ph-hint">Edición de Alto Ritmo & SFX</span>
+        </article>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL DE REPRODUCTOR DE VIDEO A PANTALLA COMPLETA -->
+  <div class="lightbox-modal" id="video-lightbox">
+    <button class="lightbox-close" id="video-lightbox-close">✕</button>
+    <div class="lightbox-content">
+      <video id="lightbox-player" controls autoplay playsinline style="max-height: 80vh; max-width: 90vw; border-radius: 12px;"></video>
+      <div class="lightbox-caption" id="video-lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

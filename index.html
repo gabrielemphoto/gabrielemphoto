@@ -1,101 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GabrielEM Photo — Fotografía en Margarita</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://i.postimg.cc/Y9XX5m5p/logoblanco.png" type="image/png"/>
-</head>
-<body>
 
-  <!-- ══════════════════════════════
-       HERO & COLLAGE
-  ══════════════════════════════ -->
-  <section class="hero">
-    
-    <!-- El grid de fondo donde el JS inyecta las fotos -->
-    <div id="collage" class="collage"></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel EM | Portafolio</title>
 
-    <!-- Velo oscuro con mayor opacidad -->
-    <div class="hero-overlay"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@700;900&family=VT323&display=swap"
+      rel="stylesheet">
 
-    <!-- Contenido principal -->
-    <div class="hero-content">
-      
-      <!-- LOGO BLANCO -->
-      <img src="https://i.postimg.cc/Y9XX5m5p/logoblanco.png" alt="GabrielEM Photo" class="hero-logo" />
-      
-      <!-- Texto en blanco -->
-      <h1 class="hero-tagline">Cada imagen, una historia que perdura.</h1>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      // Si el usuario ya vio la intro en esta sesión, saltarla de inmediato sin parpadeo
+      if (sessionStorage.getItem("introSeen") === "true") {
+        document.documentElement.classList.add("skip-intro-immediate");
+      }
+    </script>
+  </head>
 
-      <!-- ══════════════════════════════
-           TARJETAS DE SERVICIOS
-      ══════════════════════════════ -->
-      <div class="servicios-grid">
-        
-        <!-- TARJETA 1: INMOBILIARIA -->
-        <!-- Redirige a la carpeta inmobiliaria -->
-        <a href="inmobiliaria/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/DySqjGCj/IMG-6276-HDR.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-body">
-            <span class="card-icon">🏠</span>
-            <h2 class="card-titulo">Fotografía Inmobiliaria</h2>
-            <p class="card-desc">Vende más rápido con imágenes que conquistan al comprador desde el primer vistazo.</p>
-            <span class="card-cta">Ver servicios →</span>
+  <body>
+
+    <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
+    <div id="page-curtain"></div>
+
+    <!-- PANTALLA DE CARGA -->
+    <div id="loading-screen">
+      <div class="glass-panel">
+        <div class="css-laptop">
+          <div class="laptop-lid">
+            <div class="laptop-screen">
+              <div class="boot-text" id="typewriter"></div>
+              <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+              </div>
+            </div>
           </div>
-        </a>
-
-        <!-- TARJETA 2: EVENTOS Y SESIONES -->
-        <!-- Redirige a la carpeta eventos -->
-        <a href="eventos/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/G9nhx6gH/IMG-3817.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-body">
-            <span class="card-icon">🎉</span>
-            <h2 class="card-titulo">Eventos & Sesiones</h2>
-            <p class="card-desc">Momentos únicos capturados con precisión, emoción y el estilo que te distingue.</p>
-            <span class="card-cta">Ver servicios →</span>
+          <div class="laptop-base">
+            <div class="laptop-trackpad"></div>
           </div>
-        </a>
-
-        <!-- TARJETA 3: PORTAFOLIO -->
-        <!-- Redirige a la carpeta portafolio -->
-        <a href="portafolio/index.html" class="card-servicio">
-          <div class="card-bg" style="background-image: url('https://i.postimg.cc/0QZp301s/IMG-8123.jpg');"></div>
-          <div class="card-overlay"></div>
-          <div class="card-body">
-            <span class="card-icon">✨</span>
-            <h2 class="card-titulo">Portafolio</h2>
-            <p class="card-desc">Explora el trabajo completo. Cada foto es una prueba de lo que es posible.</p>
-            <span class="card-cta">Ver galería →</span>
-          </div>
-        </a>
-
+        </div>
       </div>
+      <div class="skip-hint">Clic para saltar intro [Espacio / Esc]</div>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════
-       FOOTER
-  ══════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer-content">
-      <img src="https://i.postimg.cc/Y9XX5m5p/logoblanco.png" alt="GabrielEM Photo" class="footer-logo" />
-      
-      <p class="footer-frase">"Capturando la esencia de Margarita, una imagen a la vez."</p>
-      
-      <div class="footer-links">
-        <a href="inmobiliaria/index.html">Inmobiliaria</a>
-        <a href="eventos/index.html">Eventos</a>
-        <a href="mailto:gabrielmillan6@gmail.com">Contacto</a>
-      </div>
-      
-      <p class="footer-copy">© 2026 Gabriel Millán · Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    <!-- HEADER FIJO (LOGO) -->
+    <header id="main-header" class="hidden">
+      <img src="https://i.postimg.cc/jw7QNCq9/IMG-8495.png" alt="Gabriel EM Logo"
+        class="logo-magico">
+    </header>
 
-  <script src="script.js"></script>
-</body>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="main-content" class="hidden">
+
+      <!-- LADO IZQUIERDO: FOTOGRAFÍA -->
+      <section class="split split-left">
+        <!-- ADORNOS 3D FLOTANTES (CROMADOS) -->
+        <img src="https://i.postimg.cc/V5ZDFcC2/camara-foto.png" alt="Cámara 3D"
+          class="adorn ad-cam-foto">
+        <img src="https://i.postimg.cc/xqptPSmD/estrella.png" alt="Estrella 3D"
+          class="adorn ad-star-left">
+        <img src="https://i.postimg.cc/ThNCcXDz/abstracto.png" alt="Abstracto 3D"
+          class="adorn ad-abstract">
+
+        <div class="split-info">
+          <h2>FOTOGRAFÍA</h2>
+          <a href="fotografia/" class="btn-outline dark page-transition-btn">VER PORTAFOLIO</a>
+        </div>
+
+        <!-- TARJETAS GLASSMORPHISM (Fotos reales del portafolio) -->
+        <div class="float-el glass-card foto-1">
+          <img src="assets/foto-2.jpg" onerror="this.onerror=null; this.src='https://i.postimg.cc/X4L6Kcjg/IMG-7536.jpg'" alt="Gabriel EM | Fotografía 1" loading="eager">
+        </div>
+        <div class="float-el glass-card foto-2">
+          <img src="assets/foto-1.jpg" onerror="this.onerror=null; this.src='https://i.postimg.cc/Kcg4kphx/IMG-7173.jpg'" alt="Gabriel EM | Fotografía 2" loading="eager">
+        </div>
+        <div class="float-el glass-card foto-3">
+          <img src="assets/foto-3.jpg" onerror="this.onerror=null; this.src='https://i.postimg.cc/CLL95whk/IMG-4092.jpg'" alt="Gabriel EM | Fotografía 3" loading="eager">
+        </div>
+      </section>
+
+      <!-- LADO DERECHO: VIDEÓGRAFO -->
+      <section class="split split-right">
+        <!-- ADORNOS 3D FLOTANTES (CROMADOS) -->
+        <img src="https://i.postimg.cc/0ryVmNzs/videocamara.png" alt="Videocámara 3D"
+          class="adorn ad-cam-video">
+        <img src="https://i.postimg.cc/F1CDxQSt/laptop.png" alt="Laptop 3D" class="adorn ad-laptop">
+        <img src="https://i.postimg.cc/9zgJBj7S/youtube.png" alt="YouTube 3D" class="adorn ad-yt">
+        <img src="https://i.postimg.cc/hht2xGXq/carpeta.png" alt="Carpeta 3D"
+          class="adorn ad-folder">
+        <img src="https://i.postimg.cc/143v6z81/cursor.png" alt="Cursor 3D" class="adorn ad-cursor">
+
+        <div class="split-info">
+          <h2 class="serif-italic">VIDEÓGRAFO<br><span>Y EDITOR</span></h2>
+          <a href="video/" class="btn-outline dark page-transition-btn">VER PORTAFOLIO</a>
+        </div>
+
+        <!-- TARJETAS GLASSMORPHISM (Clips de video verticales formato Reel) -->
+        <div class="float-el glass-card video-1 reel-card">
+          <video autoplay muted loop playsinline>
+            <source src="assets/reel-1.webm" type="video/webm">
+          </video>
+          <div class="reel-badge"><span class="reel-dot"></span>REEL 01</div>
+        </div>
+        <div class="float-el glass-card video-2 reel-card">
+          <video autoplay muted loop playsinline>
+            <source src="assets/reel-2.webm" type="video/webm">
+            <source src="assets/reel-2.mp4" type="video/mp4">
+          </video>
+          <div class="reel-badge"><span class="reel-dot"></span>REEL 02</div>
+        </div>
+
+        <!-- LÍNEA DE TIEMPO ANIMADA ESTILO DAVINCI RESOLVE -->
+        <div class="float-el glass-card timeline-davinci">
+          <div class="davinci-window">
+            <div class="davinci-header">
+              <div class="davinci-dots">
+                <span class="d-dot red"></span>
+                <span class="d-dot yellow"></span>
+                <span class="d-dot green"></span>
+              </div>
+              <div class="davinci-title">
+                <svg viewBox="0 0 24 24" class="davinci-ico"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>Timeline 1 - Edit (4K Master)</span>
+              </div>
+              <div class="davinci-timecode" id="davinci-tc">01:00:14:24</div>
+            </div>
+
+            <div class="davinci-ruler">
+              <span>01:00:00</span>
+              <span>01:00:05</span>
+              <span>01:00:10</span>
+              <span>01:00:15</span>
+              <span>01:00:20</span>
+            </div>
+
+            <div class="davinci-tracks-area">
+              <!-- AGUJA PLAYHEAD ROJA EN BUCLE -->
+              <div class="davinci-playhead">
+                <div class="playhead-diamond"></div>
+                <div class="playhead-line"></div>
+              </div>
+
+              <!-- TRACK V2 -->
+              <div class="d-track">
+                <div class="d-track-head">V2</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-purple" style="left: 18%; width: 28%;">
+                    <span class="clip-label">B-ROLL_4K</span>
+                  </div>
+                  <div class="d-clip clip-teal" style="left: 54%; width: 34%;">
+                    <span class="clip-label">COLOR_GRADE</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRACK V1 -->
+              <div class="d-track">
+                <div class="d-track-head">V1</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-orange" style="left: 0%; width: 36%;">
+                    <span class="clip-label">MAIN_CAM_01</span>
+                  </div>
+                  <div class="d-clip clip-blue" style="left: 38%; width: 28%;">
+                    <span class="clip-label">INTERVIEW_A</span>
+                  </div>
+                  <div class="d-clip clip-orange" style="left: 68%; width: 31%;">
+                    <span class="clip-label">DRONE_REEL</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRACK A1 -->
+              <div class="d-track audio">
+                <div class="d-track-head">A1</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-green" style="left: 0%; width: 50%;">
+                    <span class="clip-label">BEAT_MUSIC.WAV</span>
+                    <div class="audio-waves"></div>
+                  </div>
+                  <div class="d-clip clip-cyan" style="left: 52%; width: 47%;">
+                    <span class="clip-label">VOICEOVER_HQ</span>
+                    <div class="audio-waves"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+
 </html>
