@@ -14,17 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (filter === "all") {
         videoGroups.forEach(g => (g.style.display = "block"));
         videoItems.forEach(item => (item.style.display = "flex"));
-      } else if (filter === "reels") {
-        document.querySelector('[data-group="reels"]').style.display = "block";
-        document.querySelector('[data-group="cine"]').style.display = "none";
-      } else if (filter === "cine") {
-        document.querySelector('[data-group="reels"]').style.display = "none";
-        document.querySelector('[data-group="cine"]').style.display = "block";
-      } else if (filter === "color") {
-        videoGroups.forEach(g => (g.style.display = "block"));
+      } else {
+        videoGroups.forEach(g => {
+          const group = g.getAttribute("data-group");
+          g.style.display = (group === filter) ? "block" : "none";
+        });
         videoItems.forEach(item => {
           const cat = item.getAttribute("data-category") || "";
-          item.style.display = cat.includes("color") ? "flex" : "none";
+          item.style.display = (cat === filter || cat.includes(filter)) ? "flex" : "none";
         });
       }
     });

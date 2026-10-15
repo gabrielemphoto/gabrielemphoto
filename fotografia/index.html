@@ -49,75 +49,182 @@
     <!-- BARRA DE FILTROS -->
     <div class="filter-bar">
       <button class="filter-pill active" data-filter="all">Todos los Trabajos</button>
-      <button class="filter-pill" data-filter="editorial">Editorial / Moda</button>
-      <button class="filter-pill" data-filter="retrato">Retratos</button>
-      <button class="filter-pill" data-filter="paisaje">Paisaje & Viajes</button>
+      <button class="filter-pill" data-filter="sesiones">Sesiones & Retratos</button>
+      <button class="filter-pill" data-filter="bautizos">Bautizos & Eventos</button>
+      <button class="filter-pill" data-filter="xv">XV Años</button>
     </div>
   </header>
 
-  <!-- GRILLA PRINCIPAL DE FOTOS Y PLACEHOLDERS -->
+  <!-- GRILLA PRINCIPAL DE FOTOS -->
   <main class="portfolio-container">
     <div class="gallery-grid">
 
-      <!-- FOTO REAL 1 -->
-      <article class="photo-card" data-category="editorial" data-src="assets/foto-2.jpg" data-title="Reflejo de Sal" data-sub="Sesión Editorial en Salar • Color Grading Natural">
-        <img src="assets/foto-2.jpg" onerror="this.onerror=null; this.src='../assets/foto-2.jpg'" alt="Reflejo de Sal" loading="lazy">
+      <!-- FOTO PRINCIPAL 1: SESIÓN EDITORIAL -->
+      <article class="photo-card" data-category="sesiones" data-src="assets/foto-2.webp" data-title="Reflejo de Sal" data-sub="Sesión Editorial en Salar • Color Grading Natural">
+        <img src="assets/foto-2.webp" alt="Reflejo de Sal" loading="lazy">
         <div class="card-overlay">
-          <span class="card-tag">Editorial / Moda</span>
+          <span class="card-tag">Sesiones</span>
           <h3 class="card-title">Reflejo de Sal</h3>
-          <span class="card-sub">Sesión Editorial en Salar</span>
+          <span class="card-sub">Sesión Editorial</span>
         </div>
       </article>
 
-      <!-- FOTO REAL 2 -->
-      <article class="photo-card" data-category="retrato" data-src="assets/foto-1.jpg" data-title="Horizonte y Roca" data-sub="Retrato en Costas del Caribe • Blanco y Negro Analógico">
-        <img src="assets/foto-1.jpg" onerror="this.onerror=null; this.src='../assets/foto-1.jpg'" alt="Horizonte y Roca" loading="lazy">
+      <!-- FOTO PRINCIPAL 2: B&W -->
+      <article class="photo-card" data-category="sesiones" data-src="assets/foto-1.webp" data-title="Horizonte y Roca" data-sub="Retrato en Costas del Caribe • Blanco y Negro">
+        <img src="assets/foto-1.webp" alt="Horizonte y Roca" loading="lazy">
         <div class="card-overlay">
-          <span class="card-tag">Retrato • B&W</span>
+          <span class="card-tag">Sesiones • B&W</span>
           <h3 class="card-title">Horizonte y Roca</h3>
           <span class="card-sub">Blanco y Negro Analógico</span>
         </div>
       </article>
 
-      <!-- FOTO REAL 3 -->
-      <article class="photo-card" data-category="retrato" data-src="assets/foto-3.jpg" data-title="Sombra & Perfil" data-sub="Estudio Íntimo • Iluminación Clave Baja">
-        <img src="assets/foto-3.jpg" onerror="this.onerror=null; this.src='../assets/foto-3.jpg'" alt="Sombra y Perfil" loading="lazy">
+      <!-- FOTO PRINCIPAL 3: RETRATO EMBARCACIÓN -->
+      <article class="photo-card" data-category="sesiones" data-src="assets/foto-3.webp" data-title="Brisa Costera" data-sub="Sesión Retrato Golden Hour">
+        <img src="assets/foto-3.webp" alt="Brisa Costera" loading="lazy">
         <div class="card-overlay">
-          <span class="card-tag">Retratos</span>
-          <h3 class="card-title">Sombra & Perfil</h3>
-          <span class="card-sub">Estudio Íntimo • Low Key</span>
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Brisa Costera</h3>
+          <span class="card-sub">Golden Hour Natural</span>
         </div>
       </article>
 
-      <!-- PLACEHOLDER 1: EDITORIAL -->
-      <article class="photo-card photo-placeholder" data-category="editorial" data-title="Editorial Fashion Season" data-sub="Espacio listo para tu próxima fotografía">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-          <circle cx="12" cy="13" r="4"></circle>
-        </svg>
-        <span class="ph-label">Editorial Fashion Season</span>
-        <span class="ph-hint">Espacio listo para foto (3:2)</span>
+      <!-- SESIONES REALES -->
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7233.webp" data-title="Composición y Mirada" data-sub="Retrato en Exterior • Sesión Personal">
+        <img src="assets/SESIONES/IMG_7233.webp" alt="Composición y Mirada" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Composición y Mirada</h3>
+          <span class="card-sub">Retrato Exterior</span>
+        </div>
       </article>
 
-      <!-- PLACEHOLDER 2: PAISAJE -->
-      <article class="photo-card photo-placeholder" data-category="paisaje" data-title="Golden Hour Coast" data-sub="Espacio listo para tu próxima fotografía">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-          <circle cx="8.5" cy="8.5" r="1.5"></circle>
-          <polyline points="21 15 16 10 5 21"></polyline>
-        </svg>
-        <span class="ph-label">Golden Hour Coast</span>
-        <span class="ph-hint">Espacio listo para foto (3:2)</span>
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7251.webp" data-title="Luz de Atardecer" data-sub="Sesión Retrato Individual">
+        <img src="assets/SESIONES/IMG_7251.webp" alt="Luz de Atardecer" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Luz de Atardecer</h3>
+          <span class="card-sub">Iluminación Cálida</span>
+        </div>
       </article>
 
-      <!-- PLACEHOLDER 3: RETRATO URBANO -->
-      <article class="photo-card photo-placeholder" data-category="retrato" data-title="Retrato Urbano Nocturno" data-sub="Espacio listo para tu próxima fotografía">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span class="ph-label">Retrato Urbano Nocturno</span>
-        <span class="ph-hint">Espacio listo para foto (3:2)</span>
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7569.webp" data-title="Estética Editorial" data-sub="Sesión de Moda & Estilismo">
+        <img src="assets/SESIONES/IMG_7569.webp" alt="Estética Editorial" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Estética Editorial</h3>
+          <span class="card-sub">Moda & Lookbook</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_7609.webp" data-title="Retrato en Movimiento" data-sub="Dirección Visual y Espontaneidad">
+        <img src="assets/SESIONES/IMG_7609.webp" alt="Retrato en Movimiento" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Retrato en Movimiento</h3>
+          <span class="card-sub">Estilo Editorial</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/IMG_8237.webp" data-title="Detalles y Textura" data-sub="Primer Plano • Iluminación de Estudio">
+        <img src="assets/SESIONES/IMG_8237.webp" alt="Detalles y Textura" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Detalles y Textura</h3>
+          <span class="card-sub">Enfoque Artístico</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="sesiones" data-src="assets/SESIONES/madelein.webp" data-title="Sesión Madelein" data-sub="Retrato Clásico y Cercano">
+        <img src="assets/SESIONES/madelein.webp" alt="Sesión Madelein" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Sesiones</span>
+          <h3 class="card-title">Sesión Madelein</h3>
+          <span class="card-sub">Retrato Íntimo</span>
+        </div>
+      </article>
+
+      <!-- BAUTIZOS Y EVENTOS -->
+      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/Altar.webp" data-title="El Altar" data-sub="Ceremonia Religiosa • Arquitectura Sagrada">
+        <img src="assets/Bautizos/Altar.webp" alt="El Altar" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Bautizos</span>
+          <h3 class="card-title">El Altar</h3>
+          <span class="card-sub">Ceremonia Religiosa</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_0283.webp" data-title="Momento del Sacramento" data-sub="Bautismo • Captura Espontánea y Emotiva">
+        <img src="assets/Bautizos/IMG_0283.webp" alt="Momento del Sacramento" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Bautizos</span>
+          <h3 class="card-title">Momento del Sacramento</h3>
+          <span class="card-sub">Celebración Familiar</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_0325.webp" data-title="Detalles de Ceremonia" data-sub="Agua Bendita y Tradición Familiar">
+        <img src="assets/Bautizos/IMG_0325.webp" alt="Detalles de Ceremonia" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Bautizos</span>
+          <h3 class="card-title">Detalles de Ceremonia</h3>
+          <span class="card-sub">Luz Ambiental</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2547.webp" data-title="Sonrisas y Celebración" data-sub="Recepción Familiar de Bautismo">
+        <img src="assets/Bautizos/IMG_2547.webp" alt="Sonrisas y Celebración" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Bautizos</span>
+          <h3 class="card-title">Sonrisas y Celebración</h3>
+          <span class="card-sub">Recepción de Evento</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="bautizos" data-src="assets/Bautizos/IMG_2632.webp" data-title="La Familia Unida" data-sub="Retrato Grupal de Bautizo">
+        <img src="assets/Bautizos/IMG_2632.webp" alt="La Familia Unida" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">Bautizos</span>
+          <h3 class="card-title">La Familia Unida</h3>
+          <span class="card-sub">Recuerdo Inolvidable</span>
+        </div>
+      </article>
+
+      <!-- XV AÑOS -->
+      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3799.webp" data-title="Sesión Previa XV" data-sub="Vestido de Quinceañera • Fotografía Exterior">
+        <img src="assets/XV AÑOS/IMG_3799.webp" alt="Sesión Previa XV" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">XV Años</span>
+          <h3 class="card-title">Sesión Previa XV</h3>
+          <span class="card-sub">Exteriores & Vestido</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_3810.webp" data-title="Corona y Brillo" data-sub="Retrato Detalle de Quinceañera">
+        <img src="assets/XV AÑOS/IMG_3810.webp" alt="Corona y Brillo" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">XV Años</span>
+          <h3 class="card-title">Corona y Brillo</h3>
+          <span class="card-sub">Detalle y Elegancia</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7670.webp" data-title="Noche de Gala XV" data-sub="Entrada Triunfal y Vals">
+        <img src="assets/XV AÑOS/IMG_7670.webp" alt="Noche de Gala XV" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">XV Años</span>
+          <h3 class="card-title">Noche de Gala XV</h3>
+          <span class="card-sub">Fiesta & Celebración</span>
+        </div>
+      </article>
+
+      <article class="photo-card" data-category="xv" data-src="assets/XV AÑOS/IMG_7709.webp" data-title="Emoción y Celebración" data-sub="Momentos Inolvidables de Quinceañera">
+        <img src="assets/XV AÑOS/IMG_7709.webp" alt="Emoción y Celebración" loading="lazy">
+        <div class="card-overlay">
+          <span class="card-tag">XV Años</span>
+          <h3 class="card-title">Emoción y Celebración</h3>
+          <span class="card-sub">Recuerdos para Siempre</span>
+        </div>
       </article>
 
     </div>
