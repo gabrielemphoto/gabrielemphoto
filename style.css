@@ -1330,28 +1330,31 @@ body.portfolio-body {
     background: #F1EBDF !important;
   }
 
-  /* HEADER FIJO COMPACTO CON LOGO ELEGANTE */
+  /* LOGO MINIMALISTA Y ELEGANTE EN EL TOPE DEL PORTAFOLIO */
   #main-header {
-    position: fixed !important;
-    top: 14px !important;
+    position: absolute !important;
+    top: 24px !important;
     left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
     transform: translateX(-50%) !important;
-    z-index: 2000 !important;
-    background: rgba(241, 235, 223, 0.92) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    padding: 6px 18px !important;
-    border-radius: 50px !important;
-    border: 1px solid rgba(13, 13, 13, 0.08) !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+    z-index: 50 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
 
   .logo-magico {
-    width: 90px !important;
+    width: 82px !important;
     height: auto !important;
+    filter: brightness(0) !important;
   }
 
   /* CONTENEDOR PRINCIPAL: FLUJO VERTICAL NATURAL */
@@ -1373,32 +1376,33 @@ body.portfolio-body {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 110px 16px 80px 16px !important;
+    padding: 95px 16px 65px 16px !important;
     overflow: hidden !important;
   }
 
   .split-right {
     border-top: 1px solid rgba(13, 13, 13, 0.08) !important;
+    padding-top: 60px !important;
   }
 
   /* TÍTULOS Y BOTONES EN MÓVIL */
   .split-info {
     z-index: 100 !important;
-    gap: 22px !important;
+    gap: 20px !important;
     pointer-events: auto !important;
     width: 100% !important;
     max-width: 320px !important;
   }
 
   .split-left h2 {
-    font-size: clamp(2.4rem, 11vw, 3.4rem) !important;
+    font-size: clamp(2.3rem, 10.5vw, 3.2rem) !important;
     letter-spacing: -1.5px !important;
     text-shadow: 0 0 35px rgba(241, 235, 223, 1), 0 0 15px rgba(241, 235, 223, 1) !important;
   }
 
   .split-right h2 {
-    font-size: clamp(2.7rem, 11vw, 3.8rem) !important;
-    line-height: 0.9 !important;
+    font-size: clamp(2.5rem, 10.5vw, 3.5rem) !important;
+    line-height: 0.92 !important;
     text-shadow: 0 0 35px rgba(241, 235, 223, 1), 0 0 15px rgba(241, 235, 223, 1) !important;
   }
 
@@ -1407,113 +1411,122 @@ body.portfolio-body {
   }
 
   .btn-outline {
-    padding: 13px 34px !important;
-    font-size: 0.82rem !important;
+    padding: 12px 32px !important;
+    font-size: 0.8rem !important;
     background: rgba(241, 235, 223, 0.85) !important;
     backdrop-filter: blur(8px) !important;
   }
 
-  /* TARJETAS FLOTANTES EN MÓVIL: ENMARCAN SIN TAPAR EL CENTRO */
+  /* TARJETAS FLOTANTES EN MÓVIL */
   .float-el {
     scale: 1 !important;
   }
 
-  /* FOTOGRAFÍA: 3 TARJETAS EN LOS BORDES EXTERNOS */
+  /* FOTOGRAFÍA: 3 TARJETAS ENMARCANDO CON RESET COMPLETO DE COORDENADAS */
+  /* Tarjeta 1: Vestido Rojo (Arriba a la Izquierda) */
   .foto-1 {
-    width: 125px !important;
+    width: 110px !important;
     aspect-ratio: 2 / 3 !important;
-    top: 9% !important;
-    left: -12px !important;
+    top: 7% !important;
+    bottom: auto !important;
+    left: -14px !important;
+    right: auto !important;
     --rot: -8deg;
     z-index: 2 !important;
-    opacity: 0.92;
+    opacity: 0.94;
   }
 
-  .foto-2 {
-    width: 130px !important;
+  /* Tarjeta 3: Chica Vestido Bordado (Arriba a la Derecha) */
+  .foto-3 {
+    width: 110px !important;
     aspect-ratio: 2 / 3 !important;
-    bottom: 9% !important;
-    right: -12px !important;
+    top: 8% !important;
+    bottom: auto !important;
+    right: -14px !important;
+    left: auto !important;
     --rot: 7deg;
     z-index: 2 !important;
-    opacity: 0.92;
+    opacity: 0.94;
   }
 
-  .foto-3 {
-    width: 120px !important;
+  /* Tarjeta 2: Blanco y Negro en la Roca (Abajo a la Derecha) */
+  .foto-2 {
+    width: 115px !important;
     aspect-ratio: 2 / 3 !important;
-    top: 11% !important;
+    bottom: 6% !important;
+    top: auto !important;
     right: -12px !important;
-    --rot: 5deg;
+    left: auto !important;
+    --rot: -5deg;
     z-index: 2 !important;
-    opacity: 0.92;
+    opacity: 0.94;
   }
 
-  /* VIDEÓGRAFO: 2 REELS EN LOS BORDES + TIMELINE ABAJO */
+  /* VIDEÓGRAFO: 2 REELS EN LA PARTE SUPERIOR + TIMELINE LIMPIO ABAJO */
+  /* Reel 1: Hombre con gorra (Arriba a la Derecha) */
   .video-1 {
-    width: 120px !important;
+    width: 115px !important;
     aspect-ratio: 9 / 16 !important;
-    top: 8% !important;
-    right: -10px !important;
+    top: 7% !important;
+    bottom: auto !important;
+    right: -12px !important;
+    left: auto !important;
     --rot: 6deg;
     z-index: 2 !important;
   }
 
+  /* Reel 2: Dentista (Arriba a la Izquierda para NO tapar el Timeline) */
   .video-2 {
-    width: 120px !important;
+    width: 115px !important;
     aspect-ratio: 9 / 16 !important;
-    bottom: 10% !important;
-    left: -10px !important;
-    --rot: -6deg;
+    top: 9% !important;
+    bottom: auto !important;
+    left: -12px !important;
+    right: auto !important;
+    --rot: -7deg;
     z-index: 2 !important;
   }
 
+  /* LÍNEA DE TIEMPO DAVINCI: ANCLADA ABAJO AL CENTRO SIN REELS QUE LA OBSTRUYAN */
   .timeline-davinci {
     display: block !important;
-    width: clamp(250px, 80vw, 320px) !important;
+    width: min(88vw, 340px) !important;
     height: 125px !important;
-    bottom: 3% !important;
-    right: auto !important;
+    bottom: 4% !important;
+    top: auto !important;
     left: 50% !important;
+    right: auto !important;
     transform: translateX(-50%) rotate(1deg) !important;
     --rot: 1deg;
-    z-index: 2 !important;
-    opacity: 0.95;
+    z-index: 3 !important;
+    opacity: 0.96;
   }
 
-  /* ADORNOS 3D EN MÓVIL: OCULTAR LOS QUE TAPAN CARAS/TEXTO */
+  /* ADORNOS 3D EN MÓVIL: LIMPIEZA TOTAL DE ELEMENTOS CONFLICTIVOS */
   .ad-folder,
   .ad-cursor,
   .ad-abstract,
-  .ad-yt {
+  .ad-yt,
+  .ad-laptop,
+  .ad-cam-video {
     display: none !important;
   }
 
   .ad-star-left {
     top: 4% !important;
+    bottom: auto !important;
     left: 4% !important;
-    width: 36px !important;
-    opacity: 0.65 !important;
+    right: auto !important;
+    width: 32px !important;
+    opacity: 0.6 !important;
   }
 
   .ad-cam-foto {
-    bottom: 3% !important;
-    left: 4% !important;
-    width: 45px !important;
-    opacity: 0.65 !important;
-  }
-
-  .ad-cam-video {
-    top: 4% !important;
-    right: 4% !important;
+    bottom: 5% !important;
+    top: auto !important;
+    left: 5% !important;
+    right: auto !important;
     width: 44px !important;
-    opacity: 0.65 !important;
-  }
-
-  .ad-laptop {
-    bottom: 2% !important;
-    right: 4% !important;
-    width: 50px !important;
     opacity: 0.65 !important;
   }
 
