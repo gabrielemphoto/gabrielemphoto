@@ -1,16 +1,16 @@
 /**
- * GABRIEL EM | PORTAFOLIO FOTOGRÁFICO EDITORIAL
- * Script interactivo: Organización por Carpetas, Visor deslizante con flechas,
- * gestos táctiles (Swipe), miniaturas y soporte 100% garantizado en móviles y escritorio.
+ * GABRIEL EM | PORTAFOLIO FOTOGRÁFICO DE AUTOR (EDICIÓN BLANCO Y NEGRO)
+ * Carrete 35mm, Efecto Obturador en Espiral (Camera Iris), Visor Deslizante
+ * y navegación garantizada en móviles y escritorio.
  */
 
-// BASE DE DATOS DE LAS CARPETAS (RESPETANDO ESTRICTAMENTE LAS FOTOS REALES DE GABRIEL)
+// BASE DE DATOS DE LAS 6 COLECCIONES DE AUTOR (103 FOTOGRAMAS REALES DE GABRIEL)
 const CARPETAS_DATA = {
   sesiones: {
     id: "sesiones",
     title: "Sesiones & Retratos Editoriales",
     subtitle: "Retratos personales, moda editorial, parejas y proyectos conceptuales",
-    badge: "31 FOTOGRAFÍAS",
+    badge: "31 FOTOGRAMAS",
     cover: "assets/sesiones/IMG_7095.webp",
     photos: [
       { src: "assets/sesiones/IMG_7095.webp", title: "Retrato Editorial de Alta Gama", sub: "Sesiones • Dirección de Arte" },
@@ -50,8 +50,8 @@ const CARPETAS_DATA = {
   quince: {
     id: "quince",
     title: "15 Años & Quinceañeras",
-    subtitle: "Sesiones previas de gala, momentos inolvidables y la emoción de una noche mágica",
-    badge: "9 FOTOGRAFÍAS",
+    subtitle: "Sesiones previas de gala en locación, recepción y momentos mágicos",
+    badge: "9 FOTOGRAMAS",
     cover: "assets/quince-anos/IMG_3799.webp",
     photos: [
       { src: "assets/quince-anos/IMG_3799.webp", title: "Retrato Principal de Quinceañera", sub: "15 Años • Sesión Previa de Gala" },
@@ -70,7 +70,7 @@ const CARPETAS_DATA = {
     id: "bautizos",
     title: "Bautizos & Sacramentos",
     subtitle: "Ceremonias sagradas, bendición de la pila bautismal y emotivos recuerdos familiares",
-    badge: "16 FOTOGRAFÍAS",
+    badge: "16 FOTOGRAMAS",
     cover: "assets/bautizos/Altar.webp",
     photos: [
       { src: "assets/bautizos/Altar.webp", title: "El Altar Sagrado & Preparación", sub: "Bautizos • Solemnidad en el Templo" },
@@ -92,79 +92,145 @@ const CARPETAS_DATA = {
     ]
   },
 
-  comuniones: {
-    id: "comuniones",
+  comunion: {
+    id: "comunion",
     title: "Primera Comunión",
-    subtitle: "Retratos solemnes, fe, tradición y la luz pura de un día inolvidable",
-    badge: "PRÓXIMAMENTE",
-    cover: "assets/bautizos/IMG_0320.webp",
-    photos: [] // VACÍA RESPETANDO EL PEDIDO DEL USUARIO
+    subtitle: "Retratos solemnes, fe, tradición, vestuario sagrado y recuerdos familiares",
+    badge: "10 FOTOGRAMAS",
+    cover: "assets/comunion/IMG_0001.webp",
+    photos: [
+      { src: "assets/comunion/IMG_0001.webp", title: "Primera Comunión • Retrato Solemne", sub: "Comunión • Altar y Devoción" },
+      { src: "assets/comunion/IMG_0007.webp", title: "Vestuario Sagrado & Detalles", sub: "Comunión • Texturas y Pureza" },
+      { src: "assets/comunion/IMG_0030.webp", title: "Retrato en Templo", sub: "Comunión • Iluminación Solemne" },
+      { src: "assets/comunion/IMG_0097.webp", title: "Devoción y Fe", sub: "Comunión • Momento Espiritual" },
+      { src: "assets/comunion/IMG_9833-2.webp", title: "Retrato de Gala Sagrada", sub: "Comunión • Composición Editorial" },
+      { src: "assets/comunion/IMG_9835.webp", title: "Mirada Serena", sub: "Comunión • Retrato en Iglesia" },
+      { src: "assets/comunion/IMG_9839.webp", title: "La Biblia y el Rosario", sub: "Comunión • Símbolos Sagrados" },
+      { src: "assets/comunion/IMG_9921.webp", title: "La Bendición", sub: "Comunión • Tradición Familiar" },
+      { src: "assets/comunion/IMG_9997.webp", title: "Retrato Familiar en el Templo", sub: "Comunión • Memoria Familiar" },
+      { src: "assets/comunion/IMG_9998.webp", title: "Alegría del Sacramento", sub: "Comunión • Celebración" }
+    ]
+  },
+
+  campanas: {
+    id: "campanas",
+    title: "Campañas & Foto de Producto",
+    subtitle: "Dirección visual comercial, estilismo de producto y campañas de marca",
+    badge: "19 FOTOGRAMAS",
+    cover: "assets/campanas/IMG_4663.webp",
+    photos: [
+      { src: "assets/campanas/IMG_4663.webp", title: "Campaña Comercial • Estilismo", sub: "Campañas • Dirección de Arte" },
+      { src: "assets/campanas/IMG_2094.webp", title: "Fotografía de Producto & Textura", sub: "Producto • Iluminación de Estudio" },
+      { src: "assets/campanas/IMG_2153.webp", title: "Detalles y Acabados de Marca", sub: "Producto • Macro Comercial" },
+      { src: "assets/campanas/IMG_2210.webp", title: "Bodegón Editorial", sub: "Producto • Composición Visual" },
+      { src: "assets/campanas/IMG_4679.webp", title: "Campaña Lookbook", sub: "Campañas • Moda & Marca" },
+      { src: "assets/campanas/IMG_4692.webp", title: "Composición de Moda & Accesorio", sub: "Campañas • Estilo Contemporáneo" },
+      { src: "assets/campanas/IMG_4713.webp", title: "Fotografía Comercial en Estudio", sub: "Producto • Iluminación Esculpida" },
+      { src: "assets/campanas/IMG_4722-Edit.webp", title: "Campaña Visual • Master Edit", sub: "Campañas • Retoque de Alta Gama" },
+      { src: "assets/campanas/IMG_4725-Edit.webp", title: "Producto & Luz de Precisión", sub: "Producto • Acabado Premium" },
+      { src: "assets/campanas/IMG_4745-Edit.webp", title: "Color & Forma Comercial", sub: "Campañas • Publicidad" },
+      { src: "assets/campanas/IMG_6875.webp", title: "Estilismo Editorial de Moda", sub: "Campañas • Dirección Comercial" },
+      { src: "assets/campanas/IMG_6905.webp", title: "Composición y Geometría", sub: "Producto • Líneas y Sombras" },
+      { src: "assets/campanas/IMG_6917.webp", title: "Moda & Catálogo", sub: "Campañas • Colección de Temporada" },
+      { src: "assets/campanas/IMG_6954.webp", title: "Campaña de Vestuario", sub: "Campañas • Dinamismo Visual" },
+      { src: "assets/campanas/IMG_6961.webp", title: "Retrato Comercial", sub: "Campañas • Expresión de Marca" },
+      { src: "assets/campanas/IMG_6986.webp", title: "Bodegón de Moda", sub: "Producto • Estilismo de Objeto" },
+      { src: "assets/campanas/IMG_6989.webp", title: "Detalles de Confección", sub: "Producto • Texturas Claras" },
+      { src: "assets/campanas/IMG_6995.webp", title: "Composición de Cierre", sub: "Campañas • Campaña Impresa" },
+      { src: "assets/campanas/IMG_6996.webp", title: "Campaña Final • Editorial", sub: "Campañas • Portada Comercial" }
+    ]
   },
 
   polas: {
     id: "polas",
     title: "Polas & Digitals de Modelos",
-    subtitle: "Digitals oficiales de modelos y pruebas de casting bajo estándares de agencia",
-    badge: "PRÓXIMAMENTE",
-    cover: "assets/sesiones/IMG_4046.webp",
-    photos: [] // VACÍA RESPETANDO EL PEDIDO DEL USUARIO
+    subtitle: "Digitals oficiales de agencia, luz limpia y poses estándar para casting internacional",
+    badge: "18 FOTOGRAMAS",
+    cover: "assets/polas/IMG_0753-2.webp",
+    photos: [
+      { src: "assets/polas/IMG_0753-2.webp", title: "Polaroid de Rostro • Primer Plano", sub: "Polas • Digital Oficial de Agencia" },
+      { src: "assets/polas/IMG_0759-2.webp", title: "Polaroid de Perfil Estricto", sub: "Polas • Estructura Facial" },
+      { src: "assets/polas/IMG_0767-2.webp", title: "Polaroid de Perfil 3/4", sub: "Polas • Ángulo Editorial" },
+      { src: "assets/polas/IMG_0794-2.webp", title: "Polaroid de Plano Medio", sub: "Polas • Expresión Neutra" },
+      { src: "assets/polas/IMG_0836-2.webp", title: "Polaroid de Cuerpo Completo", sub: "Polas • Silueta y Proporción" },
+      { src: "assets/polas/IMG_0853-2.webp", title: "Test de Poses para Casting", sub: "Polas • Dirección de Modelo" },
+      { src: "assets/polas/IMG_0913-2.webp", title: "Polaroid Editorial en Estudio", sub: "Polas • Iluminación Neutra" },
+      { src: "assets/polas/IMG_8243.webp", title: "Digital de Rostro • Mirada Frontal", sub: "Polas • Ficha de Presentación" },
+      { src: "assets/polas/IMG_8260.webp", title: "Digital 3/4 • Expresión", sub: "Polas • Scouting de Modelo" },
+      { src: "assets/polas/IMG_8297.webp", title: "Digital de Perfil Izquierdo", sub: "Polas • Proporciones Claras" },
+      { src: "assets/polas/IMG_8308.webp", title: "Plano Entero • Ropa de Casting", sub: "Polas • Estándar Internacional" },
+      { src: "assets/polas/IMG_8312.webp", title: "Test de Espalda y Silueta", sub: "Polas • Líneas Naturales" },
+      { src: "assets/polas/IMG_8325.webp", title: "Digital con Sonrisa Natural", sub: "Polas • Rango de Expresión" },
+      { src: "assets/polas/IMG_8352.webp", title: "Rostro Limpio • Sin Maquillaje", sub: "Polas • Piel y Facciones" },
+      { src: "assets/polas/IMG_8359.webp", title: "Encuadre Cerrado de Ojos", sub: "Polas • Mirada y Fuerza" },
+      { src: "assets/polas/IMG_8389.webp", title: "Retrato Neutro de Perfil", sub: "Polas • Casting de Alta Moda" },
+      { src: "assets/polas/IMG_8418.webp", title: "Composición de Cuerpo Completo", sub: "Polas • Postura y Porte" },
+      { src: "assets/polas/IMG_8419.webp", title: "Polaroid Final de Ficha", sub: "Polas • Conclusión de Digitals" }
+    ]
   }
 };
 
 // ESTADO GLOBAL DEL VISOR
 let currentFolderKey = "sesiones";
 let currentPhotoIndex = 0;
+let isShutterAnimating = false;
 
-// FUNCIONES GLOBALES DISPONIBLES INMEDIATAMENTE
-window.openFolder = function (folderKey, startIndex = 0) {
+// APERTURA CON EFECTO OBTURADOR DE CÁMARA EN ESPIRAL
+window.openShutterPortfolio = function (folderKey, startIndex = 0) {
+  if (isShutterAnimating) return;
+  const folder = CARPETAS_DATA[folderKey];
+  if (!folder) return;
+
+  isShutterAnimating = true;
+
+  const shutterOverlay = document.getElementById("camera-shutter");
+  if (shutterOverlay) {
+    shutterOverlay.classList.add("closing");
+
+    setTimeout(() => {
+      // Cargar la carpeta y foto mientras el diafragma está cerrado
+      window.openFolderDirect(folderKey, startIndex);
+
+      setTimeout(() => {
+        shutterOverlay.classList.remove("closing");
+        shutterOverlay.classList.add("opening");
+
+        setTimeout(() => {
+          shutterOverlay.classList.remove("opening");
+          isShutterAnimating = false;
+        }, 320);
+      }, 160);
+    }, 280);
+  } else {
+    // Si no está disponible el overlay, abrir directo
+    window.openFolderDirect(folderKey, startIndex);
+    isShutterAnimating = false;
+  }
+};
+
+// ALIAS GLOBAL PARA COMPATIBILIDAD
+window.openFolder = window.openShutterPortfolio;
+
+// APERTURA DIRECTA DEL VISOR MODAL (100% FIJADO AL VIEWPORT)
+window.openFolderDirect = function (folderKey, startIndex = 0) {
   const folder = CARPETAS_DATA[folderKey];
   if (!folder) return;
 
   currentFolderKey = folderKey;
+  currentPhotoIndex = Math.max(0, Math.min(startIndex, folder.photos.length - 1));
 
   const modal = document.getElementById("folder-lightbox");
   const folderNameEl = document.getElementById("lightbox-folder-name");
-  const counterEl = document.getElementById("lightbox-counter");
-  const emptyStateEl = document.getElementById("lightbox-empty-state");
-  const photoContainerEl = document.getElementById("lightbox-photo-container");
-  const arrows = document.querySelectorAll(".modal-nav-arrow");
-  const stripEl = document.getElementById("lightbox-thumbs-strip");
-  const touchHintEl = document.querySelector(".modal-touch-hint");
 
   if (folderNameEl) {
-    folderNameEl.textContent = `📁 ${folder.title}`;
+    folderNameEl.textContent = `[ 35MM ] ${folder.title.toUpperCase()}`;
   }
 
-  // SI LA CARPETA ESTÁ VACÍA (POLAS O COMUNIONES)
-  if (!folder.photos || folder.photos.length === 0) {
-    if (counterEl) counterEl.textContent = "Próximamente";
-    if (emptyStateEl) emptyStateEl.style.display = "flex";
-    if (photoContainerEl) photoContainerEl.style.display = "none";
-    if (stripEl) stripEl.style.display = "none";
-    if (touchHintEl) touchHintEl.style.display = "none";
-    arrows.forEach(a => (a.style.display = "none"));
-
-    const emptyDesc = document.getElementById("empty-state-desc");
-    if (emptyDesc) {
-      emptyDesc.textContent = `Gabriel EM está preparando las fotografías oficiales de ${folder.title}. Muy pronto estarán disponibles aquí en alta resolución.`;
-    }
-  } else {
-    // CARPETA CON FOTOGRAFÍAS REALES
-    currentPhotoIndex = Math.max(0, Math.min(startIndex, folder.photos.length - 1));
-
-    if (emptyStateEl) emptyStateEl.style.display = "none";
-    if (photoContainerEl) photoContainerEl.style.display = "flex";
-    if (stripEl) stripEl.style.display = "flex";
-    if (touchHintEl) touchHintEl.style.display = "block";
-    arrows.forEach(a => (a.style.display = "flex"));
-
-    renderModalPhoto();
-    renderThumbnailsStrip();
-  }
+  renderModalPhoto();
+  renderThumbnailsStrip();
 
   if (modal) {
     modal.classList.add("active");
-    // Bloquear scroll de fondo de forma efectiva
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
   }
@@ -223,7 +289,9 @@ function renderModalPhoto() {
   }
 
   if (counterEl) {
-    counterEl.textContent = `Foto ${currentPhotoIndex + 1} de ${folder.photos.length}`;
+    const padCurrent = String(currentPhotoIndex + 1).padStart(2, "0");
+    const padTotal = String(folder.photos.length).padStart(2, "0");
+    counterEl.textContent = `FOTOGRAMA ${padCurrent} / ${padTotal}`;
   }
 }
 
@@ -239,7 +307,7 @@ function renderThumbnailsStrip() {
   folder.photos.forEach((photo, idx) => {
     const thumb = document.createElement("button");
     thumb.className = `modal-thumb-btn ${idx === currentPhotoIndex ? "active" : ""}`;
-    thumb.setAttribute("aria-label", `Ir a foto ${idx + 1}`);
+    thumb.setAttribute("aria-label", `Ir a fotograma ${idx + 1}`);
     thumb.onclick = (e) => {
       e.stopPropagation();
       window.goToPhoto(idx);
@@ -282,27 +350,13 @@ function scrollThumbnailIntoView() {
   }
 }
 
-// FILTRADO RÁPIDO DE CARPETAS EN LA PÁGINA
-window.filterFolderView = function (filterKey) {
-  const tabs = document.querySelectorAll(".folder-tab-btn");
-  tabs.forEach(tab => {
-    if (tab.getAttribute("data-tab") === filterKey) {
-      tab.classList.add("active");
-    } else {
-      tab.classList.remove("active");
-    }
-  });
-
-  const cards = document.querySelectorAll(".folder-card");
-  cards.forEach(card => {
-    const cardFolder = card.getAttribute("data-folder");
-    if (filterKey === "all" || cardFolder === filterKey) {
-      card.style.display = "";
-      card.style.opacity = "1";
-    } else {
-      card.style.display = "none";
-    }
-  });
+// DESPLAZAMIENTO SUAVE DEL CARRETE DE FOTOS 35MM
+window.scrollFilmstrip = function (direction) {
+  const reel = document.getElementById("filmstrip-track");
+  if (reel) {
+    const scrollAmount = reel.clientWidth * 0.75 * direction;
+    reel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
 };
 
 // GESTIÓN DE EVENTOS DEL DOM
@@ -362,7 +416,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // 4. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
+  // 4. ARRASTRE CON EL MOUSE EN EL CARRETE 35MM (DRAG TO SCROLL EN ESCRITORIO)
+  const reelTrack = document.getElementById("filmstrip-track");
+  if (reelTrack) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    reelTrack.addEventListener("mousedown", (e) => {
+      isDown = true;
+      reelTrack.classList.add("dragging");
+      startX = e.pageX - reelTrack.offsetLeft;
+      scrollLeft = reelTrack.scrollLeft;
+    });
+
+    reelTrack.addEventListener("mouseleave", () => {
+      isDown = false;
+      reelTrack.classList.remove("dragging");
+    });
+
+    reelTrack.addEventListener("mouseup", () => {
+      isDown = false;
+      reelTrack.classList.remove("dragging");
+    });
+
+    reelTrack.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - reelTrack.offsetLeft;
+      const walk = (x - startX) * 1.6;
+      reelTrack.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // 5. ACCORDION HOVER PARA EL ÍNDICE EDITORIAL DE DISCIPLINAS
+  const indexItems = document.querySelectorAll(".editorial-index-row");
+  const indexPreviewImg = document.getElementById("index-floating-img");
+  const indexPreviewCaption = document.getElementById("index-floating-caption");
+
+  indexItems.forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      const cover = item.getAttribute("data-preview-cover");
+      const title = item.getAttribute("data-preview-title");
+      if (indexPreviewImg && cover) {
+        indexPreviewImg.src = cover;
+        if (indexPreviewCaption) indexPreviewCaption.textContent = title;
+      }
+    });
+  });
+
+  // 6. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
   document.querySelectorAll(".page-transition-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("href");
@@ -379,7 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 5. BOTÓN VOLVER ARRIBA
+  // 7. BOTÓN VOLVER ARRIBA
   const backToTop = document.querySelector(".back-to-top");
   if (backToTop) {
     backToTop.addEventListener("click", (e) => {

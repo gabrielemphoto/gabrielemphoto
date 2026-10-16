@@ -4,27 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Gabriel EM | Portafolio Fotográfico Editorial</title>
+  <title>Gabriel EM | Portafolio Fotográfico de Autor • Blanco & Negro</title>
 
-  <!-- FUENTES GOOGLE: CORMORANT GARAMOND & MONTSERRAT -->
+  <!-- FUENTES GOOGLE: CORMORANT GARAMOND (EDITORIAL SERIF) & MONTSERRAT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=7.0">
+  <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 
-<body class="page-fade-in">
+<body class="page-fade-in theme-monochrome">
+
+  <!-- ==================== OBTURADOR DE CÁMARA EN ESPIRAL (CAMERA IRIS DIAPHRAGM) ==================== -->
+  <div id="camera-shutter" class="camera-shutter-overlay" aria-hidden="true">
+    <div class="shutter-lens-chassis">
+      <div class="lens-barrel-outer">
+        <div class="lens-spec-ring">
+          <span class="lens-spec-text top">GABRIEL EM OPTICS • 35MM f/1.4 • EDICIÓN DE AUTOR</span>
+          <span class="lens-spec-text bottom">8-BLADE MECHANICAL DIAPHRAGM • MARGARITA, VZLA</span>
+        </div>
+        <div class="lens-aperture-cavity">
+          <svg class="shutter-iris-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1F1F24" />
+                <stop offset="50%" stop-color="#141418" />
+                <stop offset="100%" stop-color="#09090B" />
+              </linearGradient>
+            </defs>
+            <g class="iris-assembly">
+              <!-- 8 LAMINILLAS DE DIAFRAGMA CURVADAS QUE CIERRAN EN ESPIRAL -->
+              <path class="shutter-blade blade-1" d="M 250,250 C 310,180 370,120 450,110 C 470,200 440,290 380,350 Z" />
+              <path class="shutter-blade blade-2" d="M 250,250 C 350,310 410,370 420,450 C 330,470 240,440 180,380 Z" />
+              <path class="shutter-blade blade-3" d="M 250,250 C 180,310 120,370 110,450 C 200,470 290,440 350,380 Z" />
+              <path class="shutter-blade blade-4" d="M 250,250 C 310,350 370,410 450,420 C 470,330 440,240 380,180 Z" />
+              <path class="shutter-blade blade-5" d="M 250,250 C 190,320 130,380 50,390 C 30,300 60,210 120,150 Z" />
+              <path class="shutter-blade blade-6" d="M 250,250 C 150,190 90,130 80,50 C 170,30 260,60 320,120 Z" />
+              <path class="shutter-blade blade-7" d="M 250,250 C 320,190 380,130 390,50 C 300,30 210,60 150,120 Z" />
+              <path class="shutter-blade blade-8" d="M 250,250 C 190,150 130,90 50,80 C 30,170 60,260 120,320 Z" />
+            </g>
+          </svg>
+          <div class="shutter-center-pinhole"></div>
+        </div>
+      </div>
+      <div class="shutter-sound-cue">CLICK • DISPARO 35MM</div>
+    </div>
+  </div>
 
   <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
   <div id="page-curtain"></div>
 
-  <!-- NAVEGACIÓN SUPERIOR ELEGANTE Y COMPACTA -->
+  <!-- ==================== NAVEGACIÓN EDITORIAL FIJA ==================== -->
   <nav class="portfolio-header-nav">
     <div class="nav-left">
-      <a href="../" class="nav-back-btn page-transition-btn">
+      <a href="../" class="nav-back-btn page-transition-btn" aria-label="Volver a página de inicio">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
@@ -34,493 +70,831 @@
     </div>
 
     <div class="nav-logo-wrap">
-      <a href="../" class="page-transition-btn" aria-label="Gabriel EM Inicio">
+      <a href="../" class="page-transition-btn" aria-label="Gabriel EM Portada">
         <img src="assets/logo.png" onerror="this.onerror=null; this.src='../logo.png'" alt="Gabriel EM" class="nav-logo-img">
       </a>
     </div>
 
     <div class="nav-right">
-      <a href="../video/" class="nav-switch-btn page-transition-btn">
+      <div class="nav-quick-links">
+        <a href="#carrete" class="nav-pill-link">Carrete 35mm</a>
+        <a href="#sobre-mi" class="nav-pill-link">Sobre Mí</a>
+      </div>
+      <a href="../video/" class="nav-switch-btn page-transition-btn" aria-label="Ir al portafolio de video">
         <span>Videógrafo →</span>
       </a>
     </div>
   </nav>
 
-  <!-- ==================== HERO SECTION EDITORIAL ==================== -->
+  <!-- ==================== HERO SECTION EDITORIAL ARTÍSTICO ==================== -->
   <header class="editorial-hero">
-    <div class="hero-content-wrapper">
+    <div class="hero-container">
 
-      <div class="hero-text-col">
-        <div class="hero-top-meta">
-          <span class="meta-number">( 01 )</span>
-          <span class="meta-tag">FOTOGRAFÍA EDITORIAL & RETRATO</span>
-          <span class="meta-divider">•</span>
-          <span class="meta-loc">ISLA DE MARGARITA, VENEZUELA</span>
-        </div>
+      <!-- BARRA SUPERIOR DE METADATOS EDITORIALES -->
+      <div class="hero-top-meta">
+        <span class="meta-tag-num">[ 01 ]</span>
+        <span class="meta-tag-label">FOTOGRAFÍA EDITORIAL & DIRECCIÓN VISUAL DE AUTOR</span>
+        <span class="meta-separator">•</span>
+        <span class="meta-loc">ISLA DE MARGARITA, VENEZUELA</span>
+      </div>
 
+      <!-- TITULAR PRINCIPAL CON MINIATURA DE FOTO EMBEBIDA EN EL TEXTO -->
+      <div class="hero-headline-block">
         <h1 class="hero-main-title">
-          CREAMOS —<br>
+          CREAMOS —
+          <span class="hero-inline-photo-badge" title="Retrato editorial de autor">
+            <img src="assets/destacadas/IMG_7173.webp" alt="Detalle de fotografía editorial Gabriel EM">
+          </span>
+          <br>
           <span class="italic-serif">RECUERDOS</span><br>
           QUE PERDURAN TODA LA VIDA
         </h1>
-
-        <p class="hero-description">
-          Fotografía de alta estética editorial, sesiones personales, quinceañeras y ceremonias sagradas. Capturamos la verdad de cada emoción con una mirada atemporal que trasciende generaciones.
-        </p>
-
-        <!-- CTA AGENDAR SESIÓN DIRECTO A WHATSAPP -->
-        <div class="hero-cta-actions">
-          <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20agendar%20una%20sesi%C3%B3n/evento%20fotogr%C3%A1fico%20contigo." target="_blank" rel="noopener" class="btn-primary-editorial">
-            <span>Agendar Sesión / Evento</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-
-          <a href="#carpetas" class="btn-secondary-editorial">
-            <span>Explorar Carpetas</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <!-- INDICADORES RÁPIDOS -->
-        <div class="hero-micro-features">
-          <div class="micro-feature">
-            <strong>+58 414 6860112</strong>
-            <span>WhatsApp Directo</span>
-          </div>
-          <div class="micro-feature">
-            <strong>@gabrielemphoto</strong>
-            <span>Instagram Oficial</span>
-          </div>
-          <div class="micro-feature">
-            <strong>Margarita & Coberturas</strong>
-            <span>Venezuela</span>
-          </div>
-        </div>
       </div>
 
-      <!-- COLUMNA VISUAL HERO -->
-      <div class="hero-visual-col">
-        <div class="hero-image-frame">
-          <img src="assets/sesiones/IMG_7095.webp" alt="Fotografía Editorial Gabriel EM" fetchpriority="high">
-          <div class="hero-badge-floating">GABRIEL EM • FOTÓGRAFO</div>
+      <!-- CUADRÍCULA HERO: RECUADRO IMPERFECTO + MARCO FLOTANTE ARTÍSTICO -->
+      <div class="hero-composition-grid">
+
+        <!-- COLUMNA IZQUIERDA: RECUADRO IMPERFECTO CON MANIFIESTO Y CTA -->
+        <div class="hero-info-column">
+
+          <!-- TEXTO EN RECUADRO NO PERFECTO (BRUTALISMO EDITORIAL) -->
+          <div class="imperfect-box manifesto-card">
+            <div class="card-corner-tag">DECLARACIÓN ARTÍSTICA</div>
+            <p class="manifesto-text">
+              "No capturamos poses forzadas; inmortalizamos la atmósfera, la complicidad y la verdad irrepetible de cada persona. Cada disparo es concebido como una obra de autor para trascender generaciones."
+            </p>
+            <div class="card-sub-meta">
+              <span>GABRIEL MILLÁN</span>
+              <span class="bullet">•</span>
+              <span>FOTÓGRAFO & DIRECTOR</span>
+            </div>
+          </div>
+
+          <!-- BOTONES DE LLAMADO A LA ACCIÓN (IMPERFECT BORDERS) -->
+          <div class="hero-cta-group">
+            <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20agendar%20una%20sesi%C3%B3n/evento%20fotogr%C3%A1fico%20contigo."
+               target="_blank" rel="noopener" class="btn-brutal-primary">
+              <span>Agendar Sesión / Evento</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#carrete" class="btn-brutal-secondary">
+              <span>Explorar Carrete 35mm</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- CANALES RÁPIDOS EN RECUADRO -->
+          <div class="imperfect-box channels-strip">
+            <div class="channel-mini">
+              <strong>+58 414 6860112</strong>
+              <span>WhatsApp Directo</span>
+            </div>
+            <div class="channel-mini">
+              <strong>@gabrielemphoto</strong>
+              <span>Instagram Oficial</span>
+            </div>
+            <div class="channel-mini">
+              <strong>Margarita</strong>
+              <span>& Coberturas Globales</span>
+            </div>
+          </div>
+
         </div>
 
-        <div class="hero-polaroid-accent">
-          <span class="polaroid-dot"></span>
-          <span class="polaroid-text">RETRATOS CON ALMA & ELEGANCIA • 2026</span>
+        <!-- COLUMNA DERECHA: MARCO DE FOTOS FLOTANTE (TILTED FLOATING FRAME) -->
+        <div class="hero-visual-column">
+          <div class="floating-frame-wrapper" title="Fotografía de Autor • Gabriel EM">
+            
+            <!-- CINTA ADHESIVA ARTÍSTICA SUPERIOR -->
+            <div class="frame-tape-element"></div>
+
+            <div class="artistic-floating-frame">
+              <div class="frame-inner-matte">
+                <img src="assets/destacadas/IMG_8083-Mi-exportansion-2.webp"
+                     alt="Obra fotográfica de autor Gabriel EM"
+                     class="frame-master-img"
+                     fetchpriority="high">
+                <div class="frame-overlay-tag">GABRIEL EM • AUTOR © 2026</div>
+              </div>
+
+              <!-- PIE DEL MARCO ESTILO POLAROID/HOJA DE CONTACTOS -->
+              <div class="frame-bottom-label">
+                <div class="frame-dot-indicator"></div>
+                <div class="frame-label-text">
+                  <strong>SERIE EDITORIAL // FOTOGRAMA 01</strong>
+                  <span>GABRIEL EM • 35MM MONOCHROME</span>
+                </div>
+                <div class="frame-iso-tag">ISO 400</div>
+              </div>
+            </div>
+
+            <!-- SEGUNDO MARCO DE FONDO PARA EFECTO PROFUNDIDAD -->
+            <div class="frame-ghost-shadow"></div>
+          </div>
         </div>
+
       </div>
 
     </div>
   </header>
 
-  <!-- ==================== SECCIÓN SOBRE MÍ ==================== -->
-  <section class="editorial-about" id="sobre-mi">
-    <div class="about-header-meta">
-      <span class="meta-number">( 02 )</span>
-      <span>SOBRE MÍ — GABRIEL EM</span>
-      <span>•</span>
-      <span>DIRECTOR VISUAL</span>
-    </div>
+  <!-- ==================== SECCIÓN SOBRE MÍ (CON FOTO REAL DE GABRIEL) ==================== -->
+  <section class="editorial-about-section" id="sobre-mi">
+    <div class="about-container">
 
-    <!-- BANNER VISUAL PANORÁMICO -->
-    <div class="about-wide-visual">
-      <img src="assets/bautizos/Altar.webp" alt="Atmósfera y narrativa fotográfica" loading="lazy">
-      <div class="visual-badge">ESTÉTICA EDITORIAL & SENSIBILIDAD</div>
-    </div>
+      <div class="section-meta-header">
+        <span class="meta-tag-num">[ 02 ]</span>
+        <span class="meta-tag-label">SOBRE MÍ — GABRIEL MILLÁN</span>
+        <span class="meta-separator">•</span>
+        <span class="meta-loc">DIRECTOR VISUAL & FOTÓGRAFO</span>
+      </div>
 
-    <div class="about-narrative-grid">
-      <div class="about-headline-col">
-        <h2 class="about-big-title">
-          FOTOGRAFÍAS PARA —<br>
-          <span class="italic-serif">CONTAR</span> HISTORIAS
+      <div class="about-editorial-grid">
+
+        <!-- FOTO REAL DE GABRIEL EN MARCO EDITORIAL DE AUTOR -->
+        <div class="about-portrait-card">
+          <div class="portrait-frame-inner">
+            <img src="assets/autor/gabriel-bn.webp"
+                 alt="Gabriel Millán • Fotógrafo y Director Visual"
+                 class="portrait-gabriel-img"
+                 loading="lazy">
+            <div class="portrait-corner-badge">GABRIEL EM</div>
+          </div>
+          <div class="portrait-tape-tag">DIRECTOR VISUAL • ISLA DE MARGARITA</div>
+          <div class="portrait-caption-box">
+            <p><strong>Gabriel Millán</strong></p>
+            <p class="caption-role">Fotógrafo de Retrato, Moda, Bodas & Sacramentos</p>
+            <span class="caption-gear">LEICA & DIGITAL 35MM OPTICS</span>
+          </div>
+        </div>
+
+        <!-- NARRATIVA Y FILOSOFÍA DE AUTOR -->
+        <div class="about-story-col">
+          <h2 class="about-heroic-title">
+            FOTOGRAFÍAS PARA —<br>
+            <span class="italic-serif">CONTAR</span> HISTORIAS CON ALMA
+          </h2>
+
+          <!-- FRASE SOLICITADA POR EL USUARIO: MILES DE FOTOGRAFÍAS TOMADAS CON PROPÓSITO -->
+          <div class="imperfect-box highlight-purpose-card">
+            <div class="purpose-badge">PROPÓSITO & TRAYECTORIA</div>
+            <div class="purpose-main-stat">
+              Miles de fotografías tomadas con propósito.
+            </div>
+            <p class="purpose-desc">
+              Cada fotograma representa horas de observación, conexión genuina con las personas y un profundo respeto por la luz y el momento presente.
+            </p>
+          </div>
+
+          <div class="about-paragraphs-flow">
+            <p>
+              Creo con devoción que una gran imagen no se reduce a una técnica perfecta; reside en captar el alma de un instante irrepetible. Mi trabajo busca distanciarse de lo pasajero para construir retratos con valor patrimonial y cinematográfico.
+            </p>
+            <p>
+              Desde la intimidad de una sesión editorial o una prueba de modelos (polas), hasta la euforia de unos quince años o la solemnidad de un bautizo y comunión, me entrego a que cada fotografía hable por sí sola a través de los años.
+            </p>
+          </div>
+
+          <!-- FILOSOFÍA EN BLOQUES -->
+          <div class="philosophy-cards-row">
+            <div class="philosophy-item">
+              <span class="phil-num">01</span>
+              <h4>Dirección & Conexión</h4>
+              <p>Te guío con tranquilidad para que te sientas seguro, auténtico y disfrutes la sesión sin poses rígidas.</p>
+            </div>
+            <div class="philosophy-item">
+              <span class="phil-num">02</span>
+              <h4>Luz & Contraste</h4>
+              <p>Tratamiento minucioso de la luz y el grano analógico para lograr texturas orgánicas y tonos puros.</p>
+            </div>
+            <div class="philosophy-item">
+              <span class="phil-num">03</span>
+              <h4>Revelado de Autor</h4>
+              <p>Edición atemporal de alta gama, pensada para que tus imágenes conserven su vigencia a perpetuidad.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN DE OBRAS DESTACADAS (BLOQUES CON TEXTO ENCIMA) ==================== -->
+  <section class="editorial-mosaic-section" id="obras-destacadas">
+    <div class="mosaic-container">
+
+      <div class="section-meta-header">
+        <span class="meta-tag-num">[ 03 ]</span>
+        <span class="meta-tag-label">OBRAS DESTACADAS // SELECCIÓN EDITORIAL</span>
+        <span class="meta-separator">•</span>
+        <span class="meta-loc">FOTOGRAFÍA DE AUTOR</span>
+      </div>
+
+      <div class="mosaic-title-row">
+        <h2 class="mosaic-section-title">
+          BLOQUES & COMPOSICIONES
         </h2>
-      </div>
-
-      <div class="about-paragraphs">
-        <p>
-          Creo firmemente que una gran fotografía no solo congela un instante, sino que preserva la atmósfera, la complicidad y la verdad de quien está frente al lente.
+        <p class="mosaic-section-subtitle">
+          Textura, sombra, grano y composición visual. Haz clic en cualquier obra para abrir la colección correspondiente.
         </p>
-        <p>
-          Mi enfoque combina la estética editorial de revista con la naturalidad y la emoción genuina. Ya sea una sesión íntima de retrato, la magia de unos quince años o la solemnidad de un bautizo, mi compromiso es entregarte imágenes con valor patrimonial que atesores toda la vida.
-        </p>
+      </div>
 
-        <div class="about-metrics-bar">
-          <div class="metric-item">
-            <strong>+5</strong>
-            <span>Años de Trayectoria</span>
+      <!-- MOSAICO ASIMÉTRICO DE BLOQUES CON TEXTO SUPERPUESTO -->
+      <div class="mosaic-asymmetric-grid">
+
+        <!-- BLOQUE 1: VERTICAL RETRATO EDITORIAL -->
+        <article class="mosaic-block block-tall" onclick="openShutterPortfolio('sesiones', 0)" role="button" tabindex="0">
+          <div class="block-img-holder">
+            <img src="assets/destacadas/IMG_56642.webp" alt="Retrato editorial de alta gama" loading="lazy">
+            <div class="block-vignette-layer"></div>
           </div>
-          <div class="metric-item">
-            <strong>100%</strong>
-            <span>Compromiso Artístico</span>
+          <div class="block-text-overlay">
+            <span class="overlay-kicker">[ 01 // RETRATO CONTEMPORÁNEO ]</span>
+            <h3 class="overlay-title">Carácter, Mirada & Esculpido de Sombras</h3>
+            <p class="overlay-desc">Sesión en estudio con luz modelada y dirección artística de alta moda.</p>
+            <div class="overlay-action">
+              <span>Abrir Colección (31 Fotos)</span>
+              <span class="action-arrow">→</span>
+            </div>
           </div>
-          <div class="metric-item">
-            <strong>5</strong>
-            <span>Carpetas Especializadas</span>
+        </article>
+
+        <!-- BLOQUE 2: HORIZONTAL ATMÓSFERA Y LUZ NATURAL -->
+        <article class="mosaic-block block-wide" onclick="openShutterPortfolio('sesiones', 26)" role="button" tabindex="0">
+          <div class="block-img-holder">
+            <img src="assets/destacadas/IMG_7893.webp" alt="Atmósfera cinematográfica al atardecer" loading="lazy">
+            <div class="block-vignette-layer"></div>
           </div>
-        </div>
-      </div>
-    </div>
+          <div class="block-text-overlay">
+            <span class="overlay-kicker">[ 02 // HORA DORADA & EXTERIORES ]</span>
+            <h3 class="overlay-title">Atmósfera Cinematográfica</h3>
+            <p class="overlay-desc">Aprovechamiento de la luz rasante en paisajes abiertos de la costa margariteña.</p>
+            <div class="overlay-action">
+              <span>Abrir Colección</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </article>
 
-    <!-- VALORES Y FILOSOFÍA -->
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="val-num">01 / DIRECCIÓN CUIDADA</div>
-        <h3 class="val-title">Guía & Comodidad</h3>
-        <p class="val-desc">Te acompaño con dirección de pose y expresión relajada para que te sientas libre, auténtico y disfrutes plenamente la experiencia.</p>
-      </div>
+        <!-- BLOQUE 3: VERTICAL BELLEZA Y GEOMETRÍA -->
+        <article class="mosaic-block block-portrait" onclick="openShutterPortfolio('campanas', 0)" role="button" tabindex="0">
+          <div class="block-img-holder">
+            <img src="assets/destacadas/IMG_5615.webp" alt="Composición de moda y producto" loading="lazy">
+            <div class="block-vignette-layer"></div>
+          </div>
+          <div class="block-text-overlay">
+            <span class="overlay-kicker">[ 03 // CAMPAÑAS & FORMA ]</span>
+            <h3 class="overlay-title">Estilismo & Geometría</h3>
+            <p class="overlay-desc">Dirección de arte publicitaria con texturas nítidas y contraste puro.</p>
+            <div class="overlay-action">
+              <span>Abrir Colección (19 Fotos)</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </article>
 
-      <div class="value-card">
-        <div class="val-num">02 / LUZ & COMPOSICIÓN</div>
-        <h3 class="val-title">Estética Cinematográfica</h3>
-        <p class="val-desc">Aprovechamiento magistral de la luz natural y de estudio para lograr tonos de piel fieles, nitidez pura y volumen tridimensional.</p>
-      </div>
+        <!-- BLOQUE 4: HORIZONTAL MOMENTO Y EMOCIÓN DOCUMENTAL -->
+        <article class="mosaic-block block-landscape" onclick="openShutterPortfolio('quince', 0)" role="button" tabindex="0">
+          <div class="block-img-holder">
+            <img src="assets/destacadas/IMG_8247.webp" alt="Quinceañeras y momentos mágicos" loading="lazy">
+            <div class="block-vignette-layer"></div>
+          </div>
+          <div class="block-text-overlay">
+            <span class="overlay-kicker">[ 04 // 15 AÑOS & GALA ]</span>
+            <h3 class="overlay-title">La Verdad del Instante</h3>
+            <p class="overlay-desc">Celebraciones familiares documentadas con elegancia, sensibilidad y verdad.</p>
+            <div class="overlay-action">
+              <span>Abrir Colección (9 Fotos)</span>
+              <span class="action-arrow">→</span>
+            </div>
+          </div>
+        </article>
 
-      <div class="value-card">
-        <div class="val-num">03 / MEMORIA ATEMPORAL</div>
-        <h3 class="val-title">Edición de Colección</h3>
-        <p class="val-desc">Tratamiento de color refinado y elegante, diseñado para que tus fotografías luzcan contemporáneas y prestigiosas a través de las décadas.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SECCIÓN DE SERVICIOS ==================== -->
-  <section class="editorial-services" id="servicios">
-    <div class="services-top-meta">
-      <span class="meta-number">( 03 )</span>
-      <span>NUESTROS SERVICIOS</span>
-      <span>•</span>
-      <span>COBERTURAS & PAQUETES</span>
-    </div>
-
-    <h2 class="services-heading">
-      COBERTURAS ESPECIALIZADAS
-    </h2>
-
-    <div class="services-list">
-
-      <!-- SERVICIO 1 -->
-      <div class="service-row" onclick="openFolder('sesiones', 0)" role="button" tabindex="0" title="Abrir carpeta de Sesiones">
-        <div class="srv-left">
-          <span class="srv-index">01</span>
-          <span class="srv-name">Sesiones & Retratos</span>
-        </div>
-        <p class="srv-desc">Retratos personales, moda editorial, parejas y proyectos conceptuales con dirección artística integral.</p>
-        <span class="srv-arrow">Abrir Carpeta (31) →</span>
-      </div>
-
-      <!-- SERVICIO 2 -->
-      <div class="service-row" onclick="openFolder('quince', 0)" role="button" tabindex="0" title="Abrir carpeta de 15 Años">
-        <div class="srv-left">
-          <span class="srv-index">02</span>
-          <span class="srv-name">15 Años & Quinceañeras</span>
-        </div>
-        <p class="srv-desc">Sesión previa de gala en locación, cobertura de la recepción y narrativa fotográfica de una noche mágica.</p>
-        <span class="srv-arrow">Abrir Carpeta (9) →</span>
-      </div>
-
-      <!-- SERVICIO 3 -->
-      <div class="service-row" onclick="openFolder('bautizos', 0)" role="button" tabindex="0" title="Abrir carpeta de Bautizos">
-        <div class="srv-left">
-          <span class="srv-index">03</span>
-          <span class="srv-name">Bautizos & Sacramentos</span>
-        </div>
-        <p class="srv-desc">Fotografía respetuosa y emotiva del rito bautismal, unción sagrada y momentos íntimos familiares.</p>
-        <span class="srv-arrow">Abrir Carpeta (16) →</span>
-      </div>
-
-      <!-- SERVICIO 4 -->
-      <div class="service-row" onclick="openFolder('comuniones', 0)" role="button" tabindex="0" title="Ver información de Comunión">
-        <div class="srv-left">
-          <span class="srv-index">04</span>
-          <span class="srv-name">Primera Comunión</span>
-        </div>
-        <p class="srv-desc">Retratos solemnes con vestuario sagrado, fotografía en iglesia y recuerdos devotos en familia.</p>
-        <span class="srv-arrow">Próximamente →</span>
-      </div>
-
-      <!-- SERVICIO 5 -->
-      <div class="service-row" onclick="openFolder('polas', 0)" role="button" tabindex="0" title="Ver información de Polas">
-        <div class="srv-left">
-          <span class="srv-index">05</span>
-          <span class="srv-name">Polas & Digitals de Modelos</span>
-        </div>
-        <p class="srv-desc">Digitals limpios y bajo estándares internacionales para agencias y directores de casting.</p>
-        <span class="srv-arrow">Próximamente →</span>
       </div>
 
     </div>
   </section>
 
-  <!-- ==================== SECCIÓN DE CARPETAS Y ÁLBUMES ==================== -->
-  <section class="gallery-section" id="carpetas">
-    <div class="gallery-header-wrap">
-      <div class="gallery-kicker">( 04 ) • COLECCIONES FOTOGRÁFICAS 2026</div>
-      <h2 class="gallery-main-title">CARPETAS & ÁLBUMES</h2>
-      <p class="gallery-subtitle">
-        Elige una carpeta para abrir el visor interactivo. Podrás pasar todas las fotografías en alta resolución con las flechas o deslizando con el dedo.
-      </p>
+  <!-- ==================== ÍNDICE EDITORIAL DE DISCIPLINAS ==================== -->
+  <section class="editorial-index-section" id="disciplinas">
+    <div class="index-container">
 
-      <!-- BARRA DE PESTAÑAS PARA FILTRAR CARPETAS -->
-      <div class="folder-tabs-wrapper">
-        <div class="folder-tabs">
-          <button class="folder-tab-btn active" data-tab="all" onclick="filterFolderView('all')">Todas las Carpetas (5)</button>
-          <button class="folder-tab-btn" data-tab="sesiones" onclick="filterFolderView('sesiones')">📁 Sesiones (31)</button>
-          <button class="folder-tab-btn" data-tab="quince" onclick="filterFolderView('quince')">📁 15 Años (9)</button>
-          <button class="folder-tab-btn" data-tab="bautizos" onclick="filterFolderView('bautizos')">📁 Bautizos (16)</button>
-          <button class="folder-tab-btn" data-tab="comuniones" onclick="filterFolderView('comuniones')">📁 Comunión</button>
-          <button class="folder-tab-btn" data-tab="polas" onclick="filterFolderView('polas')">📁 Polas</button>
-        </div>
+      <div class="section-meta-header">
+        <span class="meta-tag-num">[ 04 ]</span>
+        <span class="meta-tag-label">CATÁLOGO EDITORIAL DE DISCIPLINAS</span>
+        <span class="meta-separator">•</span>
+        <span class="meta-loc">6 COLECCIONES ACTIVAS</span>
       </div>
-    </div>
 
-    <!-- GRILLA EDITORIAL DE CARPETAS -->
-    <div class="folders-grid" id="folders-grid">
+      <div class="index-layout-grid">
 
-      <!-- CARPETA 01: SESIONES -->
-      <article class="folder-card" data-folder="sesiones" onclick="openFolder('sesiones', 0)" role="button" tabindex="0">
-        <div class="folder-cover-wrap">
-          <img src="assets/sesiones/IMG_7095.webp" alt="Carpeta Sesiones & Retratos" loading="lazy">
-          <div class="folder-badge-tag">ÁLBUM 01</div>
-          <div class="folder-badge-count">31 FOTOGRAFÍAS</div>
-          <div class="folder-cover-overlay">
-            <span class="folder-overlay-pill">Abrir Carpeta & Pasar Fotos →</span>
-          </div>
-        </div>
-        <div class="folder-info">
-          <span class="folder-num">CARPETA 01 • SESIONES</span>
-          <h3 class="folder-title">Sesiones & Retratos</h3>
-          <p class="folder-desc">Retratos individuales, sesiones conceptuales, moda editorial y parejas con dirección artística completa.</p>
-          <div class="folder-action-line">
-            <span>Ver 31 fotografías en visor</span>
-            <span class="folder-arrow">→</span>
-          </div>
-        </div>
-      </article>
+        <!-- LISTADO EDITORIAL INTERACTIVO -->
+        <div class="index-rows-list">
 
-      <!-- CARPETA 02: 15 AÑOS -->
-      <article class="folder-card" data-folder="quince" onclick="openFolder('quince', 0)" role="button" tabindex="0">
-        <div class="folder-cover-wrap">
-          <img src="assets/quince-anos/IMG_3799.webp" alt="Carpeta 15 Años & Quinceañeras" loading="lazy">
-          <div class="folder-badge-tag">ÁLBUM 02</div>
-          <div class="folder-badge-count">9 FOTOGRAFÍAS</div>
-          <div class="folder-cover-overlay">
-            <span class="folder-overlay-pill">Abrir Carpeta & Pasar Fotos →</span>
+          <!-- FILA 01: SESIONES -->
+          <div class="editorial-index-row"
+               data-folder="sesiones"
+               data-preview-cover="assets/sesiones/IMG_7095.webp"
+               data-preview-title="Sesiones & Retratos (31 Fotogramas)"
+               onclick="openShutterPortfolio('sesiones', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">01</div>
+            <div class="row-content">
+              <h3 class="row-title">Sesiones & Retratos</h3>
+              <p class="row-desc">Retratos personales, moda editorial, parejas y proyectos conceptuales con dirección artística integral.</p>
+            </div>
+            <div class="row-badge-pill">31 FOTOS</div>
+            <div class="row-action-arrow">→</div>
           </div>
-        </div>
-        <div class="folder-info">
-          <span class="folder-num">CARPETA 02 • QUINCEAÑERAS</span>
-          <h3 class="folder-title">15 Años & Quinceañeras</h3>
-          <p class="folder-desc">Celebraciones inolvidables, sesión previa en exteriores de gala y momentos mágicos de una noche soñada.</p>
-          <div class="folder-action-line">
-            <span>Ver 9 fotografías en visor</span>
-            <span class="folder-arrow">→</span>
-          </div>
-        </div>
-      </article>
 
-      <!-- CARPETA 03: BAUTIZOS -->
-      <article class="folder-card" data-folder="bautizos" onclick="openFolder('bautizos', 0)" role="button" tabindex="0">
-        <div class="folder-cover-wrap">
-          <img src="assets/bautizos/Altar.webp" alt="Carpeta Bautizos & Sacramentos" loading="lazy">
-          <div class="folder-badge-tag">ÁLBUM 03</div>
-          <div class="folder-badge-count">16 FOTOGRAFÍAS</div>
-          <div class="folder-cover-overlay">
-            <span class="folder-overlay-pill">Abrir Carpeta & Pasar Fotos →</span>
+          <!-- FILA 02: 15 AÑOS -->
+          <div class="editorial-index-row"
+               data-folder="quince"
+               data-preview-cover="assets/quince-anos/IMG_3799.webp"
+               data-preview-title="15 Años & Quinceañeras (9 Fotogramas)"
+               onclick="openShutterPortfolio('quince', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">02</div>
+            <div class="row-content">
+              <h3 class="row-title">15 Años & Quinceañeras</h3>
+              <p class="row-desc">Sesión previa de gala en locación, recepción y narrativa fotográfica completa de una noche mágica.</p>
+            </div>
+            <div class="row-badge-pill">9 FOTOS</div>
+            <div class="row-action-arrow">→</div>
           </div>
-        </div>
-        <div class="folder-info">
-          <span class="folder-num">CARPETA 03 • SACRAMENTOS</span>
-          <h3 class="folder-title">Bautizos & Sacramentos</h3>
-          <p class="folder-desc">Ceremonias sagradas, bendición de la pila bautismal y emotivos recuerdos familiares de devoción y amor.</p>
-          <div class="folder-action-line">
-            <span>Ver 16 fotografías en visor</span>
-            <span class="folder-arrow">→</span>
-          </div>
-        </div>
-      </article>
 
-      <!-- CARPETA 04: COMUNIÓN (VACÍA RESPETANDO EL PEDIDO DEL USUARIO) -->
-      <article class="folder-card" data-folder="comuniones" onclick="openFolder('comuniones', 0)" role="button" tabindex="0">
-        <div class="folder-cover-wrap">
-          <img src="assets/bautizos/IMG_0320.webp" alt="Carpeta Primera Comunión" loading="lazy">
-          <div class="folder-badge-tag">ÁLBUM 04</div>
-          <div class="folder-badge-count">PRÓXIMAMENTE</div>
-          <div class="folder-cover-overlay">
-            <span class="folder-overlay-pill">Ver Información de Carpeta →</span>
+          <!-- FILA 03: BAUTIZOS -->
+          <div class="editorial-index-row"
+               data-folder="bautizos"
+               data-preview-cover="assets/bautizos/Altar.webp"
+               data-preview-title="Bautizos & Sacramentos (16 Fotogramas)"
+               onclick="openShutterPortfolio('bautizos', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">03</div>
+            <div class="row-content">
+              <h3 class="row-title">Bautizos & Sacramentos</h3>
+              <p class="row-desc">Ceremonias sagradas, bendición de la pila bautismal y emotivos recuerdos familiares de devoción.</p>
+            </div>
+            <div class="row-badge-pill">16 FOTOS</div>
+            <div class="row-action-arrow">→</div>
           </div>
-        </div>
-        <div class="folder-info">
-          <span class="folder-num">CARPETA 04 • SACRAMENTOS</span>
-          <h3 class="folder-title">Primera Comunión</h3>
-          <p class="folder-desc">Retratos solemnes con vestuario sagrado y recuerdos familiares. Próximamente se publicarán las fotos oficiales.</p>
-          <div class="folder-action-line">
-            <span>Colección en preparación</span>
-            <span class="folder-arrow">→</span>
-          </div>
-        </div>
-      </article>
 
-      <!-- CARPETA 05: POLAS (VACÍA RESPETANDO EL PEDIDO DEL USUARIO) -->
-      <article class="folder-card" data-folder="polas" onclick="openFolder('polas', 0)" role="button" tabindex="0">
-        <div class="folder-cover-wrap">
-          <img src="assets/sesiones/IMG_4046.webp" alt="Carpeta Polas & Digitals" loading="lazy">
-          <div class="folder-badge-tag">ÁLBUM 05</div>
-          <div class="folder-badge-count">PRÓXIMAMENTE</div>
-          <div class="folder-cover-overlay">
-            <span class="folder-overlay-pill">Ver Información de Carpeta →</span>
+          <!-- FILA 04: COMUNIÓN -->
+          <div class="editorial-index-row"
+               data-folder="comunion"
+               data-preview-cover="assets/comunion/IMG_0001.webp"
+               data-preview-title="Primera Comunión (10 Fotogramas)"
+               onclick="openShutterPortfolio('comunion', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">04</div>
+            <div class="row-content">
+              <h3 class="row-title">Primera Comunión</h3>
+              <p class="row-desc">Retratos solemnes con vestuario sagrado, altar en templo y recuerdos devotos familiares.</p>
+            </div>
+            <div class="row-badge-pill">10 FOTOS</div>
+            <div class="row-action-arrow">→</div>
+          </div>
+
+          <!-- FILA 05: CAMPAÑAS Y PRODUCTO -->
+          <div class="editorial-index-row"
+               data-folder="campanas"
+               data-preview-cover="assets/campanas/IMG_4663.webp"
+               data-preview-title="Campañas & Foto de Producto (19 Fotogramas)"
+               onclick="openShutterPortfolio('campanas', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">05</div>
+            <div class="row-content">
+              <h3 class="row-title">Campañas & Foto de Producto</h3>
+              <p class="row-desc">Dirección visual comercial, lookbooks de moda, estilismo de producto y campañas de marca.</p>
+            </div>
+            <div class="row-badge-pill">19 FOTOS</div>
+            <div class="row-action-arrow">→</div>
+          </div>
+
+          <!-- FILA 06: POLAS Y DIGITALS -->
+          <div class="editorial-index-row"
+               data-folder="polas"
+               data-preview-cover="assets/polas/IMG_0753-2.webp"
+               data-preview-title="Polas & Digitals de Modelos (18 Fotogramas)"
+               onclick="openShutterPortfolio('polas', 0)"
+               role="button" tabindex="0">
+            <div class="row-num-tag">06</div>
+            <div class="row-content">
+              <h3 class="row-title">Polas & Digitals de Modelos</h3>
+              <p class="row-desc">Digitals oficiales de agencia, luz limpia y poses estándar para agencias internacionales de casting.</p>
+            </div>
+            <div class="row-badge-pill">18 FOTOS</div>
+            <div class="row-action-arrow">→</div>
+          </div>
+
+        </div>
+
+        <!-- CUADRO FLOTANTE DE PREVISUALIZACIÓN AL HOVER -->
+        <div class="index-floating-preview-col">
+          <div class="preview-card-sticky">
+            <div class="preview-img-frame">
+              <img id="index-floating-img" src="assets/sesiones/IMG_7095.webp" alt="Previsualización de colección">
+              <div class="preview-lens-indicator">35MM APERTURE READY</div>
+            </div>
+            <div class="preview-caption-bar" id="index-floating-caption">
+              Sesiones & Retratos (31 Fotogramas)
+            </div>
+            <div class="preview-hint-text">
+              Haz clic en cualquier disciplina para abrirla con obturador de cámara.
+            </div>
           </div>
         </div>
-        <div class="folder-info">
-          <span class="folder-num">CARPETA 05 • MODELOS</span>
-          <h3 class="folder-title">Polas & Digitals de Modelos</h3>
-          <p class="folder-desc">Digitals estándar para agencias de modelos y casting internacional. Muy pronto disponible en esta sección.</p>
-          <div class="folder-action-line">
-            <span>Colección en preparación</span>
-            <span class="folder-arrow">→</span>
-          </div>
-        </div>
-      </article>
+
+      </div>
 
     </div>
   </section>
 
-  <!-- ==================== FOOTER EDITORIAL (100% ESPAÑOL) ==================== -->
+  <!-- ==================== CARRETE DE FOTOS 35MM (REEMPLAZO DE LA GALERÍA) ==================== -->
+  <section class="filmstrip-section" id="carrete">
+    <div class="filmstrip-container">
+
+      <!-- ENCABEZADO DEL CARRETE ANALÓGICO -->
+      <div class="filmstrip-header-row">
+        <div class="filmstrip-title-group">
+          <div class="film-kicker">[ 35MM FILM REEL • EDICIÓN DE AUTOR ]</div>
+          <h2 class="film-main-heading">CARRETE DE FOTOS ANALÓGICO</h2>
+          <p class="film-sub-heading">
+            Arrastra la tira de película horizontalmente o usa las flechas. Haz clic en cualquier fotograma para disparar el obturador y abrir la colección completa en el visor.
+          </p>
+        </div>
+
+        <!-- CONTROLES MANUALES DEL CARRETE -->
+        <div class="filmstrip-nav-controls">
+          <button class="film-arrow-btn prev" onclick="scrollFilmstrip(-1)" aria-label="Desplazar carrete a la izquierda">
+            ‹
+          </button>
+          <span class="film-scroll-hint">ARRASTRA LA PELÍCULA</span>
+          <button class="film-arrow-btn next" onclick="scrollFilmstrip(1)" aria-label="Desplazar carrete a la derecha">
+            ›
+          </button>
+        </div>
+      </div>
+
+      <!-- TIRA COMPLETA DE PELÍCULA 35MM CON PERFORACIONES SPROCKET -->
+      <div class="analog-film-housing">
+
+        <!-- BANDA SUPERIOR DE PERFORACIONES SPROCKET -->
+        <div class="film-sprockets-band top">
+          <div class="sprockets-holes-line"></div>
+          <div class="film-edge-markings">
+            <span>▶ KODAK TRI-X 400 • SAFETY FILM • ISO 400 / 27° • GABRIEL EM EDITIONS • 35MM EXPOSURE</span>
+            <span class="film-edge-code">DX CODED • 36 EXP</span>
+          </div>
+        </div>
+
+        <!-- PISTA DE DESPLAZAMIENTO CON LOS 6 FOTOGRAMAS DE AUTOR -->
+        <div class="filmstrip-track-scroll" id="filmstrip-track">
+
+          <!-- FOTOGRAMA 01: SESIONES (31 FOTOS) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('sesiones', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">01</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 31</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/sesiones/IMG_7095.webp" alt="Colección Sesiones & Retratos" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">31 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">SESIONES // RETRATOS</span>
+              <span class="frame-sub-code">01A</span>
+            </div>
+          </div>
+
+          <!-- FOTOGRAMA 02: 15 AÑOS (9 FOTOS) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('quince', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">02</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 09</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/quince-anos/IMG_3799.webp" alt="Colección 15 Años & Quinceañeras" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">9 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">15 AÑOS // QUINCEAÑERAS</span>
+              <span class="frame-sub-code">02A</span>
+            </div>
+          </div>
+
+          <!-- FOTOGRAMA 03: BAUTIZOS (16 FOTOS) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('bautizos', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">03</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 16</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/bautizos/Altar.webp" alt="Colección Bautizos & Sacramentos" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">16 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">BAUTIZOS // SACRAMENTOS</span>
+              <span class="frame-sub-code">03A</span>
+            </div>
+          </div>
+
+          <!-- FOTOGRAMA 04: COMUNIÓN (10 FOTOS REALES) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('comunion', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">04</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 10</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/comunion/IMG_0001.webp" alt="Colección Primera Comunión" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">10 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">PRIMERA COMUNIÓN // FE</span>
+              <span class="frame-sub-code">04A</span>
+            </div>
+          </div>
+
+          <!-- FOTOGRAMA 05: CAMPAÑAS Y PRODUCTO (19 FOTOS REALES) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('campanas', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">05</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 19</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/campanas/IMG_4663.webp" alt="Colección Campañas & Foto Producto" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">19 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">CAMPAÑAS // FOTO PRODUCTO</span>
+              <span class="frame-sub-code">05A</span>
+            </div>
+          </div>
+
+          <!-- FOTOGRAMA 06: POLAS Y DIGITALS (18 FOTOS REALES) -->
+          <div class="film-frame-card" onclick="openShutterPortfolio('polas', 0)" role="button" tabindex="0">
+            <div class="frame-edge-meta top">
+              <span class="frame-index-mark">06</span>
+              <span class="frame-tri-x">TRI-X 400</span>
+              <span class="frame-exp-code">EXP 18</span>
+            </div>
+            <div class="frame-image-window">
+              <img src="assets/polas/IMG_0753-2.webp" alt="Colección Polas & Digitals de Modelos" loading="lazy">
+              <div class="frame-hover-shutter-cue">
+                <div class="cue-iris-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                    <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                    <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                    <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                    <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                    <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                  </svg>
+                </div>
+                <span>Disparar Obturador</span>
+              </div>
+              <div class="frame-count-badge">18 FOTOGRAMAS</div>
+            </div>
+            <div class="frame-edge-meta bottom">
+              <span class="frame-title-code">POLAS // DIGITALS CASTING</span>
+              <span class="frame-sub-code">06A</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- BANDA INFERIOR DE PERFORACIONES SPROCKET -->
+        <div class="film-sprockets-band bottom">
+          <div class="film-edge-markings">
+            <span>TRI-X 400 • DEVELOPED IN D-76 • GABRIEL EM STUDIO • FILM ARCHIVE 2026</span>
+            <span class="film-edge-code">FRAME 01 - 06</span>
+          </div>
+          <div class="sprockets-holes-line"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER EDITORIAL (100% ESPAÑOL, FONDO NEGRO PROFUNDO) ==================== -->
   <footer class="editorial-footer" id="contacto">
     <div class="footer-container">
 
-      <!-- BLOQUE DE LLAMADO A LA ACCIÓN -->
-      <div class="footer-cta-block">
-        <span class="footer-kicker">RESERVA & CONTACTO</span>
-        <h2 class="footer-headline">CREEMOS RECUERDOS INOLVIDABLES CON GABRIEL EM</h2>
-        <p class="footer-subtitle">
-          Fotografía con alma, estética cuidada y narrativa personal. Reserva tu fecha con anticipación para sesiones o coberturas especiales.
+      <!-- BLOQUE DE LLAMADO A LA ACCIÓN CON BORDE EDITORIAL -->
+      <div class="footer-cta-card">
+        <div class="footer-kicker-tag">[ CONTACTO DIRECTO // RESERVAS ]</div>
+        <h2 class="footer-cta-headline">
+          CREEMOS RECUERDOS INOLVIDABLES CON GABRIEL EM
+        </h2>
+        <p class="footer-cta-sub">
+          Fotografía de autor con alma, estética cuidada y narrativa visual. Reserva tu fecha con anticipación para sesiones personales, campañas o coberturas familiares especiales.
         </p>
-        <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20consultar%20disponibilidad%20para%20una%20sesi%C3%B3n/evento." target="_blank" rel="noopener" class="footer-whatsapp-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+        <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20consultar%20disponibilidad%20para%20una%20sesi%C3%B3n/evento."
+           target="_blank" rel="noopener" class="footer-btn-whatsapp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
           </svg>
           <span>Escribir a WhatsApp (+58 414 6860112)</span>
         </a>
       </div>
 
-      <!-- CANALES DE CONTACTO DIRECTO -->
+      <!-- GRILLA DE CANALES DE COMUNICACIÓN -->
       <div class="footer-channels-grid">
 
         <!-- CANAL 1: WHATSAPP -->
-        <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20informaci%C3%B3n%20sobre%20tus%20servicios%20fotogr%C3%A1ficos." target="_blank" rel="noopener" class="contact-channel-card">
-          <div class="channel-icon-wrap">
+        <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20informaci%C3%B3n%20sobre%20tus%20servicios%20fotogr%C3%A1ficos."
+           target="_blank" rel="noopener" class="channel-card">
+          <div class="card-icon-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
             </svg>
           </div>
-          <div class="channel-info">
-            <span class="channel-label">WHATSAPP DIRECTO</span>
-            <span class="channel-value">+58 414 6860112</span>
-            <span class="channel-hint">Respuesta rápida y presupuestos personalizados</span>
+          <div class="card-details">
+            <span class="card-label">WHATSAPP DIRECTO</span>
+            <span class="card-main-val">+58 414 6860112</span>
+            <span class="card-desc">Atención personalizada y presupuestos de sesiones</span>
           </div>
-          <span class="channel-arrow">→</span>
+          <span class="card-arrow">→</span>
         </a>
 
-        <!-- CANAL 2: CORREO -->
-        <a href="mailto:gabrielmillan6@gmail.com" class="contact-channel-card">
-          <div class="channel-icon-wrap">
+        <!-- CANAL 2: CORREO ELECTRÓNICO -->
+        <a href="mailto:gabrielmillan6@gmail.com" class="channel-card">
+          <div class="card-icon-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </div>
-          <div class="channel-info">
-            <span class="channel-label">CORREO ELECTRÓNICO</span>
-            <span class="channel-value">gabrielmillan6@gmail.com</span>
-            <span class="channel-hint">Consultas formales y propuestas de proyecto</span>
+          <div class="card-details">
+            <span class="card-label">CORREO ELECTRÓNICO</span>
+            <span class="card-main-val">gabrielmillan6@gmail.com</span>
+            <span class="card-desc">Consultas formales, propuestas y proyectos de marca</span>
           </div>
-          <span class="channel-arrow">→</span>
+          <span class="card-arrow">→</span>
         </a>
 
         <!-- CANAL 3: INSTAGRAM -->
-        <a href="https://instagram.com/gabrielemphoto" target="_blank" rel="noopener" class="contact-channel-card">
-          <div class="channel-icon-wrap">
+        <a href="https://instagram.com/gabrielemphoto" target="_blank" rel="noopener" class="channel-card">
+          <div class="card-icon-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </div>
-          <div class="channel-info">
-            <span class="channel-label">INSTAGRAM OFICIAL</span>
-            <span class="channel-value">@gabrielemphoto</span>
-            <span class="channel-hint">Historias diarias, sesiones recientes & detrás de cámaras</span>
+          <div class="card-details">
+            <span class="card-label">INSTAGRAM OFICIAL</span>
+            <span class="card-main-val">@gabrielemphoto</span>
+            <span class="card-desc">Publicaciones diarias, adelantos & detrás de cámaras</span>
           </div>
-          <span class="channel-arrow">→</span>
+          <span class="card-arrow">→</span>
         </a>
 
       </div>
 
-      <!-- BARRA INFERIOR DE CRÉDITOS Y COPYRIGHT -->
-      <div class="footer-bottom-bar">
-        <div class="f-copy">
-          © 2026 GABRIEL EM • FOTÓGRAFO & VIDEÓGRAFO EDITORIAL. TODOS LOS DERECHOS RESERVADOS.
+      <!-- LOGO BLANCO Y COPYRIGHT FINAL -->
+      <div class="footer-bottom-brand-row">
+        <div class="footer-logo-box">
+          <img src="assets/logoblanco.png" onerror="this.onerror=null; this.src='../logoblanco.png'" alt="Gabriel EM" class="footer-brand-logo">
+          <span class="brand-subtext">FOTOGRAFÍA & DIRECCIÓN VISUAL • MARGARITA, VZLA</span>
         </div>
-        <div class="f-links">
-          <a href="../video/" class="page-transition-btn">Ir a Videografía →</a>
-          <a href="#" class="back-to-top">Subir ↑</a>
+
+        <div class="footer-copyright-box">
+          <p>© 2026 GABRIEL EM. TODOS LOS DERECHOS RESERVADOS.</p>
+          <div class="footer-sub-links">
+            <a href="../video/" class="page-transition-btn">Ir a Portafolio de Video →</a>
+            <a href="#" class="back-to-top">Subir al Inicio ↑</a>
+          </div>
         </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- ==================== MODAL VISOR DE CARPETA (100% FIJADO AL VIEWPORT) ==================== -->
-  <div class="lightbox-modal" id="folder-lightbox" role="dialog" aria-modal="true" aria-label="Visor Deslizante de Fotografía" onclick="if(event.target===this) closeLightbox()">
+  <!-- ==================== MODAL VISOR DE FOTOGRAMAS (100% FIJADO AL VIEWPORT) ==================== -->
+  <div class="lightbox-modal" id="folder-lightbox" role="dialog" aria-modal="true" aria-label="Visor 35mm de Fotografía Gabriel EM" onclick="if(event.target===this) closeLightbox()">
 
     <!-- BARRA SUPERIOR DE CONTROL -->
     <div class="modal-header-bar">
       <div class="modal-header-left">
-        <span class="modal-folder-name" id="lightbox-folder-name">📁 Sesiones & Retratos</span>
-        <span class="modal-counter-badge" id="lightbox-counter">Foto 1 de 31</span>
+        <span class="modal-film-indicator">● 35MM LIVE VIEW</span>
+        <span class="modal-folder-name" id="lightbox-folder-name">[ 35MM ] SESIONES & RETRATOS</span>
+        <span class="modal-counter-badge" id="lightbox-counter">FOTOGRAMA 01 / 31</span>
       </div>
       <button class="modal-close-btn" onclick="closeLightbox()" aria-label="Cerrar visor">
         <span>Cerrar</span> ✕
       </button>
     </div>
 
-    <!-- ESCENARIO PRINCIPAL CON FLECHAS Y FOTO -->
+    <!-- ESCENARIO PRINCIPAL CON FLECHAS Y FOTOGRAMA -->
     <div class="modal-stage" id="lightbox-stage">
-      <button class="modal-nav-arrow prev" onclick="prevPhoto()" aria-label="Foto anterior">‹</button>
+      <button class="modal-nav-arrow prev" onclick="prevPhoto()" aria-label="Fotograma anterior">‹</button>
 
-      <!-- FOTO PRINCIPAL -->
+      <!-- FOTOGRAMA PRINCIPAL -->
       <div class="modal-photo-container" id="lightbox-photo-container">
-        <img id="lightbox-img" src="" alt="Fotografía ampliada">
+        <img id="lightbox-img" src="" alt="Fotograma ampliado Gabriel EM">
         <div class="modal-caption" id="lightbox-caption"></div>
       </div>
 
-      <!-- ESTADO DE CARPETA VACÍA (POLAS / COMUNIÓN) -->
-      <div class="modal-empty-state" id="lightbox-empty-state" style="display: none;">
-        <div class="modal-empty-icon">📁</div>
-        <h3 class="modal-empty-title">Carpeta en Preparación</h3>
-        <p class="modal-empty-desc" id="empty-state-desc">Gabriel EM actualizará próximamente esta colección con nuevas fotografías oficiales.</p>
-        <button class="modal-empty-btn" onclick="closeLightbox()">Volver a Carpetas</button>
-      </div>
-
-      <button class="modal-nav-arrow next" onclick="nextPhoto()" aria-label="Foto siguiente">›</button>
+      <button class="modal-nav-arrow next" onclick="nextPhoto()" aria-label="Fotograma siguiente">›</button>
     </div>
 
-    <!-- TIRA INFERIOR DE MINIATURAS NAVEGABLES -->
+    <!-- TIRA INFERIOR DE MINIATURAS NAVEGABLES CON GRANO ANALÓGICO -->
     <div class="modal-bottom-strip">
       <div class="modal-thumbs-scroll-wrap" id="lightbox-thumbs-strip"></div>
-      <div class="modal-touch-hint">↔ Desliza con el dedo o toca las flechas para pasar las fotos</div>
+      <div class="modal-touch-hint">↔ Desliza con el dedo, haz clic en las miniaturas o usa las flechas del teclado</div>
     </div>
 
   </div>
 
-  <script src="script.js?v=7.0"></script>
+  <script src="script.js?v=8.0"></script>
 </body>
 
 </html>
