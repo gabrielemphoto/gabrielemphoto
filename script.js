@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
           const shutter = document.getElementById("camera-shutter");
           if (shutter) {
+            shutter.classList.remove("shutter-entrance", "opening");
             shutter.classList.add("closing");
           }
           if (curtain) {
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           setTimeout(() => {
             window.location.href = href;
-          }, 340);
+          }, 520);
         }
       });
     });

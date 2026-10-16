@@ -64,14 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const shutterOverlay = document.getElementById("camera-shutter");
   if (shutterOverlay) {
-    shutterOverlay.classList.add("closing");
+    shutterOverlay.classList.remove("closing", "opening");
+    shutterOverlay.classList.add("shutter-entrance");
+
     setTimeout(() => {
-      shutterOverlay.classList.remove("closing");
-      shutterOverlay.classList.add("opening");
-      setTimeout(() => {
-        shutterOverlay.classList.remove("opening");
-      }, 680);
-    }, 240);
+      shutterOverlay.classList.remove("shutter-entrance");
+      shutterOverlay.style.pointerEvents = "none";
+    }, 1800);
   }
 
   window.addEventListener("pageshow", () => {
@@ -142,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const shutter = document.getElementById("camera-shutter");
         if (shutter) {
+          shutter.classList.remove("shutter-entrance", "opening");
           shutter.classList.add("closing");
         }
         if (curtain) {
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         setTimeout(() => {
           window.location.href = href;
-        }, 340);
+        }, 520);
       }
     });
   });

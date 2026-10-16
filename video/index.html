@@ -32,6 +32,10 @@
         <filter id="bladeShadow" x="-30%" y="-30%" width="160%" height="160%">
           <feDropShadow dx="-6" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.92" />
         </filter>
+        <!-- CLIP PARA LA PALETA CÍCLICA QUE CIERRA EL LOOP DE 8 PALETAS CON SIMETRÍA C8 -->
+        <clipPath id="capClip">
+          <rect x="-2500" y="-2500" width="2535" height="5000" />
+        </clipPath>
       </defs>
       <!-- 8 PALETAS GIGANTES QUE CIERRAN Y ABREN DESDE LOS BORDES DE LA PANTALLA -->
       <g class="fullscreen-blades-system">
@@ -71,6 +75,12 @@
           </g>
         </g>
         <g class="blade-sector" transform="translate(500, 500) rotate(315) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <!-- PALETA 0 DECORATIVA SUPERIOR: CIERRA EL CICLO DE 8 PALETAS CON SIMETRÍA RADIAL PERFECTA (CUBRE LA PALETA 7 ARRIBA A LA IZQUIERDA) -->
+        <g class="blade-sector" transform="translate(500, 500) rotate(0) translate(0, -780)" clip-path="url(#capClip)">
           <g class="blade-inner">
             <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
           </g>

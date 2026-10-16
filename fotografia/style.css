@@ -127,21 +127,81 @@ body::after {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
   overflow: hidden;
 }
 
+/* ANIMACIÓN DE ENTRADA AL CARGAR LA PÁGINA (FLUIDA, CINEMATOGRÁFICA Y CONTROLADA POR GPU) */
+.camera-shutter-overlay.shutter-entrance {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: shutterEntranceOverlay 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.camera-shutter-overlay.shutter-entrance .blade-inner {
+  animation: shutterEntranceBlades 1.8s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
+}
+
+@keyframes shutterEntranceBlades {
+  0% {
+    /* Comienza desplegado en los bordes de la pantalla */
+    transform: rotate(55deg) translate(-80px, -160px);
+  }
+  38% {
+    /* Cierra suavemente al centro, completando el sellado del lente */
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  50% {
+    /* Pausa deliberada: permite apreciar el diafragma perfecto y simétrico */
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  100% {
+    /* Apertura variable fluida y constante hacia los bordes, revelando la página */
+    transform: rotate(55deg) translate(-80px, -160px);
+  }
+}
+
+@keyframes shutterEntranceOverlay {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  78% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* ESTADO CERRANDO AL NAVEGAR O ABRIR COLECCIÓN */
 .camera-shutter-overlay.closing {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.camera-shutter-overlay.closing .blade-inner {
+  transform: rotate(0deg) translate(0px, 0px);
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ESTADO ABRIENDO TRAS CARGAR COLECCIÓN */
 .camera-shutter-overlay.opening {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 0.5s ease 0.22s, visibility 0.5s ease 0.22s;
+  transition: opacity 0.5s ease 0.4s, visibility 0.5s ease 0.4s;
+}
+
+.camera-shutter-overlay.opening .blade-inner {
+  transform: rotate(55deg) translate(-80px, -160px);
+  transition: transform 0.85s cubic-bezier(0.2, 0.9, 0.25, 1);
 }
 
 .fullscreen-aperture-svg {
@@ -163,18 +223,6 @@ body::after {
   transform: rotate(55deg) translate(-80px, -160px);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
-}
-
-/* ESTADO CERRANDO / CERRADO: LAS PALETAS CONVERGEN AL CENTRO DESDE LOS BORDES */
-.camera-shutter-overlay.closing .blade-inner {
-  transform: rotate(0deg) translate(0px, 0px);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ESTADO ABRIENDO: LAS PALETAS SE RETIRAN HACIA LOS BORDES REVELANDO EL PORTAFOLIO */
-.camera-shutter-overlay.opening .blade-inner {
-  transform: rotate(55deg) translate(-80px, -160px);
-  transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================

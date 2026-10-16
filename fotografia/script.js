@@ -185,6 +185,7 @@ window.openShutterPortfolio = function (folderKey, startIndex = 0) {
 
   const shutterOverlay = document.getElementById("camera-shutter");
   if (shutterOverlay) {
+    shutterOverlay.classList.remove("shutter-entrance", "opening");
     shutterOverlay.classList.add("closing");
 
     setTimeout(() => {
@@ -197,8 +198,8 @@ window.openShutterPortfolio = function (folderKey, startIndex = 0) {
       setTimeout(() => {
         shutterOverlay.classList.remove("opening");
         isShutterAnimating = false;
-      }, 620);
-    }, 280);
+      }, 850);
+    }, 450);
   } else {
     // Si no está disponible el overlay, abrir directo
     window.openFolderDirect(folderKey, startIndex);
@@ -471,19 +472,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 6. OBTURADOR DE CÁMARA A GRAN ESCALA: SE CIERRA DESDE LOS BORDES Y REVELA LA PÁGINA
+  // 6. OBTURADOR DE CÁMARA A GRAN ESCALA: ANIMACIÓN DE ENTRADA CINEMATOGRÁFICA Y FLUIDA
   const shutterOverlay = document.getElementById("camera-shutter");
   if (shutterOverlay) {
-    shutterOverlay.classList.add("closing");
+    shutterOverlay.classList.remove("closing", "opening");
+    shutterOverlay.classList.add("shutter-entrance");
 
     setTimeout(() => {
-      shutterOverlay.classList.remove("closing");
-      shutterOverlay.classList.add("opening");
-
-      setTimeout(() => {
-        shutterOverlay.classList.remove("opening");
-      }, 680);
-    }, 240);
+      shutterOverlay.classList.remove("shutter-entrance");
+      shutterOverlay.style.pointerEvents = "none";
+    }, 1800);
   }
 
   // 7. TRANSICIÓN CON OBTURADOR DE PALETAS AL NAVEGAR HACIA OTRA PÁGINA
@@ -494,6 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const shutter = document.getElementById("camera-shutter");
         if (shutter) {
+          shutter.classList.remove("shutter-entrance", "opening");
           shutter.classList.add("closing");
         }
         if (curtain) {
@@ -502,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         setTimeout(() => {
           window.location.href = href;
-        }, 340);
+        }, 520);
       }
     });
   });
