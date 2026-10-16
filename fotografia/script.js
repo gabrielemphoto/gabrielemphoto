@@ -449,35 +449,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 5. ACCORDION HOVER PARA EL ÍNDICE EDITORIAL DE DISCIPLINAS
-  const indexItems = document.querySelectorAll(".editorial-index-row");
-  const indexPreviewImg = document.getElementById("index-floating-img");
-  const indexPreviewCaption = document.getElementById("index-floating-caption");
+  // 1. EFECTO OBTURADOR DE LENTE AL ENTRAR A LA PÁGINA
+  const shutterOverlay = document.getElementById("camera-shutter");
+  if (shutterOverlay) {
+    shutterOverlay.classList.add("closing");
+    setTimeout(() => {
+      shutterOverlay.classList.remove("closing");
+      shutterOverlay.classList.add("opening");
+      setTimeout(() => {
+        shutterOverlay.classList.remove("opening");
+      }, 420);
+    }, 140);
+  }
 
-  indexItems.forEach(item => {
-    item.addEventListener("mouseenter", () => {
-      const cover = item.getAttribute("data-preview-cover");
-      const title = item.getAttribute("data-preview-title");
-      if (indexPreviewImg && cover) {
-        indexPreviewImg.src = cover;
-        if (indexPreviewCaption) indexPreviewCaption.textContent = title;
-      }
-    });
-  });
-
-  // 6. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
+  // 6. TRANSICIÓN CON OBTURADOR DE PALETAS AL NAVEGAR HACIA OTRA PÁGINA
   document.querySelectorAll(".page-transition-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("href");
       if (href && href !== "#" && !href.startsWith("#")) {
         e.preventDefault();
+        const shutter = document.getElementById("camera-shutter");
+        if (shutter) {
+          shutter.classList.add("closing");
+        }
         if (curtain) {
           curtain.style.pointerEvents = "auto";
           curtain.classList.add("active");
         }
         setTimeout(() => {
           window.location.href = href;
-        }, 280);
+        }, 340);
       }
     });
   });

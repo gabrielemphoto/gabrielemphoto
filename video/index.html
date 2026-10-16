@@ -17,6 +17,47 @@
 
 <body class="page-fade-in">
 
+  <!-- ==================== OBTURADOR DE CÁMARA (APERTURE IRIS BLADES) ==================== -->
+  <div id="camera-shutter" class="camera-shutter-overlay" aria-hidden="true">
+    <div class="shutter-lens-chassis">
+      <div class="lens-barrel-bezel">
+        <svg class="aperture-lens-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="lensBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3A3C46" />
+              <stop offset="40%" stop-color="#23242C" />
+              <stop offset="100%" stop-color="#0E0F14" />
+            </linearGradient>
+            <radialGradient id="lensBezelGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="70%" stop-color="#141418" />
+              <stop offset="90%" stop-color="#2D2F38" />
+              <stop offset="100%" stop-color="#09090C" />
+            </radialGradient>
+          </defs>
+          <circle cx="250" cy="250" r="242" fill="url(#lensBezelGrad)" stroke="#383A44" stroke-width="4" />
+          <circle cx="250" cy="250" r="222" fill="none" stroke="#25262F" stroke-width="2" stroke-dasharray="4 4" />
+          <circle cx="250" cy="250" r="212" fill="#000000" stroke="#16171E" stroke-width="3" />
+          <g class="aperture-blades-group">
+            <g class="aperture-blade-wrap" style="--blade-rot: 0deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 36deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 72deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 108deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 144deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 180deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 216deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 252deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 288deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+            <g class="aperture-blade-wrap" style="--blade-rot: 324deg;"><path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" /></g>
+          </g>
+        </svg>
+        <div class="lens-bezel-markings">
+          <span class="marking-spec">1.5 - 35.2 - 54.7 - 1:1.4 - GABRIEL EM - OPTICS</span>
+        </div>
+      </div>
+      <div class="shutter-caption-cue">GABRIEL EM • CINEMA APERTURE SYSTEM</div>
+    </div>
+  </div>
+
   <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
   <div id="page-curtain"></div>
 

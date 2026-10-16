@@ -55,11 +55,23 @@ window.closeVideoModal = function () {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS
+  // 1. TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS & APERTURA DE OBTURADOR
   const curtain = document.getElementById("page-curtain");
   if (curtain) {
     curtain.classList.remove("active");
     curtain.style.pointerEvents = "none";
+  }
+
+  const shutterOverlay = document.getElementById("camera-shutter");
+  if (shutterOverlay) {
+    shutterOverlay.classList.add("closing");
+    setTimeout(() => {
+      shutterOverlay.classList.remove("closing");
+      shutterOverlay.classList.add("opening");
+      setTimeout(() => {
+        shutterOverlay.classList.remove("opening");
+      }, 420);
+    }, 140);
   }
 
   window.addEventListener("pageshow", () => {
@@ -122,19 +134,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 4. TRANSICIÓN CINEMÁTICA AL NAVEGAR HACIA OTRA PÁGINA
+  // 4. TRANSICIÓN CON OBTURADOR DE PALETAS AL NAVEGAR HACIA OTRA PÁGINA
   document.querySelectorAll(".page-transition-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("href");
       if (href && href !== "#" && !href.startsWith("#")) {
         e.preventDefault();
+        const shutter = document.getElementById("camera-shutter");
+        if (shutter) {
+          shutter.classList.add("closing");
+        }
         if (curtain) {
           curtain.style.pointerEvents = "auto";
           curtain.classList.add("active");
         }
         setTimeout(() => {
           window.location.href = href;
-        }, 280);
+        }, 340);
       }
     });
   });

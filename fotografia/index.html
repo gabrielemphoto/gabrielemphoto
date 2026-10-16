@@ -6,51 +6,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Gabriel EM | Portafolio Fotográfico de Autor • Blanco & Negro</title>
 
-  <!-- FUENTES GOOGLE: CORMORANT GARAMOND (EDITORIAL SERIF) & MONTSERRAT -->
+  <!-- FUENTES GOOGLE: CORMORANT GARAMOND (EDITORIAL SERIF), MONTSERRAT & SPACE MONO -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <link rel="stylesheet" href="style.css?v=9.0">
 </head>
 
 <body class="page-fade-in theme-monochrome">
 
-  <!-- ==================== OBTURADOR DE CÁMARA EN ESPIRAL (CAMERA IRIS DIAPHRAGM) ==================== -->
+  <!-- ==================== OBTURADOR DE CÁMARA (APERTURE IRIS BLADES) ==================== -->
   <div id="camera-shutter" class="camera-shutter-overlay" aria-hidden="true">
     <div class="shutter-lens-chassis">
-      <div class="lens-barrel-outer">
-        <div class="lens-spec-ring">
-          <span class="lens-spec-text top">GABRIEL EM OPTICS • 35MM f/1.4 • EDICIÓN DE AUTOR</span>
-          <span class="lens-spec-text bottom">8-BLADE MECHANICAL DIAPHRAGM • MARGARITA, VZLA</span>
-        </div>
-        <div class="lens-aperture-cavity">
-          <svg class="shutter-iris-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1F1F24" />
-                <stop offset="50%" stop-color="#141418" />
-                <stop offset="100%" stop-color="#09090B" />
-              </linearGradient>
-            </defs>
-            <g class="iris-assembly">
-              <!-- 8 LAMINILLAS DE DIAFRAGMA CURVADAS QUE CIERRAN EN ESPIRAL -->
-              <path class="shutter-blade blade-1" d="M 250,250 C 310,180 370,120 450,110 C 470,200 440,290 380,350 Z" />
-              <path class="shutter-blade blade-2" d="M 250,250 C 350,310 410,370 420,450 C 330,470 240,440 180,380 Z" />
-              <path class="shutter-blade blade-3" d="M 250,250 C 180,310 120,370 110,450 C 200,470 290,440 350,380 Z" />
-              <path class="shutter-blade blade-4" d="M 250,250 C 310,350 370,410 450,420 C 470,330 440,240 380,180 Z" />
-              <path class="shutter-blade blade-5" d="M 250,250 C 190,320 130,380 50,390 C 30,300 60,210 120,150 Z" />
-              <path class="shutter-blade blade-6" d="M 250,250 C 150,190 90,130 80,50 C 170,30 260,60 320,120 Z" />
-              <path class="shutter-blade blade-7" d="M 250,250 C 320,190 380,130 390,50 C 300,30 210,60 150,120 Z" />
-              <path class="shutter-blade blade-8" d="M 250,250 C 190,150 130,90 50,80 C 30,170 60,260 120,320 Z" />
+      <div class="lens-barrel-bezel">
+        <svg class="aperture-lens-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- GRADIENTE METÁLICO DE LAS PALETAS (LAMINILLAS) DEL LENTE -->
+            <linearGradient id="lensBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3A3C46" />
+              <stop offset="40%" stop-color="#23242C" />
+              <stop offset="100%" stop-color="#0E0F14" />
+            </linearGradient>
+            <!-- BISEL DEL BARRIL DEL LENTE -->
+            <radialGradient id="lensBezelGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="70%" stop-color="#141418" />
+              <stop offset="90%" stop-color="#2D2F38" />
+              <stop offset="100%" stop-color="#09090C" />
+            </radialGradient>
+          </defs>
+
+          <!-- ANILLO EXTERIOR DEL LENTE -->
+          <circle cx="250" cy="250" r="242" fill="url(#lensBezelGrad)" stroke="#383A44" stroke-width="4" />
+          <circle cx="250" cy="250" r="222" fill="none" stroke="#25262F" stroke-width="2" stroke-dasharray="4 4" />
+          <circle cx="250" cy="250" r="212" fill="#000000" stroke="#16171E" stroke-width="3" />
+
+          <!-- GRUPO DE 10 PALETAS (BLADES) DEL DIAFRAGMA MECÁNICO -->
+          <g class="aperture-blades-group">
+            <!-- PALETA 01 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 0deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
             </g>
-          </svg>
-          <div class="shutter-center-pinhole"></div>
+            <!-- PALETA 02 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 36deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 03 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 72deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 04 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 108deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 05 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 144deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 06 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 180deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 07 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 216deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 08 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 252deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 09 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 288deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+            <!-- PALETA 10 -->
+            <g class="aperture-blade-wrap" style="--blade-rot: 324deg;">
+              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
+            </g>
+          </g>
+        </svg>
+
+        <!-- MARCACIONES DEL LENTE COMO EN LA FOTO DE REFERENCIA -->
+        <div class="lens-bezel-markings">
+          <span class="marking-spec">1.5 - 35.2 - 54.7 - 1:1.4 - GABRIEL EM - OPTICS</span>
         </div>
       </div>
-      <div class="shutter-sound-cue">CLICK • DISPARO 35MM</div>
+      <div class="shutter-caption-cue">GABRIEL EM • 35MM APERTURE SYSTEM</div>
     </div>
   </div>
 
@@ -79,6 +122,7 @@
       <div class="nav-quick-links">
         <a href="#carrete" class="nav-pill-link">Carrete 35mm</a>
         <a href="#sobre-mi" class="nav-pill-link">Sobre Mí</a>
+        <a href="#vision-autor" class="nav-pill-link">Visión</a>
       </div>
       <a href="../video/" class="nav-switch-btn page-transition-btn" aria-label="Ir al portafolio de video">
         <span>Videógrafo →</span>
@@ -86,120 +130,93 @@
     </div>
   </nav>
 
-  <!-- ==================== HERO SECTION EDITORIAL ARTÍSTICO ==================== -->
+  <!-- ==================== HERO SECTION (ESTILO BLAKE © 2023 / REF 3) ==================== -->
   <header class="editorial-hero">
     <div class="hero-container">
 
-      <!-- BARRA SUPERIOR DE METADATOS EDITORIALES -->
-      <div class="hero-top-meta">
-        <span class="meta-tag-num">[ 01 ]</span>
-        <span class="meta-tag-label">FOTOGRAFÍA EDITORIAL & DIRECCIÓN VISUAL DE AUTOR</span>
-        <span class="meta-separator">•</span>
-        <span class="meta-loc">ISLA DE MARGARITA, VENEZUELA</span>
-      </div>
+      <!-- COLUMNA IZQUIERDA: TITULAR CON MINIATURA EMBEBIDA (IMG_8247) -->
+      <div class="hero-typography-col">
 
-      <!-- TITULAR PRINCIPAL CON MINIATURA DE FOTO EMBEBIDA EN EL TEXTO -->
-      <div class="hero-headline-block">
-        <h1 class="hero-main-title">
-          CREAMOS —
-          <span class="hero-inline-photo-badge" title="Retrato editorial de autor">
-            <img src="assets/destacadas/IMG_7173.webp" alt="Detalle de fotografía editorial Gabriel EM">
-          </span>
-          <br>
-          <span class="italic-serif">RECUERDOS</span><br>
-          QUE PERDURAN TODA LA VIDA
-        </h1>
-      </div>
-
-      <!-- CUADRÍCULA HERO: RECUADRO IMPERFECTO + MARCO FLOTANTE ARTÍSTICO -->
-      <div class="hero-composition-grid">
-
-        <!-- COLUMNA IZQUIERDA: RECUADRO IMPERFECTO CON MANIFIESTO Y CTA -->
-        <div class="hero-info-column">
-
-          <!-- TEXTO EN RECUADRO NO PERFECTO (BRUTALISMO EDITORIAL) -->
-          <div class="imperfect-box manifesto-card">
-            <div class="card-corner-tag">DECLARACIÓN ARTÍSTICA</div>
-            <p class="manifesto-text">
-              "No capturamos poses forzadas; inmortalizamos la atmósfera, la complicidad y la verdad irrepetible de cada persona. Cada disparo es concebido como una obra de autor para trascender generaciones."
-            </p>
-            <div class="card-sub-meta">
-              <span>GABRIEL MILLÁN</span>
-              <span class="bullet">•</span>
-              <span>FOTÓGRAFO & DIRECTOR</span>
-            </div>
-          </div>
-
-          <!-- BOTONES DE LLAMADO A LA ACCIÓN (IMPERFECT BORDERS) -->
-          <div class="hero-cta-group">
-            <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20agendar%20una%20sesi%C3%B3n/evento%20fotogr%C3%A1fico%20contigo."
-               target="_blank" rel="noopener" class="btn-brutal-primary">
-              <span>Agendar Sesión / Evento</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-
-            <a href="#carrete" class="btn-brutal-secondary">
-              <span>Explorar Carrete 35mm</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <!-- CANALES RÁPIDOS EN RECUADRO -->
-          <div class="imperfect-box channels-strip">
-            <div class="channel-mini">
-              <strong>+58 414 6860112</strong>
-              <span>WhatsApp Directo</span>
-            </div>
-            <div class="channel-mini">
-              <strong>@gabrielemphoto</strong>
-              <span>Instagram Oficial</span>
-            </div>
-            <div class="channel-mini">
-              <strong>Margarita</strong>
-              <span>& Coberturas Globales</span>
-            </div>
-          </div>
-
+        <div class="hero-top-meta">
+          <span class="meta-tag-num">( 01 )</span>
+          <span class="meta-tag-label">FOTOGRAFÍA EDITORIAL & DIRECCIÓN VISUAL</span>
+          <span class="meta-separator">•</span>
+          <span class="meta-loc">ISLA DE MARGARITA, VENEZUELA</span>
         </div>
 
-        <!-- COLUMNA DERECHA: MARCO DE FOTOS FLOTANTE (TILTED FLOATING FRAME) -->
-        <div class="hero-visual-column">
-          <div class="floating-frame-wrapper" title="Fotografía de Autor • Gabriel EM">
-            
-            <!-- CINTA ADHESIVA ARTÍSTICA SUPERIOR -->
-            <div class="frame-tape-element"></div>
+        <div class="hero-headline-block">
+          <h1 class="hero-main-title">
+            CREAMOS —
+            <!-- FOTO EMBEBIDA DENTRO DE LA FRASE (SOLICITUD: IMG_8247) -->
+            <span class="hero-inline-photo-badge" title="Gabriel EM • Fotografía">
+              <img src="assets/destacadas/IMG_8247.webp" alt="Detalle fotográfico de manos en campo">
+            </span>
+            <br>
+            <span class="italic-serif">RECUERDOS</span><br>
+            QUE PERDURAN TODA LA VIDA
+          </h1>
+        </div>
 
-            <div class="artistic-floating-frame">
-              <div class="frame-inner-matte">
-                <img src="assets/destacadas/IMG_8083-Mi-exportansion-2.webp"
-                     alt="Obra fotográfica de autor Gabriel EM"
-                     class="frame-master-img"
-                     fetchpriority="high">
-                <div class="frame-overlay-tag">GABRIEL EM • AUTOR © 2026</div>
-              </div>
+        <p class="hero-description-lead">
+          Fotografía de autor, sesiones personales y momentos irrepetibles. Con nuestra mirada creativa y respetuosa, aseguramos que tus recuerdos más especiales se conserven con verdad, dignidad y belleza a través de las décadas.
+        </p>
 
-              <!-- PIE DEL MARCO ESTILO POLAROID/HOJA DE CONTACTOS -->
-              <div class="frame-bottom-label">
-                <div class="frame-dot-indicator"></div>
-                <div class="frame-label-text">
-                  <strong>SERIE EDITORIAL // FOTOGRAMA 01</strong>
-                  <span>GABRIEL EM • 35MM MONOCHROME</span>
-                </div>
-                <div class="frame-iso-tag">ISO 400</div>
-              </div>
-            </div>
+        <!-- BOTONES DE ACCIÓN -->
+        <div class="hero-cta-actions">
+          <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20agendar%20una%20sesi%C3%B3n/evento%20fotogr%C3%A1fico%20contigo."
+             target="_blank" rel="noopener" class="btn-editorial-primary">
+            <span>Agendar Sesión / Evento</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
 
-            <!-- SEGUNDO MARCO DE FONDO PARA EFECTO PROFUNDIDAD -->
-            <div class="frame-ghost-shadow"></div>
+          <a href="#carrete" class="btn-editorial-secondary">
+            <span>Explorar Carrete 35mm</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- INDICADORES RÁPIDOS -->
+        <div class="hero-micro-channels">
+          <div class="micro-channel">
+            <strong>+58 414 6860112</strong>
+            <span>WhatsApp Directo</span>
+          </div>
+          <div class="micro-channel">
+            <strong>@gabrielemphoto</strong>
+            <span>Instagram Oficial</span>
+          </div>
+          <div class="micro-channel">
+            <strong>Margarita & Global</strong>
+            <span>Venezuela / Destinos</span>
           </div>
         </div>
 
+      </div>
+
+      <!-- COLUMNA DERECHA: FOTO DE PORTADA PRINCIPAL (SOLICITUD: IMG_7173) CON FLECHA HACIA ABAJO -->
+      <div class="hero-cover-col">
+        <div class="hero-cover-card">
+          <img src="assets/destacadas/IMG_7173.webp"
+               alt="Portada Editorial Gabriel EM • Fotografía de Autor"
+               class="hero-cover-portrait"
+               fetchpriority="high">
+          
+          <div class="hero-cover-tag">GABRIEL EM • AUTOR © 2026</div>
+
+          <!-- FLECHA MINIMALISTA HACIA ABAJO (COMO EN LA IMAGEN 3 DE REFERENCIA) -->
+          <a href="#sobre-mi" class="hero-downward-arrow" aria-label="Ir a sección Sobre Mí">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -210,7 +227,7 @@
     <div class="about-container">
 
       <div class="section-meta-header">
-        <span class="meta-tag-num">[ 02 ]</span>
+        <span class="meta-tag-num">( 02 )</span>
         <span class="meta-tag-label">SOBRE MÍ — GABRIEL MILLÁN</span>
         <span class="meta-separator">•</span>
         <span class="meta-loc">DIRECTOR VISUAL & FOTÓGRAFO</span>
@@ -230,7 +247,7 @@
           <div class="portrait-tape-tag">DIRECTOR VISUAL • ISLA DE MARGARITA</div>
           <div class="portrait-caption-box">
             <p><strong>Gabriel Millán</strong></p>
-            <p class="caption-role">Fotógrafo de Retrato, Moda, Bodas & Sacramentos</p>
+            <p class="caption-role">Fotógrafo de Retrato Editorial, Bodas, 15 Años & Coberturas</p>
             <span class="caption-gear">LEICA & DIGITAL 35MM OPTICS</span>
           </div>
         </div>
@@ -243,13 +260,13 @@
           </h2>
 
           <!-- FRASE SOLICITADA POR EL USUARIO: MILES DE FOTOGRAFÍAS TOMADAS CON PROPÓSITO -->
-          <div class="imperfect-box highlight-purpose-card">
-            <div class="purpose-badge">PROPÓSITO & TRAYECTORIA</div>
+          <div class="highlight-purpose-card">
+            <div class="purpose-badge">[ PROPÓSITO & TRAYECTORIA ]</div>
             <div class="purpose-main-stat">
               Miles de fotografías tomadas con propósito.
             </div>
             <p class="purpose-desc">
-              Cada fotograma representa horas de observación, conexión genuina con las personas y un profundo respeto por la luz y el momento presente.
+              Cada fotograma representa una búsqueda sincera por capturar la emoción genuina, la complicidad humana y la atmósfera irrepetible de quien está frente al lente.
             </p>
           </div>
 
@@ -262,22 +279,22 @@
             </p>
           </div>
 
-          <!-- FILOSOFÍA EN BLOQUES -->
+          <!-- TRES PILARES DE AUTOR -->
           <div class="philosophy-cards-row">
             <div class="philosophy-item">
               <span class="phil-num">01</span>
-              <h4>Dirección & Conexión</h4>
-              <p>Te guío con tranquilidad para que te sientas seguro, auténtico y disfrutes la sesión sin poses rígidas.</p>
+              <h4>Dirección & Confianza</h4>
+              <p>Te guío con tranquilidad para que disfrutes plenamente la sesión con naturalidad absoluta.</p>
             </div>
             <div class="philosophy-item">
               <span class="phil-num">02</span>
-              <h4>Luz & Contraste</h4>
-              <p>Tratamiento minucioso de la luz y el grano analógico para lograr texturas orgánicas y tonos puros.</p>
+              <h4>Luz & Contraste Puro</h4>
+              <p>Dominio de la luz y el grano analógico para lograr texturas limpias y tonos de piel fieles.</p>
             </div>
             <div class="philosophy-item">
               <span class="phil-num">03</span>
               <h4>Revelado de Autor</h4>
-              <p>Edición atemporal de alta gama, pensada para que tus imágenes conserven su vigencia a perpetuidad.</p>
+              <p>Edición atemporal de alta gama, pensada para trascender tendencias pasajeras.</p>
             </div>
           </div>
 
@@ -288,248 +305,169 @@
     </div>
   </section>
 
-  <!-- ==================== SECCIÓN DE OBRAS DESTACADAS (BLOQUES CON TEXTO ENCIMA) ==================== -->
-  <section class="editorial-mosaic-section" id="obras-destacadas">
-    <div class="mosaic-container">
+  <!-- ==================== SECCIÓN ARTÍSTICA DESTACADA (SOLICITUD: IMG_8083-Mi-exportansion-2 COMO IMAGEN 2) ==================== -->
+  <section class="artistic-showcase-section" id="vision-autor">
+    <div class="showcase-bg-wrap">
+      <img src="assets/destacadas/IMG_8083-Mi-exportansion-2.webp"
+           alt="Visión de Autor • Fotografía Gabriel EM"
+           class="showcase-bg-img"
+           loading="lazy">
+      <div class="showcase-vignette-overlay"></div>
+    </div>
 
-      <div class="section-meta-header">
+    <!-- TEXTO ADELANTE DE LA FOTO (COMO LA SEGUNDA FOTO DE REFERENCIA) -->
+    <div class="showcase-content-container">
+
+      <div class="showcase-top-meta">
         <span class="meta-tag-num">[ 03 ]</span>
-        <span class="meta-tag-label">OBRAS DESTACADAS // SELECCIÓN EDITORIAL</span>
-        <span class="meta-separator">•</span>
-        <span class="meta-loc">FOTOGRAFÍA DE AUTOR</span>
+        <span>VISIÓN ARTÍSTICA & FOTOGRAFÍA DE AUTOR</span>
       </div>
 
-      <div class="mosaic-title-row">
-        <h2 class="mosaic-section-title">
-          BLOQUES & COMPOSICIONES
+      <div class="showcase-main-typography">
+        <h2 class="showcase-heroic-title">
+          FOTOGRAFÍA DE AUTOR —<br>
+          <span class="italic-serif">MEMORIAS</span> QUE TRASCIENDEN
         </h2>
-        <p class="mosaic-section-subtitle">
-          Textura, sombra, grano y composición visual. Haz clic en cualquier obra para abrir la colección correspondiente.
+      </div>
+
+      <div class="showcase-badge-card">
+        <span class="badge-year">2026</span>
+        <h3 class="badge-heading">FOTOGRAFÍA DE ALTA GAMA</h3>
+        <p class="badge-text">
+          Cada fotograma es concebido como una obra viva: la pureza de la luz natural, el volumen de las sombras y la verdad irrepetible del sujeto, inmortalizados para existir con valor patrimonial a lo largo de las décadas.
+        </p>
+        <div class="badge-signature">GABRIEL MILLÁN // DIRECTOR VISUAL</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN DE FOTOGRAFÍAS IMPACTANTES Y MENSAJES POTENTES ==================== -->
+  <!-- SOLICITUD DEL USUARIO: COMBINAR MENSAJES POTENTES CON IMG_7569, IMG_5554, IMG_7893, IMG_8168 -->
+  <section class="impactful-gallery-section" id="declaraciones">
+    <div class="impactful-container">
+
+      <div class="section-meta-header">
+        <span class="meta-tag-num">( 04 )</span>
+        <span class="meta-tag-label">DECLARACIONES VISUALES // FOTOGRAMAS IMPACTANTES</span>
+        <span class="meta-separator">•</span>
+        <span class="meta-loc">SELECCIÓN DE AUTOR</span>
+      </div>
+
+      <!-- OBRAS EN GRAN FORMATO CON MENSAJES POTENTES -->
+      <div class="impactful-works-flow">
+
+        <!-- OBRA 01: IMG_7569 (RETRATO EDITORIAL VERTICAL) -->
+        <article class="impactful-row">
+          <div class="impactful-photo-frame">
+            <img src="assets/destacadas/IMG_7569.webp" alt="La verdad del sujeto • Fotografía Gabriel EM" loading="lazy">
+            <div class="impactful-photo-tag">01 // RETRATO PURO</div>
+          </div>
+          <div class="impactful-text-card">
+            <span class="card-kicker">[ LA VERDAD DEL SUJETO ]</span>
+            <h3 class="card-title">
+              HONESTIDAD EN —<br>
+              <span class="italic-serif">CADA MIRADA</span>
+            </h3>
+            <p class="card-quote">
+              "El retrato de autor no persigue una pose forzada ni un artificio digital; rescata el silencio, la presencia genuina y la fuerza expresiva que habita en los ojos de cada persona."
+            </p>
+            <div class="card-meta-line">
+              <span>SERIE EDITORIAL // ISLA DE MARGARITA</span>
+              <span class="card-arrow-decor">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- OBRA 02: IMG_5554 (ALTA MODA Y ESTILISMO) -->
+        <article class="impactful-row reverse">
+          <div class="impactful-photo-frame">
+            <img src="assets/destacadas/IMG_5554.webp" alt="Estética y alta moda • Gabriel EM" loading="lazy">
+            <div class="impactful-photo-tag">02 // ALTA MODA</div>
+          </div>
+          <div class="impactful-text-card">
+            <span class="card-kicker">[ ESTÉTICA & CARÁCTER ]</span>
+            <h3 class="card-title">
+              ESCULPIDO DE LUZ & —<br>
+              <span class="italic-serif">VOLUMEN</span>
+            </h3>
+            <p class="card-quote">
+              "Dirección de arte contemporánea. Tratamiento minucioso de las luces y sombras para dotar al sujeto de una tridimensionalidad imponente, digna de portada de revista."
+            </p>
+            <div class="card-meta-line">
+              <span>ALTA DEFINICIÓN // ILUMINACIÓN DE AUTOR</span>
+              <span class="card-arrow-decor">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- OBRA 03: IMG_7893 (HORA DORADA Y ATMÓSFERA CINEMATOGRÁFICA) -->
+        <article class="impactful-row">
+          <div class="impactful-photo-frame horizontal">
+            <img src="assets/destacadas/IMG_7893.webp" alt="Atmósfera cinematográfica al atardecer • Gabriel EM" loading="lazy">
+            <div class="impactful-photo-tag">03 // ATMÓSFERA COSTERA</div>
+          </div>
+          <div class="impactful-text-card">
+            <span class="card-kicker">[ LUZ NATURAL & ENTORNO ]</span>
+            <h3 class="card-title">
+              FOTOGRAMAS DE —<br>
+              <span class="italic-serif">UNA PELÍCULA</span>
+            </h3>
+            <p class="card-quote">
+              "La calidez de la hora dorada, la brisa marina y la espontaneidad del momento. Fotografías cinematográficas que capturan la atmósfera irrepetible de nuestra tierra caribeña."
+            </p>
+            <div class="card-meta-line">
+              <span>HORA DORADA // NARRATIVA CINEMATOGRÁFICA</span>
+              <span class="card-arrow-decor">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- OBRA 04: IMG_8168 (MEMORIA INMORTAL Y SENSIBILIDAD) -->
+        <article class="impactful-row reverse">
+          <div class="impactful-photo-frame">
+            <img src="assets/destacadas/IMG_8168.webp" alt="Memoria y tiempo • Fotografía Gabriel EM" loading="lazy">
+            <div class="impactful-photo-tag">04 // MEMORIA PERPETUA</div>
+          </div>
+          <div class="impactful-text-card">
+            <span class="card-kicker">[ EL VALOR DEL TIEMPO ]</span>
+            <h3 class="card-title">
+              EL TESORO DE —<br>
+              <span class="italic-serif">TU HISTORIA</span>
+            </h3>
+            <p class="card-quote">
+              "Lo que hoy parece un instante cotidiano, con el transcurrir de los años se convertirá en el testimonio más conmovedor de tu vida. Fotografiar es salvar del olvido lo que amamos."
+            </p>
+            <div class="card-meta-line">
+              <span>MEMORIA PATRIMONIAL // GABRIEL EM</span>
+              <span class="card-arrow-decor">→</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- BANNER TIPOGRÁFICO DE CIERRE (INSPIRADO EN LA IMAGEN 4 DE REFERENCIA) -->
+      <div class="editorial-artistic-banner">
+        <p class="artistic-banner-text">
+          PRESERVA TUS MEJORES RECUERDOS CON <span class="italic-serif">GABRIEL EM</span>
         </p>
       </div>
 
-      <!-- MOSAICO ASIMÉTRICO DE BLOQUES CON TEXTO SUPERPUESTO -->
-      <div class="mosaic-asymmetric-grid">
-
-        <!-- BLOQUE 1: VERTICAL RETRATO EDITORIAL -->
-        <article class="mosaic-block block-tall" onclick="openShutterPortfolio('sesiones', 0)" role="button" tabindex="0">
-          <div class="block-img-holder">
-            <img src="assets/destacadas/IMG_56642.webp" alt="Retrato editorial de alta gama" loading="lazy">
-            <div class="block-vignette-layer"></div>
-          </div>
-          <div class="block-text-overlay">
-            <span class="overlay-kicker">[ 01 // RETRATO CONTEMPORÁNEO ]</span>
-            <h3 class="overlay-title">Carácter, Mirada & Esculpido de Sombras</h3>
-            <p class="overlay-desc">Sesión en estudio con luz modelada y dirección artística de alta moda.</p>
-            <div class="overlay-action">
-              <span>Abrir Colección (31 Fotos)</span>
-              <span class="action-arrow">→</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- BLOQUE 2: HORIZONTAL ATMÓSFERA Y LUZ NATURAL -->
-        <article class="mosaic-block block-wide" onclick="openShutterPortfolio('sesiones', 26)" role="button" tabindex="0">
-          <div class="block-img-holder">
-            <img src="assets/destacadas/IMG_7893.webp" alt="Atmósfera cinematográfica al atardecer" loading="lazy">
-            <div class="block-vignette-layer"></div>
-          </div>
-          <div class="block-text-overlay">
-            <span class="overlay-kicker">[ 02 // HORA DORADA & EXTERIORES ]</span>
-            <h3 class="overlay-title">Atmósfera Cinematográfica</h3>
-            <p class="overlay-desc">Aprovechamiento de la luz rasante en paisajes abiertos de la costa margariteña.</p>
-            <div class="overlay-action">
-              <span>Abrir Colección</span>
-              <span class="action-arrow">→</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- BLOQUE 3: VERTICAL BELLEZA Y GEOMETRÍA -->
-        <article class="mosaic-block block-portrait" onclick="openShutterPortfolio('campanas', 0)" role="button" tabindex="0">
-          <div class="block-img-holder">
-            <img src="assets/destacadas/IMG_5615.webp" alt="Composición de moda y producto" loading="lazy">
-            <div class="block-vignette-layer"></div>
-          </div>
-          <div class="block-text-overlay">
-            <span class="overlay-kicker">[ 03 // CAMPAÑAS & FORMA ]</span>
-            <h3 class="overlay-title">Estilismo & Geometría</h3>
-            <p class="overlay-desc">Dirección de arte publicitaria con texturas nítidas y contraste puro.</p>
-            <div class="overlay-action">
-              <span>Abrir Colección (19 Fotos)</span>
-              <span class="action-arrow">→</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- BLOQUE 4: HORIZONTAL MOMENTO Y EMOCIÓN DOCUMENTAL -->
-        <article class="mosaic-block block-landscape" onclick="openShutterPortfolio('quince', 0)" role="button" tabindex="0">
-          <div class="block-img-holder">
-            <img src="assets/destacadas/IMG_8247.webp" alt="Quinceañeras y momentos mágicos" loading="lazy">
-            <div class="block-vignette-layer"></div>
-          </div>
-          <div class="block-text-overlay">
-            <span class="overlay-kicker">[ 04 // 15 AÑOS & GALA ]</span>
-            <h3 class="overlay-title">La Verdad del Instante</h3>
-            <p class="overlay-desc">Celebraciones familiares documentadas con elegancia, sensibilidad y verdad.</p>
-            <div class="overlay-action">
-              <span>Abrir Colección (9 Fotos)</span>
-              <span class="action-arrow">→</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
     </div>
   </section>
 
-  <!-- ==================== ÍNDICE EDITORIAL DE DISCIPLINAS ==================== -->
-  <section class="editorial-index-section" id="disciplinas">
-    <div class="index-container">
-
-      <div class="section-meta-header">
-        <span class="meta-tag-num">[ 04 ]</span>
-        <span class="meta-tag-label">CATÁLOGO EDITORIAL DE DISCIPLINAS</span>
-        <span class="meta-separator">•</span>
-        <span class="meta-loc">6 COLECCIONES ACTIVAS</span>
-      </div>
-
-      <div class="index-layout-grid">
-
-        <!-- LISTADO EDITORIAL INTERACTIVO -->
-        <div class="index-rows-list">
-
-          <!-- FILA 01: SESIONES -->
-          <div class="editorial-index-row"
-               data-folder="sesiones"
-               data-preview-cover="assets/sesiones/IMG_7095.webp"
-               data-preview-title="Sesiones & Retratos (31 Fotogramas)"
-               onclick="openShutterPortfolio('sesiones', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">01</div>
-            <div class="row-content">
-              <h3 class="row-title">Sesiones & Retratos</h3>
-              <p class="row-desc">Retratos personales, moda editorial, parejas y proyectos conceptuales con dirección artística integral.</p>
-            </div>
-            <div class="row-badge-pill">31 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-          <!-- FILA 02: 15 AÑOS -->
-          <div class="editorial-index-row"
-               data-folder="quince"
-               data-preview-cover="assets/quince-anos/IMG_3799.webp"
-               data-preview-title="15 Años & Quinceañeras (9 Fotogramas)"
-               onclick="openShutterPortfolio('quince', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">02</div>
-            <div class="row-content">
-              <h3 class="row-title">15 Años & Quinceañeras</h3>
-              <p class="row-desc">Sesión previa de gala en locación, recepción y narrativa fotográfica completa de una noche mágica.</p>
-            </div>
-            <div class="row-badge-pill">9 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-          <!-- FILA 03: BAUTIZOS -->
-          <div class="editorial-index-row"
-               data-folder="bautizos"
-               data-preview-cover="assets/bautizos/Altar.webp"
-               data-preview-title="Bautizos & Sacramentos (16 Fotogramas)"
-               onclick="openShutterPortfolio('bautizos', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">03</div>
-            <div class="row-content">
-              <h3 class="row-title">Bautizos & Sacramentos</h3>
-              <p class="row-desc">Ceremonias sagradas, bendición de la pila bautismal y emotivos recuerdos familiares de devoción.</p>
-            </div>
-            <div class="row-badge-pill">16 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-          <!-- FILA 04: COMUNIÓN -->
-          <div class="editorial-index-row"
-               data-folder="comunion"
-               data-preview-cover="assets/comunion/IMG_0001.webp"
-               data-preview-title="Primera Comunión (10 Fotogramas)"
-               onclick="openShutterPortfolio('comunion', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">04</div>
-            <div class="row-content">
-              <h3 class="row-title">Primera Comunión</h3>
-              <p class="row-desc">Retratos solemnes con vestuario sagrado, altar en templo y recuerdos devotos familiares.</p>
-            </div>
-            <div class="row-badge-pill">10 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-          <!-- FILA 05: CAMPAÑAS Y PRODUCTO -->
-          <div class="editorial-index-row"
-               data-folder="campanas"
-               data-preview-cover="assets/campanas/IMG_4663.webp"
-               data-preview-title="Campañas & Foto de Producto (19 Fotogramas)"
-               onclick="openShutterPortfolio('campanas', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">05</div>
-            <div class="row-content">
-              <h3 class="row-title">Campañas & Foto de Producto</h3>
-              <p class="row-desc">Dirección visual comercial, lookbooks de moda, estilismo de producto y campañas de marca.</p>
-            </div>
-            <div class="row-badge-pill">19 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-          <!-- FILA 06: POLAS Y DIGITALS -->
-          <div class="editorial-index-row"
-               data-folder="polas"
-               data-preview-cover="assets/polas/IMG_0753-2.webp"
-               data-preview-title="Polas & Digitals de Modelos (18 Fotogramas)"
-               onclick="openShutterPortfolio('polas', 0)"
-               role="button" tabindex="0">
-            <div class="row-num-tag">06</div>
-            <div class="row-content">
-              <h3 class="row-title">Polas & Digitals de Modelos</h3>
-              <p class="row-desc">Digitals oficiales de agencia, luz limpia y poses estándar para agencias internacionales de casting.</p>
-            </div>
-            <div class="row-badge-pill">18 FOTOS</div>
-            <div class="row-action-arrow">→</div>
-          </div>
-
-        </div>
-
-        <!-- CUADRO FLOTANTE DE PREVISUALIZACIÓN AL HOVER -->
-        <div class="index-floating-preview-col">
-          <div class="preview-card-sticky">
-            <div class="preview-img-frame">
-              <img id="index-floating-img" src="assets/sesiones/IMG_7095.webp" alt="Previsualización de colección">
-              <div class="preview-lens-indicator">35MM APERTURE READY</div>
-            </div>
-            <div class="preview-caption-bar" id="index-floating-caption">
-              Sesiones & Retratos (31 Fotogramas)
-            </div>
-            <div class="preview-hint-text">
-              Haz clic en cualquier disciplina para abrirla con obturador de cámara.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== CARRETE DE FOTOS 35MM (REEMPLAZO DE LA GALERÍA) ==================== -->
+  <!-- ==================== CARRETE DE FOTOS 35MM (NUESTRO ÚNICO CATÁLOGO DE COLECCIONES) ==================== -->
   <section class="filmstrip-section" id="carrete">
     <div class="filmstrip-container">
 
       <!-- ENCABEZADO DEL CARRETE ANALÓGICO -->
       <div class="filmstrip-header-row">
         <div class="filmstrip-title-group">
-          <div class="film-kicker">[ 35MM FILM REEL • EDICIÓN DE AUTOR ]</div>
+          <div class="film-kicker">[ 35MM FILM REEL • CATÁLOGO DE AUTOR ]</div>
           <h2 class="film-main-heading">CARRETE DE FOTOS ANALÓGICO</h2>
           <p class="film-sub-heading">
-            Arrastra la tira de película horizontalmente o usa las flechas. Haz clic en cualquier fotograma para disparar el obturador y abrir la colección completa en el visor.
+            Arrastra la película horizontalmente o usa las flechas. Haz clic en cualquier fotograma para disparar el obturador con paletas y abrir la colección completa en el visor.
           </p>
         </div>
 
@@ -766,7 +704,7 @@
   <footer class="editorial-footer" id="contacto">
     <div class="footer-container">
 
-      <!-- BLOQUE DE LLAMADO A LA ACCIÓN CON BORDE EDITORIAL -->
+      <!-- BLOQUE DE LLAMADO A LA ACCIÓN -->
       <div class="footer-cta-card">
         <div class="footer-kicker-tag">[ CONTACTO DIRECTO // RESERVAS ]</div>
         <h2 class="footer-cta-headline">
@@ -894,7 +832,7 @@
 
   </div>
 
-  <script src="script.js?v=8.0"></script>
+  <script src="script.js?v=9.0"></script>
 </body>
 
 </html>

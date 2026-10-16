@@ -65,13 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const href = btn.getAttribute("href");
         if (href && href !== "#" && href !== "") {
           e.preventDefault();
+          const shutter = document.getElementById("camera-shutter");
+          if (shutter) {
+            shutter.classList.add("closing");
+          }
           if (curtain) {
             curtain.style.pointerEvents = "auto";
             curtain.classList.add("active");
           }
           setTimeout(() => {
             window.location.href = href;
-          }, 280);
+          }, 340);
         }
       });
     });
