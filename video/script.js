@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
       shutterOverlay.classList.add("opening");
       setTimeout(() => {
         shutterOverlay.classList.remove("opening");
-      }, 420);
-    }, 140);
+      }, 680);
+    }, 240);
   }
 
   window.addEventListener("pageshow", () => {

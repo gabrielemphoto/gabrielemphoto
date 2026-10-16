@@ -18,83 +18,68 @@
 
 <body class="page-fade-in theme-monochrome">
 
-  <!-- ==================== OBTURADOR DE CÁMARA (APERTURE IRIS BLADES) ==================== -->
+  <!-- ==================== OBTURADOR DE CÁMARA A GRAN ESCALA (FULLSCREEN APERTURE BLADES) ==================== -->
   <div id="camera-shutter" class="camera-shutter-overlay" aria-hidden="true">
-    <div class="shutter-lens-chassis">
-      <div class="lens-barrel-bezel">
-        <svg class="aperture-lens-svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <!-- GRADIENTE METÁLICO DE LAS PALETAS (LAMINILLAS) DEL LENTE -->
-            <linearGradient id="lensBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#3A3C46" />
-              <stop offset="40%" stop-color="#23242C" />
-              <stop offset="100%" stop-color="#0E0F14" />
-            </linearGradient>
-            <!-- BISEL DEL BARRIL DEL LENTE -->
-            <radialGradient id="lensBezelGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="70%" stop-color="#141418" />
-              <stop offset="90%" stop-color="#2D2F38" />
-              <stop offset="100%" stop-color="#09090C" />
-            </radialGradient>
-          </defs>
-
-          <!-- ANILLO EXTERIOR DEL LENTE -->
-          <circle cx="250" cy="250" r="242" fill="url(#lensBezelGrad)" stroke="#383A44" stroke-width="4" />
-          <circle cx="250" cy="250" r="222" fill="none" stroke="#25262F" stroke-width="2" stroke-dasharray="4 4" />
-          <circle cx="250" cy="250" r="212" fill="#000000" stroke="#16171E" stroke-width="3" />
-
-          <!-- GRUPO DE 10 PALETAS (BLADES) DEL DIAFRAGMA MECÁNICO -->
-          <g class="aperture-blades-group">
-            <!-- PALETA 01 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 0deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 02 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 36deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 03 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 72deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 04 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 108deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 05 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 144deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 06 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 180deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 07 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 216deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 08 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 252deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 09 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 288deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
-            <!-- PALETA 10 -->
-            <g class="aperture-blade-wrap" style="--blade-rot: 324deg;">
-              <path class="aperture-blade" d="M 250,45 C 275,100 285,185 250,250 C 240,270 205,270 180,240 C 125,185 130,100 250,45 Z" />
-            </g>
+    <svg class="fullscreen-aperture-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <!-- GRADIENTE METÁLICO DE LAS PALETAS GIGANTES DEL LENTE -->
+        <linearGradient id="fullscreenBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#363844" />
+          <stop offset="30%" stop-color="#21222B" />
+          <stop offset="70%" stop-color="#121319" />
+          <stop offset="100%" stop-color="#070709" />
+        </linearGradient>
+        <!-- SOMBRA FÍSICA PARA RESALTAR EL TRASLAPE DE PALETAS DEL DIAFRAGMA -->
+        <filter id="bladeShadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="-6" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.92" />
+        </filter>
+      </defs>
+      <!-- 8 PALETAS GIGANTES QUE CIERRAN Y ABREN DESDE LOS BORDES DE LA PANTALLA -->
+      <g class="fullscreen-blades-system">
+        <g class="blade-sector" transform="translate(500, 500) rotate(0) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
           </g>
-        </svg>
-
-        <!-- MARCACIONES DEL LENTE COMO EN LA FOTO DE REFERENCIA -->
-        <div class="lens-bezel-markings">
-          <span class="marking-spec">1.5 - 35.2 - 54.7 - 1:1.4 - GABRIEL EM - OPTICS</span>
-        </div>
-      </div>
-      <div class="shutter-caption-cue">GABRIEL EM • 35MM APERTURE SYSTEM</div>
-    </div>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(45) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(90) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(135) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(180) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(225) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(270) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+        <g class="blade-sector" transform="translate(500, 500) rotate(315) translate(0, -780)">
+          <g class="blade-inner">
+            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+          </g>
+        </g>
+      </g>
+      <!-- ANILLO EXTERIOR DEL CHASIS QUE CUBRE LOS BORDES MÁS LEJANOS -->
+      <circle cx="500" cy="500" r="1450" fill="none" stroke="#070709" stroke-width="850" />
+    </svg>
   </div>
 
   <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
@@ -135,7 +120,7 @@
     <div class="hero-container">
 
       <!-- COLUMNA IZQUIERDA: TITULAR CON MINIATURA EMBEBIDA (IMG_8247) -->
-      <div class="hero-typography-col">
+      <div class="hero-typography-col reveal-on-scroll">
 
         <div class="hero-top-meta">
           <span class="meta-tag-num">( 01 )</span>
@@ -201,7 +186,7 @@
 
       <!-- COLUMNA DERECHA: FOTO DE PORTADA PRINCIPAL (SOLICITUD: IMG_7173) CON FLECHA HACIA ABAJO -->
       <div class="hero-cover-col">
-        <div class="hero-cover-card">
+        <div class="hero-cover-card reveal-photo">
           <img src="assets/destacadas/IMG_7173.webp"
                alt="Portada Editorial Gabriel EM • Fotografía de Autor"
                class="hero-cover-portrait"
@@ -226,7 +211,7 @@
   <section class="editorial-about-section" id="sobre-mi">
     <div class="about-container">
 
-      <div class="section-meta-header">
+      <div class="section-meta-header reveal-on-scroll">
         <span class="meta-tag-num">( 02 )</span>
         <span class="meta-tag-label">SOBRE MÍ — GABRIEL MILLÁN</span>
         <span class="meta-separator">•</span>
@@ -236,7 +221,7 @@
       <div class="about-editorial-grid">
 
         <!-- FOTO REAL DE GABRIEL EN MARCO EDITORIAL DE AUTOR -->
-        <div class="about-portrait-card">
+        <div class="about-portrait-card reveal-photo">
           <div class="portrait-frame-inner">
             <img src="assets/autor/gabriel-bn.webp"
                  alt="Gabriel Millán • Fotógrafo y Director Visual"
@@ -253,14 +238,14 @@
         </div>
 
         <!-- NARRATIVA Y FILOSOFÍA DE AUTOR -->
-        <div class="about-story-col">
+        <div class="about-story-col reveal-on-scroll">
           <h2 class="about-heroic-title">
             FOTOGRAFÍAS PARA —<br>
             <span class="italic-serif">CONTAR</span> HISTORIAS CON ALMA
           </h2>
 
           <!-- FRASE SOLICITADA POR EL USUARIO: MILES DE FOTOGRAFÍAS TOMADAS CON PROPÓSITO -->
-          <div class="highlight-purpose-card">
+          <div class="highlight-purpose-card reveal-on-scroll">
             <div class="purpose-badge">[ PROPÓSITO & TRAYECTORIA ]</div>
             <div class="purpose-main-stat">
               Miles de fotografías tomadas con propósito.
@@ -316,7 +301,7 @@
     </div>
 
     <!-- TEXTO ADELANTE DE LA FOTO (COMO LA SEGUNDA FOTO DE REFERENCIA) -->
-    <div class="showcase-content-container">
+    <div class="showcase-content-container reveal-on-scroll">
 
       <div class="showcase-top-meta">
         <span class="meta-tag-num">[ 03 ]</span>
@@ -330,7 +315,7 @@
         </h2>
       </div>
 
-      <div class="showcase-badge-card">
+      <div class="showcase-badge-card reveal-on-scroll">
         <span class="badge-year">2026</span>
         <h3 class="badge-heading">FOTOGRAFÍA DE ALTA GAMA</h3>
         <p class="badge-text">
@@ -347,7 +332,7 @@
   <section class="impactful-gallery-section" id="declaraciones">
     <div class="impactful-container">
 
-      <div class="section-meta-header">
+      <div class="section-meta-header reveal-on-scroll">
         <span class="meta-tag-num">( 04 )</span>
         <span class="meta-tag-label">DECLARACIONES VISUALES // FOTOGRAMAS IMPACTANTES</span>
         <span class="meta-separator">•</span>
@@ -358,8 +343,8 @@
       <div class="impactful-works-flow">
 
         <!-- OBRA 01: IMG_7569 (RETRATO EDITORIAL VERTICAL) -->
-        <article class="impactful-row">
-          <div class="impactful-photo-frame">
+        <article class="impactful-row reveal-on-scroll">
+          <div class="impactful-photo-frame reveal-photo">
             <img src="assets/destacadas/IMG_7569.webp" alt="La verdad del sujeto • Fotografía Gabriel EM" loading="lazy">
             <div class="impactful-photo-tag">01 // RETRATO PURO</div>
           </div>
@@ -380,8 +365,8 @@
         </article>
 
         <!-- OBRA 02: IMG_5554 (ALTA MODA Y ESTILISMO) -->
-        <article class="impactful-row reverse">
-          <div class="impactful-photo-frame">
+        <article class="impactful-row reverse reveal-on-scroll">
+          <div class="impactful-photo-frame reveal-photo">
             <img src="assets/destacadas/IMG_5554.webp" alt="Estética y alta moda • Gabriel EM" loading="lazy">
             <div class="impactful-photo-tag">02 // ALTA MODA</div>
           </div>
@@ -402,8 +387,8 @@
         </article>
 
         <!-- OBRA 03: IMG_7893 (HORA DORADA Y ATMÓSFERA CINEMATOGRÁFICA) -->
-        <article class="impactful-row">
-          <div class="impactful-photo-frame horizontal">
+        <article class="impactful-row reveal-on-scroll">
+          <div class="impactful-photo-frame horizontal reveal-photo">
             <img src="assets/destacadas/IMG_7893.webp" alt="Atmósfera cinematográfica al atardecer • Gabriel EM" loading="lazy">
             <div class="impactful-photo-tag">03 // ATMÓSFERA COSTERA</div>
           </div>
@@ -424,8 +409,8 @@
         </article>
 
         <!-- OBRA 04: IMG_8168 (MEMORIA INMORTAL Y SENSIBILIDAD) -->
-        <article class="impactful-row reverse">
-          <div class="impactful-photo-frame">
+        <article class="impactful-row reverse reveal-on-scroll">
+          <div class="impactful-photo-frame reveal-photo">
             <img src="assets/destacadas/IMG_8168.webp" alt="Memoria y tiempo • Fotografía Gabriel EM" loading="lazy">
             <div class="impactful-photo-tag">04 // MEMORIA PERPETUA</div>
           </div>
@@ -448,7 +433,7 @@
       </div>
 
       <!-- BANNER TIPOGRÁFICO DE CIERRE (INSPIRADO EN LA IMAGEN 4 DE REFERENCIA) -->
-      <div class="editorial-artistic-banner">
+      <div class="editorial-artistic-banner reveal-on-scroll">
         <p class="artistic-banner-text">
           PRESERVA TUS MEJORES RECUERDOS CON <span class="italic-serif">GABRIEL EM</span>
         </p>
@@ -458,7 +443,7 @@
   </section>
 
   <!-- ==================== CARRETE DE FOTOS 35MM (NUESTRO ÚNICO CATÁLOGO DE COLECCIONES) ==================== -->
-  <section class="filmstrip-section" id="carrete">
+  <section class="filmstrip-section reveal-on-scroll" id="carrete">
     <div class="filmstrip-container">
 
       <!-- ENCABEZADO DEL CARRETE ANALÓGICO -->
@@ -705,7 +690,7 @@
     <div class="footer-container">
 
       <!-- BLOQUE DE LLAMADO A LA ACCIÓN -->
-      <div class="footer-cta-card">
+      <div class="footer-cta-card reveal-on-scroll">
         <div class="footer-kicker-tag">[ CONTACTO DIRECTO // RESERVAS ]</div>
         <h2 class="footer-cta-headline">
           CREEMOS RECUERDOS INOLVIDABLES CON GABRIEL EM
@@ -724,7 +709,7 @@
       </div>
 
       <!-- GRILLA DE CANALES DE COMUNICACIÓN -->
-      <div class="footer-channels-grid">
+      <div class="footer-channels-grid reveal-on-scroll">
 
         <!-- CANAL 1: WHATSAPP -->
         <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20deseo%20informaci%C3%B3n%20sobre%20tus%20servicios%20fotogr%C3%A1ficos."

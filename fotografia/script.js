@@ -188,18 +188,16 @@ window.openShutterPortfolio = function (folderKey, startIndex = 0) {
     shutterOverlay.classList.add("closing");
 
     setTimeout(() => {
-      // Cargar la carpeta y foto mientras el diafragma está cerrado
+      // Cargar la carpeta y foto mientras las paletas están cerradas al centro
       window.openFolderDirect(folderKey, startIndex);
 
-      setTimeout(() => {
-        shutterOverlay.classList.remove("closing");
-        shutterOverlay.classList.add("opening");
+      shutterOverlay.classList.remove("closing");
+      shutterOverlay.classList.add("opening");
 
-        setTimeout(() => {
-          shutterOverlay.classList.remove("opening");
-          isShutterAnimating = false;
-        }, 320);
-      }, 160);
+      setTimeout(() => {
+        shutterOverlay.classList.remove("opening");
+        isShutterAnimating = false;
+      }, 620);
     }, 280);
   } else {
     // Si no está disponible el overlay, abrir directo
@@ -449,20 +447,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 1. EFECTO OBTURADOR DE LENTE AL ENTRAR A LA PÁGINA
+  // 5. ANIMACIONES DE REVELADO EDITORIAL AL ESCROLEAR (INTERSECTION OBSERVER)
+  const revealElements = document.querySelectorAll(".reveal-on-scroll, .reveal-photo");
+  if (revealElements.length > 0) {
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.12
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      // Fallback para navegadores antiguos
+      revealElements.forEach(el => el.classList.add("revealed"));
+    }
+  }
+
+  // 6. OBTURADOR DE CÁMARA A GRAN ESCALA: SE CIERRA DESDE LOS BORDES Y REVELA LA PÁGINA
   const shutterOverlay = document.getElementById("camera-shutter");
   if (shutterOverlay) {
     shutterOverlay.classList.add("closing");
+
     setTimeout(() => {
       shutterOverlay.classList.remove("closing");
       shutterOverlay.classList.add("opening");
+
       setTimeout(() => {
         shutterOverlay.classList.remove("opening");
-      }, 420);
-    }, 140);
+      }, 680);
+    }, 240);
   }
 
-  // 6. TRANSICIÓN CON OBTURADOR DE PALETAS AL NAVEGAR HACIA OTRA PÁGINA
+  // 7. TRANSICIÓN CON OBTURADOR DE PALETAS AL NAVEGAR HACIA OTRA PÁGINA
   document.querySelectorAll(".page-transition-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       const href = btn.getAttribute("href");
@@ -483,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 7. BOTÓN VOLVER ARRIBA
+  // 8. BOTÓN VOLVER ARRIBA
   const backToTop = document.querySelector(".back-to-top");
   if (backToTop) {
     backToTop.addEventListener("click", (e) => {
