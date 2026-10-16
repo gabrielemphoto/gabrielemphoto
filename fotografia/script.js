@@ -198,8 +198,8 @@ window.openShutterPortfolio = function (folderKey, startIndex = 0) {
       setTimeout(() => {
         shutterOverlay.classList.remove("opening");
         isShutterAnimating = false;
-      }, 850);
-    }, 450);
+      }, 750);
+    }, 620);
   } else {
     // Si no está disponible el overlay, abrir directo
     window.openFolderDirect(folderKey, startIndex);
@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         setTimeout(() => {
           window.location.href = href;
-        }, 520);
+        }, 620);
       }
     });
   });

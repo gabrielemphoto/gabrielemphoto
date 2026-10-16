@@ -526,7 +526,7 @@ body::after {
 }
 
 /* ==========================================================================
-   OBTURADOR DE CÁMARA (APERTURE IRIS BLADES)
+   OBTURADOR DE CÁMARA (FULLSCREEN CAMERA APERTURE IRIS)
    ========================================================================== */
 .camera-shutter-overlay {
   position: fixed;
@@ -541,11 +541,18 @@ body::after {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
   overflow: hidden;
 }
 
-/* ANIMACIÓN DE ENTRADA AL CARGAR LA PÁGINA (FLUIDA, CINEMATOGRÁFICA Y CONTROLADA POR GPU) */
+/* POSICIÓN INICIAL DE LAS PALETAS: REPLEGADAS EN LOS BORDES DE LA PANTALLA (CENTRO 100% DESPEJADO) */
+.blade-inner {
+  transform-origin: 0px 0px;
+  transform: translate(0px, -1100px) rotate(22deg);
+  will-change: transform;
+}
+
+/* ANIMACIÓN DE ENTRADA AL CARGAR LA PÁGINA (DESDE LOS BORDES DE LA PANTALLA HASTA EL CENTRO) */
 .camera-shutter-overlay.shutter-entrance {
   opacity: 1;
   visibility: visible;
@@ -554,25 +561,25 @@ body::after {
 }
 
 .camera-shutter-overlay.shutter-entrance .blade-inner {
-  animation: shutterEntranceBlades 1.8s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
+  animation: shutterEntranceBlades 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes shutterEntranceBlades {
   0% {
-    /* Comienza desplegado en los bordes de la pantalla */
-    transform: rotate(55deg) translate(-80px, -160px);
+    /* Comienza desplegado en los bordes de la pantalla (centro 100% libre) */
+    transform: translate(0px, -1100px) rotate(22deg);
   }
-  38% {
-    /* Cierra suavemente al centro, completando el sellado del lente */
-    transform: rotate(0deg) translate(0px, 0px);
+  45% {
+    /* Cierra fluidamente desde los bordes hacia el centro sellando el lente */
+    transform: translate(0px, 0px) rotate(0deg);
   }
-  50% {
-    /* Pausa deliberada: permite apreciar el diafragma perfecto y simétrico */
-    transform: rotate(0deg) translate(0px, 0px);
+  60% {
+    /* Pausa mecánica en el centro para apreciar el diafragma cerrado */
+    transform: translate(0px, 0px) rotate(0deg);
   }
   100% {
-    /* Apertura variable fluida y constante hacia los bordes, revelando la página */
-    transform: rotate(55deg) translate(-80px, -160px);
+    /* Apertura hacia los bordes de la pantalla revelando el portafolio */
+    transform: translate(0px, -1100px) rotate(22deg);
   }
 }
 
@@ -581,7 +588,7 @@ body::after {
     opacity: 1;
     visibility: visible;
   }
-  78% {
+  80% {
     opacity: 1;
     visibility: visible;
   }
@@ -592,30 +599,30 @@ body::after {
   }
 }
 
-/* ESTADO CERRANDO AL NAVEGAR */
+/* ESTADO CERRANDO: CONVERGENCIA DESDE LOS BORDES DE LA PANTALLA HASTA EL CENTRO */
 .camera-shutter-overlay.closing {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .camera-shutter-overlay.closing .blade-inner {
-  transform: rotate(0deg) translate(0px, 0px);
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ESTADO ABRIENDO */
+/* ESTADO ABRIENDO TRAS CARGAR COLECCIÓN */
 .camera-shutter-overlay.opening {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 0.5s ease 0.4s, visibility 0.5s ease 0.4s;
+  transition: opacity 0.45s ease 0.35s, visibility 0.45s ease 0.35s;
 }
 
 .camera-shutter-overlay.opening .blade-inner {
-  transform: rotate(55deg) translate(-80px, -160px);
-  transition: transform 0.85s cubic-bezier(0.2, 0.9, 0.25, 1);
+  transform: translate(0px, -1100px) rotate(22deg);
+  transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.25, 1);
 }
 
 .fullscreen-aperture-svg {
@@ -628,14 +635,12 @@ body::after {
 
 .scale-aperture-blade {
   fill: url(#fullscreenBladeGrad);
-  stroke: rgba(255, 255, 255, 0.26);
-  stroke-width: 2.2px;
 }
 
-.blade-inner {
-  transform-origin: 0px 0px;
-  transform: rotate(55deg) translate(-80px, -160px);
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+.blade-cutting-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 2.8px;
+  filter: url(#bladeShadow);
 }
 

@@ -31,59 +31,63 @@
         </linearGradient>
         <!-- SOMBRA FÍSICA PARA RESALTAR EL TRASLAPE DE PALETAS DEL DIAFRAGMA -->
         <filter id="bladeShadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="-6" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.92" />
+          <feDropShadow dx="-6" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.95" />
         </filter>
-        <!-- CLIP PARA LA PALETA CÍCLICA QUE CIERRA EL LOOP DE 8 PALETAS CON SIMETRÍA C8 -->
-        <clipPath id="capClip">
-          <rect x="-2500" y="-2500" width="2535" height="5000" />
-        </clipPath>
       </defs>
-      <!-- 8 PALETAS GIGANTES QUE CIERRAN Y ABREN DESDE LOS BORDES DE LA PANTALLA -->
+      <!-- 8 PALETAS GIGANTES DEL DIAFRAGMA CON SIMETRÍA RADIAL PURA C8 -->
       <g class="fullscreen-blades-system">
-        <g class="blade-sector" transform="translate(500, 500) rotate(0) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(0)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(45) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(45)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(90) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(90)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(135) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(135)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(180) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(180)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(225) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(225)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(270) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(270)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <g class="blade-sector" transform="translate(500, 500) rotate(315) translate(0, -780)">
+        <g class="blade-sector" transform="translate(500, 500) rotate(315)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="scale-aperture-blade" d="M 500,0 L -2000,0 L -2000,-2000 L 2000,-2000 L 2000,-800 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <!-- PALETA 0 DECORATIVA SUPERIOR: CIERRA EL CICLO DE 8 PALETAS CON SIMETRÍA RADIAL PERFECTA (CUBRE LA PALETA 7 ARRIBA A LA IZQUIERDA) -->
-        <g class="blade-sector" transform="translate(500, 500) rotate(0) translate(0, -780)" clip-path="url(#capClip)">
+        <!-- 8.ª LÍNEA DE CORTE EN CAPA SUPERIOR: CIERRA EL CICLO DE SIMETRÍA RADIAL PERFECTA (SOBRE LA PALETA 7) -->
+        <g class="blade-sector" transform="translate(500, 500) rotate(0)">
           <g class="blade-inner">
-            <path class="scale-aperture-blade" filter="url(#bladeShadow)" d="M 0,0 L 500,-250 L 750,400 L 450,1050 L 35,920 C -200,900 -520,740 -800,480 C -1050,220 -1150,-100 -750,-350 Z" />
+            <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
       </g>
