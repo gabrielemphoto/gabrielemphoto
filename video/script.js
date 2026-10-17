@@ -65,11 +65,13 @@ const VIDEO_DATABASE = {
 let currentCategory = "reels";
 let isGlobalMuted = true;
 let currentActiveVideo = null;
+let currentActiveTitle = "Inmobiliaria Lomas";
 
-// FUNCIÓN PARA COTIZAR UN VIDEO ESPECÍFICO POR WHATSAPP
-window.quoteCurrentVideo = function (videoTitle) {
+// FUNCIÓN PARA COTIZAR EL VIDEO ACTIVO DESDE EL BOTÓN EXTERNO
+window.quoteActiveVideo = function () {
+  const title = currentActiveTitle || (currentCategory === "reels" ? "Reel / Formato Vertical" : "Evento Social / Cobertura");
   const phone = "584146860112";
-  const message = `Hola Gabriel, estuve viendo tu galería de videos en la sección de ${currentCategory.toUpperCase()} y me encantó el estilo de "${videoTitle}". Me gustaría cotizar un proyecto similar para mi marca.`;
+  const message = `Hola Gabriel, estuve viendo tu galería de videos en la sección de ${currentCategory.toUpperCase()} y me encantó el estilo de "${title}". Me gustaría cotizar un proyecto similar para mi marca.`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 };
@@ -292,12 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3 class="overlay-title">${item.title}</h3>
             <p class="overlay-sub">${item.sub}</p>
           </div>
-          <div class="tiktok-actions-sidebar">
-            <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('${item.title}')">
-              <span class="action-bubble">💬</span>
-              <span class="action-count">Cotizar</span>
-            </div>
-          </div>
         </div>
       `;
     });
@@ -320,6 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // REPRODUCIR VIDEO DEL SLIDE ACTIVO
   function playSlideVideo(slide) {
     if (!slide) return;
+
+    currentActiveTitle = slide.getAttribute("data-title") || "Producción Audiovisual";
 
     // Pausar cualquier otro video que esté reproduciéndose
     tiktokFeed.querySelectorAll(".tiktok-slide").forEach(s => {
@@ -428,28 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // -------------------------------------------------------------
-  // 9. NAVEGACIÓN VERTICAL CON FLECHAS (ESCRITORIO / FÁCIL ACCESO)
-  // -------------------------------------------------------------
-  if (btnPhoneNext && tiktokFeed) {
-    btnPhoneNext.addEventListener("click", () => {
-      const slideHeight = tiktokFeed.clientHeight;
-      tiktokFeed.scrollBy({
-        top: slideHeight,
-        behavior: "smooth"
-      });
-    });
-  }
 
-  if (btnPhonePrev && tiktokFeed) {
-    btnPhonePrev.addEventListener("click", () => {
-      const slideHeight = tiktokFeed.clientHeight;
-      tiktokFeed.scrollBy({
-        top: -slideHeight,
-        behavior: "smooth"
-      });
-    });
-  }
 
   // -------------------------------------------------------------
   // 10. SELECTOR DE CATEGORÍA (REELS / EVENTOS)
