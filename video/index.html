@@ -3,32 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel EM | Portafolio Videógrafo y Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Gabriel EM | Filmmaking & Edición de Videos • Portafolio</title>
 
+  <!-- FUENTES GOOGLE: MONTSERRAT, CORMORANT GARAMOND & SPACE MONO -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Montserrat:wght@500;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=7.0">
+  <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 
-<body class="page-fade-in">
+<body class="page-fade-in theme-dark-video">
 
-  <!-- ==================== OBTURADOR DE CÁMARA A GRAN ESCALA (FULLSCREEN APERTURE DIAPHRAGM) ==================== -->
+  <!-- ==================== OBTURADOR DE CÁMARA A GRAN ESCALA (CAMERA SHUTTER BLADES) ==================== -->
   <div id="camera-shutter" class="camera-shutter-overlay" aria-hidden="true">
     <svg class="fullscreen-aperture-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <!-- GRADIENTE METÁLICO DE LAS PALETAS GIGANTES DEL LENTE -->
         <linearGradient id="fullscreenBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#363844" />
-          <stop offset="30%" stop-color="#21222B" />
-          <stop offset="70%" stop-color="#121319" />
-          <stop offset="100%" stop-color="#070709" />
+          <stop offset="0%" stop-color="#2a2b36" />
+          <stop offset="30%" stop-color="#181920" />
+          <stop offset="70%" stop-color="#0f1015" />
+          <stop offset="100%" stop-color="#050507" />
         </linearGradient>
-        <!-- SOMBRA FÍSICA PARA RESALTAR EL TRASLAPE DE PALETAS DEL DIAFRAGMA -->
         <filter id="bladeShadow" x="-30%" y="-30%" width="160%" height="160%">
           <feDropShadow dx="-6" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.95" />
         </filter>
@@ -83,254 +82,634 @@
             <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
-        <!-- 8.ª LÍNEA DE CORTE EN CAPA SUPERIOR: CIERRA EL CICLO DE SIMETRÍA RADIAL PERFECTA (SOBRE LA PALETA 7) -->
         <g class="blade-sector" transform="translate(500, 500) rotate(0)">
           <g class="blade-inner">
             <path class="blade-cutting-line" d="M 500,0 L -2000,0" />
           </g>
         </g>
       </g>
-      <!-- ANILLO EXTERIOR DEL CHASIS QUE CUBRE LOS BORDES MÁS LEJANOS -->
-      <circle cx="500" cy="500" r="1450" fill="none" stroke="#070709" stroke-width="850" />
+      <circle cx="500" cy="500" r="1450" fill="none" stroke="#050507" stroke-width="850" />
     </svg>
   </div>
 
   <!-- TELÓN DE TRANSICIÓN SUAVE ENTRE PÁGINAS -->
   <div id="page-curtain"></div>
 
-  <!-- NAVEGACIÓN SUPERIOR FIJA -->
-  <nav class="portfolio-header-nav">
-    <a href="../" class="nav-back-btn page-transition-btn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="19" y1="12" x2="5" y2="12"></line>
-        <polyline points="12 19 5 12 12 5"></polyline>
-      </svg>
-      <span>Inicio</span>
-    </a>
-
-    <div class="nav-logo-wrap">
-      <a href="../" class="page-transition-btn">
-        <img src="assets/logo.png" onerror="this.onerror=null; this.src='../logo.png'" alt="Gabriel EM">
+  <!-- ==================== HEADER REDONDEADO FLOTANTE ==================== -->
+  <header class="floating-pill-nav" id="main-nav">
+    <div class="nav-inner">
+      <!-- ISOTIPO EN BLANCO A LA IZQUIERDA -->
+      <a href="../" class="nav-brand page-transition-btn" aria-label="Volver a Inicio">
+        <img src="assets/isotipoblanco.png" alt="Gabriel EM" class="brand-isotype" onerror="this.onerror=null; this.src='../isotipoblanco.png'">
       </a>
-    </div>
 
-    <div class="nav-actions">
-      <a href="../fotografia/" class="nav-switch-btn page-transition-btn">
-        <span>Fotografía →</span>
-      </a>
-    </div>
-  </nav>
+      <!-- VÍNCULOS DE NAVEGACIÓN -->
+      <nav class="nav-menu">
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="#galeria" class="nav-link">Galería de Videos</a>
+        <a href="../fotografia/" class="nav-link nav-link-photo page-transition-btn">Fotografía</a>
+      </nav>
 
-  <!-- HERO DE VIDEÓGRAFO -->
-  <header class="portfolio-hero">
-    <h1>VIDEÓGRAFO Y EDITOR</h1>
-    <p>Narrativa visual cinematográfica, ritmo dinámico de montaje y corrección de color profesional.</p>
-
-    <!-- BARRA DE FILTROS -->
-    <div class="filter-bar">
-      <button class="filter-pill active" data-filter="all">Todos los Trabajos</button>
-      <button class="filter-pill" data-filter="reels">Reels & Vertical (9:16)</button>
-      <button class="filter-pill" data-filter="producciones">Comerciales & Producciones</button>
-      <button class="filter-pill" data-filter="eventos">Eventos & Shows</button>
+      <!-- BOTÓN EN BLANCO CTA -->
+      <div class="nav-cta-wrapper">
+        <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20vi%20tu%20portafolio%20de%20filmmaking%20y%20edici%C3%B3n%20de%20videos%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+           target="_blank" rel="noopener noreferrer" class="btn-white-cta">
+          <span>Trabajar Juntos</span>
+          <svg class="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="portfolio-container">
+  <!-- ==================== SECCIÓN 1: HERO PRINCIPAL ==================== -->
+  <section class="hero-section" id="hero">
+    <!-- AMBIENT GLOW BACKDROPS -->
+    <div class="ambient-glow glow-cyan"></div>
+    <div class="ambient-glow glow-amber"></div>
+    <div class="ambient-glow glow-violet"></div>
 
-    <!-- SECCIÓN 1: REELS Y FORMATO VERTICAL -->
-    <div class="video-group" data-group="reels">
-      <h2 class="video-section-title">Reels & Formato Vertical (9:16)</h2>
-      <div class="reels-grid">
+    <div class="hero-content-wrapper">
+      
+      <!-- ENCABEZADO ESTILIZADO CON ELEMENTOS FLOTANTES (REFERENCIA 2) -->
+      <div class="hero-header-box">
+        <div class="hero-kicker-pill">
+          <span class="kicker-dot"></span>
+          <span>FILMMAKING & EDICIÓN CINEMATOGRÁFICA</span>
+        </div>
 
-        <!-- REEL 1: LOMAS -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/Reels/VIDEO LOMAS FINAL.mp4" data-title="Inmobiliaria de Lujo Lomas" data-sub="Edición Inmobiliaria Dinámica • Master 4K" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Reels/VIDEO LOMAS FINAL_poster.webp">
-            <source src="assets/Reels/VIDEO LOMAS FINAL.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL • LOMAS</div>
-          <div class="card-overlay">
-            <span class="card-tag">Reels • 9:16</span>
-            <h3 class="card-title">Inmobiliaria Lomas</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
+        <h1 class="hero-main-title">
+          <span class="title-word title-portfolio">PORTFOLIO</span>
+          <span class="title-word title-filmmaking">FILMMAKING</span>
+          <span class="title-word title-edition">Y EDICIÓN DE VIDEOS</span>
+        </h1>
+
+        <!-- RECUADROS FLOTANTES LIGERAMENTE REDONDEADOS CON EFECTO GLASSMORFISMO -->
+        <div class="floating-pill-badge pill-marca" data-parallax="0.08">
+          <span class="pill-icon">↗</span>
+          <span class="pill-text">Impulsa tu marca</span>
+        </div>
+
+        <div class="floating-pill-badge pill-vende" data-parallax="-0.06">
+          <span class="pill-icon">✨</span>
+          <span class="pill-text">Un buen video vende por sí solo</span>
+        </div>
+
+        <div class="floating-pill-badge pill-ritmo" data-parallax="0.05">
+          <span class="pill-icon">⚡</span>
+          <span class="pill-text">Ritmo, dinamismo & retención</span>
+        </div>
+
+        <div class="floating-pill-badge pill-color" data-parallax="-0.07">
+          <span class="pill-icon">🎨</span>
+          <span class="pill-text">Color Grade 4K • DaVinci</span>
+        </div>
+      </div>
+
+      <!-- COMPOSICIÓN VISUAL: LAPTOP FLOTANTE + LÍNEA DE TIEMPO FUNCIONAL -->
+      <div class="hero-visual-stage">
+        
+        <!-- 3D LAPTOP FLOTANTE -->
+        <div class="floating-3d-asset asset-laptop">
+          <img src="assets/laptop.png" alt="Laptop Edición 3D" onerror="this.onerror=null; this.src='https://i.postimg.cc/F1CDxQSt/laptop.png'">
+        </div>
+
+        <!-- 3D VIDEOCÁMARA ACCENT -->
+        <div class="floating-3d-asset asset-cam">
+          <img src="assets/videocamara.png" alt="Videocámara 3D" onerror="this.onerror=null; this.src='https://i.postimg.cc/0ryVmNzs/videocamara.png'">
+        </div>
+
+        <!-- LÍNEA DE TIEMPO FUNCIONAL TIPO DAVINCI RESOLVE -->
+        <div class="timeline-davinci-card">
+          <div class="davinci-window">
+            <div class="davinci-header">
+              <div class="davinci-dots">
+                <span class="d-dot red"></span>
+                <span class="d-dot yellow"></span>
+                <span class="d-dot green"></span>
+              </div>
+              <div class="davinci-title">
+                <svg viewBox="0 0 24 24" class="davinci-ico" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>Timeline 1 - Commercial Edit (4K Master DCI)</span>
+              </div>
+              <div class="davinci-timecode" id="davinci-tc">01:00:14:24</div>
+            </div>
+
+            <div class="davinci-ruler">
+              <span>01:00:00</span>
+              <span>01:00:05</span>
+              <span>01:00:10</span>
+              <span>01:00:15</span>
+              <span>01:00:20</span>
+              <span>01:00:25</span>
+            </div>
+
+            <div class="davinci-tracks-area">
+              <!-- AGUJA PLAYHEAD ROJA EN BUCLE ANIMADO -->
+              <div class="davinci-playhead" id="davinci-needle">
+                <div class="playhead-diamond"></div>
+                <div class="playhead-line"></div>
+              </div>
+
+              <!-- TRACK V2: B-ROLL Y COLOR GRADE -->
+              <div class="d-track">
+                <div class="d-track-head">V2</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-purple" style="left: 14%; width: 26%;">
+                    <span class="clip-label">B-ROLL_4K_SLOW</span>
+                  </div>
+                  <div class="d-clip clip-teal" style="left: 48%; width: 34%;">
+                    <span class="clip-label">COLOR_GRADE_FILM</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRACK V1: TOMAS PRINCIPALES -->
+              <div class="d-track">
+                <div class="d-track-head">V1</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-orange" style="left: 0%; width: 32%;">
+                    <span class="clip-label">MAIN_CAM_A</span>
+                  </div>
+                  <div class="d-clip clip-blue" style="left: 34%; width: 28%;">
+                    <span class="clip-label">HOOK_BRAND_SHOT</span>
+                  </div>
+                  <div class="d-clip clip-orange" style="left: 64%; width: 34%;">
+                    <span class="clip-label">DRONE_ORBIT_4K</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRACK A1: AUDIO & SOUND DESIGN -->
+              <div class="d-track audio">
+                <div class="d-track-head">A1</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-green" style="left: 0%; width: 50%;">
+                    <span class="clip-label">VOICE_MASTER_01</span>
+                  </div>
+                  <div class="d-clip clip-green" style="left: 52%; width: 46%;">
+                    <span class="clip-label">SOUND_EFFECTS_SWOOSH</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRACK A2: BEAT & MUSIC -->
+              <div class="d-track audio">
+                <div class="d-track-head">A2</div>
+                <div class="d-track-lane">
+                  <div class="d-clip clip-yellow" style="left: 0%; width: 98%;">
+                    <span class="clip-label">MUSIC_BEAT_SYNCHRONIZED_120BPM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </article>
-
-        <!-- REEL 2: VIDEO MA -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/Reels/VIDEO MA.mp4" data-title="Campaña Motion & Marca" data-sub="Montaje Rítmico y Corrección de Color" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Reels/VIDEO MA_poster.webp">
-            <source src="assets/Reels/VIDEO MA.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL • CAMPAÑA</div>
-          <div class="card-overlay">
-            <span class="card-tag">Reels • 9:16</span>
-            <h3 class="card-title">Campaña Motion</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
-
-        <!-- REEL 3: VILLA EL FARO -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/Reels/Video Villa el Faro.mp4" data-title="Villa El Faro" data-sub="Turismo, Paisaje y Tomas Aéreas" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Reels/Video Villa el Faro_poster.webp">
-            <source src="assets/Reels/Video Villa el Faro.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL • TURISMO</div>
-          <div class="card-overlay">
-            <span class="card-tag">Reels • 9:16</span>
-            <h3 class="card-title">Villa El Faro</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
-
-        <!-- REEL 4: TURISMO -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/Reels/video turismo.mp4" data-title="Destino Turístico" data-sub="Tomas Dinámicas y Corrección de Color" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Reels/video turismo_poster.webp">
-            <source src="assets/Reels/video turismo.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL • TURISMO</div>
-          <div class="card-overlay">
-            <span class="card-tag">Reels • 9:16</span>
-            <h3 class="card-title">Destino Turístico</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
-
-        <!-- REEL 5: PROMO LA FACTORIA -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/Reels/crudo promo la factoria.mp4" data-title="Promo La Factoría" data-sub="Edición Rápida con Efectos Sonoros" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Reels/crudo promo la factoria_poster.webp">
-            <source src="assets/Reels/crudo promo la factoria.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL • PROMO</div>
-          <div class="card-overlay">
-            <span class="card-tag">Reels • 9:16</span>
-            <h3 class="card-title">La Factoría Promo</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
-
-        <!-- REEL 6: REEL 01 -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/reel-1.webm" data-title="Reel Comercial #01" data-sub="Edición Dinámica, Subtítulos & Retención" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline>
-            <source src="assets/reel-1.webm" type="video/webm">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL 01</div>
-          <div class="card-overlay">
-            <span class="card-tag">Vertical • 9:16</span>
-            <h3 class="card-title">Reel Comercial #01</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
-
-        <!-- REEL 7: REEL 02 -->
-        <article class="portfolio-reel-card video-card-item" data-category="reels" data-video="assets/reel-2.mp4" data-title="Campaña Odontológica #02" data-sub="Color Grading & Montaje Rítmico" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline>
-            <source src="assets/reel-2.webm" type="video/webm">
-            <source src="assets/reel-2.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>REEL 02</div>
-          <div class="card-overlay">
-            <span class="card-tag">Vertical • 9:16</span>
-            <h3 class="card-title">Campaña #02</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
+        </div>
 
       </div>
+
+      <!-- BOTÓN PARA DESPLAZARSE HACIA LA SIGUIENTE SECCIÓN -->
+      <div class="hero-scroll-indicator">
+        <a href="#sobre-mi" class="scroll-down-arrow" aria-label="Ir a Sobre Mí">
+          <span>Explorar</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </a>
+      </div>
+
     </div>
+  </section>
 
-    <!-- SECCIÓN 2: COMERCIALES Y PRODUCCIONES -->
-    <div class="video-group" data-group="producciones">
-      <h2 class="video-section-title">Comerciales & Producciones Audiovisuales</h2>
-      <div class="reels-grid">
-
-        <!-- PRODUCCIÓN 1 -->
-        <article class="portfolio-reel-card video-card-item" data-category="producciones" data-video="assets/Producciones/video inmobiliario 2.mp4" data-title="Inmobiliaria Premium" data-sub="Producción y Dirección de Video Inmobiliario" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Producciones/video inmobiliario 2_poster.webp">
-            <source src="assets/Producciones/video inmobiliario 2.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>PRODUCCIÓN</div>
-          <div class="card-overlay">
-            <span class="card-tag">Producciones</span>
-            <h3 class="card-title">Inmobiliaria Premium</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
+  <!-- ==================== SECCIÓN 2: SOBRE MÍ (ESTILO REFERENCIA 1) ==================== -->
+  <section class="about-section reveal-on-scroll" id="sobre-mi">
+    <div class="about-container">
+      
+      <!-- CONTENEDOR PRINCIPAL TIPO TARJETA EDITORIAL GLASSMORFISMO -->
+      <div class="about-glass-card">
+        
+        <!-- COLUMNA IZQUIERDA: SALUDO MULTI-IDIOMA Y FILOSOFÍA -->
+        <div class="about-text-column">
+          
+          <!-- BURBUJA DE SALUDO MULTILINGÜE DINÁMICA -->
+          <div class="speech-bubble-wrapper">
+            <div class="speech-bubble">
+              <span class="bubble-spark">👋</span>
+              <span class="bubble-text" id="multilingual-greeting">¡Hola! Mi nombre es Gabriel</span>
+            </div>
+            <div class="speech-bubble-tail"></div>
           </div>
-        </article>
 
-        <!-- PRODUCCIÓN 2 -->
-        <article class="portfolio-reel-card video-card-item" data-category="producciones" data-video="assets/Producciones/promocion español(1).mp4" data-title="Spot Promocional Corporativo" data-sub="Campaña de Lanzamiento y Marca" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Producciones/promocion español(1)_poster.webp">
-            <source src="assets/Producciones/promocion español(1).mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>SPOT CORP</div>
-          <div class="card-overlay">
-            <span class="card-tag">Producciones</span>
-            <h3 class="card-title">Spot Promocional</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
-          </div>
-        </article>
+          <h2 class="about-name-title">Gabriel EM</h2>
+          
+          <p class="about-description">
+            Transformo ideas y proyectos en piezas cinematográficas con propósito. Mi enfoque combina un ritmo de edición milimétrico, diseño sonoro inmersivo y corrección de color profesional para que cada segundo mantenga la atención de tu audiencia y eleve el valor de tu marca.
+          </p>
 
-        <!-- PRODUCCIÓN 3 -->
-        <article class="portfolio-reel-card video-card-item" data-category="producciones" data-video="assets/Producciones/video 1.mp4" data-title="Producción Publicitaria" data-sub="Edición y Color Grading DaVinci Resolve" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Producciones/video 1_poster.webp">
-            <source src="assets/Producciones/video 1.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>PUBLICIDAD</div>
-          <div class="card-overlay">
-            <span class="card-tag">Producciones</span>
-            <h3 class="card-title">Producción Publicitaria</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
+          <div class="about-metrics-row">
+            <div class="about-metric-item">
+              <span class="metric-num">4K</span>
+              <span class="metric-lbl">Mastering DCI</span>
+            </div>
+            <div class="about-metric-item">
+              <span class="metric-num">100%</span>
+              <span class="metric-lbl">Ritmo & Retención</span>
+            </div>
+            <div class="about-metric-item">
+              <span class="metric-num">DaVinci</span>
+              <span class="metric-lbl">Color Grading</span>
+            </div>
           </div>
-        </article>
+
+          <div class="about-action-row">
+            <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20quisiera%20conversar%20sobre%20la%20producci%C3%B3n%20de%20un%20video." 
+               target="_blank" rel="noopener noreferrer" class="btn-primary-dark">
+              <span>Hablemos de tu Proyecto</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: FOTO DE PERFIL + RECUADROS APILADOS GLASSMORFISMO -->
+        <div class="about-visual-column">
+          
+          <!-- RECUADROS GLASSMORFISMO AL LADO DE LA FOTO (REFERENCIA 1) -->
+          <div class="stacked-pills-container">
+            <div class="glass-role-pill pill-filmmaker">
+              <span class="role-icon">🎬</span>
+              <span class="role-text">FILMMAKER</span>
+            </div>
+            <div class="glass-role-pill pill-editor">
+              <span class="role-icon">✂</span>
+              <span class="role-text">EDITOR DE VIDEO</span>
+            </div>
+            <div class="glass-role-pill pill-location">
+              <span class="role-icon">📍</span>
+              <span class="role-text">ISLA DE MARGARITA</span>
+            </div>
+          </div>
+
+          <!-- RETRATO DE GABRIEL CON AURA SUAVE -->
+          <div class="profile-photo-wrapper">
+            <div class="profile-glow-ring"></div>
+            <img src="assets/gabriel-videografo.webp" 
+                 alt="Gabriel EM | Filmmaker y Editor de Video" 
+                 class="profile-photo-img"
+                 onerror="this.onerror=null; this.src='../fotografia/assets/autor/gabriel-videografo.webp'">
+            <div class="profile-badge-status">
+              <span class="status-indicator-dot"></span>
+              <span>Disponible para rodajes & edición</span>
+            </div>
+          </div>
+
+        </div>
 
       </div>
+
     </div>
+  </section>
 
-    <!-- SECCIÓN 3: EVENTOS Y SHOWS -->
-    <div class="video-group" data-group="eventos">
-      <h2 class="video-section-title">Eventos Sociales & Shows en Vivo</h2>
-      <div class="reels-grid">
+  <!-- ==================== SECCIÓN 3: GALERÍA DE VIDEOS (CARPETA + TELÉFONO TIKTOK) ==================== -->
+  <section class="gallery-section reveal-on-scroll" id="galeria">
+    <div class="gallery-container">
+      
+      <!-- LADO IZQUIERDO: SELECTOR DE SECCIÓN (REELS / EVENTOS) Y DESCRIPCIÓN -->
+      <div class="gallery-sidebar-col">
+        
+        <div class="section-badge-pill">
+          <span class="badge-dot"></span>
+          <span>REPRODUCTOR VERTICAL TIKTOK</span>
+        </div>
 
-        <!-- EVENTO 1 -->
-        <article class="portfolio-reel-card video-card-item" data-category="eventos" data-video="assets/Eventos/Katherin y Valeria.mp4" data-title="Katherin & Valeria" data-sub="Cobertura Audiovisual de Evento Social" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Eventos/Katherin y Valeria_poster.webp">
-            <source src="assets/Eventos/Katherin y Valeria.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>EVENTO SOCIAL</div>
-          <div class="card-overlay">
-            <span class="card-tag">Eventos</span>
-            <h3 class="card-title">Katherin & Valeria</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
+        <h2 class="gallery-title">GALERÍA DE VIDEOS</h2>
+        
+        <p class="gallery-subtitle">
+          Selecciona una categoría y desliza verticalmente en el teléfono como en TikTok para navegar las producciones. Toca el botón de audio para activar el sonido.
+        </p>
+
+        <!-- SELECTOR DE SECCIÓN (ESTRICTAMENTE REELS Y EVENTOS DE MOMENTO) -->
+        <div class="category-selector-tabs">
+          <button class="cat-tab-btn active" data-category="reels" id="tab-reels">
+            <div class="tab-btn-content">
+              <span class="tab-icon">📱</span>
+              <span class="tab-label">Reels</span>
+            </div>
+            <span class="tab-counter">5 Videos</span>
+          </button>
+
+          <button class="cat-tab-btn" data-category="eventos" id="tab-eventos">
+            <div class="tab-btn-content">
+              <span class="tab-icon">🎉</span>
+              <span class="tab-label">Eventos</span>
+            </div>
+            <span class="tab-counter">2 Videos</span>
+          </button>
+        </div>
+
+        <!-- TARJETA INFORMATIVA CON INSTRUCCIONES RÁPIDAS -->
+        <div class="gallery-guide-card">
+          <div class="guide-item">
+            <span class="guide-icon">🔊</span>
+            <span class="guide-text">Activa el <strong>botón de volumen</strong> en el teléfono para escuchar la música y el diseño sonoro.</span>
           </div>
-        </article>
-
-        <!-- EVENTO 2 -->
-        <article class="portfolio-reel-card video-card-item" data-category="eventos" data-video="assets/Eventos/TALENTO MGTA SHOW MUNDIAL.mp4" data-title="Talento Margarita Show Mundial" data-sub="Espectáculo en Vivo • Iluminación y Cámara Dinámica" onclick="openVideoModal(this)" role="button" tabindex="0">
-          <video autoplay muted loop playsinline poster="assets/Eventos/TALENTO MGTA SHOW MUNDIAL_poster.webp">
-            <source src="assets/Eventos/TALENTO MGTA SHOW MUNDIAL.mp4" type="video/mp4">
-          </video>
-          <div class="reel-badge"><span class="reel-dot"></span>SHOW EN VIVO</div>
-          <div class="card-overlay">
-            <span class="card-tag">Eventos</span>
-            <h3 class="card-title">Talento Margarita Show</h3>
-            <span class="card-sub">Clic para pantalla completa / audio</span>
+          <div class="guide-item">
+            <span class="guide-icon">↕</span>
+            <span class="guide-text"><strong>Desliza verticalmente</strong> o usa las flechas arriba/abajo para cambiar de video.</span>
           </div>
-        </article>
+          <div class="guide-item">
+            <span class="guide-icon">▶</span>
+            <span class="guide-text">Toca la pantalla para <strong>pausar o reanudar</strong> en cualquier momento.</span>
+          </div>
+        </div>
+
+        <!-- CTA DIRECTO -->
+        <div class="gallery-direct-cta">
+          <a href="https://wa.me/584146860112?text=Hola%20Gabriel,%20vi%20tu%20galer%C3%ADa%20de%20videos%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto." 
+             target="_blank" rel="noopener noreferrer" class="btn-whatsapp-gallery">
+            <span>Cotizar un Video Similar</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </a>
+        </div>
 
       </div>
+
+      <!-- LADO DERECHO (EN MÓVIL ABAJO): CARPETA ANIMADA QUE SE ABRE + TELÉFONO REPRODUCTOR -->
+      <div class="gallery-showcase-col">
+        
+        <div class="folder-and-phone-stage" id="folderStage">
+          
+          <!-- CARPETA 📂 3D QUE SE ABRE AL HACER SCROLL -->
+          <div class="folder-3d-box" id="folderBox">
+            <div class="folder-tab-back">
+              <span class="folder-tag-label">PORTFOLIO.DIR</span>
+            </div>
+            <div class="folder-back-panel"></div>
+            <!-- IMAGEN CARPETA O ICONO 3D -->
+            <div class="folder-emblem">
+              <img src="assets/carpeta.png" alt="Carpeta 3D" onerror="this.onerror=null; this.src='https://i.postimg.cc/hht2xGXq/carpeta.png'">
+            </div>
+            <div class="folder-front-flap" id="folderFlap">
+              <div class="folder-crease"></div>
+              <div class="folder-label-card">
+                <span class="folder-label-title">ARCHIVOS_2024</span>
+                <span class="folder-label-sub">MASTER_PRODUCTIONS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TELÉFONO REPRODUCTOR ESTILO TIKTOK / REELS -->
+          <div class="smartphone-mockup" id="phoneMockup">
+            
+            <!-- MARCO EXTERIOR DEL TELÉFONO (BEZEL & BOTONES FÍSICOS) -->
+            <div class="phone-physical-frame">
+              <div class="phone-button-volume-up"></div>
+              <div class="phone-button-volume-down"></div>
+              <div class="phone-button-power"></div>
+            </div>
+
+            <!-- PANTALLA DEL TELÉFONO -->
+            <div class="phone-screen">
+              
+              <!-- DYNAMIC ISLAND / NOTCH SUPERIOR -->
+              <div class="phone-dynamic-island">
+                <div class="island-camera"></div>
+                <div class="island-speaker"></div>
+              </div>
+
+              <!-- BARRA DE ESTADO DEL TELÉFONO -->
+              <div class="phone-status-bar">
+                <span class="status-clock" id="phoneClock">12:30</span>
+                <div class="status-indicators">
+                  <span class="status-5g">5G</span>
+                  <div class="status-battery"><div class="battery-level"></div></div>
+                </div>
+              </div>
+
+              <!-- CONTROLES SUPERIORES FLOTANTES (BOTÓN DE VOLUMEN / AUDIO) -->
+              <div class="phone-top-bar">
+                <div class="category-indicator-pill" id="phoneCategoryLabel">REELS</div>
+                
+                <!-- BOTÓN PRINCIPAL PARA ACTIVAR/MUTEAR VOLUMEN -->
+                <button class="phone-audio-btn" id="phoneAudioToggle" aria-label="Activar volumen" title="Activar sonido">
+                  <span class="audio-icon audio-muted" id="audioIcon">🔇</span>
+                  <span class="audio-text" id="audioText">Mudo</span>
+                </button>
+              </div>
+
+              <!-- FLECHAS DE NAVEGACIÓN VERTICAL PARA ESCRITORIO -->
+              <div class="phone-nav-chevrons">
+                <button class="chevron-btn chevron-up" id="btnPhonePrev" aria-label="Video anterior">▲</button>
+                <button class="chevron-btn chevron-down" id="btnPhoneNext" aria-label="Siguiente video">▼</button>
+              </div>
+
+              <!-- CONTENEDOR CON SCROLL VERTICAL SNAP TIKTOK -->
+              <div class="tiktok-feed-container" id="tiktokFeed">
+                
+                <!-- LOS VIDEOS SE CARGAN DINÁMICAMENTE POR JS SEGÚN CATEGORÍA (REELS O EVENTOS) -->
+                <!-- CONTENIDO INICIAL (REELS): -->
+
+                <!-- REEL 1: LOMAS -->
+                <div class="tiktok-slide active" data-index="0" data-category="reels" data-title="Inmobiliaria de Lujo Lomas" data-sub="Master 4K • Edición Dinámica">
+                  <video class="phone-video-player" playsinline loop muted preload="metadata" poster="assets/Reels/VIDEO LOMAS FINAL_poster.webp">
+                    <source src="assets/Reels/VIDEO LOMAS FINAL.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Inmobiliaria</span>
+                    <h3 class="overlay-title">Inmobiliaria Lomas</h3>
+                    <p class="overlay-sub">Color grade cinematográfico y ritmo dinámico</p>
+                  </div>
+                  <div class="tiktok-actions-sidebar">
+                    <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('Inmobiliaria Lomas')">
+                      <span class="action-bubble">💬</span>
+                      <span class="action-count">Cotizar</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- REEL 2: VIDEO MA -->
+                <div class="tiktok-slide" data-index="1" data-category="reels" data-title="Campaña Motion & Marca" data-sub="Montaje Rítmico y Retención">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/VIDEO MA_poster.webp">
+                    <source src="assets/Reels/VIDEO MA.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Marca</span>
+                    <h3 class="overlay-title">Campaña Motion MA</h3>
+                    <p class="overlay-sub">Transiciones de impacto & sound design</p>
+                  </div>
+                  <div class="tiktok-actions-sidebar">
+                    <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('Campaña Motion MA')">
+                      <span class="action-bubble">💬</span>
+                      <span class="action-count">Cotizar</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- REEL 3: VILLA EL FARO -->
+                <div class="tiktok-slide" data-index="2" data-category="reels" data-title="Villa El Faro" data-sub="Turismo, Paisaje & Dron">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/Video Villa el Faro_poster.webp">
+                    <source src="assets/Reels/Video Villa el Faro.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Turismo</span>
+                    <h3 class="overlay-title">Villa El Faro</h3>
+                    <p class="overlay-sub">Tomas aéreas y narrativa visual</p>
+                  </div>
+                  <div class="tiktok-actions-sidebar">
+                    <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('Villa El Faro')">
+                      <span class="action-bubble">💬</span>
+                      <span class="action-count">Cotizar</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- REEL 4: TURISMO -->
+                <div class="tiktok-slide" data-index="3" data-category="reels" data-title="Destino Turístico" data-sub="Color Grading DaVinci">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/video turismo_poster.webp">
+                    <source src="assets/Reels/video turismo.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Destino</span>
+                    <h3 class="overlay-title">Destino Turístico</h3>
+                    <p class="overlay-sub">Ritmo envolvente y vibrante</p>
+                  </div>
+                  <div class="tiktok-actions-sidebar">
+                    <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('Destino Turístico')">
+                      <span class="action-bubble">💬</span>
+                      <span class="action-count">Cotizar</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- REEL 5: PROMO LA FACTORIA -->
+                <div class="tiktok-slide" data-index="4" data-category="reels" data-title="Promo La Factoría" data-sub="Edición Rápida con Efectos">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/crudo promo la factoria_poster.webp">
+                    <source src="assets/Reels/crudo promo la factoria.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Comercial</span>
+                    <h3 class="overlay-title">Promo La Factoría</h3>
+                    <p class="overlay-sub">Visual comercial optimizado para retención</p>
+                  </div>
+                  <div class="tiktok-actions-sidebar">
+                    <div class="tiktok-action-item action-whatsapp" onclick="quoteCurrentVideo('Promo La Factoría')">
+                      <span class="action-bubble">💬</span>
+                      <span class="action-count">Cotizar</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- BARRA DE PROGRESO INFERIOR DEL VIDEO -->
+              <div class="phone-timeline-scrubber">
+                <div class="scrubber-progress" id="phoneProgressBar"></div>
+              </div>
+
+              <!-- PILL INFERIOR DE NAVEGACIÓN / HOME BAR -->
+              <div class="phone-home-indicator"></div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+  </section>
 
-  </main>
+  <!-- ==================== FOOTER CINEMATOGRÁFICO ==================== -->
+  <footer class="cinematic-footer">
+    <div class="footer-container">
+      
+      <div class="footer-top-row">
+        <!-- LOGO & BRAND INFO -->
+        <div class="footer-brand">
+          <a href="../" class="page-transition-btn">
+            <img src="assets/isotipoblanco.png" alt="Gabriel EM" class="footer-isotype" onerror="this.onerror=null; this.src='../isotipoblanco.png'">
+          </a>
+          <span class="footer-brand-title">GABRIEL EM</span>
+          <span class="footer-brand-tagline">Filmmaking • Edición de Video • Color Grading</span>
+        </div>
 
-  <!-- MODAL DE REPRODUCTOR DE VIDEO A PANTALLA COMPLETA -->
-  <div class="lightbox-modal" id="video-lightbox" onclick="if(event.target===this) closeVideoModal()">
-    <button class="lightbox-close" id="video-lightbox-close" onclick="closeVideoModal()" aria-label="Cerrar video">✕</button>
-    <div class="lightbox-content">
-      <video id="lightbox-player" controls autoplay playsinline style="max-height: 80vh; max-width: 90vw; border-radius: 12px;"></video>
-      <div class="lightbox-caption" id="video-lightbox-caption"></div>
+        <!-- ENLACES RÁPIDOS -->
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Secciones</span>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#galeria">Galería de Videos</a></li>
+            <li><a href="../fotografia/" class="page-transition-btn">Portafolio Fotografía →</a></li>
+          </ul>
+        </div>
+
+        <!-- CONTACTO & REDES -->
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Contacto Directo</span>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="https://wa.me/584146860112" target="_blank" rel="noopener noreferrer">
+                WhatsApp: +58 414 6860112
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/gabrielemphoto" target="_blank" rel="noopener noreferrer">
+                Instagram: @gabrielemphoto
+              </a>
+            </li>
+            <li>
+              <a href="mailto:gabrielmillan6@gmail.com">
+                Email: gabrielmillan6@gmail.com
+              </a>
+            </li>
+            <li>
+              <span class="footer-location-txt">📍 Isla de Margarita, Venezuela</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">
+          © 2024 - 2026 Gabriel EM. Todos los derechos reservados. Narrativa audiovisual creada con propósito.
+        </p>
+        <a href="#hero" class="footer-back-to-top" aria-label="Volver arriba">
+          <span>Arriba</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+
     </div>
-  </div>
+  </footer>
 
-  <script src="script.js?v=7.0"></script>
+  <script src="script.js?v=8.0"></script>
 </body>
 
 </html>
