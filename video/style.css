@@ -908,15 +908,15 @@ body.theme-dark-video::after {
 
 .about-glass-card {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
   align-items: center;
   background: rgba(14, 15, 20, 0.72);
   backdrop-filter: var(--glass-blur-heavy);
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border: 1px solid var(--border-light);
   border-radius: 36px;
-  padding: 60px 50px;
+  padding: 55px 45px;
   box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   position: relative;
   overflow: hidden;
@@ -1052,23 +1052,22 @@ body.theme-dark-video::after {
 }
 
 /* COLUMNA DERECHA: FOTO + PILLS APILADAS (REFERENCIA 1) */
+/* COLUMNA DERECHA: FOTO + PILLS AL LADO (SIN SOLAPAMIENTO) */
 .about-visual-column {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
-/* RECUADROS APILADOS GLASSMORFISMO AL LADO DE LA FOTO (REFERENCIA 1) */
+/* RECUADROS APILADOS GLASSMORFISMO AL LADO DE LA FOTO (ALINEADOS A LA IZQUIERDA DE LA FOTO) */
 .stacked-pills-container {
-  position: absolute;
-  left: -25px;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 20;
+  z-index: 10;
+  flex-shrink: 0;
 }
 
 .glass-role-pill {
@@ -1079,15 +1078,15 @@ body.theme-dark-video::after {
   backdrop-filter: var(--glass-blur-heavy);
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border: 1.5px solid var(--border-glow);
-  padding: 10px 22px;
-  border-radius: 18px;
+  padding: 10px 18px;
+  border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, border-color 0.3s ease;
   white-space: nowrap;
 }
 
 .glass-role-pill:hover {
-  transform: translateX(6px);
+  transform: translateX(-4px);
   border-color: var(--accent-amber);
 }
 
@@ -1098,35 +1097,37 @@ body.theme-dark-video::after {
 
 .pill-editor {
   border-color: rgba(6, 182, 212, 0.5);
-  margin-left: 18px;
+  background: rgba(14, 26, 36, 0.9);
 }
 
 .pill-location {
   border-color: rgba(255, 255, 255, 0.25);
-  margin-left: 6px;
+  background: rgba(22, 24, 32, 0.9);
 }
 
 .role-icon {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .role-text {
-  font-size: 0.84rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--text-pure);
 }
 
-/* RETRATO DE GABRIEL */
+/* RETRATO DE GABRIEL (DESPEJADO, 100% VISIBLE) */
 .profile-photo-wrapper {
   position: relative;
-  width: 290px;
-  height: 380px;
-  border-radius: 30px;
+  width: 275px;
+  height: 365px;
+  border-radius: 28px;
   overflow: hidden;
   border: 1.5px solid var(--border-light);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
   background: #0D0E14;
+  flex-shrink: 0;
 }
 
 .profile-glow-ring {
@@ -1953,10 +1954,12 @@ body.theme-dark-video::after {
   }
 
   .stacked-pills-container {
-    position: static;
-    transform: none;
-    margin-bottom: 24px;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
   }
 
   .glass-role-pill {
@@ -2152,6 +2155,29 @@ body.theme-dark-video::after {
   }
 
   /* SOBRE MÍ EN MÓVIL */
+  .stacked-pills-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .glass-role-pill {
+    padding: 7px 14px;
+    border-radius: 12px;
+  }
+
+  .role-icon {
+    font-size: 0.9rem;
+  }
+
+  .role-text {
+    font-size: 0.72rem;
+  }
+
   .profile-photo-wrapper {
     width: 100%;
     max-width: 260px;
