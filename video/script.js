@@ -248,7 +248,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------------------------------------
   // 7. MOTOR DEL REPRODUCTOR TIKTOK EN EL SMARTPHONE
   // -------------------------------------------------------------
+  // 7. GALERÍA DE VIDEOS TIKTOK / SMARTPHONE MOCKUP INTERACTIVO
+  // -------------------------------------------------------------
   const tiktokFeed = document.getElementById("tiktokFeed");
+  const phoneMockup = document.getElementById("phoneMockup");
   const phoneAudioToggle = document.getElementById("phoneAudioToggle");
   const audioIcon = document.getElementById("audioIcon");
   const audioText = document.getElementById("audioText");
@@ -258,11 +261,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabEventos = document.getElementById("tab-eventos");
   const btnPhonePrev = document.getElementById("btnPhonePrev");
   const btnPhoneNext = document.getElementById("btnPhoneNext");
+  const currentVideoNum = document.getElementById("currentVideoNum");
+  const totalVideoNum = document.getElementById("totalVideoNum");
+
+  let currentSlideIndex = 0;
+  let isPointerDown = false;
+  let pointerStartY = 0;
+  let pointerMoved = false;
+  let wheelLock = false;
+
+  // ACTUALIZADOR DE CONTADOR DE VIDEOS PARA COMPUTADORA
+  function updateDesktopCounter(curr, total) {
+    if (currentVideoNum) {
+      currentVideoNum.textContent = String(curr).padStart(2, "0");
+    }
+    if (totalVideoNum) {
+      totalVideoNum.textContent = String(total).padStart(2, "0");
+    }
+  }
+
+  // NAVEGACIÓN PROGRAMÁTICA ENTRE SLIDES (SUAVE Y PRECISA)
+  function goToSlide(index) {
+    if (!tiktokFeed) return;
+    const slides = tiktokFeed.querySelectorAll(".tiktok-slide");
+    if (!slides.length) return;
+
+    // Asegurar índice dentro de rango
+    const clampedIndex = Math.max(0, Math.min(index, slides.length - 1));
+    const targetSlide = slides[clampedIndex];
+    if (!targetSlide) return;
+
+    currentSlideIndex = clampedIndex;
+
+    // Desplazamiento nativo suave hacia la diapositiva objetivo
+    targetSlide.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Activar reproducción y título
+    playSlideVideo(targetSlide);
+    updateDesktopCounter(currentSlideIndex + 1, slides.length);
+  }
 
   // RENDERIZADOR DE SLIDES DE VIDEO
   function renderTikTokFeed(category) {
     if (!tiktokFeed) return;
     currentCategory = category;
+    currentSlideIndex = 0;
 
     // Actualizar indicador en el teléfono
     if (phoneCategoryLabel) {
@@ -278,6 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const videos = VIDEO_DATABASE[category] || [];
+    updateDesktopCounter(1, videos.length);
     let html = "";
 
     videos.forEach((item, index) => {
@@ -318,6 +362,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!slide) return;
 
     currentActiveTitle = slide.getAttribute("data-title") || "Producción Audiovisual";
+    const idx = parseInt(slide.getAttribute("data-index") || "0", 10);
+    currentSlideIndex = idx;
+
+    const totalSlides = tiktokFeed.querySelectorAll(".tiktok-slide").length;
+    updateDesktopCounter(currentSlideIndex + 1, totalSlides);
 
     // Pausar cualquier otro video que esté reproduciéndose
     tiktokFeed.querySelectorAll(".tiktok-slide").forEach(s => {
@@ -363,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function bindSlideEvents() {
     const slides = tiktokFeed.querySelectorAll(".tiktok-slide");
 
-    // 1. Detección de slide visible al scrollear (IntersectionObserver dentro del feed)
+    // Detección de slide visible al scrollear (IntersectionObserver dentro del feed)
     const feedObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -378,12 +427,14 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.forEach(slide => {
       feedObserver.observe(slide);
 
-      // 2. Tap para pausar/reanudar
+      // Tap / Click para pausar o reanudar
       const tapOverlay = slide.querySelector(".video-tap-overlay");
       const video = slide.querySelector("video");
 
       if (tapOverlay && video) {
         tapOverlay.addEventListener("click", () => {
+          // Si se produjo un arrastre con el ratón, no alternar pausa
+          if (pointerMoved) return;
           if (video.paused) {
             video.play();
             slide.classList.remove("is-paused");
@@ -397,7 +448,105 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------------------------------------------
-  // 8. BOTÓN DE AUDIO / VOLUMEN EN EL TELÉFONO
+  // 8. CONTROLES DE NAVEGACIÓN PARA COMPUTADORA (FLECHAS LATERALES)
+  // -------------------------------------------------------------
+  if (btnPhoneNext) {
+    btnPhoneNext.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentSlideIndex + 1);
+    });
+  }
+
+  if (btnPhonePrev) {
+    btnPhonePrev.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentSlideIndex - 1);
+    });
+  }
+
+  // -------------------------------------------------------------
+  // 9. NAVEGACIÓN CON RUEDA DEL RATÓN (WHEEL) EN COMPUTADORA
+  // -------------------------------------------------------------
+  const handleWheelNavigation = (e) => {
+    // Interceptar el scroll sobre el teléfono para avanzar/retroceder de video
+    e.preventDefault();
+    if (wheelLock) return;
+
+    if (Math.abs(e.deltaY) > 20) {
+      wheelLock = true;
+      if (e.deltaY > 0) {
+        goToSlide(currentSlideIndex + 1);
+      } else {
+        goToSlide(currentSlideIndex - 1);
+      }
+      setTimeout(() => {
+        wheelLock = false;
+      }, 450);
+    }
+  };
+
+  if (tiktokFeed) {
+    tiktokFeed.addEventListener("wheel", handleWheelNavigation, { passive: false });
+  }
+
+  // -------------------------------------------------------------
+  // 10. NAVEGACIÓN POR ARRASTRE DE RATÓN (CLICK & DRAG VERTICAL)
+  // -------------------------------------------------------------
+  if (tiktokFeed) {
+    tiktokFeed.addEventListener("mousedown", (e) => {
+      if (e.target.closest("button") || e.target.closest("a")) return;
+      isPointerDown = true;
+      pointerMoved = false;
+      pointerStartY = e.clientY;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isPointerDown) return;
+      if (Math.abs(e.clientY - pointerStartY) > 10) {
+        pointerMoved = true;
+      }
+    });
+
+    window.addEventListener("mouseup", (e) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      const deltaY = e.clientY - pointerStartY;
+      if (pointerMoved && Math.abs(deltaY) > 35) {
+        if (deltaY < 0) {
+          goToSlide(currentSlideIndex + 1);
+        } else {
+          goToSlide(currentSlideIndex - 1);
+        }
+      }
+    });
+  }
+
+  // -------------------------------------------------------------
+  // 11. NAVEGACIÓN POR TECLADO (FLECHAS ARRIBA / ABAJO)
+  // -------------------------------------------------------------
+  window.addEventListener("keydown", (e) => {
+    if (!tiktokFeed) return;
+    const rect = tiktokFeed.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!isVisible) return;
+
+    if (e.key === "ArrowDown" || e.key === "PageDown") {
+      e.preventDefault();
+      goToSlide(currentSlideIndex + 1);
+    } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+      e.preventDefault();
+      goToSlide(currentSlideIndex - 1);
+    } else if (e.key === " " && (document.activeElement === document.body || document.activeElement === tiktokFeed)) {
+      e.preventDefault();
+      if (currentActiveVideo) {
+        if (currentActiveVideo.paused) currentActiveVideo.play();
+        else currentActiveVideo.pause();
+      }
+    }
+  });
+
+  // -------------------------------------------------------------
+  // 12. BOTÓN DE AUDIO / VOLUMEN EN EL TELÉFONO
   // -------------------------------------------------------------
   if (phoneAudioToggle) {
     phoneAudioToggle.addEventListener("click", () => {
@@ -426,10 +575,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-
   // -------------------------------------------------------------
-  // 10. SELECTOR DE CATEGORÍA (REELS / EVENTOS)
+  // 13. SELECTOR DE CATEGORÍA (REELS / EVENTOS)
   // -------------------------------------------------------------
   if (tabReels && tabEventos) {
     tabReels.addEventListener("click", () => {

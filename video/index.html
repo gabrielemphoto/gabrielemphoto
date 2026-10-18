@@ -549,6 +549,25 @@
             </div>
           </div>
 
+          <!-- CONTROLES LATERALES DE NAVEGACIÓN PARA COMPUTADORA (EXTERNO AL TELÉFONO) -->
+          <div class="desktop-phone-nav" id="desktopPhoneNav" aria-label="Navegación de videos en computadora">
+            <button class="nav-control-btn btn-prev-video" id="btnPhonePrev" aria-label="Video anterior" title="Video anterior (Rueda Arriba / Flecha Arriba)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </button>
+            <div class="nav-video-counter" id="desktopVideoCounter" title="Video actual">
+              <span id="currentVideoNum">01</span>
+              <span class="counter-sep">/</span>
+              <span id="totalVideoNum">05</span>
+            </div>
+            <button class="nav-control-btn btn-next-video" id="btnPhoneNext" aria-label="Siguiente video" title="Siguiente video (Rueda Abajo / Flecha Abajo)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+
           <!-- BOTÓN EXTERNO PARA COTIZAR (UBICADO FUERA DEL TELÉFONO SEGÚN INSTRUCCIÓN) -->
           <div class="phone-external-actions">
             <button class="btn-external-quote" onclick="quoteActiveVideo()">
