@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // NAVEGACIÓN PROGRAMÁTICA ENTRE SLIDES (SUAVE Y PRECISA)
+  // NAVEGACIÓN PROGRAMÁTICA ENTRE SLIDES (SUAVE Y PRECISA, SIN MOVER LA PÁGINA)
   function goToSlide(index) {
     if (!tiktokFeed) return;
     const slides = tiktokFeed.querySelectorAll(".tiktok-slide");
@@ -293,8 +293,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentSlideIndex = clampedIndex;
 
-    // Desplazamiento nativo suave hacia la diapositiva objetivo
-    targetSlide.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Desplazamiento exclusivo dentro del contenedor del teléfono (NO mueve la ventana de la página)
+    const slideHeight = tiktokFeed.clientHeight || targetSlide.offsetHeight;
+    tiktokFeed.scrollTo({
+      top: clampedIndex * slideHeight,
+      behavior: "smooth"
+    });
 
     // Activar reproducción y título
     playSlideVideo(targetSlide);
@@ -452,6 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------------------------------------
   if (btnPhoneNext) {
     btnPhoneNext.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
       goToSlide(currentSlideIndex + 1);
     });
@@ -459,6 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (btnPhonePrev) {
     btnPhonePrev.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
       goToSlide(currentSlideIndex - 1);
     });
