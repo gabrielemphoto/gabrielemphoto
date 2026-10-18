@@ -474,8 +474,9 @@ body.theme-dark-video::after {
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto 10px;
+  padding: 30px 15px 35px;
 }
 
 /* RECUADROS FLOTANTES QUE EMERGEN DESDE EL TEXTO Y FLOTAN (INSPIRACIÓN REFERENCIA 2) */
@@ -507,34 +508,34 @@ body.theme-dark-video::after {
   color: var(--text-pure);
 }
 
-/* Posiciones estratégicas alrededor del texto emergiendo de dentro */
+/* Posiciones perimetrales que enmarcan el título sin tapar ninguna letra */
 .pill-marca {
-  top: -8px;
-  left: 4%;
+  top: -14px;
+  left: -15px;
   border-color: rgba(245, 158, 11, 0.6);
   box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
   animation: emergeFromText 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, floatBadge1 5s ease-in-out infinite alternate 0.8s;
 }
 
 .pill-vende {
-  top: 15px;
-  right: 2%;
+  top: -14px;
+  right: -15px;
   border-color: rgba(6, 182, 212, 0.6);
   box-shadow: 0 8px 24px rgba(6, 182, 212, 0.2);
   animation: emergeFromText 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards, floatBadge2 5.5s ease-in-out infinite alternate 0.92s;
 }
 
 .pill-ritmo {
-  bottom: 25px;
-  left: 2%;
+  bottom: -16px;
+  left: -15px;
   border-color: rgba(139, 92, 246, 0.55);
   box-shadow: 0 8px 24px rgba(139, 92, 246, 0.16);
   animation: emergeFromText 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards, floatBadge3 5.8s ease-in-out infinite alternate 1.04s;
 }
 
 .pill-color {
-  bottom: -10px;
-  right: 6%;
+  bottom: -16px;
+  right: -15px;
   border-color: rgba(255, 255, 255, 0.35);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.14);
   animation: emergeFromText 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.36s forwards, floatBadge4 5.2s ease-in-out infinite alternate 1.16s;
@@ -1918,21 +1919,25 @@ body.theme-dark-video::after {
     padding-bottom: 60px;
   }
 
+  .hero-title-stage {
+    padding: 30px 10px 35px;
+  }
+
   .pill-marca {
-    top: -15px;
-    left: 1%;
+    top: -14px;
+    left: 4px;
   }
   .pill-vende {
-    top: -15px;
-    right: 1%;
+    top: -14px;
+    right: 4px;
   }
   .pill-ritmo {
-    bottom: -25px;
-    left: 1%;
+    bottom: -16px;
+    left: 4px;
   }
   .pill-color {
-    bottom: -25px;
-    right: 1%;
+    bottom: -16px;
+    right: 4px;
   }
 
   .about-glass-card {
