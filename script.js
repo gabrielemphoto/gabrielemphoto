@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initInteractions() {
     // 1. Interacción en los Reels de video: clic para mutear / desmutear
-    document.querySelectorAll(".reel-card").forEach(card => {
+    const reelCards = document.querySelectorAll(".reel-card");
+    const reelVideos = document.querySelectorAll(".reel-card video");
+
+    reelCards.forEach(card => {
       const video = card.querySelector("video");
       if (!video) return;
 
@@ -26,12 +29,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // 2. Timecode animado para DaVinci Resolve a 24 FPS reales
+    // OPTIMIZACIÓN DE RENDIMIENTO: IntersectionObserver para pausar videos off-screen
+    if ('IntersectionObserver' in window && reelVideos.length > 0) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const v = entry.target;
+          if (entry.isIntersecting) {
+            if (v.paused) {
+              const playPromise = v.play();
+              if (playPromise !== undefined) playPromise.catch(() => {});
+            }
+          } else {
+            if (!v.paused) {
+              v.pause();
+            }
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "80px 0px"
+      });
+
+      reelVideos.forEach(v => videoObserver.observe(v));
+    }
+
+    // Pausar reproducción cuando el usuario minimiza o cambia de pestaña
+    document.addEventListener("visibilitychange", () => {
+      reelVideos.forEach(v => {
+        if (document.hidden) {
+          if (!v.paused) v.pause();
+        } else {
+          const rect = v.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            v.play().catch(() => {});
+          }
+        }
+      });
+    });
+
+    // 2. Timecode animado para DaVinci Resolve (solo corre cuando está visible en pantalla)
     const tcElement = document.getElementById("davinci-tc");
     if (tcElement) {
       let frame = 12;
       let sec = 0;
-      setInterval(() => {
+      let tcInterval = null;
+
+      const updateTimecode = () => {
         frame++;
         if (frame >= 24) {
           frame = 0;
@@ -43,7 +86,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const sStr = String(sec).padStart(2, "0");
         const fStr = String(frame).padStart(2, "0");
         tcElement.textContent = `01:00:${sStr}:${fStr}`;
-      }, 1000 / 24);
+      };
+
+      if ('IntersectionObserver' in window) {
+        const tcObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!tcInterval) tcInterval = setInterval(updateTimecode, 1000 / 24);
+            } else {
+              if (tcInterval) {
+                clearInterval(tcInterval);
+                tcInterval = null;
+              }
+            }
+          });
+        }, { threshold: 0.1 });
+        tcObserver.observe(tcElement);
+      } else {
+        setInterval(updateTimecode, 1000 / 24);
+      }
     }
 
     // 3. Transición cinemática fluida hacia las páginas de portafolio

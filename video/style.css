@@ -1700,6 +1700,7 @@ body.theme-dark-video::after {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: translateZ(0);
 }
 
 /* OVERLAY DE TAP PARA PAUSA/PLAY */

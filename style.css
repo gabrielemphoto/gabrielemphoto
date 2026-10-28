@@ -376,6 +376,7 @@ html.skip-intro-immediate body {
   z-index: 1;
   transition: scale 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
   animation: levitar 7s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* El efecto de Cristal Gris */
@@ -411,6 +412,7 @@ html.skip-intro-immediate body {
   display: block;
   border-radius: inherit;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateZ(0);
 }
 
 .split:hover .float-el {

@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@700;900&family=VT323&display=swap"
       rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=5.3">
+    <link rel="stylesheet" href="style.css?v=5.4">
     <script>
       // Si el usuario ya vio la intro en esta sesión, saltarla de inmediato sin parpadeo
       if (sessionStorage.getItem("introSeen") === "true" || window.location.search.includes("nointro")) {
@@ -185,27 +185,27 @@
 
         <!-- TARJETAS GLASSMORPHISM (Clips de video verticales formato Reel) -->
         <div class="float-el glass-card video-1 reel-card">
-          <video autoplay muted loop playsinline>
+          <video autoplay muted loop playsinline preload="metadata">
             <source src="assets/reel-1.webm" type="video/webm">
           </video>
           <div class="reel-badge"><span class="reel-dot"></span>REEL 01</div>
         </div>
         <div class="float-el glass-card video-2 reel-card">
-          <video autoplay muted loop playsinline>
+          <video autoplay muted loop playsinline preload="metadata">
             <source src="assets/reel-2.webm" type="video/webm">
             <source src="assets/reel-2.mp4" type="video/mp4">
           </video>
           <div class="reel-badge"><span class="reel-dot"></span>REEL 02</div>
         </div>
         <div class="float-el glass-card video-3 reel-card">
-          <video autoplay muted loop playsinline poster="assets/reel-3_poster.webp">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-3_poster.webp">
             <source src="assets/reel-3.webm" type="video/webm">
             <source src="video/assets/INMOBILIARIA/video inmobiliario 2.mp4" type="video/mp4">
           </video>
           <div class="reel-badge"><span class="reel-dot"></span>REEL 03</div>
         </div>
         <div class="float-el glass-card video-4 reel-card">
-          <video autoplay muted loop playsinline poster="assets/reel-4_poster.webp">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-4_poster.webp">
             <source src="assets/reel-4.webm" type="video/webm">
             <source src="video/assets/INMOBILIARIA/Video terrenos .mp4" type="video/mp4">
           </video>
@@ -293,7 +293,7 @@
 
     </main>
 
-    <script src="script.js?v=5.3"></script>
+    <script src="script.js?v=5.4"></script>
   </body>
 
 </html>

@@ -289,32 +289,60 @@ document.addEventListener("DOMContentLoaded", () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   // -------------------------------------------------------------
-  // 5. APERTURA DE LA CARPETA 📂 AL SCROLLEAR A LA GALERÍA
+  // 5. APERTURA DE CARPETA Y OPTIMIZACIÓN DE REPRODUCCIÓN (SOLO EN VIEWPORT)
   // -------------------------------------------------------------
   const folderStage = document.getElementById("folderStage");
   const gallerySection = document.getElementById("galeria");
+  let isGalleryInViewport = false;
 
-  if (gallerySection && folderStage) {
-    const folderObserver = new IntersectionObserver((entries) => {
+  if (gallerySection) {
+    const galleryObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          folderStage.classList.add("folder-opened");
+          isGalleryInViewport = true;
+          if (folderStage) folderStage.classList.add("folder-opened");
+          // Reanudar video si el usuario llega a la galería
+          if (currentActiveVideo && currentActiveVideo.paused) {
+            const p = currentActiveVideo.play();
+            if (p !== undefined) p.catch(() => {});
+          }
+        } else {
+          isGalleryInViewport = false;
+          // Pausar de inmediato para liberar hardware decoders y GPU cuando está fuera de pantalla
+          if (currentActiveVideo && !currentActiveVideo.paused) {
+            currentActiveVideo.pause();
+          }
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.12,
+      rootMargin: "60px 0px"
     });
 
-    folderObserver.observe(gallerySection);
+    galleryObserver.observe(gallerySection);
 
     const checkFolderVisible = () => {
       const rect = gallerySection.getBoundingClientRect();
       if (rect.top < window.innerHeight * 0.85) {
-        folderStage.classList.add("folder-opened");
+        if (folderStage) folderStage.classList.add("folder-opened");
+      }
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        isGalleryInViewport = true;
       }
     };
     window.addEventListener("scroll", checkFolderVisible, { passive: true });
     checkFolderVisible();
+
+    // Pausar video si el usuario cambia de pestaña
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        if (currentActiveVideo && !currentActiveVideo.paused) currentActiveVideo.pause();
+      } else {
+        if (isGalleryInViewport && currentActiveVideo && currentActiveVideo.paused) {
+          currentActiveVideo.play().catch(() => {});
+        }
+      }
+    });
   }
 
   // -------------------------------------------------------------
@@ -416,9 +444,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let html = "";
 
     videos.forEach((item, index) => {
+      // Optimización: solo el video activo descarga datos, el siguiente descarga metadatos;
+      // los demás quedan en 'none' para no saturar memoria ni red en dispositivos móviles
+      const preloadAttr = index === 0 ? "auto" : (index === 1 ? "metadata" : "none");
       html += `
         <div class="tiktok-slide" data-index="${index}" data-title="${item.title}">
-          <video class="phone-video-player" playsinline loop ${isGlobalMuted ? "muted" : ""} preload="${index === 0 ? "auto" : "metadata"}" poster="${item.poster || ""}">
+          <video class="phone-video-player" playsinline loop ${isGlobalMuted ? "muted" : ""} preload="${preloadAttr}" poster="${item.poster || ""}">
             <source src="${item.src}" type="video/webm">
             ${item.mp4Fallback ? `<source src="${item.mp4Fallback}" type="video/mp4">` : ""}
           </video>
@@ -496,13 +527,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       };
 
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Si el navegador bloquea autoplay sin gesto de usuario, forzar muted y reintentar
-          video.muted = true;
-          video.play().catch(() => {});
-        });
+      // Precargar metadatos del siguiente video para que el siguiente deslizamiento sea instantáneo
+      const nextSlide = tiktokFeed.querySelector(`.tiktok-slide[data-index="${idx + 1}"]`);
+      if (nextSlide) {
+        const nextVid = nextSlide.querySelector("video");
+        if (nextVid && nextVid.preload === "none") {
+          nextVid.preload = "metadata";
+        }
+      }
+
+      // Solo reproducir si la galería está actualmente visible en pantalla
+      if (isGalleryInViewport) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            video.muted = true;
+            video.play().catch(() => {});
+          });
+        }
       }
     }
   }
