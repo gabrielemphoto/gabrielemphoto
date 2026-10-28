@@ -522,6 +522,15 @@ html.skip-intro-immediate body {
   animation-delay: -3.5s;
 }
 
+.video-3 {
+  --rot: -5deg;
+  width: clamp(130px, 9.5vw, 155px);
+  aspect-ratio: 9 / 16;
+  top: 1%;
+  left: 2%;
+  animation-delay: -2.2s;
+}
+
 /* LÍNEA DE TIEMPO ANIMADA ESTILO DAVINCI RESOLVE */
 .timeline-davinci {
   --rot: 2deg;
@@ -837,8 +846,8 @@ html.skip-intro-immediate body {
 
 .ad-cursor {
   width: clamp(50px, 8vw, 85px);
-  top: 14%;
-  left: 12%;
+  top: 8%;
+  left: 28%;
   animation-delay: -1.5s;
   transform: rotate(-25deg);
 }
@@ -1392,6 +1401,7 @@ body.portfolio-body {
   .split-right {
     border-top: 1px solid rgba(13, 13, 13, 0.08) !important;
     padding-top: 60px !important;
+    min-height: calc(100vh + 220px) !important;
   }
 
   /* TÍTULOS Y BOTONES EN MÓVIL */
@@ -1515,12 +1525,25 @@ body.portfolio-body {
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
   }
 
-  /* LÍNEA DE TIEMPO DAVINCI: CERCANA DIRECTAMENTE DEBAJO DE "VER PORTAFOLIO" */
+  /* Reel 3: Video Inmobiliario 2 (Abajo a la Izquierda) */
+  .video-3 {
+    width: clamp(118px, 31vw, 136px) !important;
+    aspect-ratio: 9 / 16 !important;
+    top: calc(50% + 72px) !important;
+    bottom: auto !important;
+    left: -4px !important;
+    right: auto !important;
+    --rot: -6deg;
+    z-index: 2 !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  }
+
+  /* LÍNEA DE TIEMPO DAVINCI: DEBAJO DE LOS REELS CON ESPACIO NATURAL */
   .timeline-davinci {
     display: block !important;
     width: min(90vw, 345px) !important;
     height: 125px !important;
-    top: calc(50% + 78px) !important;
+    top: calc(50% + 325px) !important;
     bottom: auto !important;
     left: 50% !important;
     right: auto !important;

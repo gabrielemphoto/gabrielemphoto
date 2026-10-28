@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <link rel="stylesheet" href="style.css?v=8.1">
 </head>
 
 <body class="page-fade-in theme-dark-video">
@@ -402,7 +402,13 @@
           <button class="cat-tab-btn active" data-category="reels" id="tab-reels">
             <span class="tab-folder-icon">📂</span>
             <span class="tab-label">Reels</span>
-            <span class="tab-counter">5</span>
+            <span class="tab-counter">6</span>
+          </button>
+
+          <button class="cat-tab-btn" data-category="inmobiliaria" id="tab-inmobiliaria">
+            <span class="tab-folder-icon">📁</span>
+            <span class="tab-label">Inmobiliaria</span>
+            <span class="tab-counter">8</span>
           </button>
 
           <button class="cat-tab-btn" data-category="eventos" id="tab-eventos">
@@ -460,25 +466,10 @@
 
               <!-- CONTENEDOR CON SCROLL VERTICAL SNAP TIKTOK (PANTALLA LIMPIA DE ELEMENTOS MOLESTOS) -->
               <div class="tiktok-feed-container" id="tiktokFeed">
-                
-                <!-- REEL 1: LOMAS -->
-                <div class="tiktok-slide active" data-index="0" data-category="reels" data-title="Inmobiliaria de Lujo Lomas" data-sub="Master 4K • Edición Dinámica">
-                  <video class="phone-video-player" playsinline loop muted preload="metadata" poster="assets/Reels/VIDEO LOMAS FINAL_poster.webp">
-                    <source src="assets/Reels/VIDEO LOMAS FINAL.mp4" type="video/mp4">
-                  </video>
-                  <div class="video-tap-overlay">
-                    <div class="play-pause-icon">▶</div>
-                  </div>
-                  <div class="tiktok-video-overlay">
-                    <span class="overlay-tag">Reels • Inmobiliaria</span>
-                    <h3 class="overlay-title">Inmobiliaria Lomas</h3>
-                    <p class="overlay-sub">Color grade cinematográfico y ritmo dinámico</p>
-                  </div>
-                </div>
-
-                <!-- REEL 2: VIDEO MA -->
-                <div class="tiktok-slide" data-index="1" data-category="reels" data-title="Campaña Motion & Marca" data-sub="Montaje Rítmico y Retención">
-                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/VIDEO MA_poster.webp">
+                <!-- REEL 1: VIDEO MA (PRIMER VIDEO DE REELS SEGÚN INSTRUCCIÓN) -->
+                <div class="tiktok-slide active" data-index="0" data-category="reels" data-title="Campaña Motion MA" data-sub="Transiciones de impacto & sound design">
+                  <video class="phone-video-player" playsinline loop muted preload="auto" poster="assets/Reels/VIDEO MA_poster.webp">
+                    <source src="assets/Reels/VIDEO MA.webm" type="video/webm">
                     <source src="assets/Reels/VIDEO MA.mp4" type="video/mp4">
                   </video>
                   <div class="video-tap-overlay">
@@ -491,39 +482,26 @@
                   </div>
                 </div>
 
-                <!-- REEL 3: VILLA EL FARO -->
-                <div class="tiktok-slide" data-index="2" data-category="reels" data-title="Villa El Faro" data-sub="Turismo, Paisaje & Dron">
-                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/Video Villa el Faro_poster.webp">
-                    <source src="assets/Reels/Video Villa el Faro.mp4" type="video/mp4">
+                <!-- REEL 2: 1 -->
+                <div class="tiktok-slide" data-index="1" data-category="reels" data-title="Producción de Contenido" data-sub="Creatividad y ritmo visual de alto impacto">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/1_poster.webp">
+                    <source src="assets/Reels/1.webm" type="video/webm">
+                    <source src="assets/Reels/1.mp4" type="video/mp4">
                   </video>
                   <div class="video-tap-overlay">
                     <div class="play-pause-icon">▶</div>
                   </div>
                   <div class="tiktok-video-overlay">
-                    <span class="overlay-tag">Reels • Turismo</span>
-                    <h3 class="overlay-title">Villa El Faro</h3>
-                    <p class="overlay-sub">Tomas aéreas y narrativa visual</p>
+                    <span class="overlay-tag">Reels • Contenido</span>
+                    <h3 class="overlay-title">Producción de Contenido</h3>
+                    <p class="overlay-sub">Creatividad y ritmo visual de alto impacto</p>
                   </div>
                 </div>
 
-                <!-- REEL 4: TURISMO -->
-                <div class="tiktok-slide" data-index="3" data-category="reels" data-title="Destino Turístico" data-sub="Color Grading DaVinci">
-                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/video turismo_poster.webp">
-                    <source src="assets/Reels/video turismo.mp4" type="video/mp4">
-                  </video>
-                  <div class="video-tap-overlay">
-                    <div class="play-pause-icon">▶</div>
-                  </div>
-                  <div class="tiktok-video-overlay">
-                    <span class="overlay-tag">Reels • Destino</span>
-                    <h3 class="overlay-title">Destino Turístico</h3>
-                    <p class="overlay-sub">Ritmo envolvente y vibrante</p>
-                  </div>
-                </div>
-
-                <!-- REEL 5: PROMO LA FACTORIA -->
-                <div class="tiktok-slide" data-index="4" data-category="reels" data-title="Promo La Factoría" data-sub="Edición Rápida con Efectos">
+                <!-- REEL 3: PROMO LA FACTORIA -->
+                <div class="tiktok-slide" data-index="2" data-category="reels" data-title="Promo La Factoría" data-sub="Edición Rápida con Efectos">
                   <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/crudo promo la factoria_poster.webp">
+                    <source src="assets/Reels/crudo promo la factoria.webm" type="video/webm">
                     <source src="assets/Reels/crudo promo la factoria.mp4" type="video/mp4">
                   </video>
                   <div class="video-tap-overlay">
@@ -536,6 +514,53 @@
                   </div>
                 </div>
 
+                <!-- REEL 4: SPOT PUBLICITARIO -->
+                <div class="tiktok-slide" data-index="3" data-category="reels" data-title="Spot Publicitario" data-sub="Narrativa directa y dinámicas de conversión">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/promocion español(1)_poster.webp">
+                    <source src="assets/Reels/promocion español(1).webm" type="video/webm">
+                    <source src="assets/Reels/promocion español(1).mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Promoción</span>
+                    <h3 class="overlay-title">Spot Publicitario</h3>
+                    <p class="overlay-sub">Narrativa directa y dinámicas de conversión</p>
+                  </div>
+                </div>
+
+                <!-- REEL 5: SHOWCASE CREATIVO -->
+                <div class="tiktok-slide" data-index="4" data-category="reels" data-title="Showcase Creativo" data-sub="Edición de corte rápido y atmósfera visual">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/video 1_poster.webp">
+                    <source src="assets/Reels/video 1.webm" type="video/webm">
+                    <source src="assets/Reels/video 1.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Showcase</span>
+                    <h3 class="overlay-title">Showcase Creativo</h3>
+                    <p class="overlay-sub">Edición de corte rápido y atmósfera visual</p>
+                  </div>
+                </div>
+
+                <!-- REEL 6: DESTINO TURÍSTICO -->
+                <div class="tiktok-slide" data-index="5" data-category="reels" data-title="Destino Turístico" data-sub="Color Grading DaVinci">
+                  <video class="phone-video-player" playsinline loop muted preload="none" poster="assets/Reels/video turismo_poster.webp">
+                    <source src="assets/Reels/video turismo.webm" type="video/webm">
+                    <source src="assets/Reels/video turismo.mp4" type="video/mp4">
+                  </video>
+                  <div class="video-tap-overlay">
+                    <div class="play-pause-icon">▶</div>
+                  </div>
+                  <div class="tiktok-video-overlay">
+                    <span class="overlay-tag">Reels • Turismo</span>
+                    <h3 class="overlay-title">Destino Turístico</h3>
+                    <p class="overlay-sub">Color grading y ritmo envolvente</p>
+                  </div>
+                </div>
               </div>
 
               <!-- BARRA DE PROGRESO INFERIOR DEL VIDEO -->
@@ -559,7 +584,7 @@
             <div class="nav-video-counter" id="desktopVideoCounter" title="Video actual">
               <span id="currentVideoNum">01</span>
               <span class="counter-sep">/</span>
-              <span id="totalVideoNum">05</span>
+              <span id="totalVideoNum">06</span>
             </div>
             <button type="button" class="nav-control-btn btn-next-video" id="btnPhoneNext" aria-label="Siguiente video" title="Siguiente video (Rueda Abajo / Flecha Abajo)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -653,7 +678,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=8.0"></script>
+  <script src="script.js?v=8.1"></script>
 </body>
 
 </html>

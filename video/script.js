@@ -8,51 +8,132 @@
 const VIDEO_DATABASE = {
   reels: [
     {
-      src: "assets/Reels/VIDEO LOMAS FINAL.mp4",
-      poster: "assets/Reels/VIDEO LOMAS FINAL_poster.webp",
-      tag: "Reels • Inmobiliaria",
-      title: "Inmobiliaria Lomas",
-      sub: "Color grade cinematográfico y ritmo dinámico"
-    },
-    {
-      src: "assets/Reels/VIDEO MA.mp4",
+      src: "assets/Reels/VIDEO MA.webm",
+      mp4Fallback: "assets/Reels/VIDEO MA.mp4",
       poster: "assets/Reels/VIDEO MA_poster.webp",
       tag: "Reels • Marca",
       title: "Campaña Motion MA",
       sub: "Transiciones de impacto & sound design"
     },
     {
-      src: "assets/Reels/Video Villa el Faro.mp4",
-      poster: "assets/Reels/Video Villa el Faro_poster.webp",
-      tag: "Reels • Turismo",
-      title: "Villa El Faro",
-      sub: "Tomas aéreas y narrativa visual"
+      src: "assets/Reels/1.webm",
+      mp4Fallback: "assets/Reels/1.mp4",
+      poster: "assets/Reels/1_poster.webp",
+      tag: "Reels • Contenido",
+      title: "Producción de Contenido",
+      sub: "Creatividad y ritmo visual de alto impacto"
     },
     {
-      src: "assets/Reels/video turismo.mp4",
-      poster: "assets/Reels/video turismo_poster.webp",
-      tag: "Reels • Destino",
-      title: "Destino Turístico",
-      sub: "Ritmo envolvente y vibrante"
-    },
-    {
-      src: "assets/Reels/crudo promo la factoria.mp4",
+      src: "assets/Reels/crudo promo la factoria.webm",
+      mp4Fallback: "assets/Reels/crudo promo la factoria.mp4",
       poster: "assets/Reels/crudo promo la factoria_poster.webp",
       tag: "Reels • Comercial",
       title: "Promo La Factoría",
       sub: "Visual comercial optimizado para retención"
+    },
+    {
+      src: "assets/Reels/promocion español(1).webm",
+      mp4Fallback: "assets/Reels/promocion español(1).mp4",
+      poster: "assets/Reels/promocion español(1)_poster.webp",
+      tag: "Reels • Promoción",
+      title: "Spot Publicitario",
+      sub: "Narrativa directa y dinámicas de conversión"
+    },
+    {
+      src: "assets/Reels/video 1.webm",
+      mp4Fallback: "assets/Reels/video 1.mp4",
+      poster: "assets/Reels/video 1_poster.webp",
+      tag: "Reels • Showcase",
+      title: "Showcase Creativo",
+      sub: "Edición de corte rápido y atmósfera visual"
+    },
+    {
+      src: "assets/Reels/video turismo.webm",
+      mp4Fallback: "assets/Reels/video turismo.mp4",
+      poster: "assets/Reels/video turismo_poster.webp",
+      tag: "Reels • Turismo",
+      title: "Destino Turístico",
+      sub: "Color grading y ritmo envolvente"
+    }
+  ],
+  inmobiliaria: [
+    {
+      src: "assets/INMOBILIARIA/video inmobiliario 2.webm",
+      mp4Fallback: "assets/INMOBILIARIA/video inmobiliario 2.mp4",
+      poster: "assets/INMOBILIARIA/video inmobiliario 2_poster.webp",
+      tag: "Inmobiliaria • Luxury",
+      title: "Recorrido Inmobiliario",
+      sub: "Tomas fluidas, iluminación y diseño de espacios"
+    },
+    {
+      src: "assets/INMOBILIARIA/VIDEO LOMAS FINAL.webm",
+      mp4Fallback: "assets/INMOBILIARIA/VIDEO LOMAS FINAL.mp4",
+      poster: "assets/INMOBILIARIA/VIDEO LOMAS FINAL_poster.webp",
+      tag: "Inmobiliaria • Residencial",
+      title: "Inmobiliaria Lomas",
+      sub: "Color grade cinematográfico y arquitectura"
+    },
+    {
+      src: "assets/INMOBILIARIA/Video Villa el Faro.webm",
+      mp4Fallback: "assets/INMOBILIARIA/Video Villa el Faro.mp4",
+      poster: "assets/INMOBILIARIA/Video Villa el Faro_poster.webp",
+      tag: "Inmobiliaria • Exclusivo",
+      title: "Villa El Faro",
+      sub: "Vistas panorámicas aéreas y estilo de vida"
+    },
+    {
+      src: "assets/INMOBILIARIA/Video Luisana final2.webm",
+      mp4Fallback: "assets/INMOBILIARIA/Video Luisana final2.mp4",
+      poster: "assets/INMOBILIARIA/Video Luisana final2_poster.webp",
+      tag: "Inmobiliaria • Showcase",
+      title: "Propiedad Luisana",
+      sub: "Presentación arquitectónica y detalles premium"
+    },
+    {
+      src: "assets/INMOBILIARIA/Video Luisana Townhouses.webm",
+      mp4Fallback: "assets/INMOBILIARIA/Video Luisana Townhouses.mp4",
+      poster: "assets/INMOBILIARIA/Video Luisana Townhouses_poster.webp",
+      tag: "Inmobiliaria • Townhouses",
+      title: "Townhouses Exclusivos",
+      sub: "Perspectiva espacial y estilo contemporáneo"
+    },
+    {
+      src: "assets/INMOBILIARIA/Video terrenos .webm",
+      mp4Fallback: "assets/INMOBILIARIA/Video terrenos .mp4",
+      poster: "assets/INMOBILIARIA/Video terrenos _poster.webp",
+      tag: "Inmobiliaria • Terrenos & Desarrollo",
+      title: "Desarrollo de Terrenos",
+      sub: "Planificación y tomas de gran escala"
+    },
+    {
+      src: "assets/INMOBILIARIA/Edición  con IA Posada Guatamare.webm",
+      mp4Fallback: "assets/INMOBILIARIA/Edición  con IA Posada Guatamare.mp4",
+      poster: "assets/INMOBILIARIA/Edición  con IA Posada Guatamare_poster.webp",
+      tag: "Inmobiliaria • Hospedaje & IA",
+      title: "Posada Guatamare",
+      sub: "Postproducción avanzada con IA y atmósfera cálida"
+    },
+    {
+      src: "assets/INMOBILIARIA/VIDEO MANSION DE LUJO.webm",
+      mp4Fallback: "assets/INMOBILIARIA/VIDEO MANSION DE LUJO.mp4",
+      poster: "assets/INMOBILIARIA/VIDEO MANSION DE LUJO_poster.webp",
+      tag: "Inmobiliaria • Mansión High-End",
+      title: "Mansión de Lujo",
+      sub: "Tour cinemático completo y máxima elegancia"
     }
   ],
   eventos: [
     {
-      src: "assets/Eventos/TALENTO MGTA SHOW MUNDIAL.mp4",
+      src: "assets/Eventos/TALENTO MGTA SHOW MUNDIAL.webm",
+      mp4Fallback: "assets/Eventos/TALENTO MGTA SHOW MUNDIAL.mp4",
       poster: "assets/Eventos/TALENTO MGTA SHOW MUNDIAL_poster.webp",
       tag: "Eventos • Show en Vivo",
       title: "Talento Margarita Show",
       sub: "Iluminación de escenario y montaje multicámara"
     },
     {
-      src: "assets/Eventos/Katherin y Valeria.mp4",
+      src: "assets/Eventos/Katherin y Valeria.webm",
+      mp4Fallback: "assets/Eventos/Katherin y Valeria.mp4",
       poster: "assets/Eventos/Katherin y Valeria_poster.webp",
       tag: "Eventos • Social",
       title: "Katherin & Valeria",
@@ -65,11 +146,17 @@ const VIDEO_DATABASE = {
 let currentCategory = "reels";
 let isGlobalMuted = true;
 let currentActiveVideo = null;
-let currentActiveTitle = "Inmobiliaria Lomas";
+let currentActiveTitle = "Campaña Motion MA";
 
 // FUNCIÓN PARA COTIZAR EL VIDEO ACTIVO DESDE EL BOTÓN EXTERNO
 window.quoteActiveVideo = function () {
-  const title = currentActiveTitle || (currentCategory === "reels" ? "Reel / Formato Vertical" : "Evento Social / Cobertura");
+  const categoryNames = {
+    reels: "Reels / Formato Vertical",
+    inmobiliaria: "Producción Inmobiliaria",
+    eventos: "Eventos y Cobertura"
+  };
+  const catName = categoryNames[currentCategory] || "Producción Audiovisual";
+  const title = currentActiveTitle || catName;
   const phone = "584146860112";
   const message = `Hola Gabriel, estuve viendo tu galería de videos en la sección de ${currentCategory.toUpperCase()} y me encantó el estilo de "${title}". Me gustaría cotizar un proyecto similar para mi marca.`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
@@ -332,7 +419,8 @@ document.addEventListener("DOMContentLoaded", () => {
       html += `
         <div class="tiktok-slide" data-index="${index}" data-title="${item.title}">
           <video class="phone-video-player" playsinline loop ${isGlobalMuted ? "muted" : ""} preload="${index === 0 ? "auto" : "metadata"}" poster="${item.poster || ""}">
-            <source src="${item.src}" type="video/mp4">
+            <source src="${item.src}" type="video/webm">
+            ${item.mp4Fallback ? `<source src="${item.mp4Fallback}" type="video/mp4">` : ""}
           </video>
           <div class="video-tap-overlay">
             <div class="play-pause-icon">▶</div>
@@ -582,23 +670,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------------------------------------------
-  // 13. SELECTOR DE CATEGORÍA (REELS / EVENTOS)
+  // 13. SELECTOR DE CATEGORÍA DINÁMICO (REELS / INMOBILIARIA / EVENTOS)
   // -------------------------------------------------------------
-  if (tabReels && tabEventos) {
-    tabReels.addEventListener("click", () => {
-      if (currentCategory === "reels") return;
-      tabReels.classList.add("active");
-      tabEventos.classList.remove("active");
-      renderTikTokFeed("reels");
-    });
+  const categoryTabs = document.querySelectorAll(".cat-tab-btn");
+  categoryTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const cat = tab.getAttribute("data-category");
+      if (!cat || cat === currentCategory) return;
 
-    tabEventos.addEventListener("click", () => {
-      if (currentCategory === "eventos") return;
-      tabEventos.classList.add("active");
-      tabReels.classList.remove("active");
-      renderTikTokFeed("eventos");
+      categoryTabs.forEach(t => {
+        t.classList.remove("active");
+        const icon = t.querySelector(".tab-folder-icon");
+        if (icon) icon.textContent = "📁";
+      });
+
+      tab.classList.add("active");
+      const activeIcon = tab.querySelector(".tab-folder-icon");
+      if (activeIcon) activeIcon.textContent = "📂";
+
+      renderTikTokFeed(cat);
     });
-  }
+  });
 
   // INICIALIZAR FEED CON "REELS"
   renderTikTokFeed("reels");
