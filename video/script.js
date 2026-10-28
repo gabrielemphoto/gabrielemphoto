@@ -460,13 +460,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalSlides = tiktokFeed.querySelectorAll(".tiktok-slide").length;
     updateDesktopCounter(currentSlideIndex + 1, totalSlides);
 
-    // Pausar cualquier otro video que esté reproduciéndose
+    // Pausar y reiniciar cualquier otro video para que al volver empiece desde el inicio
     tiktokFeed.querySelectorAll(".tiktok-slide").forEach(s => {
       if (s !== slide) {
         const v = s.querySelector("video");
         if (v) {
           try {
             v.pause();
+            v.currentTime = 0;
           } catch (e) {}
         }
         s.classList.remove("active", "is-paused");
@@ -478,6 +479,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const video = slide.querySelector("video");
     if (video) {
+      try {
+        video.currentTime = 0;
+      } catch (e) {}
+      if (phoneProgressBar) {
+        phoneProgressBar.style.width = "0%";
+      }
       video.muted = isGlobalMuted;
       currentActiveVideo = video;
 

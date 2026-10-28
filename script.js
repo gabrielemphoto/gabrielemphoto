@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // SI YA SE VIO LA INTRO EN ESTA SESIÓN: OMITIR COMPLETAMENTE
-  if (sessionStorage.getItem("introSeen") === "true") {
+  if (sessionStorage.getItem("introSeen") === "true" || window.location.search.includes("nointro")) {
     introFinished = true;
     if (loadingScreen) loadingScreen.style.display = "none";
     if (mainContent) {
