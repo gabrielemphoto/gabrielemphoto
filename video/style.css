@@ -993,7 +993,16 @@ body.theme-dark-video::after {
   color: var(--text-muted);
   font-size: 1.02rem;
   line-height: 1.75;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.about-description:last-of-type {
+  margin-bottom: 30px;
+}
+
+.about-description strong {
+  color: var(--text-pure);
+  font-weight: 700;
 }
 
 .about-metrics-row {
@@ -1016,6 +1025,20 @@ body.theme-dark-video::after {
   font-weight: 900;
   color: var(--text-pure);
   letter-spacing: -0.02em;
+}
+
+.metric-num.metric-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(1.12rem, 1.3vw, 1.38rem);
+  white-space: nowrap;
+}
+
+.metric-location-icon {
+  color: var(--accent-amber);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.45));
 }
 
 .metric-lbl {
