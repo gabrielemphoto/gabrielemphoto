@@ -5,6 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Gabriel EM | Filmmaking & Edición de Videos • Portafolio</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR8Z5F76HD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QR8Z5F76HD');
+
+    // Rastreo automático de clics a WhatsApp (Leads / Cotizaciones)
+    document.addEventListener("click", function(e) {
+      var a = e.target.closest("a");
+      if (a && a.href && (a.href.indexOf("wa.me") !== -1 || a.href.indexOf("whatsapp") !== -1)) {
+        if (typeof gtag === "function") {
+          gtag("event", "generate_lead", {
+            event_category: "Conversion",
+            event_label: (a.textContent || "").trim().replace(/\s+/g, " ") || a.href,
+            link_url: a.href,
+            transport_type: "beacon"
+          });
+        }
+      }
+    }, { passive: true });
+  </script>
+
 
   <!-- FUENTES GOOGLE: MONTSERRAT, CORMORANT GARAMOND & SPACE MONO -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
